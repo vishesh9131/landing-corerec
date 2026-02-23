@@ -55,6 +55,7 @@ export default function PhilosophyPage() {
             src="/assets/asset11.png"
             alt=""
             fill
+            sizes="100vw"
             className="object-cover object-center"
             priority
           />
