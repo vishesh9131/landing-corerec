@@ -1,0 +1,74 @@
+@import "tailwindcss";
+
+@theme inline {
+  --color-background: #fdfcf8;
+  --color-foreground: #27272a;
+  --color-muted: #71717a;
+  --color-accent: #d4a373;
+  --color-accent-dim: #b08968;
+  --color-surface: #f4f1ea;
+  --color-surface-raised: #ebe5da;
+  --color-border: #e5e5e5;
+  --color-border-subtle: #f0f0f0;
+  --font-sans: var(--font-inter);
+  --font-mono: var(--font-mono);
+}
+
+:root {
+  color-scheme: light;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  background-color: #fdfcf8 !important; /* Force light bg */
+  color: #27272a !important; /* Force dark text */
+}
+
+body {
+  background-color: #fdfcf8 !important;
+  color: #27272a !important;
+  font-family: var(--font-sans), system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Force light mode variables even if system prefers dark */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-background: #fdfcf8;
+    --color-foreground: #27272a;
+    /* ... other light vars if needed, but the main ones above handle it */
+  }
+}
+
+::selection {
+  background: rgba(212, 163, 115, 0.25);
+  color: inherit;
+}
+
+pre code {
+  font-family: var(--font-mono), "JetBrains Mono", monospace;
+  font-size: 0.85rem;
+  line-height: 1.65;
+}
+
+.minimal-shadow {
+  /* box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03); */
+  border: 1px solid #e5e5e5;
+}
+
+.text-balance {
+  text-wrap: balance;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.8s ease-out forwards;
+}
