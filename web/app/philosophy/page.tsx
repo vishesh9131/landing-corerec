@@ -19,7 +19,7 @@ export default function PhilosophyPage() {
             <Link href="/" className="text-[#71717a] hover:text-[#27272a] transition-colors border-b-2 border-transparent hover:border-[#27272a]/30 pb-0.5 whitespace-nowrap">Home</Link>
             <Link href="/philosophy" className="text-[#27272a] border-b-2 border-[#27272a] pb-0.5 whitespace-nowrap">Philosophy</Link>
             <Link href="/#showcase" className="text-[#71717a] hover:text-[#27272a] transition-colors border-b-2 border-transparent hover:border-[#27272a]/30 pb-0.5 whitespace-nowrap">Showcase</Link>
-            <Link href="/docs" className="text-[#71717a] hover:text-[#27272a] transition-colors border-b-2 border-transparent hover:border-[#27272a]/30 pb-0.5 whitespace-nowrap">Docs</Link>
+            <Link href="/docs/index.html" className="text-[#71717a] hover:text-[#27272a] transition-colors border-b-2 border-transparent hover:border-[#27272a]/30 pb-0.5 whitespace-nowrap">Docs</Link>
             <a href="https://github.com/vishesh9131/CoreRec" target="_blank" rel="noopener noreferrer" className="text-[#71717a] hover:text-[#27272a] transition-colors border-b-2 border-transparent hover:border-[#27272a]/30 pb-0.5 whitespace-nowrap">
               GitHub
             </a>
@@ -41,9 +41,9 @@ export default function PhilosophyPage() {
             <Link href="/" className="text-sm font-medium text-[#71717a] hover:text-[#27272a]" onClick={() => setNavOpen(false)}>Home</Link>
             <Link href="/philosophy" className="text-sm font-medium text-[#27272a] border-b-2 border-[#27272a] pb-1 w-fit" onClick={() => setNavOpen(false)}>Philosophy</Link>
             <Link href="/#showcase" className="text-sm font-medium text-[#71717a] hover:text-[#27272a]" onClick={() => setNavOpen(false)}>Showcase</Link>
-            <Link href="/docs" className="text-sm font-medium text-[#71717a] hover:text-[#27272a]" onClick={() => setNavOpen(false)}>Docs</Link>
+            <Link href="/docs/index.html" className="text-sm font-medium text-[#71717a] hover:text-[#27272a]" onClick={() => setNavOpen(false)}>Docs</Link>
             <a href="https://github.com/vishesh9131/CoreRec" target="_blank" rel="noopener noreferrer" className="text-sm font-medium text-[#71717a] hover:text-[#27272a]" onClick={() => setNavOpen(false)}>GitHub</a>
-            <Link href="/docs" className="text-sm font-medium px-4 py-2 mt-2 border border-[#d4a373]/50 bg-[#ebe5da] hover:border-[#d4a373] w-fit" onClick={() => setNavOpen(false)}>Get Started</Link>
+            <Link href="/docs/index.html" className="text-sm font-medium px-4 py-2 mt-2 border border-[#d4a373]/50 bg-[#ebe5da] hover:border-[#d4a373] w-fit" onClick={() => setNavOpen(false)}>Get Started</Link>
           </div>
         )}
       </nav>

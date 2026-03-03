@@ -1,0 +1,1444 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>corerec.imshow.frontends &#8212; CoreRec 0.5.1 documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../../../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=8f2a1f02" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/custom.css?v=d3678dfb" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../../../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../../../_static/documentation_options.js?v=5f152624"></script>
+    <script src="../../../_static/doctools.js?v=9bcbadda"></script>
+    <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script src="../../../_static/design-tabs.js?v=f930bc37"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = '_modules/corerec/imshow/frontends';</script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../../index.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">CoreRec 0.5.1 documentation</p>
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../../index.html">
+                    CoreRec
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Getting Started</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../../installation.html">Installation Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../quickstart.html">QuickStart Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../concepts.html">Core Concepts</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">User Guide</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../../user_guide/data_preparation.html">Data Preparation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../user_guide/model_training.html">Model Training</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../user_guide/making_predictions.html">Making Predictions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../user_guide/model_persistence.html">Model Persistence</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../user_guide/best_practices.html">Best Practices</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Model Documentation</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../../models/index.html">Model Documentation</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../models/models_index.html">Model Documentation Index</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../models/deep_learning.html">Deep Learning Models</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../models/matrix_factorization.html">Matrix Factorization Models</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../models/graph_based.html">Graph-Based Models</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../models/sequential.html">Sequential Models</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../models/bayesian.html">Bayesian Models</a></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Tutorials &amp; Learning</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../tutorials/index.html">Tutorial Index</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../tutorials/dcn_tutorial.html">DCN Tutorial: Deep &amp; Cross Network</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../tutorials/deepfm_tutorial.html">DeepFM Tutorial: Factorization Machine with Deep Learning</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../tutorials/gnnrec_tutorial.html">GNNRec Tutorial: Graph Neural Network Recommender</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../tutorials/mind_tutorial.html">MIND Tutorial: MIND</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../tutorials/nasrec_tutorial.html">NASRec Tutorial: NASRec</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../tutorials/sasrec_tutorial.html">SASRec Tutorial: SASRec</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../tutorials/bert4rec_tutorial.html">Bert4Rec Tutorial: BERT for Sequential Recommendation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../tutorials/ncf_tutorial.html">NCF Tutorial: Neural Collaborative Filtering</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../tutorials/sar_tutorial.html">SAR Tutorial: Smart Adaptive Recommendations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../tutorials/lightgcn_tutorial.html">LightGCN Tutorial: Light Graph Convolutional Network</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../tutorials/tfidf_tutorial.html">TFIDF Tutorial: TF-IDF Based Recommender</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../tutorials/afm_tutorial.html">AFM Tutorial: Attentional Factorization Machine</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../tutorials/autofi_tutorial.html">AutoFI Tutorial: Automatic Feature Interaction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../tutorials/autoint_tutorial.html">AutoInt Tutorial: Automatic Feature Interaction Learning via Self-Attention</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../tutorials/bst_tutorial.html">BST Tutorial: Behavior Sequence Transformer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../tutorials/bivae_tutorial.html">BiVAE Tutorial: Bilateral Variational Autoencoder</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../tutorials/caser_tutorial.html">Caser Tutorial: Convolutional Sequence Embedding Recommendation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../tutorials/dcn_base_tutorial.html">DCN_base Tutorial: Deep &amp; Cross Network Base</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../tutorials/deepcrossing_tutorial.html">DeepCrossing Tutorial: Deep Crossing Network</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../tutorials/deepfm_base_tutorial.html">DeepFM_base Tutorial: DeepFM Base</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../tutorials/deeprec_tutorial.html">DeepRec Tutorial: Deep Recommender</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../tutorials/dien_tutorial.html">DIEN Tutorial: Deep Interest Evolution Network</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../tutorials/difm_tutorial.html">DIFM Tutorial: Dual Input Factorization Machine</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../tutorials/din_tutorial.html">DIN Tutorial: Deep Interest Network</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../tutorials/dlrm_tutorial.html">DLRM Tutorial: Deep Learning Recommendation Model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../tutorials/ensfm_tutorial.html">ENSFM Tutorial: Ensemble Factorization Machine</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../tutorials/escmm_tutorial.html">ESCMM Tutorial: Entire Space Cross Multi-Task Model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../tutorials/esmm_tutorial.html">ESMM Tutorial: Entire Space Multi-Task Model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../tutorials/fgcnn_tutorial.html">FGCNN Tutorial: Feature Generation with CNN</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../tutorials/ffm_tutorial.html">FFM Tutorial: Field-aware Factorization Machine</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../tutorials/fibinet_tutorial.html">Fibinet Tutorial: Feature Importance and Bilinear feature Interaction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../tutorials/flen_tutorial.html">FLEN Tutorial: Feature-aware Local Encoding Network</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../tutorials/fm_tutorial.html">FM Tutorial: Factorization Machine</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../tutorials/gan_tutorial.html">GAN Tutorial: Generative Adversarial Network</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../tutorials/gatenet_tutorial.html">GateNet Tutorial: Gating Network</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../tutorials/gnn_base_tutorial.html">GNN_base Tutorial: Graph Neural Network Base</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../tutorials/gru_cf_tutorial.html">GRU-CF Tutorial: GRU for Collaborative Filtering</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../tutorials/nfm_tutorial.html">NFM Tutorial: Neural Factorization Machine</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../tutorials/nextitnet_tutorial.html">NextItNet Tutorial: Next Item Net</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../tutorials/widedeep_tutorial.html">WideDeep Tutorial: Wide &amp; Deep Learning</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../tutorials/youtubednn_tutorial.html">YouTubeDNN Tutorial: YouTube Deep Neural Network</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../tutorials/pnn_tutorial.html">PNN Tutorial: Product-based Neural Network</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../tutorials/mmoe_tutorial.html">MMoE Tutorial: Multi-gate Mixture-of-Experts</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../tutorials/ple_tutorial.html">PLE Tutorial: Progressive Layered Extraction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../tutorials/monolith_tutorial.html">Monolith Tutorial: Monolith: Real Time Recommendation System</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../tutorials/tdm_tutorial.html">TDM Tutorial: Tree-based Deep Model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../tutorials/a2svd_tutorial.html">A2SVD Tutorial: Adaptive Singular Value Decomposition</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../tutorials/als_tutorial.html">ALS Tutorial: Alternating Least Squares</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../tutorials/fm_base_tutorial.html">FM_Base Tutorial: Factorization Machine Base</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../tutorials/matrixfactorization_tutorial.html">MatrixFactorization Tutorial: Matrix Factorization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../tutorials/mf_base_tutorial.html">MF_Base Tutorial: MF Base</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../tutorials/svd_tutorial.html">SVD Tutorial: Singular Value Decomposition</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../tutorials/userbased_tutorial.html">UserBased Tutorial: User-Based Collaborative Filtering</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../tutorials/geoimc_tutorial.html">GeoIMC Tutorial: Geographic Inductive Matrix Completion</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../tutorials/lightgcn_base_tutorial.html">LightGCN_Base Tutorial: LightGCN Base</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../tutorials/rbm_tutorial.html">RBM Tutorial: Restricted Boltzmann Machine</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../tutorials/rlrmc_tutorial.html">RLRMC Tutorial: Reinforcement Learning for Recommendation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../tutorials/slirec_tutorial.html">SLiRec Tutorial: Sequential List Recommendation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../tutorials/sum_tutorial.html">SUM Tutorial: Sequential User Model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../tutorials/bpr_tutorial.html">BPR Tutorial: Bayesian Personalized Ranking</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../tutorials/bprmf_tutorial.html">BPRMF Tutorial: Bayesian Personalized Ranking Matrix Factorization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../tutorials/vmf_tutorial.html">VMF Tutorial: Von Mises-Fisher Distribution</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../tutorials/mind_content_tutorial.html">MIND_Content Tutorial: MIND for Content Filtering</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../tutorials/pipeline_tutorial.html">Multi-Stage Pipeline Tutorial</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../tutorials/imshow_tutorial.html">Demo Frontends Tutorial</a></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">API Reference</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../../api/base_recommender.html">BaseRecommender API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/exceptions.html">Exceptions API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/mixins.html">Mixins API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/engines.html">Engines</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/pipeline.html">Pipeline System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/retrieval.html">Retrieval</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/ranking.html">Ranking</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/reranking.html">Reranking</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/multimodal.html">Multimodal Fusion</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/embeddings.html">Embeddings</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/explanation.html">Explanation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/evaluation.html">Evaluation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/serving.html">Model Serving</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/imshow.html">IMShow (Demo Frontends)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/constants.html">Constants</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Examples</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../../examples/basic_usage.html">Basic Usage Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../examples/advanced_usage.html">Advanced Usage Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../examples/production_deployment.html">Production Deployment Guide</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Development</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../../contributing.html">Contributing to CoreRec</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../changelog.html">Changelog</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../license.html">License</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/vishesh9131/CoreRec" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/vishesh9131/CoreRec/issues/new?title=Issue%20on%20page%20%2F_modules/corerec/imshow/frontends.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1></h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <h1>Source code for corerec.imshow.frontends</h1><div class="highlight"><pre>
+<span></span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">Frontend configurations and template management for IMShow.</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">Dict</span><span class="p">,</span> <span class="n">Any</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">pathlib</span><span class="w"> </span><span class="kn">import</span> <span class="n">Path</span>
+
+
+<div class="viewcode-block" id="available_frontends">
+<a class="viewcode-back" href="../../../api/imshow.html#corerec.imshow.frontends.available_frontends">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">available_frontends</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]]:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Get available frontend configurations.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        Dictionary of frontend configurations</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="p">{</span>
+        <span class="s2">&quot;spotify&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Spotify Music&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;Music streaming platform with dark theme&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;theme&quot;</span><span class="p">:</span> <span class="s2">&quot;dark_green&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;use_case&quot;</span><span class="p">:</span> <span class="s2">&quot;Music recommendations, audio features, playlists&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;data_fields&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;title&quot;</span><span class="p">,</span> <span class="s2">&quot;artist&quot;</span><span class="p">,</span> <span class="s2">&quot;album&quot;</span><span class="p">,</span> <span class="s2">&quot;genre&quot;</span><span class="p">,</span> <span class="s2">&quot;duration&quot;</span><span class="p">,</span> <span class="s2">&quot;popularity&quot;</span><span class="p">],</span>
+            <span class="s2">&quot;required_fields&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;id&quot;</span><span class="p">,</span> <span class="s2">&quot;title&quot;</span><span class="p">,</span> <span class="s2">&quot;artist&quot;</span><span class="p">],</span>
+            <span class="s2">&quot;color_scheme&quot;</span><span class="p">:</span> <span class="p">{</span>
+                <span class="s2">&quot;primary&quot;</span><span class="p">:</span> <span class="s2">&quot;#1DB954&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;background&quot;</span><span class="p">:</span> <span class="s2">&quot;#121212&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;text&quot;</span><span class="p">:</span> <span class="s2">&quot;#FFFFFF&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;secondary&quot;</span><span class="p">:</span> <span class="s2">&quot;#535353&quot;</span><span class="p">,</span>
+            <span class="p">},</span>
+            <span class="s2">&quot;template_path&quot;</span><span class="p">:</span> <span class="s2">&quot;templates/spotify&quot;</span><span class="p">,</span>
+        <span class="p">},</span>
+        <span class="s2">&quot;youtube&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;YouTube Videos&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;Video platform with red theme&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;theme&quot;</span><span class="p">:</span> <span class="s2">&quot;red_white&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;use_case&quot;</span><span class="p">:</span> <span class="s2">&quot;Video recommendations, content creators, trending&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;data_fields&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;title&quot;</span><span class="p">,</span> <span class="s2">&quot;channel&quot;</span><span class="p">,</span> <span class="s2">&quot;category&quot;</span><span class="p">,</span> <span class="s2">&quot;duration&quot;</span><span class="p">,</span> <span class="s2">&quot;views&quot;</span><span class="p">,</span> <span class="s2">&quot;likes&quot;</span><span class="p">],</span>
+            <span class="s2">&quot;required_fields&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;id&quot;</span><span class="p">,</span> <span class="s2">&quot;title&quot;</span><span class="p">,</span> <span class="s2">&quot;channel&quot;</span><span class="p">],</span>
+            <span class="s2">&quot;color_scheme&quot;</span><span class="p">:</span> <span class="p">{</span>
+                <span class="s2">&quot;primary&quot;</span><span class="p">:</span> <span class="s2">&quot;#FF0000&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;background&quot;</span><span class="p">:</span> <span class="s2">&quot;#FFFFFF&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;text&quot;</span><span class="p">:</span> <span class="s2">&quot;#0F0F0F&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;secondary&quot;</span><span class="p">:</span> <span class="s2">&quot;#606060&quot;</span><span class="p">,</span>
+            <span class="p">},</span>
+            <span class="s2">&quot;template_path&quot;</span><span class="p">:</span> <span class="s2">&quot;templates/youtube&quot;</span><span class="p">,</span>
+        <span class="p">},</span>
+        <span class="s2">&quot;netflix&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Netflix Streaming&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;Movie and TV show platform with dark theme&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;theme&quot;</span><span class="p">:</span> <span class="s2">&quot;dark_red&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;use_case&quot;</span><span class="p">:</span> <span class="s2">&quot;Movie/TV recommendations, content rating, genres&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;data_fields&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;title&quot;</span><span class="p">,</span> <span class="s2">&quot;genre&quot;</span><span class="p">,</span> <span class="s2">&quot;year&quot;</span><span class="p">,</span> <span class="s2">&quot;rating&quot;</span><span class="p">,</span> <span class="s2">&quot;duration&quot;</span><span class="p">,</span> <span class="s2">&quot;description&quot;</span><span class="p">],</span>
+            <span class="s2">&quot;required_fields&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;id&quot;</span><span class="p">,</span> <span class="s2">&quot;title&quot;</span><span class="p">,</span> <span class="s2">&quot;genre&quot;</span><span class="p">],</span>
+            <span class="s2">&quot;color_scheme&quot;</span><span class="p">:</span> <span class="p">{</span>
+                <span class="s2">&quot;primary&quot;</span><span class="p">:</span> <span class="s2">&quot;#E50914&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;background&quot;</span><span class="p">:</span> <span class="s2">&quot;#141414&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;text&quot;</span><span class="p">:</span> <span class="s2">&quot;#FFFFFF&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;secondary&quot;</span><span class="p">:</span> <span class="s2">&quot;#564D4D&quot;</span><span class="p">,</span>
+            <span class="p">},</span>
+            <span class="s2">&quot;template_path&quot;</span><span class="p">:</span> <span class="s2">&quot;templates/netflix&quot;</span><span class="p">,</span>
+        <span class="p">},</span>
+    <span class="p">}</span></div>
+
+
+
+<div class="viewcode-block" id="get_frontend_info">
+<a class="viewcode-back" href="../../../api/imshow.html#corerec.imshow.frontends.get_frontend_info">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">get_frontend_info</span><span class="p">(</span><span class="n">frontend</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Get information about a specific frontend.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        frontend: Frontend name</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        Frontend configuration dictionary</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">frontends</span> <span class="o">=</span> <span class="n">available_frontends</span><span class="p">()</span>
+    <span class="k">if</span> <span class="n">frontend</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">frontends</span><span class="p">:</span>
+        <span class="n">available</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">frontends</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
+            <span class="sa">f</span><span class="s2">&quot;Frontend &#39;</span><span class="si">{</span><span class="n">frontend</span><span class="si">}</span><span class="s2">&#39; not available. Choose from: </span><span class="si">{</span><span class="n">available</span><span class="si">}</span><span class="s2">&quot;</span>
+        <span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">frontends</span><span class="p">[</span><span class="n">frontend</span><span class="p">]</span></div>
+
+
+
+<div class="viewcode-block" id="get_frontend_template">
+<a class="viewcode-back" href="../../../api/imshow.html#corerec.imshow.frontends.get_frontend_template">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">get_frontend_template</span><span class="p">(</span><span class="n">frontend</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Get the HTML template for a frontend.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        frontend: Frontend name</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        HTML template string</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">frontend_info</span> <span class="o">=</span> <span class="n">get_frontend_info</span><span class="p">(</span><span class="n">frontend</span><span class="p">)</span>
+
+    <span class="c1"># Generate template based on frontend type</span>
+    <span class="k">if</span> <span class="n">frontend</span> <span class="o">==</span> <span class="s2">&quot;spotify&quot;</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">_generate_spotify_template</span><span class="p">()</span>
+    <span class="k">elif</span> <span class="n">frontend</span> <span class="o">==</span> <span class="s2">&quot;youtube&quot;</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">_generate_youtube_template</span><span class="p">()</span>
+    <span class="k">elif</span> <span class="n">frontend</span> <span class="o">==</span> <span class="s2">&quot;netflix&quot;</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">_generate_netflix_template</span><span class="p">()</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">_generate_generic_template</span><span class="p">(</span><span class="n">frontend_info</span><span class="p">)</span></div>
+
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">_generate_spotify_template</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Generate Spotify-style template.&quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">&lt;!DOCTYPE html&gt;</span>
+<span class="s2">&lt;html lang=&quot;en&quot;&gt;</span>
+<span class="s2">&lt;head&gt;</span>
+<span class="s2">    &lt;meta charset=&quot;UTF-8&quot;&gt;</span>
+<span class="s2">    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;</span>
+<span class="s2">    &lt;title&gt;{{title}} - Spotify Demo&lt;/title&gt;</span>
+<span class="s2">    &lt;style&gt;</span>
+<span class="s2">        body {</span>
+<span class="s2">            margin: 0;</span>
+<span class="s2">            font-family: &#39;Spotify Circular&#39;, Helvetica, Arial, sans-serif;</span>
+<span class="s2">            background: #121212;</span>
+<span class="s2">            color: #ffffff;</span>
+<span class="s2">            overflow-x: hidden;</span>
+<span class="s2">        }</span>
+<span class="s2">        .container {</span>
+<span class="s2">            display: flex;</span>
+<span class="s2">            min-height: 100vh;</span>
+<span class="s2">        }</span>
+<span class="s2">        .sidebar {</span>
+<span class="s2">            width: 240px;</span>
+<span class="s2">            background: #000000;</span>
+<span class="s2">            padding: 20px;</span>
+<span class="s2">            box-sizing: border-box;</span>
+<span class="s2">        }</span>
+<span class="s2">        .logo {</span>
+<span class="s2">            color: #1DB954;</span>
+<span class="s2">            font-size: 24px;</span>
+<span class="s2">            font-weight: bold;</span>
+<span class="s2">            margin-bottom: 30px;</span>
+<span class="s2">        }</span>
+<span class="s2">        .main-content {</span>
+<span class="s2">            flex: 1;</span>
+<span class="s2">            padding: 20px;</span>
+<span class="s2">            background: linear-gradient(to bottom, #1e3a5f 0%, #121212 100%);</span>
+<span class="s2">        }</span>
+<span class="s2">        .header {</span>
+<span class="s2">            margin-bottom: 30px;</span>
+<span class="s2">        }</span>
+<span class="s2">        .header h1 {</span>
+<span class="s2">            font-size: 32px;</span>
+<span class="s2">            font-weight: bold;</span>
+<span class="s2">            margin: 0;</span>
+<span class="s2">        }</span>
+<span class="s2">        .recommendations {</span>
+<span class="s2">            display: grid;</span>
+<span class="s2">            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));</span>
+<span class="s2">            gap: 20px;</span>
+<span class="s2">            margin-top: 20px;</span>
+<span class="s2">        }</span>
+<span class="s2">        .track-card {</span>
+<span class="s2">            background: #181818;</span>
+<span class="s2">            border-radius: 8px;</span>
+<span class="s2">            padding: 16px;</span>
+<span class="s2">            transition: background 0.3s ease;</span>
+<span class="s2">            cursor: pointer;</span>
+<span class="s2">        }</span>
+<span class="s2">        .track-card:hover {</span>
+<span class="s2">            background: #282828;</span>
+<span class="s2">        }</span>
+<span class="s2">        .track-image {</span>
+<span class="s2">            width: 100%;</span>
+<span class="s2">            height: 160px;</span>
+<span class="s2">            background: #1DB954;</span>
+<span class="s2">            border-radius: 4px;</span>
+<span class="s2">            margin-bottom: 12px;</span>
+<span class="s2">            display: flex;</span>
+<span class="s2">            align-items: center;</span>
+<span class="s2">            justify-content: center;</span>
+<span class="s2">            font-size: 24px;</span>
+<span class="s2">        }</span>
+<span class="s2">        .track-title {</span>
+<span class="s2">            font-size: 16px;</span>
+<span class="s2">            font-weight: bold;</span>
+<span class="s2">            margin-bottom: 4px;</span>
+<span class="s2">            white-space: nowrap;</span>
+<span class="s2">            overflow: hidden;</span>
+<span class="s2">            text-overflow: ellipsis;</span>
+<span class="s2">        }</span>
+<span class="s2">        .track-artist {</span>
+<span class="s2">            font-size: 14px;</span>
+<span class="s2">            color: #b3b3b3;</span>
+<span class="s2">            white-space: nowrap;</span>
+<span class="s2">            overflow: hidden;</span>
+<span class="s2">            text-overflow: ellipsis;</span>
+<span class="s2">        }</span>
+<span class="s2">        .play-btn {</span>
+<span class="s2">            background: #1DB954;</span>
+<span class="s2">            border: none;</span>
+<span class="s2">            border-radius: 50%;</span>
+<span class="s2">            width: 40px;</span>
+<span class="s2">            height: 40px;</span>
+<span class="s2">            color: white;</span>
+<span class="s2">            font-size: 16px;</span>
+<span class="s2">            cursor: pointer;</span>
+<span class="s2">            margin-top: 10px;</span>
+<span class="s2">            opacity: 0;</span>
+<span class="s2">            transition: opacity 0.3s ease;</span>
+<span class="s2">        }</span>
+<span class="s2">        .track-card:hover .play-btn {</span>
+<span class="s2">            opacity: 1;</span>
+<span class="s2">        }</span>
+<span class="s2">        .loading {</span>
+<span class="s2">            text-align: center;</span>
+<span class="s2">            padding: 40px;</span>
+<span class="s2">            color: #b3b3b3;</span>
+<span class="s2">        }</span>
+<span class="s2">    &lt;/style&gt;</span>
+<span class="s2">&lt;/head&gt;</span>
+<span class="s2">&lt;body&gt;</span>
+<span class="s2">    &lt;div class=&quot;container&quot;&gt;</span>
+<span class="s2">        &lt;div class=&quot;sidebar&quot;&gt;</span>
+<span class="s2">            &lt;div class=&quot;logo&quot;&gt;🎵 Spotify&lt;/div&gt;</span>
+<span class="s2">            &lt;div style=&quot;color: #b3b3b3; margin-top: 40px;&quot;&gt;</span>
+<span class="s2">                &lt;div style=&quot;margin-bottom: 10px;&quot;&gt;🏠 Home&lt;/div&gt;</span>
+<span class="s2">                &lt;div style=&quot;margin-bottom: 10px;&quot;&gt;🔍 Search&lt;/div&gt;</span>
+<span class="s2">                &lt;div style=&quot;margin-bottom: 10px;&quot;&gt;📚 Your Library&lt;/div&gt;</span>
+<span class="s2">            &lt;/div&gt;</span>
+<span class="s2">        &lt;/div&gt;</span>
+<span class="s2">        &lt;div class=&quot;main-content&quot;&gt;</span>
+<span class="s2">            &lt;div class=&quot;header&quot;&gt;</span>
+<span class="s2">                &lt;h1&gt;{{title}}&lt;/h1&gt;</span>
+<span class="s2">                &lt;p style=&quot;color: #b3b3b3;&quot;&gt;{{description}}&lt;/p&gt;</span>
+<span class="s2">            &lt;/div&gt;</span>
+<span class="s2">            &lt;div id=&quot;loading&quot; class=&quot;loading&quot;&gt;</span>
+<span class="s2">                &lt;div&gt;🎵 Loading your music recommendations...&lt;/div&gt;</span>
+<span class="s2">            &lt;/div&gt;</span>
+<span class="s2">            &lt;div id=&quot;recommendations&quot; class=&quot;recommendations&quot; style=&quot;display: none;&quot;&gt;</span>
+<span class="s2">                &lt;!-- Recommendations will be populated by JavaScript --&gt;</span>
+<span class="s2">            &lt;/div&gt;</span>
+<span class="s2">        &lt;/div&gt;</span>
+<span class="s2">    &lt;/div&gt;</span>
+
+<span class="s2">    &lt;script&gt;</span>
+<span class="s2">        const API_URL = &#39;http://localhost:{{api_port}}&#39;;</span>
+<span class="s2">        let userId = &#39;demo_user_&#39; + Math.random().toString(36).substr(2, 9);</span>
+
+<span class="s2">        async function loadRecommendations() {</span>
+<span class="s2">            try {</span>
+<span class="s2">                const response = await fetch(`$</span><span class="si">{API_URL}</span><span class="s2">/recommendations/$</span><span class="si">{userId}</span><span class="s2">?num_items=12`);</span>
+<span class="s2">                const data = await response.json();</span>
+
+<span class="s2">                displayRecommendations(data.recommendations || []);</span>
+
+<span class="s2">                document.getElementById(&#39;loading&#39;).style.display = &#39;none&#39;;</span>
+<span class="s2">                document.getElementById(&#39;recommendations&#39;).style.display = &#39;grid&#39;;</span>
+<span class="s2">            } catch (error) {</span>
+<span class="s2">                console.error(&#39;Error loading recommendations:&#39;, error);</span>
+<span class="s2">                document.getElementById(&#39;loading&#39;).innerHTML =</span>
+<span class="s2">                    &#39;&lt;div style=&quot;color: #ff6b6b;&quot;&gt;❌ Failed to load recommendations. Make sure the API server is running.&lt;/div&gt;&#39;;</span>
+<span class="s2">            }</span>
+<span class="s2">        }</span>
+
+<span class="s2">        function displayRecommendations(recommendations) {</span>
+<span class="s2">            const container = document.getElementById(&#39;recommendations&#39;);</span>
+<span class="s2">            container.innerHTML = &#39;&#39;;</span>
+
+<span class="s2">            recommendations.forEach(track =&gt; {</span>
+<span class="s2">                const card = document.createElement(&#39;div&#39;);</span>
+<span class="s2">                card.className = &#39;track-card&#39;;</span>
+<span class="s2">                card.innerHTML = `</span>
+<span class="s2">                    &lt;div class=&quot;track-image&quot;&gt;🎵&lt;/div&gt;</span>
+<span class="s2">                    &lt;div class=&quot;track-title&quot;&gt;${track.title || track.name || &#39;Unknown Track&#39;}&lt;/div&gt;</span>
+<span class="s2">                    &lt;div class=&quot;track-artist&quot;&gt;${track.artist || track.creator || &#39;Unknown Artist&#39;}&lt;/div&gt;</span>
+<span class="s2">                    &lt;button class=&quot;play-btn&quot; onclick=&quot;playTrack(&#39;$</span><span class="si">{track.id}</span><span class="s2">&#39;)&quot;&gt;▶&lt;/button&gt;</span>
+<span class="s2">                `;</span>
+<span class="s2">                container.appendChild(card);</span>
+<span class="s2">            });</span>
+<span class="s2">        }</span>
+
+<span class="s2">        async function playTrack(trackId) {</span>
+<span class="s2">            console.log(&#39;Playing track:&#39;, trackId);</span>
+<span class="s2">            // Record interaction</span>
+<span class="s2">            try {</span>
+<span class="s2">                await fetch(`$</span><span class="si">{API_URL}</span><span class="s2">/interactions`, {</span>
+<span class="s2">                    method: &#39;POST&#39;,</span>
+<span class="s2">                    headers: { &#39;Content-Type&#39;: &#39;application/json&#39; },</span>
+<span class="s2">                    body: JSON.stringify({</span>
+<span class="s2">                        user_id: userId,</span>
+<span class="s2">                        item_id: trackId,</span>
+<span class="s2">                        action: &#39;play&#39;</span>
+<span class="s2">                    })</span>
+<span class="s2">                });</span>
+<span class="s2">            } catch (error) {</span>
+<span class="s2">                console.error(&#39;Error recording interaction:&#39;, error);</span>
+<span class="s2">            }</span>
+<span class="s2">        }</span>
+
+<span class="s2">        // Load recommendations on page load</span>
+<span class="s2">        window.addEventListener(&#39;load&#39;, loadRecommendations);</span>
+<span class="s2">    &lt;/script&gt;</span>
+<span class="s2">&lt;/body&gt;</span>
+<span class="s2">&lt;/html&gt;</span>
+<span class="s2">    &quot;&quot;&quot;</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">_generate_youtube_template</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Generate YouTube-style template.&quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">&lt;!DOCTYPE html&gt;</span>
+<span class="s2">&lt;html lang=&quot;en&quot;&gt;</span>
+<span class="s2">&lt;head&gt;</span>
+<span class="s2">    &lt;meta charset=&quot;UTF-8&quot;&gt;</span>
+<span class="s2">    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;</span>
+<span class="s2">    &lt;title&gt;{{title}} - YouTube Demo&lt;/title&gt;</span>
+<span class="s2">    &lt;style&gt;</span>
+<span class="s2">        body {</span>
+<span class="s2">            margin: 0;</span>
+<span class="s2">            font-family: Roboto, Arial, sans-serif;</span>
+<span class="s2">            background: #ffffff;</span>
+<span class="s2">            color: #0f0f0f;</span>
+<span class="s2">        }</span>
+<span class="s2">        .header {</span>
+<span class="s2">            background: #ffffff;</span>
+<span class="s2">            padding: 0 20px;</span>
+<span class="s2">            display: flex;</span>
+<span class="s2">            align-items: center;</span>
+<span class="s2">            height: 56px;</span>
+<span class="s2">            border-bottom: 1px solid #e5e5e5;</span>
+<span class="s2">        }</span>
+<span class="s2">        .logo {</span>
+<span class="s2">            color: #ff0000;</span>
+<span class="s2">            font-size: 20px;</span>
+<span class="s2">            font-weight: bold;</span>
+<span class="s2">            margin-right: 40px;</span>
+<span class="s2">        }</span>
+<span class="s2">        .container {</span>
+<span class="s2">            display: flex;</span>
+<span class="s2">        }</span>
+<span class="s2">        .sidebar {</span>
+<span class="s2">            width: 240px;</span>
+<span class="s2">            background: #ffffff;</span>
+<span class="s2">            padding: 12px 0;</span>
+<span class="s2">            border-right: 1px solid #e5e5e5;</span>
+<span class="s2">            height: calc(100vh - 56px);</span>
+<span class="s2">            overflow-y: auto;</span>
+<span class="s2">        }</span>
+<span class="s2">        .sidebar-item {</span>
+<span class="s2">            display: flex;</span>
+<span class="s2">            align-items: center;</span>
+<span class="s2">            padding: 0 24px;</span>
+<span class="s2">            height: 40px;</span>
+<span class="s2">            cursor: pointer;</span>
+<span class="s2">            color: #030303;</span>
+<span class="s2">        }</span>
+<span class="s2">        .sidebar-item:hover {</span>
+<span class="s2">            background: #f2f2f2;</span>
+<span class="s2">        }</span>
+<span class="s2">        .main-content {</span>
+<span class="s2">            flex: 1;</span>
+<span class="s2">            padding: 20px;</span>
+<span class="s2">        }</span>
+<span class="s2">        .page-title {</span>
+<span class="s2">            font-size: 24px;</span>
+<span class="s2">            font-weight: 400;</span>
+<span class="s2">            margin-bottom: 20px;</span>
+<span class="s2">        }</span>
+<span class="s2">        .videos-grid {</span>
+<span class="s2">            display: grid;</span>
+<span class="s2">            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));</span>
+<span class="s2">            gap: 20px;</span>
+<span class="s2">        }</span>
+<span class="s2">        .video-card {</span>
+<span class="s2">            cursor: pointer;</span>
+<span class="s2">            transition: transform 0.2s ease;</span>
+<span class="s2">        }</span>
+<span class="s2">        .video-card:hover {</span>
+<span class="s2">            transform: translateY(-2px);</span>
+<span class="s2">        }</span>
+<span class="s2">        .video-thumbnail {</span>
+<span class="s2">            width: 100%;</span>
+<span class="s2">            height: 180px;</span>
+<span class="s2">            background: #ff0000;</span>
+<span class="s2">            border-radius: 8px;</span>
+<span class="s2">            margin-bottom: 12px;</span>
+<span class="s2">            display: flex;</span>
+<span class="s2">            align-items: center;</span>
+<span class="s2">            justify-content: center;</span>
+<span class="s2">            color: white;</span>
+<span class="s2">            font-size: 32px;</span>
+<span class="s2">            position: relative;</span>
+<span class="s2">        }</span>
+<span class="s2">        .video-duration {</span>
+<span class="s2">            position: absolute;</span>
+<span class="s2">            bottom: 8px;</span>
+<span class="s2">            right: 8px;</span>
+<span class="s2">            background: rgba(0,0,0,0.8);</span>
+<span class="s2">            color: white;</span>
+<span class="s2">            padding: 2px 6px;</span>
+<span class="s2">            border-radius: 2px;</span>
+<span class="s2">            font-size: 12px;</span>
+<span class="s2">        }</span>
+<span class="s2">        .video-info {</span>
+<span class="s2">            display: flex;</span>
+<span class="s2">            gap: 12px;</span>
+<span class="s2">        }</span>
+<span class="s2">        .channel-avatar {</span>
+<span class="s2">            width: 36px;</span>
+<span class="s2">            height: 36px;</span>
+<span class="s2">            border-radius: 50%;</span>
+<span class="s2">            background: #ff0000;</span>
+<span class="s2">            color: white;</span>
+<span class="s2">            display: flex;</span>
+<span class="s2">            align-items: center;</span>
+<span class="s2">            justify-content: center;</span>
+<span class="s2">            flex-shrink: 0;</span>
+<span class="s2">        }</span>
+<span class="s2">        .video-details {</span>
+<span class="s2">            flex: 1;</span>
+<span class="s2">        }</span>
+<span class="s2">        .video-title {</span>
+<span class="s2">            font-size: 16px;</span>
+<span class="s2">            font-weight: 500;</span>
+<span class="s2">            line-height: 1.3;</span>
+<span class="s2">            margin-bottom: 4px;</span>
+<span class="s2">            color: #030303;</span>
+<span class="s2">        }</span>
+<span class="s2">        .video-meta {</span>
+<span class="s2">            font-size: 14px;</span>
+<span class="s2">            color: #606060;</span>
+<span class="s2">        }</span>
+<span class="s2">        .loading {</span>
+<span class="s2">            text-align: center;</span>
+<span class="s2">            padding: 60px;</span>
+<span class="s2">            color: #606060;</span>
+<span class="s2">        }</span>
+<span class="s2">    &lt;/style&gt;</span>
+<span class="s2">&lt;/head&gt;</span>
+<span class="s2">&lt;body&gt;</span>
+<span class="s2">    &lt;div class=&quot;header&quot;&gt;</span>
+<span class="s2">        &lt;div class=&quot;logo&quot;&gt;📺 YouTube&lt;/div&gt;</span>
+<span class="s2">        &lt;div style=&quot;flex: 1; text-align: center;&quot;&gt;</span>
+<span class="s2">            &lt;strong&gt;{{title}}&lt;/strong&gt;</span>
+<span class="s2">        &lt;/div&gt;</span>
+<span class="s2">    &lt;/div&gt;</span>
+
+<span class="s2">    &lt;div class=&quot;container&quot;&gt;</span>
+<span class="s2">        &lt;div class=&quot;sidebar&quot;&gt;</span>
+<span class="s2">            &lt;div class=&quot;sidebar-item&quot;&gt;🏠 Home&lt;/div&gt;</span>
+<span class="s2">            &lt;div class=&quot;sidebar-item&quot;&gt;🔥 Trending&lt;/div&gt;</span>
+<span class="s2">            &lt;div class=&quot;sidebar-item&quot;&gt;📚 Subscriptions&lt;/div&gt;</span>
+<span class="s2">            &lt;hr style=&quot;margin: 12px 0; border: none; border-top: 1px solid #e5e5e5;&quot;&gt;</span>
+<span class="s2">            &lt;div class=&quot;sidebar-item&quot;&gt;📺 Library&lt;/div&gt;</span>
+<span class="s2">            &lt;div class=&quot;sidebar-item&quot;&gt;🕒 History&lt;/div&gt;</span>
+<span class="s2">            &lt;div class=&quot;sidebar-item&quot;&gt;👍 Liked videos&lt;/div&gt;</span>
+<span class="s2">        &lt;/div&gt;</span>
+
+<span class="s2">        &lt;div class=&quot;main-content&quot;&gt;</span>
+<span class="s2">            &lt;div class=&quot;page-title&quot;&gt;Recommended for you&lt;/div&gt;</span>
+<span class="s2">            &lt;div id=&quot;loading&quot; class=&quot;loading&quot;&gt;</span>
+<span class="s2">                &lt;div&gt;📺 Loading your video recommendations...&lt;/div&gt;</span>
+<span class="s2">            &lt;/div&gt;</span>
+<span class="s2">            &lt;div id=&quot;videos&quot; class=&quot;videos-grid&quot; style=&quot;display: none;&quot;&gt;</span>
+<span class="s2">                &lt;!-- Videos will be populated by JavaScript --&gt;</span>
+<span class="s2">            &lt;/div&gt;</span>
+<span class="s2">        &lt;/div&gt;</span>
+<span class="s2">    &lt;/div&gt;</span>
+
+<span class="s2">    &lt;script&gt;</span>
+<span class="s2">        const API_URL = &#39;http://localhost:{{api_port}}&#39;;</span>
+<span class="s2">        let userId = &#39;demo_user_&#39; + Math.random().toString(36).substr(2, 9);</span>
+
+<span class="s2">        async function loadRecommendations() {</span>
+<span class="s2">            try {</span>
+<span class="s2">                const response = await fetch(`$</span><span class="si">{API_URL}</span><span class="s2">/recommendations/$</span><span class="si">{userId}</span><span class="s2">?num_items=12`);</span>
+<span class="s2">                const data = await response.json();</span>
+
+<span class="s2">                displayVideos(data.recommendations || []);</span>
+
+<span class="s2">                document.getElementById(&#39;loading&#39;).style.display = &#39;none&#39;;</span>
+<span class="s2">                document.getElementById(&#39;videos&#39;).style.display = &#39;grid&#39;;</span>
+<span class="s2">            } catch (error) {</span>
+<span class="s2">                console.error(&#39;Error loading recommendations:&#39;, error);</span>
+<span class="s2">                document.getElementById(&#39;loading&#39;).innerHTML =</span>
+<span class="s2">                    &#39;&lt;div style=&quot;color: #ff0000;&quot;&gt;❌ Failed to load recommendations. Make sure the API server is running.&lt;/div&gt;&#39;;</span>
+<span class="s2">            }</span>
+<span class="s2">        }</span>
+
+<span class="s2">        function displayVideos(videos) {</span>
+<span class="s2">            const container = document.getElementById(&#39;videos&#39;);</span>
+<span class="s2">            container.innerHTML = &#39;&#39;;</span>
+
+<span class="s2">            videos.forEach(video =&gt; {</span>
+<span class="s2">                const card = document.createElement(&#39;div&#39;);</span>
+<span class="s2">                card.className = &#39;video-card&#39;;</span>
+<span class="s2">                card.onclick = () =&gt; watchVideo(video.id);</span>
+
+<span class="s2">                card.innerHTML = `</span>
+<span class="s2">                    &lt;div class=&quot;video-thumbnail&quot;&gt;</span>
+<span class="s2">                        📺</span>
+<span class="s2">                        &lt;div class=&quot;video-duration&quot;&gt;${video.duration || &#39;5:23&#39;}&lt;/div&gt;</span>
+<span class="s2">                    &lt;/div&gt;</span>
+<span class="s2">                    &lt;div class=&quot;video-info&quot;&gt;</span>
+<span class="s2">                        &lt;div class=&quot;channel-avatar&quot;&gt;📺&lt;/div&gt;</span>
+<span class="s2">                        &lt;div class=&quot;video-details&quot;&gt;</span>
+<span class="s2">                            &lt;div class=&quot;video-title&quot;&gt;${video.title || video.name || &#39;Unknown Video&#39;}&lt;/div&gt;</span>
+<span class="s2">                            &lt;div class=&quot;video-meta&quot;&gt;</span>
+<span class="s2">                                &lt;div&gt;${video.channel || video.creator || &#39;Unknown Channel&#39;}&lt;/div&gt;</span>
+<span class="s2">                                &lt;div&gt;${video.views || Math.floor(Math.random() * 1000000).toLocaleString()} views • ${video.uploaded || &#39;2 days ago&#39;}&lt;/div&gt;</span>
+<span class="s2">                            &lt;/div&gt;</span>
+<span class="s2">                        &lt;/div&gt;</span>
+<span class="s2">                    &lt;/div&gt;</span>
+<span class="s2">                `;</span>
+<span class="s2">                container.appendChild(card);</span>
+<span class="s2">            });</span>
+<span class="s2">        }</span>
+
+<span class="s2">        async function watchVideo(videoId) {</span>
+<span class="s2">            console.log(&#39;Watching video:&#39;, videoId);</span>
+<span class="s2">            // Record interaction</span>
+<span class="s2">            try {</span>
+<span class="s2">                await fetch(`$</span><span class="si">{API_URL}</span><span class="s2">/interactions`, {</span>
+<span class="s2">                    method: &#39;POST&#39;,</span>
+<span class="s2">                    headers: { &#39;Content-Type&#39;: &#39;application/json&#39; },</span>
+<span class="s2">                    body: JSON.stringify({</span>
+<span class="s2">                        user_id: userId,</span>
+<span class="s2">                        item_id: videoId,</span>
+<span class="s2">                        action: &#39;watch&#39;</span>
+<span class="s2">                    })</span>
+<span class="s2">                });</span>
+<span class="s2">            } catch (error) {</span>
+<span class="s2">                console.error(&#39;Error recording interaction:&#39;, error);</span>
+<span class="s2">            }</span>
+<span class="s2">        }</span>
+
+<span class="s2">        // Load recommendations on page load</span>
+<span class="s2">        window.addEventListener(&#39;load&#39;, loadRecommendations);</span>
+<span class="s2">    &lt;/script&gt;</span>
+<span class="s2">&lt;/body&gt;</span>
+<span class="s2">&lt;/html&gt;</span>
+<span class="s2">    &quot;&quot;&quot;</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">_generate_netflix_template</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Generate Netflix-style template.&quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">&lt;!DOCTYPE html&gt;</span>
+<span class="s2">&lt;html lang=&quot;en&quot;&gt;</span>
+<span class="s2">&lt;head&gt;</span>
+<span class="s2">    &lt;meta charset=&quot;UTF-8&quot;&gt;</span>
+<span class="s2">    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;</span>
+<span class="s2">    &lt;title&gt;{{title}} - Netflix Demo&lt;/title&gt;</span>
+<span class="s2">    &lt;style&gt;</span>
+<span class="s2">        body {</span>
+<span class="s2">            margin: 0;</span>
+<span class="s2">            font-family: &#39;Netflix Sans&#39;, Helvetica, Arial, sans-serif;</span>
+<span class="s2">            background: #141414;</span>
+<span class="s2">            color: #ffffff;</span>
+<span class="s2">        }</span>
+<span class="s2">        .header {</span>
+<span class="s2">            background: #141414;</span>
+<span class="s2">            padding: 0 60px;</span>
+<span class="s2">            display: flex;</span>
+<span class="s2">            align-items: center;</span>
+<span class="s2">            height: 68px;</span>
+<span class="s2">            position: fixed;</span>
+<span class="s2">            top: 0;</span>
+<span class="s2">            left: 0;</span>
+<span class="s2">            right: 0;</span>
+<span class="s2">            z-index: 100;</span>
+<span class="s2">            border-bottom: 1px solid #333;</span>
+<span class="s2">        }</span>
+<span class="s2">        .logo {</span>
+<span class="s2">            color: #e50914;</span>
+<span class="s2">            font-size: 24px;</span>
+<span class="s2">            font-weight: bold;</span>
+<span class="s2">            margin-right: 40px;</span>
+<span class="s2">        }</span>
+<span class="s2">        .nav-menu {</span>
+<span class="s2">            display: flex;</span>
+<span class="s2">            gap: 20px;</span>
+<span class="s2">            flex: 1;</span>
+<span class="s2">        }</span>
+<span class="s2">        .nav-item {</span>
+<span class="s2">            color: #e5e5e5;</span>
+<span class="s2">            text-decoration: none;</span>
+<span class="s2">            font-size: 14px;</span>
+<span class="s2">            padding: 4px 0;</span>
+<span class="s2">            cursor: pointer;</span>
+<span class="s2">        }</span>
+<span class="s2">        .nav-item:hover, .nav-item.active {</span>
+<span class="s2">            color: #ffffff;</span>
+<span class="s2">        }</span>
+<span class="s2">        .main-content {</span>
+<span class="s2">            margin-top: 68px;</span>
+<span class="s2">            padding: 40px 60px;</span>
+<span class="s2">        }</span>
+<span class="s2">        .hero-section {</span>
+<span class="s2">            margin-bottom: 40px;</span>
+<span class="s2">        }</span>
+<span class="s2">        .hero-title {</span>
+<span class="s2">            font-size: 32px;</span>
+<span class="s2">            font-weight: bold;</span>
+<span class="s2">            margin-bottom: 16px;</span>
+<span class="s2">        }</span>
+<span class="s2">        .hero-description {</span>
+<span class="s2">            font-size: 18px;</span>
+<span class="s2">            color: #b3b3b3;</span>
+<span class="s2">            max-width: 600px;</span>
+<span class="s2">        }</span>
+<span class="s2">        .section-title {</span>
+<span class="s2">            font-size: 20px;</span>
+<span class="s2">            font-weight: bold;</span>
+<span class="s2">            margin-bottom: 16px;</span>
+<span class="s2">            color: #e5e5e5;</span>
+<span class="s2">        }</span>
+<span class="s2">        .content-row {</span>
+<span class="s2">            display: grid;</span>
+<span class="s2">            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));</span>
+<span class="s2">            gap: 8px;</span>
+<span class="s2">            margin-bottom: 40px;</span>
+<span class="s2">        }</span>
+<span class="s2">        .content-card {</span>
+<span class="s2">            background: #333;</span>
+<span class="s2">            border-radius: 4px;</span>
+<span class="s2">            overflow: hidden;</span>
+<span class="s2">            cursor: pointer;</span>
+<span class="s2">            transition: transform 0.3s ease;</span>
+<span class="s2">            position: relative;</span>
+<span class="s2">        }</span>
+<span class="s2">        .content-card:hover {</span>
+<span class="s2">            transform: scale(1.05);</span>
+<span class="s2">            z-index: 10;</span>
+<span class="s2">        }</span>
+<span class="s2">        .content-image {</span>
+<span class="s2">            width: 100%;</span>
+<span class="s2">            height: 140px;</span>
+<span class="s2">            background: #e50914;</span>
+<span class="s2">            display: flex;</span>
+<span class="s2">            align-items: center;</span>
+<span class="s2">            justify-content: center;</span>
+<span class="s2">            font-size: 24px;</span>
+<span class="s2">            color: white;</span>
+<span class="s2">        }</span>
+<span class="s2">        .content-info {</span>
+<span class="s2">            padding: 12px;</span>
+<span class="s2">        }</span>
+<span class="s2">        .content-title {</span>
+<span class="s2">            font-size: 14px;</span>
+<span class="s2">            font-weight: bold;</span>
+<span class="s2">            margin-bottom: 4px;</span>
+<span class="s2">            white-space: nowrap;</span>
+<span class="s2">            overflow: hidden;</span>
+<span class="s2">            text-overflow: ellipsis;</span>
+<span class="s2">        }</span>
+<span class="s2">        .content-meta {</span>
+<span class="s2">            font-size: 12px;</span>
+<span class="s2">            color: #b3b3b3;</span>
+<span class="s2">            display: flex;</span>
+<span class="s2">            justify-content: space-between;</span>
+<span class="s2">            align-items: center;</span>
+<span class="s2">        }</span>
+<span class="s2">        .rating {</span>
+<span class="s2">            color: #46d369;</span>
+<span class="s2">            font-weight: bold;</span>
+<span class="s2">        }</span>
+<span class="s2">        .loading {</span>
+<span class="s2">            text-align: center;</span>
+<span class="s2">            padding: 80px;</span>
+<span class="s2">            color: #b3b3b3;</span>
+<span class="s2">        }</span>
+<span class="s2">        @media (max-width: 768px) {</span>
+<span class="s2">            .header {</span>
+<span class="s2">                padding: 0 20px;</span>
+<span class="s2">            }</span>
+<span class="s2">            .main-content {</span>
+<span class="s2">                padding: 20px;</span>
+<span class="s2">            }</span>
+<span class="s2">            .content-row {</span>
+<span class="s2">                grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));</span>
+<span class="s2">            }</span>
+<span class="s2">        }</span>
+<span class="s2">    &lt;/style&gt;</span>
+<span class="s2">&lt;/head&gt;</span>
+<span class="s2">&lt;body&gt;</span>
+<span class="s2">    &lt;div class=&quot;header&quot;&gt;</span>
+<span class="s2">        &lt;div class=&quot;logo&quot;&gt;🎬 Netflix&lt;/div&gt;</span>
+<span class="s2">        &lt;div class=&quot;nav-menu&quot;&gt;</span>
+<span class="s2">            &lt;div class=&quot;nav-item active&quot;&gt;Home&lt;/div&gt;</span>
+<span class="s2">            &lt;div class=&quot;nav-item&quot;&gt;TV Shows&lt;/div&gt;</span>
+<span class="s2">            &lt;div class=&quot;nav-item&quot;&gt;Movies&lt;/div&gt;</span>
+<span class="s2">            &lt;div class=&quot;nav-item&quot;&gt;New &amp; Popular&lt;/div&gt;</span>
+<span class="s2">            &lt;div class=&quot;nav-item&quot;&gt;My List&lt;/div&gt;</span>
+<span class="s2">        &lt;/div&gt;</span>
+<span class="s2">    &lt;/div&gt;</span>
+
+<span class="s2">    &lt;div class=&quot;main-content&quot;&gt;</span>
+<span class="s2">        &lt;div class=&quot;hero-section&quot;&gt;</span>
+<span class="s2">            &lt;div class=&quot;hero-title&quot;&gt;{{title}}&lt;/div&gt;</span>
+<span class="s2">            &lt;div class=&quot;hero-description&quot;&gt;{{description}}&lt;/div&gt;</span>
+<span class="s2">        &lt;/div&gt;</span>
+
+<span class="s2">        &lt;div id=&quot;loading&quot; class=&quot;loading&quot;&gt;</span>
+<span class="s2">            &lt;div&gt;🎬 Loading your personalized recommendations...&lt;/div&gt;</span>
+<span class="s2">        &lt;/div&gt;</span>
+
+<span class="s2">        &lt;div id=&quot;content-sections&quot; style=&quot;display: none;&quot;&gt;</span>
+<span class="s2">            &lt;div class=&quot;section-title&quot;&gt;Recommended for You&lt;/div&gt;</span>
+<span class="s2">            &lt;div id=&quot;recommendations&quot; class=&quot;content-row&quot;&gt;</span>
+<span class="s2">                &lt;!-- Content will be populated by JavaScript --&gt;</span>
+<span class="s2">            &lt;/div&gt;</span>
+<span class="s2">        &lt;/div&gt;</span>
+<span class="s2">    &lt;/div&gt;</span>
+
+<span class="s2">    &lt;script&gt;</span>
+<span class="s2">        const API_URL = &#39;http://localhost:{{api_port}}&#39;;</span>
+<span class="s2">        let userId = &#39;demo_user_&#39; + Math.random().toString(36).substr(2, 9);</span>
+
+<span class="s2">        async function loadRecommendations() {</span>
+<span class="s2">            try {</span>
+<span class="s2">                const response = await fetch(`$</span><span class="si">{API_URL}</span><span class="s2">/recommendations/$</span><span class="si">{userId}</span><span class="s2">?num_items=12`);</span>
+<span class="s2">                const data = await response.json();</span>
+
+<span class="s2">                displayContent(data.recommendations || []);</span>
+
+<span class="s2">                document.getElementById(&#39;loading&#39;).style.display = &#39;none&#39;;</span>
+<span class="s2">                document.getElementById(&#39;content-sections&#39;).style.display = &#39;block&#39;;</span>
+<span class="s2">            } catch (error) {</span>
+<span class="s2">                console.error(&#39;Error loading recommendations:&#39;, error);</span>
+<span class="s2">                document.getElementById(&#39;loading&#39;).innerHTML =</span>
+<span class="s2">                    &#39;&lt;div style=&quot;color: #e50914;&quot;&gt;❌ Failed to load recommendations. Make sure the API server is running.&lt;/div&gt;&#39;;</span>
+<span class="s2">            }</span>
+<span class="s2">        }</span>
+
+<span class="s2">        function displayContent(content) {</span>
+<span class="s2">            const container = document.getElementById(&#39;recommendations&#39;);</span>
+<span class="s2">            container.innerHTML = &#39;&#39;;</span>
+
+<span class="s2">            content.forEach(item =&gt; {</span>
+<span class="s2">                const card = document.createElement(&#39;div&#39;);</span>
+<span class="s2">                card.className = &#39;content-card&#39;;</span>
+<span class="s2">                card.onclick = () =&gt; watchContent(item.id);</span>
+
+<span class="s2">                card.innerHTML = `</span>
+<span class="s2">                    &lt;div class=&quot;content-image&quot;&gt;🎬&lt;/div&gt;</span>
+<span class="s2">                    &lt;div class=&quot;content-info&quot;&gt;</span>
+<span class="s2">                        &lt;div class=&quot;content-title&quot;&gt;${item.title || item.name || &#39;Unknown Title&#39;}&lt;/div&gt;</span>
+<span class="s2">                        &lt;div class=&quot;content-meta&quot;&gt;</span>
+<span class="s2">                            &lt;span&gt;${item.genre || item.category || &#39;Drama&#39;}&lt;/span&gt;</span>
+<span class="s2">                            &lt;span class=&quot;rating&quot;&gt;${item.rating || (Math.random() * 2 + 8).toFixed(1)}&lt;/span&gt;</span>
+<span class="s2">                        &lt;/div&gt;</span>
+<span class="s2">                    &lt;/div&gt;</span>
+<span class="s2">                `;</span>
+<span class="s2">                container.appendChild(card);</span>
+<span class="s2">            });</span>
+<span class="s2">        }</span>
+
+<span class="s2">        async function watchContent(contentId) {</span>
+<span class="s2">            console.log(&#39;Watching content:&#39;, contentId);</span>
+<span class="s2">            // Record interaction</span>
+<span class="s2">            try {</span>
+<span class="s2">                await fetch(`$</span><span class="si">{API_URL}</span><span class="s2">/interactions`, {</span>
+<span class="s2">                    method: &#39;POST&#39;,</span>
+<span class="s2">                    headers: { &#39;Content-Type&#39;: &#39;application/json&#39; },</span>
+<span class="s2">                    body: JSON.stringify({</span>
+<span class="s2">                        user_id: userId,</span>
+<span class="s2">                        item_id: contentId,</span>
+<span class="s2">                        action: &#39;watch&#39;</span>
+<span class="s2">                    })</span>
+<span class="s2">                });</span>
+<span class="s2">            } catch (error) {</span>
+<span class="s2">                console.error(&#39;Error recording interaction:&#39;, error);</span>
+<span class="s2">            }</span>
+<span class="s2">        }</span>
+
+<span class="s2">        // Load recommendations on page load</span>
+<span class="s2">        window.addEventListener(&#39;load&#39;, loadRecommendations);</span>
+<span class="s2">    &lt;/script&gt;</span>
+<span class="s2">&lt;/body&gt;</span>
+<span class="s2">&lt;/html&gt;</span>
+<span class="s2">    &quot;&quot;&quot;</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">_generate_generic_template</span><span class="p">(</span><span class="n">frontend_info</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Generate a generic template for unknown frontends.&quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">&lt;!DOCTYPE html&gt;</span>
+<span class="s2">&lt;html lang=&quot;en&quot;&gt;</span>
+<span class="s2">&lt;head&gt;</span>
+<span class="s2">    &lt;meta charset=&quot;UTF-8&quot;&gt;</span>
+<span class="s2">    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;</span>
+<span class="s2">    &lt;title&gt;{{title}}&lt;/title&gt;</span>
+<span class="s2">    &lt;style&gt;</span>
+<span class="s2">        body {</span>
+<span class="s2">            margin: 0;</span>
+<span class="s2">            font-family: -apple-system, BlinkMacSystemFont, &#39;Segoe UI&#39;, Roboto, sans-serif;</span>
+<span class="s2">            background: #f5f5f5;</span>
+<span class="s2">            color: #333;</span>
+<span class="s2">            padding: 20px;</span>
+<span class="s2">        }</span>
+<span class="s2">        .container {</span>
+<span class="s2">            max-width: 1200px;</span>
+<span class="s2">            margin: 0 auto;</span>
+<span class="s2">        }</span>
+<span class="s2">        .header {</span>
+<span class="s2">            text-align: center;</span>
+<span class="s2">            margin-bottom: 40px;</span>
+<span class="s2">        }</span>
+<span class="s2">        .title {</span>
+<span class="s2">            font-size: 32px;</span>
+<span class="s2">            font-weight: bold;</span>
+<span class="s2">            margin-bottom: 16px;</span>
+<span class="s2">        }</span>
+<span class="s2">        .description {</span>
+<span class="s2">            font-size: 18px;</span>
+<span class="s2">            color: #666;</span>
+<span class="s2">        }</span>
+<span class="s2">        .recommendations {</span>
+<span class="s2">            display: grid;</span>
+<span class="s2">            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));</span>
+<span class="s2">            gap: 20px;</span>
+<span class="s2">        }</span>
+<span class="s2">        .item-card {</span>
+<span class="s2">            background: white;</span>
+<span class="s2">            border-radius: 8px;</span>
+<span class="s2">            padding: 20px;</span>
+<span class="s2">            box-shadow: 0 2px 8px rgba(0,0,0,0.1);</span>
+<span class="s2">            transition: transform 0.2s ease;</span>
+<span class="s2">            cursor: pointer;</span>
+<span class="s2">        }</span>
+<span class="s2">        .item-card:hover {</span>
+<span class="s2">            transform: translateY(-2px);</span>
+<span class="s2">        }</span>
+<span class="s2">        .item-title {</span>
+<span class="s2">            font-size: 18px;</span>
+<span class="s2">            font-weight: bold;</span>
+<span class="s2">            margin-bottom: 8px;</span>
+<span class="s2">        }</span>
+<span class="s2">        .item-meta {</span>
+<span class="s2">            color: #666;</span>
+<span class="s2">            font-size: 14px;</span>
+<span class="s2">        }</span>
+<span class="s2">        .loading {</span>
+<span class="s2">            text-align: center;</span>
+<span class="s2">            padding: 60px;</span>
+<span class="s2">            color: #666;</span>
+<span class="s2">        }</span>
+<span class="s2">    &lt;/style&gt;</span>
+<span class="s2">&lt;/head&gt;</span>
+<span class="s2">&lt;body&gt;</span>
+<span class="s2">    &lt;div class=&quot;container&quot;&gt;</span>
+<span class="s2">        &lt;div class=&quot;header&quot;&gt;</span>
+<span class="s2">            &lt;div class=&quot;title&quot;&gt;{{title}}&lt;/div&gt;</span>
+<span class="s2">            &lt;div class=&quot;description&quot;&gt;{{description}}&lt;/div&gt;</span>
+<span class="s2">        &lt;/div&gt;</span>
+
+<span class="s2">        &lt;div id=&quot;loading&quot; class=&quot;loading&quot;&gt;</span>
+<span class="s2">            &lt;div&gt;📋 Loading recommendations...&lt;/div&gt;</span>
+<span class="s2">        &lt;/div&gt;</span>
+
+<span class="s2">        &lt;div id=&quot;recommendations&quot; class=&quot;recommendations&quot; style=&quot;display: none;&quot;&gt;</span>
+<span class="s2">            &lt;!-- Recommendations will be populated by JavaScript --&gt;</span>
+<span class="s2">        &lt;/div&gt;</span>
+<span class="s2">    &lt;/div&gt;</span>
+
+<span class="s2">    &lt;script&gt;</span>
+<span class="s2">        const API_URL = &#39;http://localhost:{{api_port}}&#39;;</span>
+<span class="s2">        let userId = &#39;demo_user_&#39; + Math.random().toString(36).substr(2, 9);</span>
+
+<span class="s2">        async function loadRecommendations() {</span>
+<span class="s2">            try {</span>
+<span class="s2">                const response = await fetch(`$</span><span class="si">{API_URL}</span><span class="s2">/recommendations/$</span><span class="si">{userId}</span><span class="s2">?num_items=12`);</span>
+<span class="s2">                const data = await response.json();</span>
+
+<span class="s2">                displayRecommendations(data.recommendations || []);</span>
+
+<span class="s2">                document.getElementById(&#39;loading&#39;).style.display = &#39;none&#39;;</span>
+<span class="s2">                document.getElementById(&#39;recommendations&#39;).style.display = &#39;grid&#39;;</span>
+<span class="s2">            } catch (error) {</span>
+<span class="s2">                console.error(&#39;Error loading recommendations:&#39;, error);</span>
+<span class="s2">                document.getElementById(&#39;loading&#39;).innerHTML =</span>
+<span class="s2">                    &#39;&lt;div style=&quot;color: #e74c3c;&quot;&gt;❌ Failed to load recommendations. Make sure the API server is running.&lt;/div&gt;&#39;;</span>
+<span class="s2">            }</span>
+<span class="s2">        }</span>
+
+<span class="s2">        function displayRecommendations(recommendations) {</span>
+<span class="s2">            const container = document.getElementById(&#39;recommendations&#39;);</span>
+<span class="s2">            container.innerHTML = &#39;&#39;;</span>
+
+<span class="s2">            recommendations.forEach(item =&gt; {</span>
+<span class="s2">                const card = document.createElement(&#39;div&#39;);</span>
+<span class="s2">                card.className = &#39;item-card&#39;;</span>
+<span class="s2">                card.onclick = () =&gt; selectItem(item.id);</span>
+
+<span class="s2">                card.innerHTML = `</span>
+<span class="s2">                    &lt;div class=&quot;item-title&quot;&gt;${item.title || item.name || &#39;Unknown Item&#39;}&lt;/div&gt;</span>
+<span class="s2">                    &lt;div class=&quot;item-meta&quot;&gt;</span>
+<span class="s2">                        ${Object.entries(item).filter(([k,v]) =&gt; k !== &#39;id&#39; &amp;&amp; k !== &#39;title&#39; &amp;&amp; k !== &#39;name&#39;).map(([k,v]) =&gt; `$</span><span class="si">{k}</span><span class="s2">: $</span><span class="si">{v}</span><span class="s2">`).join(&#39; • &#39;)}</span>
+<span class="s2">                    &lt;/div&gt;</span>
+<span class="s2">                `;</span>
+<span class="s2">                container.appendChild(card);</span>
+<span class="s2">            });</span>
+<span class="s2">        }</span>
+
+<span class="s2">        async function selectItem(itemId) {</span>
+<span class="s2">            console.log(&#39;Selected item:&#39;, itemId);</span>
+<span class="s2">            // Record interaction</span>
+<span class="s2">            try {</span>
+<span class="s2">                await fetch(`$</span><span class="si">{API_URL}</span><span class="s2">/interactions`, {</span>
+<span class="s2">                    method: &#39;POST&#39;,</span>
+<span class="s2">                    headers: { &#39;Content-Type&#39;: &#39;application/json&#39; },</span>
+<span class="s2">                    body: JSON.stringify({</span>
+<span class="s2">                        user_id: userId,</span>
+<span class="s2">                        item_id: itemId,</span>
+<span class="s2">                        action: &#39;select&#39;</span>
+<span class="s2">                    })</span>
+<span class="s2">                });</span>
+<span class="s2">            } catch (error) {</span>
+<span class="s2">                console.error(&#39;Error recording interaction:&#39;, error);</span>
+<span class="s2">            }</span>
+<span class="s2">        }</span>
+
+<span class="s2">        // Load recommendations on page load</span>
+<span class="s2">        window.addEventListener(&#39;load&#39;, loadRecommendations);</span>
+<span class="s2">    &lt;/script&gt;</span>
+<span class="s2">&lt;/body&gt;</span>
+<span class="s2">&lt;/html&gt;</span>
+<span class="s2">    &quot;&quot;&quot;</span>
+</pre></div>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Vishesh Yadav
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2024, Vishesh Yadav.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

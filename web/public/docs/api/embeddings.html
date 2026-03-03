@@ -197,10 +197,14 @@
 <li class="toctree-l2"><a class="reference internal" href="../tutorials/mind_tutorial.html">MIND Tutorial: MIND</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../tutorials/nasrec_tutorial.html">NASRec Tutorial: NASRec</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../tutorials/sasrec_tutorial.html">SASRec Tutorial: SASRec</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorials/bert4rec_tutorial.html">Bert4Rec Tutorial: BERT for Sequential Recommendation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorials/ncf_tutorial.html">NCF Tutorial: Neural Collaborative Filtering</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorials/sar_tutorial.html">SAR Tutorial: Smart Adaptive Recommendations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorials/lightgcn_tutorial.html">LightGCN Tutorial: Light Graph Convolutional Network</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorials/tfidf_tutorial.html">TFIDF Tutorial: TF-IDF Based Recommender</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../tutorials/afm_tutorial.html">AFM Tutorial: Attentional Factorization Machine</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../tutorials/autofi_tutorial.html">AutoFI Tutorial: Automatic Feature Interaction</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../tutorials/autoint_tutorial.html">AutoInt Tutorial: Automatic Feature Interaction Learning via Self-Attention</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../tutorials/bert4rec_tutorial.html">Bert4Rec Tutorial: BERT for Sequential Recommendation</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../tutorials/bst_tutorial.html">BST Tutorial: Behavior Sequence Transformer</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../tutorials/bivae_tutorial.html">BiVAE Tutorial: Bilateral Variational Autoencoder</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../tutorials/caser_tutorial.html">Caser Tutorial: Convolutional Sequence Embedding Recommendation</a></li>
@@ -224,7 +228,6 @@
 <li class="toctree-l2"><a class="reference internal" href="../tutorials/gatenet_tutorial.html">GateNet Tutorial: Gating Network</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../tutorials/gnn_base_tutorial.html">GNN_base Tutorial: Graph Neural Network Base</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../tutorials/gru_cf_tutorial.html">GRU-CF Tutorial: GRU for Collaborative Filtering</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../tutorials/ncf_tutorial.html">NCF Tutorial: Neural Collaborative Filtering</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../tutorials/nfm_tutorial.html">NFM Tutorial: Neural Factorization Machine</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../tutorials/nextitnet_tutorial.html">NextItNet Tutorial: Next Item Net</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../tutorials/widedeep_tutorial.html">WideDeep Tutorial: Wide &amp; Deep Learning</a></li>
@@ -242,18 +245,15 @@
 <li class="toctree-l2"><a class="reference internal" href="../tutorials/svd_tutorial.html">SVD Tutorial: Singular Value Decomposition</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../tutorials/userbased_tutorial.html">UserBased Tutorial: User-Based Collaborative Filtering</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../tutorials/geoimc_tutorial.html">GeoIMC Tutorial: Geographic Inductive Matrix Completion</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../tutorials/lightgcn_tutorial.html">LightGCN Tutorial: Light Graph Convolutional Network</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../tutorials/lightgcn_base_tutorial.html">LightGCN_Base Tutorial: LightGCN Base</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../tutorials/rbm_tutorial.html">RBM Tutorial: Restricted Boltzmann Machine</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../tutorials/rlrmc_tutorial.html">RLRMC Tutorial: Reinforcement Learning for Recommendation</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../tutorials/sar_tutorial.html">SAR Tutorial: Smart Adaptive Recommendations</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../tutorials/slirec_tutorial.html">SLiRec Tutorial: Sequential List Recommendation</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../tutorials/sum_tutorial.html">SUM Tutorial: Sequential User Model</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../tutorials/bpr_tutorial.html">BPR Tutorial: Bayesian Personalized Ranking</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../tutorials/bprmf_tutorial.html">BPRMF Tutorial: Bayesian Personalized Ranking Matrix Factorization</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../tutorials/vmf_tutorial.html">VMF Tutorial: Von Mises-Fisher Distribution</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../tutorials/mind_content_tutorial.html">MIND_Content Tutorial: MIND for Content Filtering</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../tutorials/tfidf_tutorial.html">TFIDF Tutorial: TF-IDF Based Recommender</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../tutorials/pipeline_tutorial.html">Multi-Stage Pipeline Tutorial</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../tutorials/imshow_tutorial.html">Demo Frontends Tutorial</a></li>
 </ul>
@@ -500,10 +500,68 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#api-reference">API Reference</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#text-encoder">Text Encoder</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#multimodal-encoder">Multimodal Encoder</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pretrained-embeddings">Pretrained Embeddings</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-corerec.embeddings">API Reference</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#corerec.embeddings.TextEncoder"><code class="docutils literal notranslate"><span class="pre">TextEncoder</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#corerec.embeddings.TextEncoder.__init__"><code class="docutils literal notranslate"><span class="pre">TextEncoder.__init__()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#corerec.embeddings.TextEncoder.embedding_dim"><code class="docutils literal notranslate"><span class="pre">TextEncoder.embedding_dim</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#corerec.embeddings.TextEncoder.encode"><code class="docutils literal notranslate"><span class="pre">TextEncoder.encode()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#corerec.embeddings.TextEncoder.model"><code class="docutils literal notranslate"><span class="pre">TextEncoder.model</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#corerec.embeddings.TextEncoder.similarity"><code class="docutils literal notranslate"><span class="pre">TextEncoder.similarity()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#corerec.embeddings.MultimodalEncoder"><code class="docutils literal notranslate"><span class="pre">MultimodalEncoder</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#corerec.embeddings.MultimodalEncoder.__init__"><code class="docutils literal notranslate"><span class="pre">MultimodalEncoder.__init__()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#corerec.embeddings.MultimodalEncoder.add_encoder"><code class="docutils literal notranslate"><span class="pre">MultimodalEncoder.add_encoder()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#corerec.embeddings.MultimodalEncoder.embedding_dim"><code class="docutils literal notranslate"><span class="pre">MultimodalEncoder.embedding_dim</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#corerec.embeddings.MultimodalEncoder.encode"><code class="docutils literal notranslate"><span class="pre">MultimodalEncoder.encode()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#corerec.embeddings.MultimodalEncoder.encode_batch"><code class="docutils literal notranslate"><span class="pre">MultimodalEncoder.encode_batch()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#corerec.embeddings.PretrainedEmbeddings"><code class="docutils literal notranslate"><span class="pre">PretrainedEmbeddings</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#corerec.embeddings.PretrainedEmbeddings.__init__"><code class="docutils literal notranslate"><span class="pre">PretrainedEmbeddings.__init__()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#corerec.embeddings.PretrainedEmbeddings.dim"><code class="docutils literal notranslate"><span class="pre">PretrainedEmbeddings.dim</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#corerec.embeddings.PretrainedEmbeddings.get"><code class="docutils literal notranslate"><span class="pre">PretrainedEmbeddings.get()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#corerec.embeddings.PretrainedEmbeddings.get_batch"><code class="docutils literal notranslate"><span class="pre">PretrainedEmbeddings.get_batch()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#corerec.embeddings.PretrainedEmbeddings.load"><code class="docutils literal notranslate"><span class="pre">PretrainedEmbeddings.load()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#corerec.embeddings.PretrainedEmbeddings.most_similar"><code class="docutils literal notranslate"><span class="pre">PretrainedEmbeddings.most_similar()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#corerec.embeddings.PretrainedEmbeddings.save"><code class="docutils literal notranslate"><span class="pre">PretrainedEmbeddings.save()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#module-corerec.embeddings.text">Text Encoder</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#corerec.embeddings.text.TextEncoder"><code class="docutils literal notranslate"><span class="pre">TextEncoder</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#corerec.embeddings.text.TextEncoder.__init__"><code class="docutils literal notranslate"><span class="pre">TextEncoder.__init__()</span></code></a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#corerec.embeddings.text.TextEncoder.model"><code class="docutils literal notranslate"><span class="pre">TextEncoder.model</span></code></a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#corerec.embeddings.text.TextEncoder.embedding_dim"><code class="docutils literal notranslate"><span class="pre">TextEncoder.embedding_dim</span></code></a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#corerec.embeddings.text.TextEncoder.encode"><code class="docutils literal notranslate"><span class="pre">TextEncoder.encode()</span></code></a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#corerec.embeddings.text.TextEncoder.similarity"><code class="docutils literal notranslate"><span class="pre">TextEncoder.similarity()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#module-corerec.embeddings.multimodal">Multimodal Encoder</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#corerec.embeddings.multimodal.MultimodalEncoder"><code class="docutils literal notranslate"><span class="pre">MultimodalEncoder</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#corerec.embeddings.multimodal.MultimodalEncoder.__init__"><code class="docutils literal notranslate"><span class="pre">MultimodalEncoder.__init__()</span></code></a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#corerec.embeddings.multimodal.MultimodalEncoder.add_encoder"><code class="docutils literal notranslate"><span class="pre">MultimodalEncoder.add_encoder()</span></code></a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#corerec.embeddings.multimodal.MultimodalEncoder.encode"><code class="docutils literal notranslate"><span class="pre">MultimodalEncoder.encode()</span></code></a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#corerec.embeddings.multimodal.MultimodalEncoder.encode_batch"><code class="docutils literal notranslate"><span class="pre">MultimodalEncoder.encode_batch()</span></code></a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#corerec.embeddings.multimodal.MultimodalEncoder.embedding_dim"><code class="docutils literal notranslate"><span class="pre">MultimodalEncoder.embedding_dim</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#module-corerec.embeddings.pretrained">Pretrained Embeddings</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#corerec.embeddings.pretrained.PretrainedEmbeddings"><code class="docutils literal notranslate"><span class="pre">PretrainedEmbeddings</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#corerec.embeddings.pretrained.PretrainedEmbeddings.__init__"><code class="docutils literal notranslate"><span class="pre">PretrainedEmbeddings.__init__()</span></code></a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#corerec.embeddings.pretrained.PretrainedEmbeddings.load"><code class="docutils literal notranslate"><span class="pre">PretrainedEmbeddings.load()</span></code></a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#corerec.embeddings.pretrained.PretrainedEmbeddings.dim"><code class="docutils literal notranslate"><span class="pre">PretrainedEmbeddings.dim</span></code></a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#corerec.embeddings.pretrained.PretrainedEmbeddings.get"><code class="docutils literal notranslate"><span class="pre">PretrainedEmbeddings.get()</span></code></a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#corerec.embeddings.pretrained.PretrainedEmbeddings.get_batch"><code class="docutils literal notranslate"><span class="pre">PretrainedEmbeddings.get_batch()</span></code></a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#corerec.embeddings.pretrained.PretrainedEmbeddings.most_similar"><code class="docutils literal notranslate"><span class="pre">PretrainedEmbeddings.most_similar()</span></code></a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#corerec.embeddings.pretrained.PretrainedEmbeddings.save"><code class="docutils literal notranslate"><span class="pre">PretrainedEmbeddings.save()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -520,16 +578,631 @@ document.write(`
   <section class="tex2jax_ignore mathjax_ignore" id="embeddings">
 <h1>Embeddings<a class="headerlink" href="#embeddings" title="Link to this heading">#</a></h1>
 <p>Representation learning utilities for encoding text, images, and multimodal inputs.</p>
-<section id="api-reference">
-<h2>API Reference<a class="headerlink" href="#api-reference" title="Link to this heading">#</a></h2>
-<section id="text-encoder">
-<h3>Text Encoder<a class="headerlink" href="#text-encoder" title="Link to this heading">#</a></h3>
+<section id="module-corerec.embeddings">
+<span id="api-reference"></span><h2>API Reference<a class="headerlink" href="#module-corerec.embeddings" title="Link to this heading">#</a></h2>
+<p>Embeddings Module - Representation Learning</p>
+<p>Provides utilities for creating and managing embeddings
+from various modalities (text, images, behavior).</p>
+<dl>
+<dt>Usage:</dt><dd><p>from corerec.embeddings import TextEncoder, MultimodalEncoder</p>
+<p>encoder = TextEncoder(model=”sentence-transformers/all-MiniLM-L6-v2”)
+embeddings = encoder.encode([“red shoes”, “blue jacket”])</p>
+</dd>
+</dl>
+<dl class="py class">
+<dt class="sig sig-object py" id="corerec.embeddings.TextEncoder">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">corerec.embeddings.</span></span><span class="sig-name descname"><span class="pre">TextEncoder</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">model</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><span class="pre">str</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Any" title="(in Python v3.14)"><span class="pre">Any</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.14)"><span class="pre">None</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">device</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><span class="pre">str</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'cpu'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">normalize</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.14)"><span class="pre">bool</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/corerec/embeddings/text.html#TextEncoder"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#corerec.embeddings.TextEncoder" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+<p>Encode text into embeddings using sentence transformers or similar.</p>
+<p>Wraps sentence-transformers or other text encoding models
+with a simple interface.</p>
+<div class="admonition-example admonition">
+<p class="admonition-title">Example</p>
+<p>encoder = TextEncoder(“sentence-transformers/all-MiniLM-L6-v2”)</p>
+<p># single text
+emb = encoder.encode(“red running shoes”)</p>
+<p># batch
+embs = encoder.encode([“red shoes”, “blue jacket”, “green hat”])</p>
+</div>
+<dl class="py method">
+<dt class="sig sig-object py" id="corerec.embeddings.TextEncoder.__init__">
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">model</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><span class="pre">str</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Any" title="(in Python v3.14)"><span class="pre">Any</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.14)"><span class="pre">None</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">device</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><span class="pre">str</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'cpu'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">normalize</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.14)"><span class="pre">bool</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/corerec/embeddings/text.html#TextEncoder.__init__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#corerec.embeddings.TextEncoder.__init__" title="Link to this definition">#</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>model</strong> – model name or pre-loaded model instance</p></li>
+<li><p><strong>device</strong> – ‘cpu’ or ‘cuda’</p></li>
+<li><p><strong>normalize</strong> – whether to L2-normalize embeddings</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="corerec.embeddings.TextEncoder.embedding_dim">
+<em class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">embedding_dim</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.14)"><span class="pre">int</span></a></em><a class="headerlink" href="#corerec.embeddings.TextEncoder.embedding_dim" title="Link to this definition">#</a></dt>
+<dd><p>Get embedding dimension.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="corerec.embeddings.TextEncoder.encode">
+<span class="sig-name descname"><span class="pre">encode</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">texts</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><span class="pre">str</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.List" title="(in Python v3.14)"><span class="pre">List</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><span class="pre">str</span></a><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">batch_size</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.14)"><span class="pre">int</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">32</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">show_progress</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.14)"><span class="pre">bool</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.4)"><span class="pre">ndarray</span></a></span></span><a class="reference internal" href="../_modules/corerec/embeddings/text.html#TextEncoder.encode"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#corerec.embeddings.TextEncoder.encode" title="Link to this definition">#</a></dt>
+<dd><p>Encode text(s) into embeddings.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>texts</strong> – single string or list of strings</p></li>
+<li><p><strong>batch_size</strong> – batch size for encoding</p></li>
+<li><p><strong>show_progress</strong> – show progress bar</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>numpy array of shape (n, dim) or (dim,) for single text</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="corerec.embeddings.TextEncoder.model">
+<em class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">model</span></span><a class="headerlink" href="#corerec.embeddings.TextEncoder.model" title="Link to this definition">#</a></dt>
+<dd><p>Lazy load model on first use.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="corerec.embeddings.TextEncoder.similarity">
+<span class="sig-name descname"><span class="pre">similarity</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">text_a</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><span class="pre">str</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.4)"><span class="pre">ndarray</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">text_b</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><span class="pre">str</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.4)"><span class="pre">ndarray</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.14)"><span class="pre">float</span></a></span></span><a class="reference internal" href="../_modules/corerec/embeddings/text.html#TextEncoder.similarity"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#corerec.embeddings.TextEncoder.similarity" title="Link to this definition">#</a></dt>
+<dd><p>Compute similarity between two texts.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>text_a</strong> – text or embedding</p></li>
+<li><p><strong>text_b</strong> – text or embedding</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>cosine similarity score</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="corerec.embeddings.MultimodalEncoder">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">corerec.embeddings.</span></span><span class="sig-name descname"><span class="pre">MultimodalEncoder</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">encoders</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Dict" title="(in Python v3.14)"><span class="pre">Dict</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><span class="pre">str</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Any" title="(in Python v3.14)"><span class="pre">Any</span></a><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.14)"><span class="pre">None</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fusion</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><span class="pre">str</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'concat'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">weights</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Dict" title="(in Python v3.14)"><span class="pre">Dict</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><span class="pre">str</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.14)"><span class="pre">float</span></a><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.14)"><span class="pre">None</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">output_dim</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.14)"><span class="pre">int</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.14)"><span class="pre">None</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/corerec/embeddings/multimodal.html#MultimodalEncoder"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#corerec.embeddings.MultimodalEncoder" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+<p>Combine embeddings from multiple modalities into a single vector.</p>
+<p>Useful when items have multiple representations:
+- Product: title (text) + image + category (categorical)
+- Video: title (text) + thumbnail (image) + transcript (text)
+- Music: artist (text) + audio features + genre</p>
+<p>Fusion strategies:
+- <code class="docutils literal notranslate"><span class="pre">concat</span></code> – concatenate all embeddings
+- <code class="docutils literal notranslate"><span class="pre">average</span></code> – average embeddings (requires same dim)
+- <code class="docutils literal notranslate"><span class="pre">weighted</span></code> – weighted average
+- <code class="docutils literal notranslate"><span class="pre">attention</span></code> – learned attention weights (requires training)</p>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">encoder</span> <span class="o">=</span> <span class="n">MultimodalEncoder</span><span class="p">(</span>
+    <span class="n">encoders</span><span class="o">=</span><span class="p">{</span>
+        <span class="s1">&#39;text&#39;</span><span class="p">:</span> <span class="n">text_encoder</span><span class="p">,</span>
+        <span class="s1">&#39;image&#39;</span><span class="p">:</span> <span class="n">image_encoder</span><span class="p">,</span>
+    <span class="p">},</span>
+    <span class="n">fusion</span><span class="o">=</span><span class="s1">&#39;concat&#39;</span><span class="p">,</span>
+<span class="p">)</span>
+
+<span class="n">item_data</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">&#39;text&#39;</span><span class="p">:</span> <span class="s2">&quot;red running shoes&quot;</span><span class="p">,</span>
+    <span class="s1">&#39;image&#39;</span><span class="p">:</span> <span class="n">image_array</span><span class="p">,</span>
+<span class="p">}</span>
+<span class="n">embedding</span> <span class="o">=</span> <span class="n">encoder</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="n">item_data</span><span class="p">)</span>
+</pre></div>
+</div>
+<dl class="py method">
+<dt class="sig sig-object py" id="corerec.embeddings.MultimodalEncoder.__init__">
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">encoders</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Dict" title="(in Python v3.14)"><span class="pre">Dict</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><span class="pre">str</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Any" title="(in Python v3.14)"><span class="pre">Any</span></a><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.14)"><span class="pre">None</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fusion</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><span class="pre">str</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'concat'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">weights</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Dict" title="(in Python v3.14)"><span class="pre">Dict</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><span class="pre">str</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.14)"><span class="pre">float</span></a><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.14)"><span class="pre">None</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">output_dim</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.14)"><span class="pre">int</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.14)"><span class="pre">None</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/corerec/embeddings/multimodal.html#MultimodalEncoder.__init__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#corerec.embeddings.MultimodalEncoder.__init__" title="Link to this definition">#</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>encoders</strong> – dict of modality_name -&gt; encoder</p></li>
+<li><p><strong>fusion</strong> – ‘concat’, ‘average’, or ‘weighted’</p></li>
+<li><p><strong>weights</strong> – weights per modality (for weighted fusion)</p></li>
+<li><p><strong>output_dim</strong> – target output dimension (for projection)</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="corerec.embeddings.MultimodalEncoder.add_encoder">
+<span class="sig-name descname"><span class="pre">add_encoder</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><span class="pre">str</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">encoder</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Any" title="(in Python v3.14)"><span class="pre">Any</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">weight</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.14)"><span class="pre">float</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">1.0</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#corerec.embeddings.multimodal.MultimodalEncoder" title="corerec.embeddings.multimodal.MultimodalEncoder"><span class="pre">MultimodalEncoder</span></a></span></span><a class="reference internal" href="../_modules/corerec/embeddings/multimodal.html#MultimodalEncoder.add_encoder"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#corerec.embeddings.MultimodalEncoder.add_encoder" title="Link to this definition">#</a></dt>
+<dd><p>Add a modality encoder.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>name</strong> – modality name</p></li>
+<li><p><strong>encoder</strong> – encoder with encode() method</p></li>
+<li><p><strong>weight</strong> – weight for fusion</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="corerec.embeddings.MultimodalEncoder.embedding_dim">
+<em class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">embedding_dim</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.14)"><span class="pre">int</span></a></em><a class="headerlink" href="#corerec.embeddings.MultimodalEncoder.embedding_dim" title="Link to this definition">#</a></dt>
+<dd><p>Get output embedding dimension.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="corerec.embeddings.MultimodalEncoder.encode">
+<span class="sig-name descname"><span class="pre">encode</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Dict" title="(in Python v3.14)"><span class="pre">Dict</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><span class="pre">str</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Any" title="(in Python v3.14)"><span class="pre">Any</span></a><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">missing_ok</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.14)"><span class="pre">bool</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.4)"><span class="pre">ndarray</span></a></span></span><a class="reference internal" href="../_modules/corerec/embeddings/multimodal.html#MultimodalEncoder.encode"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#corerec.embeddings.MultimodalEncoder.encode" title="Link to this definition">#</a></dt>
+<dd><p>Encode multimodal data into a single embedding.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>data</strong> – dict of modality_name -&gt; modality_data</p></li>
+<li><p><strong>missing_ok</strong> – if True, skip missing modalities</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>fused embedding vector</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="corerec.embeddings.MultimodalEncoder.encode_batch">
+<span class="sig-name descname"><span class="pre">encode_batch</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data_batch</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.List" title="(in Python v3.14)"><span class="pre">List</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Dict" title="(in Python v3.14)"><span class="pre">Dict</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><span class="pre">str</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Any" title="(in Python v3.14)"><span class="pre">Any</span></a><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">missing_ok</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.14)"><span class="pre">bool</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.4)"><span class="pre">ndarray</span></a></span></span><a class="reference internal" href="../_modules/corerec/embeddings/multimodal.html#MultimodalEncoder.encode_batch"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#corerec.embeddings.MultimodalEncoder.encode_batch" title="Link to this definition">#</a></dt>
+<dd><p>Encode a batch of multimodal data.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>data_batch</strong> – list of data dicts</p></li>
+<li><p><strong>missing_ok</strong> – skip missing modalities</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>array of shape (batch_size, embedding_dim)</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="corerec.embeddings.PretrainedEmbeddings">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">corerec.embeddings.</span></span><span class="sig-name descname"><span class="pre">PretrainedEmbeddings</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">embeddings</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.4)"><span class="pre">ndarray</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">ids</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.List" title="(in Python v3.14)"><span class="pre">List</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Any" title="(in Python v3.14)"><span class="pre">Any</span></a><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">normalize</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.14)"><span class="pre">bool</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/corerec/embeddings/pretrained.html#PretrainedEmbeddings"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#corerec.embeddings.PretrainedEmbeddings" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+<p>Load and query pretrained embedding tables.</p>
+<p>Supports loading from:
+- NumPy files (.npy, .npz)
+- Pickle files (.pkl)
+- Text files (word2vec format)</p>
+<div class="admonition-example admonition">
+<p class="admonition-title">Example</p>
+<p>embs = PretrainedEmbeddings.load(“item_embeddings.npy”, item_ids)</p>
+<p># get embedding for an item
+vec = embs.get(item_id=123)</p>
+<p># find similar items
+similar = embs.most_similar(item_id=123, top_k=10)</p>
+</div>
+<dl class="py method">
+<dt class="sig sig-object py" id="corerec.embeddings.PretrainedEmbeddings.__init__">
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">embeddings</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.4)"><span class="pre">ndarray</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">ids</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.List" title="(in Python v3.14)"><span class="pre">List</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Any" title="(in Python v3.14)"><span class="pre">Any</span></a><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">normalize</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.14)"><span class="pre">bool</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/corerec/embeddings/pretrained.html#PretrainedEmbeddings.__init__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#corerec.embeddings.PretrainedEmbeddings.__init__" title="Link to this definition">#</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>embeddings</strong> – array of shape (n_items, dim)</p></li>
+<li><p><strong>ids</strong> – list of item identifiers (same order as embeddings)</p></li>
+<li><p><strong>normalize</strong> – whether to L2-normalize embeddings</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="corerec.embeddings.PretrainedEmbeddings.dim">
+<em class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">dim</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.14)"><span class="pre">int</span></a></em><a class="headerlink" href="#corerec.embeddings.PretrainedEmbeddings.dim" title="Link to this definition">#</a></dt>
+<dd><p>Embedding dimension.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="corerec.embeddings.PretrainedEmbeddings.get">
+<span class="sig-name descname"><span class="pre">get</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">item_id</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Any" title="(in Python v3.14)"><span class="pre">Any</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">default</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.4)"><span class="pre">ndarray</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.14)"><span class="pre">None</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.4)"><span class="pre">ndarray</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.14)"><span class="pre">None</span></a></span></span><a class="reference internal" href="../_modules/corerec/embeddings/pretrained.html#PretrainedEmbeddings.get"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#corerec.embeddings.PretrainedEmbeddings.get" title="Link to this definition">#</a></dt>
+<dd><p>Get embedding for an item.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>item_id</strong> – item identifier</p></li>
+<li><p><strong>default</strong> – value to return if not found</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>embedding vector or default</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="corerec.embeddings.PretrainedEmbeddings.get_batch">
+<span class="sig-name descname"><span class="pre">get_batch</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">item_ids</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.List" title="(in Python v3.14)"><span class="pre">List</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Any" title="(in Python v3.14)"><span class="pre">Any</span></a><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">default</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.4)"><span class="pre">ndarray</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.14)"><span class="pre">None</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.4)"><span class="pre">ndarray</span></a></span></span><a class="reference internal" href="../_modules/corerec/embeddings/pretrained.html#PretrainedEmbeddings.get_batch"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#corerec.embeddings.PretrainedEmbeddings.get_batch" title="Link to this definition">#</a></dt>
+<dd><p>Get embeddings for multiple items.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>item_ids</strong> – list of item identifiers</p></li>
+<li><p><strong>default</strong> – default embedding for missing items</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>array of shape (len(item_ids), dim)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="corerec.embeddings.PretrainedEmbeddings.load">
+<em class="property"><span class="k"><span class="pre">classmethod</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">load</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">path</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><span class="pre">str</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/pathlib.html#pathlib.Path" title="(in Python v3.14)"><span class="pre">Path</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">ids</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.List" title="(in Python v3.14)"><span class="pre">List</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Any" title="(in Python v3.14)"><span class="pre">Any</span></a><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.14)"><span class="pre">None</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">normalize</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.14)"><span class="pre">bool</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#corerec.embeddings.pretrained.PretrainedEmbeddings" title="corerec.embeddings.pretrained.PretrainedEmbeddings"><span class="pre">PretrainedEmbeddings</span></a></span></span><a class="reference internal" href="../_modules/corerec/embeddings/pretrained.html#PretrainedEmbeddings.load"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#corerec.embeddings.PretrainedEmbeddings.load" title="Link to this definition">#</a></dt>
+<dd><p>Load embeddings from file.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>path</strong> – path to embedding file</p></li>
+<li><p><strong>ids</strong> – item identifiers (required for .npy, optional for .npz with ‘ids’)</p></li>
+<li><p><strong>normalize</strong> – whether to normalize</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>PretrainedEmbeddings instance</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="corerec.embeddings.PretrainedEmbeddings.most_similar">
+<span class="sig-name descname"><span class="pre">most_similar</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">query</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Any" title="(in Python v3.14)"><span class="pre">Any</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.4)"><span class="pre">ndarray</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">top_k</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.14)"><span class="pre">int</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">10</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">exclude_self</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.14)"><span class="pre">bool</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.List" title="(in Python v3.14)"><span class="pre">List</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#tuple" title="(in Python v3.14)"><span class="pre">tuple</span></a><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="../_modules/corerec/embeddings/pretrained.html#PretrainedEmbeddings.most_similar"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#corerec.embeddings.PretrainedEmbeddings.most_similar" title="Link to this definition">#</a></dt>
+<dd><p>Find most similar items.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>query</strong> – item_id or embedding vector</p></li>
+<li><p><strong>top_k</strong> – number of results</p></li>
+<li><p><strong>exclude_self</strong> – exclude the query item from results</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>list of (item_id, similarity) tuples</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="corerec.embeddings.PretrainedEmbeddings.save">
+<span class="sig-name descname"><span class="pre">save</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">path</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><span class="pre">str</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/pathlib.html#pathlib.Path" title="(in Python v3.14)"><span class="pre">Path</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.14)"><span class="pre">None</span></a></span></span><a class="reference internal" href="../_modules/corerec/embeddings/pretrained.html#PretrainedEmbeddings.save"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#corerec.embeddings.PretrainedEmbeddings.save" title="Link to this definition">#</a></dt>
+<dd><p>Save embeddings to file.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>path</strong> – output path (.npz format)</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<section id="module-corerec.embeddings.text">
+<span id="text-encoder"></span><h3>Text Encoder<a class="headerlink" href="#module-corerec.embeddings.text" title="Link to this heading">#</a></h3>
+<p>Text Embeddings</p>
+<p>Encode text into dense vectors using transformer models.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="corerec.embeddings.text.TextEncoder">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">corerec.embeddings.text.</span></span><span class="sig-name descname"><span class="pre">TextEncoder</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">model</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><span class="pre">str</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Any" title="(in Python v3.14)"><span class="pre">Any</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.14)"><span class="pre">None</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">device</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><span class="pre">str</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'cpu'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">normalize</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.14)"><span class="pre">bool</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/corerec/embeddings/text.html#TextEncoder"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#corerec.embeddings.text.TextEncoder" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+<p>Encode text into embeddings using sentence transformers or similar.</p>
+<p>Wraps sentence-transformers or other text encoding models
+with a simple interface.</p>
+<div class="admonition-example admonition">
+<p class="admonition-title">Example</p>
+<p>encoder = TextEncoder(“sentence-transformers/all-MiniLM-L6-v2”)</p>
+<p># single text
+emb = encoder.encode(“red running shoes”)</p>
+<p># batch
+embs = encoder.encode([“red shoes”, “blue jacket”, “green hat”])</p>
+</div>
+<dl class="py method">
+<dt class="sig sig-object py" id="corerec.embeddings.text.TextEncoder.__init__">
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">model</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><span class="pre">str</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Any" title="(in Python v3.14)"><span class="pre">Any</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.14)"><span class="pre">None</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">device</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><span class="pre">str</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'cpu'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">normalize</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.14)"><span class="pre">bool</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/corerec/embeddings/text.html#TextEncoder.__init__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#corerec.embeddings.text.TextEncoder.__init__" title="Link to this definition">#</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>model</strong> – model name or pre-loaded model instance</p></li>
+<li><p><strong>device</strong> – ‘cpu’ or ‘cuda’</p></li>
+<li><p><strong>normalize</strong> – whether to L2-normalize embeddings</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="corerec.embeddings.text.TextEncoder.model">
+<em class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">model</span></span><a class="headerlink" href="#corerec.embeddings.text.TextEncoder.model" title="Link to this definition">#</a></dt>
+<dd><p>Lazy load model on first use.</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="corerec.embeddings.text.TextEncoder.embedding_dim">
+<em class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">embedding_dim</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.14)"><span class="pre">int</span></a></em><a class="headerlink" href="#corerec.embeddings.text.TextEncoder.embedding_dim" title="Link to this definition">#</a></dt>
+<dd><p>Get embedding dimension.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="corerec.embeddings.text.TextEncoder.encode">
+<span class="sig-name descname"><span class="pre">encode</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">texts</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><span class="pre">str</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.List" title="(in Python v3.14)"><span class="pre">List</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><span class="pre">str</span></a><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">batch_size</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.14)"><span class="pre">int</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">32</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">show_progress</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.14)"><span class="pre">bool</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.4)"><span class="pre">ndarray</span></a></span></span><a class="reference internal" href="../_modules/corerec/embeddings/text.html#TextEncoder.encode"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#corerec.embeddings.text.TextEncoder.encode" title="Link to this definition">#</a></dt>
+<dd><p>Encode text(s) into embeddings.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>texts</strong> – single string or list of strings</p></li>
+<li><p><strong>batch_size</strong> – batch size for encoding</p></li>
+<li><p><strong>show_progress</strong> – show progress bar</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>numpy array of shape (n, dim) or (dim,) for single text</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="corerec.embeddings.text.TextEncoder.similarity">
+<span class="sig-name descname"><span class="pre">similarity</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">text_a</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><span class="pre">str</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.4)"><span class="pre">ndarray</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">text_b</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><span class="pre">str</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.4)"><span class="pre">ndarray</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.14)"><span class="pre">float</span></a></span></span><a class="reference internal" href="../_modules/corerec/embeddings/text.html#TextEncoder.similarity"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#corerec.embeddings.text.TextEncoder.similarity" title="Link to this definition">#</a></dt>
+<dd><p>Compute similarity between two texts.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>text_a</strong> – text or embedding</p></li>
+<li><p><strong>text_b</strong> – text or embedding</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>cosine similarity score</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
 </section>
-<section id="multimodal-encoder">
-<h3>Multimodal Encoder<a class="headerlink" href="#multimodal-encoder" title="Link to this heading">#</a></h3>
+<section id="module-corerec.embeddings.multimodal">
+<span id="multimodal-encoder"></span><h3>Multimodal Encoder<a class="headerlink" href="#module-corerec.embeddings.multimodal" title="Link to this heading">#</a></h3>
+<p>Multimodal Embeddings</p>
+<p>Combine embeddings from different modalities (text, image, etc).</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="corerec.embeddings.multimodal.MultimodalEncoder">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">corerec.embeddings.multimodal.</span></span><span class="sig-name descname"><span class="pre">MultimodalEncoder</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">encoders</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Dict" title="(in Python v3.14)"><span class="pre">Dict</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><span class="pre">str</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Any" title="(in Python v3.14)"><span class="pre">Any</span></a><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.14)"><span class="pre">None</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fusion</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><span class="pre">str</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'concat'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">weights</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Dict" title="(in Python v3.14)"><span class="pre">Dict</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><span class="pre">str</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.14)"><span class="pre">float</span></a><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.14)"><span class="pre">None</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">output_dim</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.14)"><span class="pre">int</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.14)"><span class="pre">None</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/corerec/embeddings/multimodal.html#MultimodalEncoder"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#corerec.embeddings.multimodal.MultimodalEncoder" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+<p>Combine embeddings from multiple modalities into a single vector.</p>
+<p>Useful when items have multiple representations:
+- Product: title (text) + image + category (categorical)
+- Video: title (text) + thumbnail (image) + transcript (text)
+- Music: artist (text) + audio features + genre</p>
+<p>Fusion strategies:
+- <code class="docutils literal notranslate"><span class="pre">concat</span></code> – concatenate all embeddings
+- <code class="docutils literal notranslate"><span class="pre">average</span></code> – average embeddings (requires same dim)
+- <code class="docutils literal notranslate"><span class="pre">weighted</span></code> – weighted average
+- <code class="docutils literal notranslate"><span class="pre">attention</span></code> – learned attention weights (requires training)</p>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">encoder</span> <span class="o">=</span> <span class="n">MultimodalEncoder</span><span class="p">(</span>
+    <span class="n">encoders</span><span class="o">=</span><span class="p">{</span>
+        <span class="s1">&#39;text&#39;</span><span class="p">:</span> <span class="n">text_encoder</span><span class="p">,</span>
+        <span class="s1">&#39;image&#39;</span><span class="p">:</span> <span class="n">image_encoder</span><span class="p">,</span>
+    <span class="p">},</span>
+    <span class="n">fusion</span><span class="o">=</span><span class="s1">&#39;concat&#39;</span><span class="p">,</span>
+<span class="p">)</span>
+
+<span class="n">item_data</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">&#39;text&#39;</span><span class="p">:</span> <span class="s2">&quot;red running shoes&quot;</span><span class="p">,</span>
+    <span class="s1">&#39;image&#39;</span><span class="p">:</span> <span class="n">image_array</span><span class="p">,</span>
+<span class="p">}</span>
+<span class="n">embedding</span> <span class="o">=</span> <span class="n">encoder</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="n">item_data</span><span class="p">)</span>
+</pre></div>
+</div>
+<dl class="py method">
+<dt class="sig sig-object py" id="corerec.embeddings.multimodal.MultimodalEncoder.__init__">
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">encoders</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Dict" title="(in Python v3.14)"><span class="pre">Dict</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><span class="pre">str</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Any" title="(in Python v3.14)"><span class="pre">Any</span></a><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.14)"><span class="pre">None</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fusion</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><span class="pre">str</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'concat'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">weights</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Dict" title="(in Python v3.14)"><span class="pre">Dict</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><span class="pre">str</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.14)"><span class="pre">float</span></a><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.14)"><span class="pre">None</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">output_dim</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.14)"><span class="pre">int</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.14)"><span class="pre">None</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/corerec/embeddings/multimodal.html#MultimodalEncoder.__init__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#corerec.embeddings.multimodal.MultimodalEncoder.__init__" title="Link to this definition">#</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>encoders</strong> – dict of modality_name -&gt; encoder</p></li>
+<li><p><strong>fusion</strong> – ‘concat’, ‘average’, or ‘weighted’</p></li>
+<li><p><strong>weights</strong> – weights per modality (for weighted fusion)</p></li>
+<li><p><strong>output_dim</strong> – target output dimension (for projection)</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="corerec.embeddings.multimodal.MultimodalEncoder.add_encoder">
+<span class="sig-name descname"><span class="pre">add_encoder</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><span class="pre">str</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">encoder</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Any" title="(in Python v3.14)"><span class="pre">Any</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">weight</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.14)"><span class="pre">float</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">1.0</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#corerec.embeddings.multimodal.MultimodalEncoder" title="corerec.embeddings.multimodal.MultimodalEncoder"><span class="pre">MultimodalEncoder</span></a></span></span><a class="reference internal" href="../_modules/corerec/embeddings/multimodal.html#MultimodalEncoder.add_encoder"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#corerec.embeddings.multimodal.MultimodalEncoder.add_encoder" title="Link to this definition">#</a></dt>
+<dd><p>Add a modality encoder.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>name</strong> – modality name</p></li>
+<li><p><strong>encoder</strong> – encoder with encode() method</p></li>
+<li><p><strong>weight</strong> – weight for fusion</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="corerec.embeddings.multimodal.MultimodalEncoder.encode">
+<span class="sig-name descname"><span class="pre">encode</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Dict" title="(in Python v3.14)"><span class="pre">Dict</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><span class="pre">str</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Any" title="(in Python v3.14)"><span class="pre">Any</span></a><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">missing_ok</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.14)"><span class="pre">bool</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.4)"><span class="pre">ndarray</span></a></span></span><a class="reference internal" href="../_modules/corerec/embeddings/multimodal.html#MultimodalEncoder.encode"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#corerec.embeddings.multimodal.MultimodalEncoder.encode" title="Link to this definition">#</a></dt>
+<dd><p>Encode multimodal data into a single embedding.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>data</strong> – dict of modality_name -&gt; modality_data</p></li>
+<li><p><strong>missing_ok</strong> – if True, skip missing modalities</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>fused embedding vector</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="corerec.embeddings.multimodal.MultimodalEncoder.encode_batch">
+<span class="sig-name descname"><span class="pre">encode_batch</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data_batch</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.List" title="(in Python v3.14)"><span class="pre">List</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Dict" title="(in Python v3.14)"><span class="pre">Dict</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><span class="pre">str</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Any" title="(in Python v3.14)"><span class="pre">Any</span></a><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">missing_ok</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.14)"><span class="pre">bool</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.4)"><span class="pre">ndarray</span></a></span></span><a class="reference internal" href="../_modules/corerec/embeddings/multimodal.html#MultimodalEncoder.encode_batch"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#corerec.embeddings.multimodal.MultimodalEncoder.encode_batch" title="Link to this definition">#</a></dt>
+<dd><p>Encode a batch of multimodal data.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>data_batch</strong> – list of data dicts</p></li>
+<li><p><strong>missing_ok</strong> – skip missing modalities</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>array of shape (batch_size, embedding_dim)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="corerec.embeddings.multimodal.MultimodalEncoder.embedding_dim">
+<em class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">embedding_dim</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.14)"><span class="pre">int</span></a></em><a class="headerlink" href="#corerec.embeddings.multimodal.MultimodalEncoder.embedding_dim" title="Link to this definition">#</a></dt>
+<dd><p>Get output embedding dimension.</p>
+</dd></dl>
+
+</dd></dl>
+
 </section>
-<section id="pretrained-embeddings">
-<h3>Pretrained Embeddings<a class="headerlink" href="#pretrained-embeddings" title="Link to this heading">#</a></h3>
+<section id="module-corerec.embeddings.pretrained">
+<span id="pretrained-embeddings"></span><h3>Pretrained Embeddings<a class="headerlink" href="#module-corerec.embeddings.pretrained" title="Link to this heading">#</a></h3>
+<p>Pretrained Embeddings</p>
+<p>Load and use pretrained embeddings from various sources.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="corerec.embeddings.pretrained.PretrainedEmbeddings">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">corerec.embeddings.pretrained.</span></span><span class="sig-name descname"><span class="pre">PretrainedEmbeddings</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">embeddings</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.4)"><span class="pre">ndarray</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">ids</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.List" title="(in Python v3.14)"><span class="pre">List</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Any" title="(in Python v3.14)"><span class="pre">Any</span></a><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">normalize</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.14)"><span class="pre">bool</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/corerec/embeddings/pretrained.html#PretrainedEmbeddings"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#corerec.embeddings.pretrained.PretrainedEmbeddings" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+<p>Load and query pretrained embedding tables.</p>
+<p>Supports loading from:
+- NumPy files (.npy, .npz)
+- Pickle files (.pkl)
+- Text files (word2vec format)</p>
+<div class="admonition-example admonition">
+<p class="admonition-title">Example</p>
+<p>embs = PretrainedEmbeddings.load(“item_embeddings.npy”, item_ids)</p>
+<p># get embedding for an item
+vec = embs.get(item_id=123)</p>
+<p># find similar items
+similar = embs.most_similar(item_id=123, top_k=10)</p>
+</div>
+<dl class="py method">
+<dt class="sig sig-object py" id="corerec.embeddings.pretrained.PretrainedEmbeddings.__init__">
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">embeddings</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.4)"><span class="pre">ndarray</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">ids</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.List" title="(in Python v3.14)"><span class="pre">List</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Any" title="(in Python v3.14)"><span class="pre">Any</span></a><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">normalize</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.14)"><span class="pre">bool</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/corerec/embeddings/pretrained.html#PretrainedEmbeddings.__init__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#corerec.embeddings.pretrained.PretrainedEmbeddings.__init__" title="Link to this definition">#</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>embeddings</strong> – array of shape (n_items, dim)</p></li>
+<li><p><strong>ids</strong> – list of item identifiers (same order as embeddings)</p></li>
+<li><p><strong>normalize</strong> – whether to L2-normalize embeddings</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="corerec.embeddings.pretrained.PretrainedEmbeddings.load">
+<em class="property"><span class="k"><span class="pre">classmethod</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">load</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">path</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><span class="pre">str</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/pathlib.html#pathlib.Path" title="(in Python v3.14)"><span class="pre">Path</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">ids</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.List" title="(in Python v3.14)"><span class="pre">List</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Any" title="(in Python v3.14)"><span class="pre">Any</span></a><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.14)"><span class="pre">None</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">normalize</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.14)"><span class="pre">bool</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#corerec.embeddings.pretrained.PretrainedEmbeddings" title="corerec.embeddings.pretrained.PretrainedEmbeddings"><span class="pre">PretrainedEmbeddings</span></a></span></span><a class="reference internal" href="../_modules/corerec/embeddings/pretrained.html#PretrainedEmbeddings.load"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#corerec.embeddings.pretrained.PretrainedEmbeddings.load" title="Link to this definition">#</a></dt>
+<dd><p>Load embeddings from file.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>path</strong> – path to embedding file</p></li>
+<li><p><strong>ids</strong> – item identifiers (required for .npy, optional for .npz with ‘ids’)</p></li>
+<li><p><strong>normalize</strong> – whether to normalize</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>PretrainedEmbeddings instance</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="corerec.embeddings.pretrained.PretrainedEmbeddings.dim">
+<em class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">dim</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.14)"><span class="pre">int</span></a></em><a class="headerlink" href="#corerec.embeddings.pretrained.PretrainedEmbeddings.dim" title="Link to this definition">#</a></dt>
+<dd><p>Embedding dimension.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="corerec.embeddings.pretrained.PretrainedEmbeddings.get">
+<span class="sig-name descname"><span class="pre">get</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">item_id</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Any" title="(in Python v3.14)"><span class="pre">Any</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">default</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.4)"><span class="pre">ndarray</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.14)"><span class="pre">None</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.4)"><span class="pre">ndarray</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.14)"><span class="pre">None</span></a></span></span><a class="reference internal" href="../_modules/corerec/embeddings/pretrained.html#PretrainedEmbeddings.get"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#corerec.embeddings.pretrained.PretrainedEmbeddings.get" title="Link to this definition">#</a></dt>
+<dd><p>Get embedding for an item.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>item_id</strong> – item identifier</p></li>
+<li><p><strong>default</strong> – value to return if not found</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>embedding vector or default</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="corerec.embeddings.pretrained.PretrainedEmbeddings.get_batch">
+<span class="sig-name descname"><span class="pre">get_batch</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">item_ids</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.List" title="(in Python v3.14)"><span class="pre">List</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Any" title="(in Python v3.14)"><span class="pre">Any</span></a><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">default</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.4)"><span class="pre">ndarray</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.14)"><span class="pre">None</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.4)"><span class="pre">ndarray</span></a></span></span><a class="reference internal" href="../_modules/corerec/embeddings/pretrained.html#PretrainedEmbeddings.get_batch"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#corerec.embeddings.pretrained.PretrainedEmbeddings.get_batch" title="Link to this definition">#</a></dt>
+<dd><p>Get embeddings for multiple items.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>item_ids</strong> – list of item identifiers</p></li>
+<li><p><strong>default</strong> – default embedding for missing items</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>array of shape (len(item_ids), dim)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="corerec.embeddings.pretrained.PretrainedEmbeddings.most_similar">
+<span class="sig-name descname"><span class="pre">most_similar</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">query</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Any" title="(in Python v3.14)"><span class="pre">Any</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.4)"><span class="pre">ndarray</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">top_k</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.14)"><span class="pre">int</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">10</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">exclude_self</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.14)"><span class="pre">bool</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.List" title="(in Python v3.14)"><span class="pre">List</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#tuple" title="(in Python v3.14)"><span class="pre">tuple</span></a><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="../_modules/corerec/embeddings/pretrained.html#PretrainedEmbeddings.most_similar"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#corerec.embeddings.pretrained.PretrainedEmbeddings.most_similar" title="Link to this definition">#</a></dt>
+<dd><p>Find most similar items.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>query</strong> – item_id or embedding vector</p></li>
+<li><p><strong>top_k</strong> – number of results</p></li>
+<li><p><strong>exclude_self</strong> – exclude the query item from results</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>list of (item_id, similarity) tuples</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="corerec.embeddings.pretrained.PretrainedEmbeddings.save">
+<span class="sig-name descname"><span class="pre">save</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">path</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><span class="pre">str</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/pathlib.html#pathlib.Path" title="(in Python v3.14)"><span class="pre">Path</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.14)"><span class="pre">None</span></a></span></span><a class="reference internal" href="../_modules/corerec/embeddings/pretrained.html#PretrainedEmbeddings.save"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#corerec.embeddings.pretrained.PretrainedEmbeddings.save" title="Link to this definition">#</a></dt>
+<dd><p>Save embeddings to file.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>path</strong> – output path (.npz format)</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
 </section>
 </section>
 </section>
@@ -579,10 +1252,68 @@ document.write(`
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#api-reference">API Reference</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#text-encoder">Text Encoder</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#multimodal-encoder">Multimodal Encoder</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pretrained-embeddings">Pretrained Embeddings</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-corerec.embeddings">API Reference</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#corerec.embeddings.TextEncoder"><code class="docutils literal notranslate"><span class="pre">TextEncoder</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#corerec.embeddings.TextEncoder.__init__"><code class="docutils literal notranslate"><span class="pre">TextEncoder.__init__()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#corerec.embeddings.TextEncoder.embedding_dim"><code class="docutils literal notranslate"><span class="pre">TextEncoder.embedding_dim</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#corerec.embeddings.TextEncoder.encode"><code class="docutils literal notranslate"><span class="pre">TextEncoder.encode()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#corerec.embeddings.TextEncoder.model"><code class="docutils literal notranslate"><span class="pre">TextEncoder.model</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#corerec.embeddings.TextEncoder.similarity"><code class="docutils literal notranslate"><span class="pre">TextEncoder.similarity()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#corerec.embeddings.MultimodalEncoder"><code class="docutils literal notranslate"><span class="pre">MultimodalEncoder</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#corerec.embeddings.MultimodalEncoder.__init__"><code class="docutils literal notranslate"><span class="pre">MultimodalEncoder.__init__()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#corerec.embeddings.MultimodalEncoder.add_encoder"><code class="docutils literal notranslate"><span class="pre">MultimodalEncoder.add_encoder()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#corerec.embeddings.MultimodalEncoder.embedding_dim"><code class="docutils literal notranslate"><span class="pre">MultimodalEncoder.embedding_dim</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#corerec.embeddings.MultimodalEncoder.encode"><code class="docutils literal notranslate"><span class="pre">MultimodalEncoder.encode()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#corerec.embeddings.MultimodalEncoder.encode_batch"><code class="docutils literal notranslate"><span class="pre">MultimodalEncoder.encode_batch()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#corerec.embeddings.PretrainedEmbeddings"><code class="docutils literal notranslate"><span class="pre">PretrainedEmbeddings</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#corerec.embeddings.PretrainedEmbeddings.__init__"><code class="docutils literal notranslate"><span class="pre">PretrainedEmbeddings.__init__()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#corerec.embeddings.PretrainedEmbeddings.dim"><code class="docutils literal notranslate"><span class="pre">PretrainedEmbeddings.dim</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#corerec.embeddings.PretrainedEmbeddings.get"><code class="docutils literal notranslate"><span class="pre">PretrainedEmbeddings.get()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#corerec.embeddings.PretrainedEmbeddings.get_batch"><code class="docutils literal notranslate"><span class="pre">PretrainedEmbeddings.get_batch()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#corerec.embeddings.PretrainedEmbeddings.load"><code class="docutils literal notranslate"><span class="pre">PretrainedEmbeddings.load()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#corerec.embeddings.PretrainedEmbeddings.most_similar"><code class="docutils literal notranslate"><span class="pre">PretrainedEmbeddings.most_similar()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#corerec.embeddings.PretrainedEmbeddings.save"><code class="docutils literal notranslate"><span class="pre">PretrainedEmbeddings.save()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#module-corerec.embeddings.text">Text Encoder</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#corerec.embeddings.text.TextEncoder"><code class="docutils literal notranslate"><span class="pre">TextEncoder</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#corerec.embeddings.text.TextEncoder.__init__"><code class="docutils literal notranslate"><span class="pre">TextEncoder.__init__()</span></code></a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#corerec.embeddings.text.TextEncoder.model"><code class="docutils literal notranslate"><span class="pre">TextEncoder.model</span></code></a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#corerec.embeddings.text.TextEncoder.embedding_dim"><code class="docutils literal notranslate"><span class="pre">TextEncoder.embedding_dim</span></code></a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#corerec.embeddings.text.TextEncoder.encode"><code class="docutils literal notranslate"><span class="pre">TextEncoder.encode()</span></code></a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#corerec.embeddings.text.TextEncoder.similarity"><code class="docutils literal notranslate"><span class="pre">TextEncoder.similarity()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#module-corerec.embeddings.multimodal">Multimodal Encoder</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#corerec.embeddings.multimodal.MultimodalEncoder"><code class="docutils literal notranslate"><span class="pre">MultimodalEncoder</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#corerec.embeddings.multimodal.MultimodalEncoder.__init__"><code class="docutils literal notranslate"><span class="pre">MultimodalEncoder.__init__()</span></code></a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#corerec.embeddings.multimodal.MultimodalEncoder.add_encoder"><code class="docutils literal notranslate"><span class="pre">MultimodalEncoder.add_encoder()</span></code></a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#corerec.embeddings.multimodal.MultimodalEncoder.encode"><code class="docutils literal notranslate"><span class="pre">MultimodalEncoder.encode()</span></code></a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#corerec.embeddings.multimodal.MultimodalEncoder.encode_batch"><code class="docutils literal notranslate"><span class="pre">MultimodalEncoder.encode_batch()</span></code></a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#corerec.embeddings.multimodal.MultimodalEncoder.embedding_dim"><code class="docutils literal notranslate"><span class="pre">MultimodalEncoder.embedding_dim</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#module-corerec.embeddings.pretrained">Pretrained Embeddings</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#corerec.embeddings.pretrained.PretrainedEmbeddings"><code class="docutils literal notranslate"><span class="pre">PretrainedEmbeddings</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#corerec.embeddings.pretrained.PretrainedEmbeddings.__init__"><code class="docutils literal notranslate"><span class="pre">PretrainedEmbeddings.__init__()</span></code></a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#corerec.embeddings.pretrained.PretrainedEmbeddings.load"><code class="docutils literal notranslate"><span class="pre">PretrainedEmbeddings.load()</span></code></a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#corerec.embeddings.pretrained.PretrainedEmbeddings.dim"><code class="docutils literal notranslate"><span class="pre">PretrainedEmbeddings.dim</span></code></a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#corerec.embeddings.pretrained.PretrainedEmbeddings.get"><code class="docutils literal notranslate"><span class="pre">PretrainedEmbeddings.get()</span></code></a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#corerec.embeddings.pretrained.PretrainedEmbeddings.get_batch"><code class="docutils literal notranslate"><span class="pre">PretrainedEmbeddings.get_batch()</span></code></a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#corerec.embeddings.pretrained.PretrainedEmbeddings.most_similar"><code class="docutils literal notranslate"><span class="pre">PretrainedEmbeddings.most_similar()</span></code></a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#corerec.embeddings.pretrained.PretrainedEmbeddings.save"><code class="docutils literal notranslate"><span class="pre">PretrainedEmbeddings.save()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>

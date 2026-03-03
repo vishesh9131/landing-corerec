@@ -14,6 +14,7 @@ Model Categories
    graph_based
    sequential
    bayesian
+   content_based
 
 Quick Reference
 ---------------

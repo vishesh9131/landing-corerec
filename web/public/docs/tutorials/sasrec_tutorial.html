@@ -49,7 +49,7 @@
     <script>DOCUMENTATION_OPTIONS.pagename = 'tutorials/sasrec_tutorial';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="AFM Tutorial: Attentional Factorization Machine" href="afm_tutorial.html" />
+    <link rel="next" title="Bert4Rec Tutorial: BERT for Sequential Recommendation" href="bert4rec_tutorial.html" />
     <link rel="prev" title="NASRec Tutorial: NASRec" href="nasrec_tutorial.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
@@ -197,10 +197,14 @@
 <li class="toctree-l2"><a class="reference internal" href="mind_tutorial.html">MIND Tutorial: MIND</a></li>
 <li class="toctree-l2"><a class="reference internal" href="nasrec_tutorial.html">NASRec Tutorial: NASRec</a></li>
 <li class="toctree-l2 current active"><a class="current reference internal" href="#">SASRec Tutorial: SASRec</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bert4rec_tutorial.html">Bert4Rec Tutorial: BERT for Sequential Recommendation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ncf_tutorial.html">NCF Tutorial: Neural Collaborative Filtering</a></li>
+<li class="toctree-l2"><a class="reference internal" href="sar_tutorial.html">SAR Tutorial: Smart Adaptive Recommendations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lightgcn_tutorial.html">LightGCN Tutorial: Light Graph Convolutional Network</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tfidf_tutorial.html">TFIDF Tutorial: TF-IDF Based Recommender</a></li>
 <li class="toctree-l2"><a class="reference internal" href="afm_tutorial.html">AFM Tutorial: Attentional Factorization Machine</a></li>
 <li class="toctree-l2"><a class="reference internal" href="autofi_tutorial.html">AutoFI Tutorial: Automatic Feature Interaction</a></li>
 <li class="toctree-l2"><a class="reference internal" href="autoint_tutorial.html">AutoInt Tutorial: Automatic Feature Interaction Learning via Self-Attention</a></li>
-<li class="toctree-l2"><a class="reference internal" href="bert4rec_tutorial.html">Bert4Rec Tutorial: BERT for Sequential Recommendation</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bst_tutorial.html">BST Tutorial: Behavior Sequence Transformer</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bivae_tutorial.html">BiVAE Tutorial: Bilateral Variational Autoencoder</a></li>
 <li class="toctree-l2"><a class="reference internal" href="caser_tutorial.html">Caser Tutorial: Convolutional Sequence Embedding Recommendation</a></li>
@@ -224,7 +228,6 @@
 <li class="toctree-l2"><a class="reference internal" href="gatenet_tutorial.html">GateNet Tutorial: Gating Network</a></li>
 <li class="toctree-l2"><a class="reference internal" href="gnn_base_tutorial.html">GNN_base Tutorial: Graph Neural Network Base</a></li>
 <li class="toctree-l2"><a class="reference internal" href="gru_cf_tutorial.html">GRU-CF Tutorial: GRU for Collaborative Filtering</a></li>
-<li class="toctree-l2"><a class="reference internal" href="ncf_tutorial.html">NCF Tutorial: Neural Collaborative Filtering</a></li>
 <li class="toctree-l2"><a class="reference internal" href="nfm_tutorial.html">NFM Tutorial: Neural Factorization Machine</a></li>
 <li class="toctree-l2"><a class="reference internal" href="nextitnet_tutorial.html">NextItNet Tutorial: Next Item Net</a></li>
 <li class="toctree-l2"><a class="reference internal" href="widedeep_tutorial.html">WideDeep Tutorial: Wide &amp; Deep Learning</a></li>
@@ -242,18 +245,15 @@
 <li class="toctree-l2"><a class="reference internal" href="svd_tutorial.html">SVD Tutorial: Singular Value Decomposition</a></li>
 <li class="toctree-l2"><a class="reference internal" href="userbased_tutorial.html">UserBased Tutorial: User-Based Collaborative Filtering</a></li>
 <li class="toctree-l2"><a class="reference internal" href="geoimc_tutorial.html">GeoIMC Tutorial: Geographic Inductive Matrix Completion</a></li>
-<li class="toctree-l2"><a class="reference internal" href="lightgcn_tutorial.html">LightGCN Tutorial: Light Graph Convolutional Network</a></li>
 <li class="toctree-l2"><a class="reference internal" href="lightgcn_base_tutorial.html">LightGCN_Base Tutorial: LightGCN Base</a></li>
 <li class="toctree-l2"><a class="reference internal" href="rbm_tutorial.html">RBM Tutorial: Restricted Boltzmann Machine</a></li>
 <li class="toctree-l2"><a class="reference internal" href="rlrmc_tutorial.html">RLRMC Tutorial: Reinforcement Learning for Recommendation</a></li>
-<li class="toctree-l2"><a class="reference internal" href="sar_tutorial.html">SAR Tutorial: Smart Adaptive Recommendations</a></li>
 <li class="toctree-l2"><a class="reference internal" href="slirec_tutorial.html">SLiRec Tutorial: Sequential List Recommendation</a></li>
 <li class="toctree-l2"><a class="reference internal" href="sum_tutorial.html">SUM Tutorial: Sequential User Model</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpr_tutorial.html">BPR Tutorial: Bayesian Personalized Ranking</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bprmf_tutorial.html">BPRMF Tutorial: Bayesian Personalized Ranking Matrix Factorization</a></li>
 <li class="toctree-l2"><a class="reference internal" href="vmf_tutorial.html">VMF Tutorial: Von Mises-Fisher Distribution</a></li>
 <li class="toctree-l2"><a class="reference internal" href="mind_content_tutorial.html">MIND_Content Tutorial: MIND for Content Filtering</a></li>
-<li class="toctree-l2"><a class="reference internal" href="tfidf_tutorial.html">TFIDF Tutorial: TF-IDF Based Recommender</a></li>
 <li class="toctree-l2"><a class="reference internal" href="pipeline_tutorial.html">Multi-Stage Pipeline Tutorial</a></li>
 <li class="toctree-l2"><a class="reference internal" href="imshow_tutorial.html">Demo Frontends Tutorial</a></li>
 </ul>
@@ -762,11 +762,11 @@ y_i,t = E_t^T · FFN(LN(r_i + E_i))
       </div>
     </a>
     <a class="right-next"
-       href="afm_tutorial.html"
+       href="bert4rec_tutorial.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">AFM Tutorial: Attentional Factorization Machine</p>
+        <p class="prev-next-title">Bert4Rec Tutorial: BERT for Sequential Recommendation</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>

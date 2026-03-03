@@ -197,10 +197,14 @@
 <li class="toctree-l2"><a class="reference internal" href="../tutorials/mind_tutorial.html">MIND Tutorial: MIND</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../tutorials/nasrec_tutorial.html">NASRec Tutorial: NASRec</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../tutorials/sasrec_tutorial.html">SASRec Tutorial: SASRec</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorials/bert4rec_tutorial.html">Bert4Rec Tutorial: BERT for Sequential Recommendation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorials/ncf_tutorial.html">NCF Tutorial: Neural Collaborative Filtering</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorials/sar_tutorial.html">SAR Tutorial: Smart Adaptive Recommendations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorials/lightgcn_tutorial.html">LightGCN Tutorial: Light Graph Convolutional Network</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorials/tfidf_tutorial.html">TFIDF Tutorial: TF-IDF Based Recommender</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../tutorials/afm_tutorial.html">AFM Tutorial: Attentional Factorization Machine</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../tutorials/autofi_tutorial.html">AutoFI Tutorial: Automatic Feature Interaction</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../tutorials/autoint_tutorial.html">AutoInt Tutorial: Automatic Feature Interaction Learning via Self-Attention</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../tutorials/bert4rec_tutorial.html">Bert4Rec Tutorial: BERT for Sequential Recommendation</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../tutorials/bst_tutorial.html">BST Tutorial: Behavior Sequence Transformer</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../tutorials/bivae_tutorial.html">BiVAE Tutorial: Bilateral Variational Autoencoder</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../tutorials/caser_tutorial.html">Caser Tutorial: Convolutional Sequence Embedding Recommendation</a></li>
@@ -224,7 +228,6 @@
 <li class="toctree-l2"><a class="reference internal" href="../tutorials/gatenet_tutorial.html">GateNet Tutorial: Gating Network</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../tutorials/gnn_base_tutorial.html">GNN_base Tutorial: Graph Neural Network Base</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../tutorials/gru_cf_tutorial.html">GRU-CF Tutorial: GRU for Collaborative Filtering</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../tutorials/ncf_tutorial.html">NCF Tutorial: Neural Collaborative Filtering</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../tutorials/nfm_tutorial.html">NFM Tutorial: Neural Factorization Machine</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../tutorials/nextitnet_tutorial.html">NextItNet Tutorial: Next Item Net</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../tutorials/widedeep_tutorial.html">WideDeep Tutorial: Wide &amp; Deep Learning</a></li>
@@ -242,18 +245,15 @@
 <li class="toctree-l2"><a class="reference internal" href="../tutorials/svd_tutorial.html">SVD Tutorial: Singular Value Decomposition</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../tutorials/userbased_tutorial.html">UserBased Tutorial: User-Based Collaborative Filtering</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../tutorials/geoimc_tutorial.html">GeoIMC Tutorial: Geographic Inductive Matrix Completion</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../tutorials/lightgcn_tutorial.html">LightGCN Tutorial: Light Graph Convolutional Network</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../tutorials/lightgcn_base_tutorial.html">LightGCN_Base Tutorial: LightGCN Base</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../tutorials/rbm_tutorial.html">RBM Tutorial: Restricted Boltzmann Machine</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../tutorials/rlrmc_tutorial.html">RLRMC Tutorial: Reinforcement Learning for Recommendation</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../tutorials/sar_tutorial.html">SAR Tutorial: Smart Adaptive Recommendations</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../tutorials/slirec_tutorial.html">SLiRec Tutorial: Sequential List Recommendation</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../tutorials/sum_tutorial.html">SUM Tutorial: Sequential User Model</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../tutorials/bpr_tutorial.html">BPR Tutorial: Bayesian Personalized Ranking</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../tutorials/bprmf_tutorial.html">BPRMF Tutorial: Bayesian Personalized Ranking Matrix Factorization</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../tutorials/vmf_tutorial.html">VMF Tutorial: Von Mises-Fisher Distribution</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../tutorials/mind_content_tutorial.html">MIND_Content Tutorial: MIND for Content Filtering</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../tutorials/tfidf_tutorial.html">TFIDF Tutorial: TF-IDF Based Recommender</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../tutorials/pipeline_tutorial.html">Multi-Stage Pipeline Tutorial</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../tutorials/imshow_tutorial.html">Demo Frontends Tutorial</a></li>
 </ul>
@@ -503,9 +503,39 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#quick-start">Quick Start</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#available-frontends">Available Frontends</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#api-reference">API Reference</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#connector">Connector</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#frontends">Frontends</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#utilities">Utilities</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#module-corerec.imshow.connector">Connector</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#corerec.imshow.connector.Connector"><code class="docutils literal notranslate"><span class="pre">Connector</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#corerec.imshow.connector.Connector.__init__"><code class="docutils literal notranslate"><span class="pre">Connector.__init__()</span></code></a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#corerec.imshow.connector.Connector.get_recommendations"><code class="docutils literal notranslate"><span class="pre">Connector.get_recommendations()</span></code></a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#corerec.imshow.connector.Connector.record_interaction"><code class="docutils literal notranslate"><span class="pre">Connector.record_interaction()</span></code></a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#corerec.imshow.connector.Connector.get_info"><code class="docutils literal notranslate"><span class="pre">Connector.get_info()</span></code></a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#corerec.imshow.connector.Connector.run"><code class="docutils literal notranslate"><span class="pre">Connector.run()</span></code></a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#corerec.imshow.connector.Connector.stop"><code class="docutils literal notranslate"><span class="pre">Connector.stop()</span></code></a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#corerec.imshow.connector.Connector.get_interactions"><code class="docutils literal notranslate"><span class="pre">Connector.get_interactions()</span></code></a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#corerec.imshow.connector.Connector.export_interactions"><code class="docutils literal notranslate"><span class="pre">Connector.export_interactions()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#corerec.imshow.connector.connector"><code class="docutils literal notranslate"><span class="pre">connector()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#module-corerec.imshow.frontends">Frontends</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#corerec.imshow.frontends.available_frontends"><code class="docutils literal notranslate"><span class="pre">available_frontends()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#corerec.imshow.frontends.get_frontend_info"><code class="docutils literal notranslate"><span class="pre">get_frontend_info()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#corerec.imshow.frontends.get_frontend_template"><code class="docutils literal notranslate"><span class="pre">get_frontend_template()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#module-corerec.imshow.utils">Utilities</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#corerec.imshow.utils.validate_prediction_function"><code class="docutils literal notranslate"><span class="pre">validate_prediction_function()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#corerec.imshow.utils.format_recommendations"><code class="docutils literal notranslate"><span class="pre">format_recommendations()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#corerec.imshow.utils.create_sample_data"><code class="docutils literal notranslate"><span class="pre">create_sample_data()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#corerec.imshow.utils.generate_user_id"><code class="docutils literal notranslate"><span class="pre">generate_user_id()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#corerec.imshow.utils.parse_function_args"><code class="docutils literal notranslate"><span class="pre">parse_function_args()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#corerec.imshow.utils.validate_frontend_data"><code class="docutils literal notranslate"><span class="pre">validate_frontend_data()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#corerec.imshow.utils.format_duration"><code class="docutils literal notranslate"><span class="pre">format_duration()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#corerec.imshow.utils.clean_text"><code class="docutils literal notranslate"><span class="pre">clean_text()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#corerec.imshow.utils.get_mock_interaction_data"><code class="docutils literal notranslate"><span class="pre">get_mock_interaction_data()</span></code></a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -544,14 +574,356 @@ document.write(`
 </section>
 <section id="api-reference">
 <h2>API Reference<a class="headerlink" href="#api-reference" title="Link to this heading">#</a></h2>
-<section id="connector">
-<h3>Connector<a class="headerlink" href="#connector" title="Link to this heading">#</a></h3>
+<section id="module-corerec.imshow.connector">
+<span id="connector"></span><h3>Connector<a class="headerlink" href="#module-corerec.imshow.connector" title="Link to this heading">#</a></h3>
+<p>Connector system for plugging user recommendation functions into frontends.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="corerec.imshow.connector.Connector">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">corerec.imshow.connector.</span></span><span class="sig-name descname"><span class="pre">Connector</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">predict_function</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Callable" title="(in Python v3.14)"><span class="pre">Callable</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">frontend</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><span class="pre">str</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'spotify'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">title</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><span class="pre">str</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'Recommendation</span> <span class="pre">Demo'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">description</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><span class="pre">str</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'Powered</span> <span class="pre">by</span> <span class="pre">CoreRec'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">port</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.14)"><span class="pre">int</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">api_port</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.14)"><span class="pre">int</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">debug</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.14)"><span class="pre">bool</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">auto_open</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.14)"><span class="pre">bool</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/corerec/imshow/connector.html#Connector"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#corerec.imshow.connector.Connector" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+<p>Main connector class for plugging recommendation functions into frontends.</p>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">my_recommender</span><span class="p">(</span><span class="n">user_id</span><span class="p">,</span> <span class="n">num_items</span><span class="o">=</span><span class="mi">10</span><span class="p">):</span>
+    <span class="c1"># Your recommendation logic</span>
+    <span class="k">return</span> <span class="p">[</span>
+        <span class="p">{</span><span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;1&quot;</span><span class="p">,</span> <span class="s2">&quot;title&quot;</span><span class="p">:</span> <span class="s2">&quot;Song 1&quot;</span><span class="p">,</span> <span class="s2">&quot;artist&quot;</span><span class="p">:</span> <span class="s2">&quot;Artist 1&quot;</span><span class="p">},</span>
+        <span class="p">{</span><span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;2&quot;</span><span class="p">,</span> <span class="s2">&quot;title&quot;</span><span class="p">:</span> <span class="s2">&quot;Song 2&quot;</span><span class="p">,</span> <span class="s2">&quot;artist&quot;</span><span class="p">:</span> <span class="s2">&quot;Artist 2&quot;</span><span class="p">},</span>
+    <span class="p">]</span>
+
+<span class="c1"># Plug into Spotify frontend</span>
+<span class="n">connector</span> <span class="o">=</span> <span class="n">Connector</span><span class="p">(</span>
+    <span class="n">predict_function</span><span class="o">=</span><span class="n">my_recommender</span><span class="p">,</span>
+    <span class="n">frontend</span><span class="o">=</span><span class="s2">&quot;spotify&quot;</span><span class="p">,</span>
+    <span class="n">title</span><span class="o">=</span><span class="s2">&quot;My Music Recommender&quot;</span><span class="p">,</span>
+    <span class="n">description</span><span class="o">=</span><span class="s2">&quot;Personalized music recommendations&quot;</span>
+<span class="p">)</span>
+
+<span class="c1"># Run the demo</span>
+<span class="n">connector</span><span class="o">.</span><span class="n">run</span><span class="p">()</span>
+</pre></div>
+</div>
+<dl class="py method">
+<dt class="sig sig-object py" id="corerec.imshow.connector.Connector.__init__">
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">predict_function</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Callable" title="(in Python v3.14)"><span class="pre">Callable</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">frontend</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><span class="pre">str</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'spotify'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">title</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><span class="pre">str</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'Recommendation</span> <span class="pre">Demo'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">description</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><span class="pre">str</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'Powered</span> <span class="pre">by</span> <span class="pre">CoreRec'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">port</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.14)"><span class="pre">int</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">api_port</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.14)"><span class="pre">int</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">debug</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.14)"><span class="pre">bool</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">auto_open</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.14)"><span class="pre">bool</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/corerec/imshow/connector.html#Connector.__init__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#corerec.imshow.connector.Connector.__init__" title="Link to this definition">#</a></dt>
+<dd><p>Initialize the connector.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>predict_function</strong> – User’s recommendation function</p></li>
+<li><p><strong>frontend</strong> – Frontend type (“spotify”, “youtube”, “netflix”)</p></li>
+<li><p><strong>title</strong> – Demo title</p></li>
+<li><p><strong>description</strong> – Demo description</p></li>
+<li><p><strong>port</strong> – Frontend server port (auto-assigned if None)</p></li>
+<li><p><strong>api_port</strong> – API server port (auto-assigned if None)</p></li>
+<li><p><strong>debug</strong> – Enable debug mode</p></li>
+<li><p><strong>auto_open</strong> – Automatically open browser</p></li>
+<li><p><strong>**kwargs</strong> – Additional configuration</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="corerec.imshow.connector.Connector.get_recommendations">
+<span class="sig-name descname"><span class="pre">get_recommendations</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">user_id</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><span class="pre">str</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">num_items</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.14)"><span class="pre">int</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">12</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.List" title="(in Python v3.14)"><span class="pre">List</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Dict" title="(in Python v3.14)"><span class="pre">Dict</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><span class="pre">str</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Any" title="(in Python v3.14)"><span class="pre">Any</span></a><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="../_modules/corerec/imshow/connector.html#Connector.get_recommendations"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#corerec.imshow.connector.Connector.get_recommendations" title="Link to this definition">#</a></dt>
+<dd><p>Get recommendations for a user by calling the user’s function.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>user_id</strong> – User identifier</p></li>
+<li><p><strong>num_items</strong> – Number of recommendations to return</p></li>
+<li><p><strong>**kwargs</strong> – Additional arguments</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>List of formatted recommendations</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="corerec.imshow.connector.Connector.record_interaction">
+<span class="sig-name descname"><span class="pre">record_interaction</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">user_id</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><span class="pre">str</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">item_id</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><span class="pre">str</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">action</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><span class="pre">str</span></a></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">metadata</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/corerec/imshow/connector.html#Connector.record_interaction"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#corerec.imshow.connector.Connector.record_interaction" title="Link to this definition">#</a></dt>
+<dd><p>Record user interaction with an item.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>user_id</strong> – User identifier</p></li>
+<li><p><strong>item_id</strong> – Item identifier</p></li>
+<li><p><strong>action</strong> – Action type (play, like, etc.)</p></li>
+<li><p><strong>**metadata</strong> – Additional interaction data</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="corerec.imshow.connector.Connector.get_info">
+<span class="sig-name descname"><span class="pre">get_info</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Dict" title="(in Python v3.14)"><span class="pre">Dict</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><span class="pre">str</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Any" title="(in Python v3.14)"><span class="pre">Any</span></a><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="../_modules/corerec/imshow/connector.html#Connector.get_info"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#corerec.imshow.connector.Connector.get_info" title="Link to this definition">#</a></dt>
+<dd><p>Get connector information.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Connector info dictionary</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="corerec.imshow.connector.Connector.run">
+<span class="sig-name descname"><span class="pre">run</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">background</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.14)"><span class="pre">bool</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">open_browser</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.14)"><span class="pre">bool</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/corerec/imshow/connector.html#Connector.run"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#corerec.imshow.connector.Connector.run" title="Link to this definition">#</a></dt>
+<dd><p>Run the demo interface.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>background</strong> – Run in background (non-blocking)</p></li>
+<li><p><strong>open_browser</strong> – Whether to open browser (uses auto_open if None)</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="corerec.imshow.connector.Connector.stop">
+<span class="sig-name descname"><span class="pre">stop</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/corerec/imshow/connector.html#Connector.stop"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#corerec.imshow.connector.Connector.stop" title="Link to this definition">#</a></dt>
+<dd><p>Stop the demo servers.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="corerec.imshow.connector.Connector.get_interactions">
+<span class="sig-name descname"><span class="pre">get_interactions</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">user_id</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><span class="pre">str</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.List" title="(in Python v3.14)"><span class="pre">List</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Dict" title="(in Python v3.14)"><span class="pre">Dict</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><span class="pre">str</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Any" title="(in Python v3.14)"><span class="pre">Any</span></a><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="../_modules/corerec/imshow/connector.html#Connector.get_interactions"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#corerec.imshow.connector.Connector.get_interactions" title="Link to this definition">#</a></dt>
+<dd><p>Get recorded interactions.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>user_id</strong> – Filter by user ID (optional)</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>List of interactions</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="corerec.imshow.connector.Connector.export_interactions">
+<span class="sig-name descname"><span class="pre">export_interactions</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filename</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><span class="pre">str</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><span class="pre">str</span></a></span></span><a class="reference internal" href="../_modules/corerec/imshow/connector.html#Connector.export_interactions"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#corerec.imshow.connector.Connector.export_interactions" title="Link to this definition">#</a></dt>
+<dd><p>Export interactions to JSON file.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>filename</strong> – Output filename (auto-generated if None)</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Path to exported file</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="corerec.imshow.connector.connector">
+<span class="sig-prename descclassname"><span class="pre">corerec.imshow.connector.</span></span><span class="sig-name descname"><span class="pre">connector</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">predict_function</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Callable" title="(in Python v3.14)"><span class="pre">Callable</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">frontend</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><span class="pre">str</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'spotify'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">title</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><span class="pre">str</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'Recommendation</span> <span class="pre">Demo'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">description</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><span class="pre">str</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'Powered</span> <span class="pre">by</span> <span class="pre">CoreRec'</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#corerec.imshow.connector.Connector" title="corerec.imshow.connector.Connector"><span class="pre">Connector</span></a></span></span><a class="reference internal" href="../_modules/corerec/imshow/connector.html#connector"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#corerec.imshow.connector.connector" title="Link to this definition">#</a></dt>
+<dd><p>Create a connector instance (convenience function).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>predict_function</strong> – User’s recommendation function</p></li>
+<li><p><strong>frontend</strong> – Frontend type</p></li>
+<li><p><strong>title</strong> – Demo title</p></li>
+<li><p><strong>description</strong> – Demo description</p></li>
+<li><p><strong>**kwargs</strong> – Additional configuration</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Connector instance</p>
+</dd>
+</dl>
+</dd></dl>
+
 </section>
-<section id="frontends">
-<h3>Frontends<a class="headerlink" href="#frontends" title="Link to this heading">#</a></h3>
+<section id="module-corerec.imshow.frontends">
+<span id="frontends"></span><h3>Frontends<a class="headerlink" href="#module-corerec.imshow.frontends" title="Link to this heading">#</a></h3>
+<p>Frontend configurations and template management for IMShow.</p>
+<dl class="py function">
+<dt class="sig sig-object py" id="corerec.imshow.frontends.available_frontends">
+<span class="sig-prename descclassname"><span class="pre">corerec.imshow.frontends.</span></span><span class="sig-name descname"><span class="pre">available_frontends</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Dict" title="(in Python v3.14)"><span class="pre">Dict</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><span class="pre">str</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Dict" title="(in Python v3.14)"><span class="pre">Dict</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><span class="pre">str</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Any" title="(in Python v3.14)"><span class="pre">Any</span></a><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="../_modules/corerec/imshow/frontends.html#available_frontends"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#corerec.imshow.frontends.available_frontends" title="Link to this definition">#</a></dt>
+<dd><p>Get available frontend configurations.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Dictionary of frontend configurations</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="corerec.imshow.frontends.get_frontend_info">
+<span class="sig-prename descclassname"><span class="pre">corerec.imshow.frontends.</span></span><span class="sig-name descname"><span class="pre">get_frontend_info</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">frontend</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><span class="pre">str</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Dict" title="(in Python v3.14)"><span class="pre">Dict</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><span class="pre">str</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Any" title="(in Python v3.14)"><span class="pre">Any</span></a><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="../_modules/corerec/imshow/frontends.html#get_frontend_info"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#corerec.imshow.frontends.get_frontend_info" title="Link to this definition">#</a></dt>
+<dd><p>Get information about a specific frontend.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>frontend</strong> – Frontend name</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Frontend configuration dictionary</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="corerec.imshow.frontends.get_frontend_template">
+<span class="sig-prename descclassname"><span class="pre">corerec.imshow.frontends.</span></span><span class="sig-name descname"><span class="pre">get_frontend_template</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">frontend</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><span class="pre">str</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><span class="pre">str</span></a></span></span><a class="reference internal" href="../_modules/corerec/imshow/frontends.html#get_frontend_template"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#corerec.imshow.frontends.get_frontend_template" title="Link to this definition">#</a></dt>
+<dd><p>Get the HTML template for a frontend.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>frontend</strong> – Frontend name</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>HTML template string</p>
+</dd>
+</dl>
+</dd></dl>
+
 </section>
-<section id="utilities">
-<h3>Utilities<a class="headerlink" href="#utilities" title="Link to this heading">#</a></h3>
+<section id="module-corerec.imshow.utils">
+<span id="utilities"></span><h3>Utilities<a class="headerlink" href="#module-corerec.imshow.utils" title="Link to this heading">#</a></h3>
+<p>Utility functions for the IMShow connector system.</p>
+<dl class="py function">
+<dt class="sig sig-object py" id="corerec.imshow.utils.validate_prediction_function">
+<span class="sig-prename descclassname"><span class="pre">corerec.imshow.utils.</span></span><span class="sig-name descname"><span class="pre">validate_prediction_function</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">func</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Callable" title="(in Python v3.14)"><span class="pre">Callable</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.14)"><span class="pre">bool</span></a></span></span><a class="reference internal" href="../_modules/corerec/imshow/utils.html#validate_prediction_function"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#corerec.imshow.utils.validate_prediction_function" title="Link to this definition">#</a></dt>
+<dd><p>Validate that a prediction function has the correct signature and is callable.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>func</strong> – Function to validate</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>True if valid</p>
+</dd>
+<dt class="field-odd">Raises<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/exceptions.html#ValueError" title="(in Python v3.14)"><strong>ValueError</strong></a> – If function is not valid</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="corerec.imshow.utils.format_recommendations">
+<span class="sig-prename descclassname"><span class="pre">corerec.imshow.utils.</span></span><span class="sig-name descname"><span class="pre">format_recommendations</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">recommendations</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.List" title="(in Python v3.14)"><span class="pre">List</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Dict" title="(in Python v3.14)"><span class="pre">Dict</span></a><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.List" title="(in Python v3.14)"><span class="pre">List</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Any" title="(in Python v3.14)"><span class="pre">Any</span></a><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">frontend</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><span class="pre">str</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.List" title="(in Python v3.14)"><span class="pre">List</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Dict" title="(in Python v3.14)"><span class="pre">Dict</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><span class="pre">str</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Any" title="(in Python v3.14)"><span class="pre">Any</span></a><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="../_modules/corerec/imshow/utils.html#format_recommendations"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#corerec.imshow.utils.format_recommendations" title="Link to this definition">#</a></dt>
+<dd><p>Format recommendations to match frontend requirements.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>recommendations</strong> – Raw recommendations from user function</p></li>
+<li><p><strong>frontend</strong> – Frontend type</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Formatted recommendations list</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="corerec.imshow.utils.create_sample_data">
+<span class="sig-prename descclassname"><span class="pre">corerec.imshow.utils.</span></span><span class="sig-name descname"><span class="pre">create_sample_data</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">frontend</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><span class="pre">str</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">num_items</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.14)"><span class="pre">int</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">12</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.List" title="(in Python v3.14)"><span class="pre">List</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Dict" title="(in Python v3.14)"><span class="pre">Dict</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><span class="pre">str</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Any" title="(in Python v3.14)"><span class="pre">Any</span></a><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="../_modules/corerec/imshow/utils.html#create_sample_data"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#corerec.imshow.utils.create_sample_data" title="Link to this definition">#</a></dt>
+<dd><p>Create sample data for a frontend when no recommendations are provided.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>frontend</strong> – Frontend type</p></li>
+<li><p><strong>num_items</strong> – Number of sample items to create</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>List of sample recommendation dictionaries</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="corerec.imshow.utils.generate_user_id">
+<span class="sig-prename descclassname"><span class="pre">corerec.imshow.utils.</span></span><span class="sig-name descname"><span class="pre">generate_user_id</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><span class="pre">str</span></a></span></span><a class="reference internal" href="../_modules/corerec/imshow/utils.html#generate_user_id"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#corerec.imshow.utils.generate_user_id" title="Link to this definition">#</a></dt>
+<dd><p>Generate a random user ID.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="corerec.imshow.utils.parse_function_args">
+<span class="sig-prename descclassname"><span class="pre">corerec.imshow.utils.</span></span><span class="sig-name descname"><span class="pre">parse_function_args</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">func</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Callable" title="(in Python v3.14)"><span class="pre">Callable</span></a></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Dict" title="(in Python v3.14)"><span class="pre">Dict</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><span class="pre">str</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Any" title="(in Python v3.14)"><span class="pre">Any</span></a><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="../_modules/corerec/imshow/utils.html#parse_function_args"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#corerec.imshow.utils.parse_function_args" title="Link to this definition">#</a></dt>
+<dd><p>Parse and prepare arguments for calling a user’s prediction function.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>func</strong> – User’s prediction function</p></li>
+<li><p><strong>**kwargs</strong> – Arguments to potentially pass</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Dictionary of arguments that match the function signature</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="corerec.imshow.utils.validate_frontend_data">
+<span class="sig-prename descclassname"><span class="pre">corerec.imshow.utils.</span></span><span class="sig-name descname"><span class="pre">validate_frontend_data</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.List" title="(in Python v3.14)"><span class="pre">List</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Dict" title="(in Python v3.14)"><span class="pre">Dict</span></a><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">frontend</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><span class="pre">str</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.14)"><span class="pre">bool</span></a></span></span><a class="reference internal" href="../_modules/corerec/imshow/utils.html#validate_frontend_data"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#corerec.imshow.utils.validate_frontend_data" title="Link to this definition">#</a></dt>
+<dd><p>Validate that data has required fields for a frontend.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>data</strong> – List of data items</p></li>
+<li><p><strong>frontend</strong> – Frontend type</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>True if valid</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="corerec.imshow.utils.format_duration">
+<span class="sig-prename descclassname"><span class="pre">corerec.imshow.utils.</span></span><span class="sig-name descname"><span class="pre">format_duration</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">seconds</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.14)"><span class="pre">int</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.14)"><span class="pre">float</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><span class="pre">str</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><span class="pre">str</span></a></span></span><a class="reference internal" href="../_modules/corerec/imshow/utils.html#format_duration"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#corerec.imshow.utils.format_duration" title="Link to this definition">#</a></dt>
+<dd><p>Format duration in different ways based on input.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>seconds</strong> – Duration in seconds or string format</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Formatted duration string</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="corerec.imshow.utils.clean_text">
+<span class="sig-prename descclassname"><span class="pre">corerec.imshow.utils.</span></span><span class="sig-name descname"><span class="pre">clean_text</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">text</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><span class="pre">str</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_length</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.14)"><span class="pre">int</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">100</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><span class="pre">str</span></a></span></span><a class="reference internal" href="../_modules/corerec/imshow/utils.html#clean_text"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#corerec.imshow.utils.clean_text" title="Link to this definition">#</a></dt>
+<dd><p>Clean and truncate text for display.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>text</strong> – Text to clean</p></li>
+<li><p><strong>max_length</strong> – Maximum length</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Cleaned text</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="corerec.imshow.utils.get_mock_interaction_data">
+<span class="sig-prename descclassname"><span class="pre">corerec.imshow.utils.</span></span><span class="sig-name descname"><span class="pre">get_mock_interaction_data</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">user_id</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><span class="pre">str</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">num_interactions</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.14)"><span class="pre">int</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">10</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.List" title="(in Python v3.14)"><span class="pre">List</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Dict" title="(in Python v3.14)"><span class="pre">Dict</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><span class="pre">str</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Any" title="(in Python v3.14)"><span class="pre">Any</span></a><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="../_modules/corerec/imshow/utils.html#get_mock_interaction_data"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#corerec.imshow.utils.get_mock_interaction_data" title="Link to this definition">#</a></dt>
+<dd><p>Generate mock interaction data for testing.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>user_id</strong> – User identifier</p></li>
+<li><p><strong>num_interactions</strong> – Number of interactions to generate</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>List of mock interactions</p>
+</dd>
+</dl>
+</dd></dl>
+
 </section>
 </section>
 </section>
@@ -604,9 +976,39 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#quick-start">Quick Start</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#available-frontends">Available Frontends</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#api-reference">API Reference</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#connector">Connector</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#frontends">Frontends</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#utilities">Utilities</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#module-corerec.imshow.connector">Connector</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#corerec.imshow.connector.Connector"><code class="docutils literal notranslate"><span class="pre">Connector</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#corerec.imshow.connector.Connector.__init__"><code class="docutils literal notranslate"><span class="pre">Connector.__init__()</span></code></a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#corerec.imshow.connector.Connector.get_recommendations"><code class="docutils literal notranslate"><span class="pre">Connector.get_recommendations()</span></code></a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#corerec.imshow.connector.Connector.record_interaction"><code class="docutils literal notranslate"><span class="pre">Connector.record_interaction()</span></code></a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#corerec.imshow.connector.Connector.get_info"><code class="docutils literal notranslate"><span class="pre">Connector.get_info()</span></code></a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#corerec.imshow.connector.Connector.run"><code class="docutils literal notranslate"><span class="pre">Connector.run()</span></code></a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#corerec.imshow.connector.Connector.stop"><code class="docutils literal notranslate"><span class="pre">Connector.stop()</span></code></a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#corerec.imshow.connector.Connector.get_interactions"><code class="docutils literal notranslate"><span class="pre">Connector.get_interactions()</span></code></a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#corerec.imshow.connector.Connector.export_interactions"><code class="docutils literal notranslate"><span class="pre">Connector.export_interactions()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#corerec.imshow.connector.connector"><code class="docutils literal notranslate"><span class="pre">connector()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#module-corerec.imshow.frontends">Frontends</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#corerec.imshow.frontends.available_frontends"><code class="docutils literal notranslate"><span class="pre">available_frontends()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#corerec.imshow.frontends.get_frontend_info"><code class="docutils literal notranslate"><span class="pre">get_frontend_info()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#corerec.imshow.frontends.get_frontend_template"><code class="docutils literal notranslate"><span class="pre">get_frontend_template()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#module-corerec.imshow.utils">Utilities</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#corerec.imshow.utils.validate_prediction_function"><code class="docutils literal notranslate"><span class="pre">validate_prediction_function()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#corerec.imshow.utils.format_recommendations"><code class="docutils literal notranslate"><span class="pre">format_recommendations()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#corerec.imshow.utils.create_sample_data"><code class="docutils literal notranslate"><span class="pre">create_sample_data()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#corerec.imshow.utils.generate_user_id"><code class="docutils literal notranslate"><span class="pre">generate_user_id()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#corerec.imshow.utils.parse_function_args"><code class="docutils literal notranslate"><span class="pre">parse_function_args()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#corerec.imshow.utils.validate_frontend_data"><code class="docutils literal notranslate"><span class="pre">validate_frontend_data()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#corerec.imshow.utils.format_duration"><code class="docutils literal notranslate"><span class="pre">format_duration()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#corerec.imshow.utils.clean_text"><code class="docutils literal notranslate"><span class="pre">clean_text()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#corerec.imshow.utils.get_mock_interaction_data"><code class="docutils literal notranslate"><span class="pre">get_mock_interaction_data()</span></code></a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>

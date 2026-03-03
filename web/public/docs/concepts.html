@@ -197,10 +197,14 @@
 <li class="toctree-l2"><a class="reference internal" href="tutorials/mind_tutorial.html">MIND Tutorial: MIND</a></li>
 <li class="toctree-l2"><a class="reference internal" href="tutorials/nasrec_tutorial.html">NASRec Tutorial: NASRec</a></li>
 <li class="toctree-l2"><a class="reference internal" href="tutorials/sasrec_tutorial.html">SASRec Tutorial: SASRec</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tutorials/bert4rec_tutorial.html">Bert4Rec Tutorial: BERT for Sequential Recommendation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tutorials/ncf_tutorial.html">NCF Tutorial: Neural Collaborative Filtering</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tutorials/sar_tutorial.html">SAR Tutorial: Smart Adaptive Recommendations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tutorials/lightgcn_tutorial.html">LightGCN Tutorial: Light Graph Convolutional Network</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tutorials/tfidf_tutorial.html">TFIDF Tutorial: TF-IDF Based Recommender</a></li>
 <li class="toctree-l2"><a class="reference internal" href="tutorials/afm_tutorial.html">AFM Tutorial: Attentional Factorization Machine</a></li>
 <li class="toctree-l2"><a class="reference internal" href="tutorials/autofi_tutorial.html">AutoFI Tutorial: Automatic Feature Interaction</a></li>
 <li class="toctree-l2"><a class="reference internal" href="tutorials/autoint_tutorial.html">AutoInt Tutorial: Automatic Feature Interaction Learning via Self-Attention</a></li>
-<li class="toctree-l2"><a class="reference internal" href="tutorials/bert4rec_tutorial.html">Bert4Rec Tutorial: BERT for Sequential Recommendation</a></li>
 <li class="toctree-l2"><a class="reference internal" href="tutorials/bst_tutorial.html">BST Tutorial: Behavior Sequence Transformer</a></li>
 <li class="toctree-l2"><a class="reference internal" href="tutorials/bivae_tutorial.html">BiVAE Tutorial: Bilateral Variational Autoencoder</a></li>
 <li class="toctree-l2"><a class="reference internal" href="tutorials/caser_tutorial.html">Caser Tutorial: Convolutional Sequence Embedding Recommendation</a></li>
@@ -224,7 +228,6 @@
 <li class="toctree-l2"><a class="reference internal" href="tutorials/gatenet_tutorial.html">GateNet Tutorial: Gating Network</a></li>
 <li class="toctree-l2"><a class="reference internal" href="tutorials/gnn_base_tutorial.html">GNN_base Tutorial: Graph Neural Network Base</a></li>
 <li class="toctree-l2"><a class="reference internal" href="tutorials/gru_cf_tutorial.html">GRU-CF Tutorial: GRU for Collaborative Filtering</a></li>
-<li class="toctree-l2"><a class="reference internal" href="tutorials/ncf_tutorial.html">NCF Tutorial: Neural Collaborative Filtering</a></li>
 <li class="toctree-l2"><a class="reference internal" href="tutorials/nfm_tutorial.html">NFM Tutorial: Neural Factorization Machine</a></li>
 <li class="toctree-l2"><a class="reference internal" href="tutorials/nextitnet_tutorial.html">NextItNet Tutorial: Next Item Net</a></li>
 <li class="toctree-l2"><a class="reference internal" href="tutorials/widedeep_tutorial.html">WideDeep Tutorial: Wide &amp; Deep Learning</a></li>
@@ -242,18 +245,15 @@
 <li class="toctree-l2"><a class="reference internal" href="tutorials/svd_tutorial.html">SVD Tutorial: Singular Value Decomposition</a></li>
 <li class="toctree-l2"><a class="reference internal" href="tutorials/userbased_tutorial.html">UserBased Tutorial: User-Based Collaborative Filtering</a></li>
 <li class="toctree-l2"><a class="reference internal" href="tutorials/geoimc_tutorial.html">GeoIMC Tutorial: Geographic Inductive Matrix Completion</a></li>
-<li class="toctree-l2"><a class="reference internal" href="tutorials/lightgcn_tutorial.html">LightGCN Tutorial: Light Graph Convolutional Network</a></li>
 <li class="toctree-l2"><a class="reference internal" href="tutorials/lightgcn_base_tutorial.html">LightGCN_Base Tutorial: LightGCN Base</a></li>
 <li class="toctree-l2"><a class="reference internal" href="tutorials/rbm_tutorial.html">RBM Tutorial: Restricted Boltzmann Machine</a></li>
 <li class="toctree-l2"><a class="reference internal" href="tutorials/rlrmc_tutorial.html">RLRMC Tutorial: Reinforcement Learning for Recommendation</a></li>
-<li class="toctree-l2"><a class="reference internal" href="tutorials/sar_tutorial.html">SAR Tutorial: Smart Adaptive Recommendations</a></li>
 <li class="toctree-l2"><a class="reference internal" href="tutorials/slirec_tutorial.html">SLiRec Tutorial: Sequential List Recommendation</a></li>
 <li class="toctree-l2"><a class="reference internal" href="tutorials/sum_tutorial.html">SUM Tutorial: Sequential User Model</a></li>
 <li class="toctree-l2"><a class="reference internal" href="tutorials/bpr_tutorial.html">BPR Tutorial: Bayesian Personalized Ranking</a></li>
 <li class="toctree-l2"><a class="reference internal" href="tutorials/bprmf_tutorial.html">BPRMF Tutorial: Bayesian Personalized Ranking Matrix Factorization</a></li>
 <li class="toctree-l2"><a class="reference internal" href="tutorials/vmf_tutorial.html">VMF Tutorial: Von Mises-Fisher Distribution</a></li>
 <li class="toctree-l2"><a class="reference internal" href="tutorials/mind_content_tutorial.html">MIND_Content Tutorial: MIND for Content Filtering</a></li>
-<li class="toctree-l2"><a class="reference internal" href="tutorials/tfidf_tutorial.html">TFIDF Tutorial: TF-IDF Based Recommender</a></li>
 <li class="toctree-l2"><a class="reference internal" href="tutorials/pipeline_tutorial.html">Multi-Stage Pipeline Tutorial</a></li>
 <li class="toctree-l2"><a class="reference internal" href="tutorials/imshow_tutorial.html">Demo Frontends Tutorial</a></li>
 </ul>
@@ -513,6 +513,7 @@ document.write(`
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#key-components">Key Components</a><ul class="nav section-nav flex-column">
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#base-recommender">Base Recommender</a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#engines">Engines</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#model-tiers">Model Tiers</a></li>
 </ul>
 </li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#workflow">Workflow</a></li>
@@ -595,6 +596,15 @@ document.write(`
 <li><p><strong>Content Filter Engine</strong>: Content-based methods</p></li>
 </ul>
 </section>
+<section id="model-tiers">
+<h4>Model Tiers<a class="headerlink" href="#model-tiers" title="Link to this heading">#</a></h4>
+<p>CoreRec models are organized into two tiers:</p>
+<ul class="simple">
+<li><p><strong>Production Models</strong> (13 models): Fully tested, CI-enforced, and implement the complete <code class="docutils literal notranslate"><span class="pre">BaseRecommender</span></code> interface. These are recommended for production deployments. Examples: DCN, DeepFM, SASRec, NCF, LightGCN.</p></li>
+<li><p><strong>Sandbox Models</strong> (~50 models): Experimental implementations for research and learning. These cover a wide range of published algorithms but are not production-tested. Always validate thoroughly before using in production.</p></li>
+</ul>
+<p>See the <a class="reference internal" href="models/index.html#model-tiers"><span class="std std-ref">Model Documentation</span></a> for the full breakdown.</p>
+</section>
 </section>
 <section id="workflow">
 <h3>Workflow<a class="headerlink" href="#workflow" title="Link to this heading">#</a></h3>
@@ -675,6 +685,7 @@ document.write(`
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#key-components">Key Components</a><ul class="nav section-nav flex-column">
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#base-recommender">Base Recommender</a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#engines">Engines</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#model-tiers">Model Tiers</a></li>
 </ul>
 </li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#workflow">Workflow</a></li>

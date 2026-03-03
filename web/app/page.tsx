@@ -182,7 +182,7 @@ export default function Landing() {
             <Link href="/" className="text-[#27272a] border-b-2 border-[#27272a] pb-0.5 whitespace-nowrap">Home</Link>
             <Link href="/philosophy" className="text-[#71717a] hover:text-[#27272a] transition-colors border-b-2 border-transparent hover:border-[#27272a]/30 pb-0.5 whitespace-nowrap">Philosophy</Link>
             <a href="#showcase" className="text-[#71717a] hover:text-[#27272a] transition-colors border-b-2 border-transparent hover:border-[#27272a]/30 pb-0.5 whitespace-nowrap">Showcase</a>
-            <a href="/docs" className="text-[#71717a] hover:text-[#27272a] transition-colors border-b-2 border-transparent hover:border-[#27272a]/30 pb-0.5 whitespace-nowrap">Docs</a>
+            <a href="/docs/index.html" className="text-[#71717a] hover:text-[#27272a] transition-colors border-b-2 border-transparent hover:border-[#27272a]/30 pb-0.5 whitespace-nowrap">Docs</a>
             <a
               href="https://github.com/vishesh9131/CoreRec"
               target="_blank"
@@ -192,7 +192,7 @@ export default function Landing() {
               GitHub
             </a>
             {isScrolled && (
-              <Link href="/docs" className="ml-2 px-4 py-2 text-xs font-medium uppercase tracking-widest text-[#27272a] bg-[#ebe5da] border border-[#d4a373]/50 hover:bg-[#e5ddd0] hover:border-[#d4a373] transition-colors shrink-0">
+              <Link href="/docs/index.html" className="ml-2 px-4 py-2 text-xs font-medium uppercase tracking-widest text-[#27272a] bg-[#ebe5da] border border-[#d4a373]/50 hover:bg-[#e5ddd0] hover:border-[#d4a373] transition-colors shrink-0">
                 Get Started
               </Link>
             )}
@@ -214,9 +214,9 @@ export default function Landing() {
             <Link href="/" className="text-sm font-medium text-[#27272a] border-b-2 border-[#27272a] pb-1 w-fit" onClick={() => setNavOpen(false)}>Home</Link>
             <Link href="/philosophy" className="text-sm font-medium text-[#71717a] hover:text-[#27272a]" onClick={() => setNavOpen(false)}>Philosophy</Link>
             <a href="#showcase" className="text-sm font-medium text-[#71717a] hover:text-[#27272a]" onClick={() => setNavOpen(false)}>Showcase</a>
-            <a href="/docs" className="text-sm font-medium text-[#71717a] hover:text-[#27272a]" onClick={() => setNavOpen(false)}>Docs</a>
+            <a href="/docs/index.html" className="text-sm font-medium text-[#71717a] hover:text-[#27272a]" onClick={() => setNavOpen(false)}>Docs</a>
             <a href="https://github.com/vishesh9131/CoreRec" target="_blank" rel="noopener noreferrer" className="text-sm font-medium text-[#71717a] hover:text-[#27272a]" onClick={() => setNavOpen(false)}>GitHub</a>
-            <Link href="/docs" className="text-sm font-medium px-4 py-2 mt-2 border border-[#d4a373]/50 bg-[#ebe5da] hover:border-[#d4a373] w-fit" onClick={() => setNavOpen(false)}>Get Started</Link>
+            <Link href="/docs/index.html" className="text-sm font-medium px-4 py-2 mt-2 border border-[#d4a373]/50 bg-[#ebe5da] hover:border-[#d4a373] w-fit" onClick={() => setNavOpen(false)}>Get Started</Link>
           </div>
         )}
       </nav>
@@ -245,7 +245,7 @@ export default function Landing() {
                    <div className="h-px w-12 bg-[#d4a373]" />
                    <span className="text-sm font-mono text-[#71717a]">05</span>
                  </div>
-                 <a href="/docs" className="inline-block mt-6 md:mt-8 px-6 py-3 text-sm font-medium uppercase tracking-widest text-[#27272a] bg-[#ebe5da] border border-[#d4a373]/50 hover:bg-[#e5ddd0] hover:border-[#d4a373] transition-colors select-none [-webkit-tap-highlight-color:transparent]">
+                 <a href="/docs/index.html" className="inline-block mt-6 md:mt-8 px-6 py-3 text-sm font-medium uppercase tracking-widest text-[#27272a] bg-[#ebe5da] border border-[#d4a373]/50 hover:bg-[#e5ddd0] hover:border-[#d4a373] transition-colors select-none [-webkit-tap-highlight-color:transparent]">
                    Get Started
                  </a>
                </Reveal>
@@ -372,7 +372,7 @@ export default function Landing() {
             <span>© 2026 CoreRec Framework</span>
           </div>
           <div className="flex gap-8">
-            <a href="/docs" className="hover:text-[#27272a] transition-colors underline-offset-4 hover:underline">Documentation</a>
+            <a href="/docs/index.html" className="hover:text-[#27272a] transition-colors underline-offset-4 hover:underline">Documentation</a>
             <a href="#" className="hover:text-[#27272a] transition-colors underline-offset-4 hover:underline">License</a>
             <a href="#" className="hover:text-[#27272a] transition-colors underline-offset-4 hover:underline">Twitter</a>
           </div>

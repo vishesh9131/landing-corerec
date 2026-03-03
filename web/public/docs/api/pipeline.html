@@ -197,10 +197,14 @@
 <li class="toctree-l2"><a class="reference internal" href="../tutorials/mind_tutorial.html">MIND Tutorial: MIND</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../tutorials/nasrec_tutorial.html">NASRec Tutorial: NASRec</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../tutorials/sasrec_tutorial.html">SASRec Tutorial: SASRec</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorials/bert4rec_tutorial.html">Bert4Rec Tutorial: BERT for Sequential Recommendation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorials/ncf_tutorial.html">NCF Tutorial: Neural Collaborative Filtering</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorials/sar_tutorial.html">SAR Tutorial: Smart Adaptive Recommendations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorials/lightgcn_tutorial.html">LightGCN Tutorial: Light Graph Convolutional Network</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorials/tfidf_tutorial.html">TFIDF Tutorial: TF-IDF Based Recommender</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../tutorials/afm_tutorial.html">AFM Tutorial: Attentional Factorization Machine</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../tutorials/autofi_tutorial.html">AutoFI Tutorial: Automatic Feature Interaction</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../tutorials/autoint_tutorial.html">AutoInt Tutorial: Automatic Feature Interaction Learning via Self-Attention</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../tutorials/bert4rec_tutorial.html">Bert4Rec Tutorial: BERT for Sequential Recommendation</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../tutorials/bst_tutorial.html">BST Tutorial: Behavior Sequence Transformer</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../tutorials/bivae_tutorial.html">BiVAE Tutorial: Bilateral Variational Autoencoder</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../tutorials/caser_tutorial.html">Caser Tutorial: Convolutional Sequence Embedding Recommendation</a></li>
@@ -224,7 +228,6 @@
 <li class="toctree-l2"><a class="reference internal" href="../tutorials/gatenet_tutorial.html">GateNet Tutorial: Gating Network</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../tutorials/gnn_base_tutorial.html">GNN_base Tutorial: Graph Neural Network Base</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../tutorials/gru_cf_tutorial.html">GRU-CF Tutorial: GRU for Collaborative Filtering</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../tutorials/ncf_tutorial.html">NCF Tutorial: Neural Collaborative Filtering</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../tutorials/nfm_tutorial.html">NFM Tutorial: Neural Factorization Machine</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../tutorials/nextitnet_tutorial.html">NextItNet Tutorial: Next Item Net</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../tutorials/widedeep_tutorial.html">WideDeep Tutorial: Wide &amp; Deep Learning</a></li>
@@ -242,18 +245,15 @@
 <li class="toctree-l2"><a class="reference internal" href="../tutorials/svd_tutorial.html">SVD Tutorial: Singular Value Decomposition</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../tutorials/userbased_tutorial.html">UserBased Tutorial: User-Based Collaborative Filtering</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../tutorials/geoimc_tutorial.html">GeoIMC Tutorial: Geographic Inductive Matrix Completion</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../tutorials/lightgcn_tutorial.html">LightGCN Tutorial: Light Graph Convolutional Network</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../tutorials/lightgcn_base_tutorial.html">LightGCN_Base Tutorial: LightGCN Base</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../tutorials/rbm_tutorial.html">RBM Tutorial: Restricted Boltzmann Machine</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../tutorials/rlrmc_tutorial.html">RLRMC Tutorial: Reinforcement Learning for Recommendation</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../tutorials/sar_tutorial.html">SAR Tutorial: Smart Adaptive Recommendations</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../tutorials/slirec_tutorial.html">SLiRec Tutorial: Sequential List Recommendation</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../tutorials/sum_tutorial.html">SUM Tutorial: Sequential User Model</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../tutorials/bpr_tutorial.html">BPR Tutorial: Bayesian Personalized Ranking</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../tutorials/bprmf_tutorial.html">BPRMF Tutorial: Bayesian Personalized Ranking Matrix Factorization</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../tutorials/vmf_tutorial.html">VMF Tutorial: Von Mises-Fisher Distribution</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../tutorials/mind_content_tutorial.html">MIND_Content Tutorial: MIND for Content Filtering</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../tutorials/tfidf_tutorial.html">TFIDF Tutorial: TF-IDF Based Recommender</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../tutorials/pipeline_tutorial.html">Multi-Stage Pipeline Tutorial</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../tutorials/imshow_tutorial.html">Demo Frontends Tutorial</a></li>
 </ul>
@@ -501,10 +501,96 @@ document.write(`
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#quick-start">Quick Start</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#orchestrator">Orchestrator</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#stage-abstractions">Stage Abstractions</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#configuration">Configuration</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-pipeline">Data Pipeline</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-corerec.pipelines.orchestrator">Orchestrator</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#corerec.pipelines.orchestrator.PipelineConfig"><code class="docutils literal notranslate"><span class="pre">PipelineConfig</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#corerec.pipelines.orchestrator.PipelineConfig.retrieval_k"><code class="docutils literal notranslate"><span class="pre">PipelineConfig.retrieval_k</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#corerec.pipelines.orchestrator.PipelineConfig.ranking_k"><code class="docutils literal notranslate"><span class="pre">PipelineConfig.ranking_k</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#corerec.pipelines.orchestrator.PipelineConfig.final_k"><code class="docutils literal notranslate"><span class="pre">PipelineConfig.final_k</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#corerec.pipelines.orchestrator.PipelineConfig.fusion_strategy"><code class="docutils literal notranslate"><span class="pre">PipelineConfig.fusion_strategy</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#corerec.pipelines.orchestrator.PipelineResult"><code class="docutils literal notranslate"><span class="pre">PipelineResult</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#corerec.pipelines.orchestrator.PipelineResult.items"><code class="docutils literal notranslate"><span class="pre">PipelineResult.items</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#corerec.pipelines.orchestrator.PipelineResult.scores"><code class="docutils literal notranslate"><span class="pre">PipelineResult.scores</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#corerec.pipelines.orchestrator.PipelineResult.retrieval_candidates"><code class="docutils literal notranslate"><span class="pre">PipelineResult.retrieval_candidates</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#corerec.pipelines.orchestrator.PipelineResult.ranking_candidates"><code class="docutils literal notranslate"><span class="pre">PipelineResult.ranking_candidates</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#corerec.pipelines.orchestrator.PipelineResult.final_candidates"><code class="docutils literal notranslate"><span class="pre">PipelineResult.final_candidates</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#corerec.pipelines.orchestrator.PipelineResult.retrieval_ms"><code class="docutils literal notranslate"><span class="pre">PipelineResult.retrieval_ms</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#corerec.pipelines.orchestrator.PipelineResult.ranking_ms"><code class="docutils literal notranslate"><span class="pre">PipelineResult.ranking_ms</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#corerec.pipelines.orchestrator.PipelineResult.reranking_ms"><code class="docutils literal notranslate"><span class="pre">PipelineResult.reranking_ms</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#corerec.pipelines.orchestrator.PipelineResult.total_ms"><code class="docutils literal notranslate"><span class="pre">PipelineResult.total_ms</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#corerec.pipelines.orchestrator.PipelineResult.stage_results"><code class="docutils literal notranslate"><span class="pre">PipelineResult.stage_results</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#corerec.pipelines.orchestrator.PipelineResult.to_list"><code class="docutils literal notranslate"><span class="pre">PipelineResult.to_list()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#corerec.pipelines.orchestrator.RecommendationPipeline"><code class="docutils literal notranslate"><span class="pre">RecommendationPipeline</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#corerec.pipelines.orchestrator.RecommendationPipeline.__init__"><code class="docutils literal notranslate"><span class="pre">RecommendationPipeline.__init__()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#corerec.pipelines.orchestrator.RecommendationPipeline.add_retriever"><code class="docutils literal notranslate"><span class="pre">RecommendationPipeline.add_retriever()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#corerec.pipelines.orchestrator.RecommendationPipeline.set_ranker"><code class="docutils literal notranslate"><span class="pre">RecommendationPipeline.set_ranker()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#corerec.pipelines.orchestrator.RecommendationPipeline.add_reranker"><code class="docutils literal notranslate"><span class="pre">RecommendationPipeline.add_reranker()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#corerec.pipelines.orchestrator.RecommendationPipeline.recommend"><code class="docutils literal notranslate"><span class="pre">RecommendationPipeline.recommend()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#corerec.pipelines.orchestrator.RecommendationPipeline.recommend_batch"><code class="docutils literal notranslate"><span class="pre">RecommendationPipeline.recommend_batch()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-corerec.pipelines.recommendation_pipeline">Stage Abstractions</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#corerec.pipelines.recommendation_pipeline.PipelineStage"><code class="docutils literal notranslate"><span class="pre">PipelineStage</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#corerec.pipelines.recommendation_pipeline.PipelineStage.process"><code class="docutils literal notranslate"><span class="pre">PipelineStage.process()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#corerec.pipelines.recommendation_pipeline.RetrievalStage"><code class="docutils literal notranslate"><span class="pre">RetrievalStage</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#corerec.pipelines.recommendation_pipeline.RetrievalStage.process"><code class="docutils literal notranslate"><span class="pre">RetrievalStage.process()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#corerec.pipelines.recommendation_pipeline.RankingStage"><code class="docutils literal notranslate"><span class="pre">RankingStage</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#corerec.pipelines.recommendation_pipeline.RankingStage.process"><code class="docutils literal notranslate"><span class="pre">RankingStage.process()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#corerec.pipelines.recommendation_pipeline.RerankingStage"><code class="docutils literal notranslate"><span class="pre">RerankingStage</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#corerec.pipelines.recommendation_pipeline.RerankingStage.process"><code class="docutils literal notranslate"><span class="pre">RerankingStage.process()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#corerec.pipelines.recommendation_pipeline.DiversityRule"><code class="docutils literal notranslate"><span class="pre">DiversityRule</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#corerec.pipelines.recommendation_pipeline.DiversityRule.apply"><code class="docutils literal notranslate"><span class="pre">DiversityRule.apply()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#corerec.pipelines.recommendation_pipeline.FreshnessRule"><code class="docutils literal notranslate"><span class="pre">FreshnessRule</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#corerec.pipelines.recommendation_pipeline.FreshnessRule.apply"><code class="docutils literal notranslate"><span class="pre">FreshnessRule.apply()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#corerec.pipelines.recommendation_pipeline.StagePipeline"><code class="docutils literal notranslate"><span class="pre">StagePipeline</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#corerec.pipelines.recommendation_pipeline.StagePipeline.add_stage"><code class="docutils literal notranslate"><span class="pre">StagePipeline.add_stage()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#corerec.pipelines.recommendation_pipeline.StagePipeline.recommend"><code class="docutils literal notranslate"><span class="pre">StagePipeline.recommend()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#corerec.pipelines.recommendation_pipeline.StagePipeline.explain"><code class="docutils literal notranslate"><span class="pre">StagePipeline.explain()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-corerec.pipelines.config">Configuration</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#corerec.pipelines.config.load_pipeline_config"><code class="docutils literal notranslate"><span class="pre">load_pipeline_config()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#corerec.pipelines.config.build_pipeline_from_config"><code class="docutils literal notranslate"><span class="pre">build_pipeline_from_config()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-corerec.pipelines.data_pipeline">Data Pipeline</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#corerec.pipelines.data_pipeline.DataTransformer"><code class="docutils literal notranslate"><span class="pre">DataTransformer</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#corerec.pipelines.data_pipeline.DataTransformer.transform"><code class="docutils literal notranslate"><span class="pre">DataTransformer.transform()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#corerec.pipelines.data_pipeline.DataTransformer.fit"><code class="docutils literal notranslate"><span class="pre">DataTransformer.fit()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#corerec.pipelines.data_pipeline.DataTransformer.fit_transform"><code class="docutils literal notranslate"><span class="pre">DataTransformer.fit_transform()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#corerec.pipelines.data_pipeline.DataPipeline"><code class="docutils literal notranslate"><span class="pre">DataPipeline</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#corerec.pipelines.data_pipeline.DataPipeline.__init__"><code class="docutils literal notranslate"><span class="pre">DataPipeline.__init__()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#corerec.pipelines.data_pipeline.DataPipeline.add"><code class="docutils literal notranslate"><span class="pre">DataPipeline.add()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#corerec.pipelines.data_pipeline.DataPipeline.fit"><code class="docutils literal notranslate"><span class="pre">DataPipeline.fit()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#corerec.pipelines.data_pipeline.DataPipeline.transform"><code class="docutils literal notranslate"><span class="pre">DataPipeline.transform()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#corerec.pipelines.data_pipeline.DataPipeline.fit_transform"><code class="docutils literal notranslate"><span class="pre">DataPipeline.fit_transform()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#corerec.pipelines.data_pipeline.DataPipeline.get_transformers"><code class="docutils literal notranslate"><span class="pre">DataPipeline.get_transformers()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#corerec.pipelines.data_pipeline.DataPipeline.is_fitted"><code class="docutils literal notranslate"><span class="pre">DataPipeline.is_fitted()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
 </ul>
             </nav>
         </div>
@@ -534,17 +620,568 @@ document.write(`
 </pre></div>
 </div>
 </section>
-<section id="orchestrator">
-<h2>Orchestrator<a class="headerlink" href="#orchestrator" title="Link to this heading">#</a></h2>
+<section id="module-corerec.pipelines.orchestrator">
+<span id="orchestrator"></span><h2>Orchestrator<a class="headerlink" href="#module-corerec.pipelines.orchestrator" title="Link to this heading">#</a></h2>
+<p>Recommendation Pipeline</p>
+<p>Orchestrates the multi-stage recommendation process:
+1. Retrieval (multiple sources)
+2. Ranking (scoring)
+3. Reranking (post-processing)</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="corerec.pipelines.orchestrator.PipelineConfig">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">corerec.pipelines.orchestrator.</span></span><span class="sig-name descname"><span class="pre">PipelineConfig</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">retrieval_k</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.14)"><span class="pre">int</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">500</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ranking_k</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.14)"><span class="pre">int</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">100</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">final_k</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.14)"><span class="pre">int</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">10</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fusion_strategy</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><span class="pre">str</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'rrf'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/corerec/pipelines/orchestrator.html#PipelineConfig"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#corerec.pipelines.orchestrator.PipelineConfig" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+<p>Configuration for a recommendation pipeline.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="corerec.pipelines.orchestrator.PipelineConfig.retrieval_k">
+<span class="sig-name descname"><span class="pre">retrieval_k</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.14)"><span class="pre">int</span></a></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">500</span></em><a class="headerlink" href="#corerec.pipelines.orchestrator.PipelineConfig.retrieval_k" title="Link to this definition">#</a></dt>
+<dd><p>candidates to retrieve per retriever</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="corerec.pipelines.orchestrator.PipelineConfig.ranking_k">
+<span class="sig-name descname"><span class="pre">ranking_k</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.14)"><span class="pre">int</span></a></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">100</span></em><a class="headerlink" href="#corerec.pipelines.orchestrator.PipelineConfig.ranking_k" title="Link to this definition">#</a></dt>
+<dd><p>candidates to pass to ranking</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="corerec.pipelines.orchestrator.PipelineConfig.final_k">
+<span class="sig-name descname"><span class="pre">final_k</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.14)"><span class="pre">int</span></a></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">10</span></em><a class="headerlink" href="#corerec.pipelines.orchestrator.PipelineConfig.final_k" title="Link to this definition">#</a></dt>
+<dd><p>final recommendations to return</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="corerec.pipelines.orchestrator.PipelineConfig.fusion_strategy">
+<span class="sig-name descname"><span class="pre">fusion_strategy</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><span class="pre">str</span></a></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'rrf'</span></em><a class="headerlink" href="#corerec.pipelines.orchestrator.PipelineConfig.fusion_strategy" title="Link to this definition">#</a></dt>
+<dd><p>how to merge retrieval results</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="corerec.pipelines.orchestrator.PipelineResult">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">corerec.pipelines.orchestrator.</span></span><span class="sig-name descname"><span class="pre">PipelineResult</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">items:</span> <span class="pre">~typing.List[~typing.Any],</span> <span class="pre">scores:</span> <span class="pre">~typing.List[float],</span> <span class="pre">retrieval_candidates:</span> <span class="pre">int</span> <span class="pre">=</span> <span class="pre">0,</span> <span class="pre">ranking_candidates:</span> <span class="pre">int</span> <span class="pre">=</span> <span class="pre">0,</span> <span class="pre">final_candidates:</span> <span class="pre">int</span> <span class="pre">=</span> <span class="pre">0,</span> <span class="pre">retrieval_ms:</span> <span class="pre">float</span> <span class="pre">=</span> <span class="pre">0.0,</span> <span class="pre">ranking_ms:</span> <span class="pre">float</span> <span class="pre">=</span> <span class="pre">0.0,</span> <span class="pre">reranking_ms:</span> <span class="pre">float</span> <span class="pre">=</span> <span class="pre">0.0,</span> <span class="pre">total_ms:</span> <span class="pre">float</span> <span class="pre">=</span> <span class="pre">0.0,</span> <span class="pre">stage_results:</span> <span class="pre">~typing.Dict[str,</span> <span class="pre">~typing.Any]</span> <span class="pre">=</span> <span class="pre">&lt;factory&gt;</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/corerec/pipelines/orchestrator.html#PipelineResult"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#corerec.pipelines.orchestrator.PipelineResult" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+<p>Output from a pipeline recommendation.</p>
+<p>Includes the final recommendations plus debugging info
+about what happened at each stage.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="corerec.pipelines.orchestrator.PipelineResult.items">
+<span class="sig-name descname"><span class="pre">items</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.List" title="(in Python v3.14)"><span class="pre">List</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Any" title="(in Python v3.14)"><span class="pre">Any</span></a><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#corerec.pipelines.orchestrator.PipelineResult.items" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="corerec.pipelines.orchestrator.PipelineResult.scores">
+<span class="sig-name descname"><span class="pre">scores</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.List" title="(in Python v3.14)"><span class="pre">List</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.14)"><span class="pre">float</span></a><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#corerec.pipelines.orchestrator.PipelineResult.scores" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="corerec.pipelines.orchestrator.PipelineResult.retrieval_candidates">
+<span class="sig-name descname"><span class="pre">retrieval_candidates</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.14)"><span class="pre">int</span></a></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">0</span></em><a class="headerlink" href="#corerec.pipelines.orchestrator.PipelineResult.retrieval_candidates" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="corerec.pipelines.orchestrator.PipelineResult.ranking_candidates">
+<span class="sig-name descname"><span class="pre">ranking_candidates</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.14)"><span class="pre">int</span></a></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">0</span></em><a class="headerlink" href="#corerec.pipelines.orchestrator.PipelineResult.ranking_candidates" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="corerec.pipelines.orchestrator.PipelineResult.final_candidates">
+<span class="sig-name descname"><span class="pre">final_candidates</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.14)"><span class="pre">int</span></a></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">0</span></em><a class="headerlink" href="#corerec.pipelines.orchestrator.PipelineResult.final_candidates" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="corerec.pipelines.orchestrator.PipelineResult.retrieval_ms">
+<span class="sig-name descname"><span class="pre">retrieval_ms</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.14)"><span class="pre">float</span></a></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">0.0</span></em><a class="headerlink" href="#corerec.pipelines.orchestrator.PipelineResult.retrieval_ms" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="corerec.pipelines.orchestrator.PipelineResult.ranking_ms">
+<span class="sig-name descname"><span class="pre">ranking_ms</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.14)"><span class="pre">float</span></a></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">0.0</span></em><a class="headerlink" href="#corerec.pipelines.orchestrator.PipelineResult.ranking_ms" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="corerec.pipelines.orchestrator.PipelineResult.reranking_ms">
+<span class="sig-name descname"><span class="pre">reranking_ms</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.14)"><span class="pre">float</span></a></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">0.0</span></em><a class="headerlink" href="#corerec.pipelines.orchestrator.PipelineResult.reranking_ms" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="corerec.pipelines.orchestrator.PipelineResult.total_ms">
+<span class="sig-name descname"><span class="pre">total_ms</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.14)"><span class="pre">float</span></a></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">0.0</span></em><a class="headerlink" href="#corerec.pipelines.orchestrator.PipelineResult.total_ms" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="corerec.pipelines.orchestrator.PipelineResult.stage_results">
+<span class="sig-name descname"><span class="pre">stage_results</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Dict" title="(in Python v3.14)"><span class="pre">Dict</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><span class="pre">str</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Any" title="(in Python v3.14)"><span class="pre">Any</span></a><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#corerec.pipelines.orchestrator.PipelineResult.stage_results" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="corerec.pipelines.orchestrator.PipelineResult.to_list">
+<span class="sig-name descname"><span class="pre">to_list</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.List" title="(in Python v3.14)"><span class="pre">List</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Tuple" title="(in Python v3.14)"><span class="pre">Tuple</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Any" title="(in Python v3.14)"><span class="pre">Any</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.14)"><span class="pre">float</span></a><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="../_modules/corerec/pipelines/orchestrator.html#PipelineResult.to_list"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#corerec.pipelines.orchestrator.PipelineResult.to_list" title="Link to this definition">#</a></dt>
+<dd><p>Return as list of (item_id, score) tuples.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="corerec.pipelines.orchestrator.RecommendationPipeline">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">corerec.pipelines.orchestrator.</span></span><span class="sig-name descname"><span class="pre">RecommendationPipeline</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">config</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#corerec.pipelines.orchestrator.PipelineConfig" title="corerec.pipelines.orchestrator.PipelineConfig"><span class="pre">PipelineConfig</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.14)"><span class="pre">None</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><span class="pre">str</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'pipeline'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/corerec/pipelines/orchestrator.html#RecommendationPipeline"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#corerec.pipelines.orchestrator.RecommendationPipeline" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+<p>Multi-stage recommendation pipeline.</p>
+<p>Combines multiple retrievers, a ranker, and multiple rerankers
+into a single cohesive pipeline. Handles data flow, timing,
+and provides debugging info.</p>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pipeline</span> <span class="o">=</span> <span class="n">RecommendationPipeline</span><span class="p">()</span>
+
+<span class="c1"># add retrieval sources (multiple is fine)</span>
+<span class="n">pipeline</span><span class="o">.</span><span class="n">add_retriever</span><span class="p">(</span><span class="n">collaborative_retriever</span><span class="p">,</span> <span class="n">weight</span><span class="o">=</span><span class="mf">1.0</span><span class="p">)</span>
+<span class="n">pipeline</span><span class="o">.</span><span class="n">add_retriever</span><span class="p">(</span><span class="n">semantic_retriever</span><span class="p">,</span> <span class="n">weight</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
+
+<span class="c1"># set the ranker (only one)</span>
+<span class="n">pipeline</span><span class="o">.</span><span class="n">set_ranker</span><span class="p">(</span><span class="n">pointwise_ranker</span><span class="p">)</span>
+
+<span class="c1"># add rerankers (applied in order)</span>
+<span class="n">pipeline</span><span class="o">.</span><span class="n">add_reranker</span><span class="p">(</span><span class="n">diversity_reranker</span><span class="p">)</span>
+<span class="n">pipeline</span><span class="o">.</span><span class="n">add_reranker</span><span class="p">(</span><span class="n">business_rules_reranker</span><span class="p">)</span>
+
+<span class="c1"># get recommendations</span>
+<span class="n">result</span> <span class="o">=</span> <span class="n">pipeline</span><span class="o">.</span><span class="n">recommend</span><span class="p">(</span>
+    <span class="n">user_id</span><span class="o">=</span><span class="mi">123</span><span class="p">,</span>
+    <span class="n">context</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;session_id&#39;</span><span class="p">:</span> <span class="s1">&#39;abc&#39;</span><span class="p">},</span>
+    <span class="n">top_k</span><span class="o">=</span><span class="mi">10</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<dl class="py method">
+<dt class="sig sig-object py" id="corerec.pipelines.orchestrator.RecommendationPipeline.__init__">
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">config</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#corerec.pipelines.orchestrator.PipelineConfig" title="corerec.pipelines.orchestrator.PipelineConfig"><span class="pre">PipelineConfig</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.14)"><span class="pre">None</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><span class="pre">str</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'pipeline'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/corerec/pipelines/orchestrator.html#RecommendationPipeline.__init__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#corerec.pipelines.orchestrator.RecommendationPipeline.__init__" title="Link to this definition">#</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>config</strong> – pipeline configuration</p></li>
+<li><p><strong>name</strong> – identifier for this pipeline</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="corerec.pipelines.orchestrator.RecommendationPipeline.add_retriever">
+<span class="sig-name descname"><span class="pre">add_retriever</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">retriever</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="retrieval.html#corerec.retrieval.base.BaseRetriever" title="corerec.retrieval.base.BaseRetriever"><span class="pre">BaseRetriever</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">weight</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.14)"><span class="pre">float</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">1.0</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#corerec.pipelines.orchestrator.RecommendationPipeline" title="corerec.pipelines.orchestrator.RecommendationPipeline"><span class="pre">RecommendationPipeline</span></a></span></span><a class="reference internal" href="../_modules/corerec/pipelines/orchestrator.html#RecommendationPipeline.add_retriever"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#corerec.pipelines.orchestrator.RecommendationPipeline.add_retriever" title="Link to this definition">#</a></dt>
+<dd><p>Add a retrieval source.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>retriever</strong> – the retriever to add</p></li>
+<li><p><strong>weight</strong> – weight for ensemble fusion (higher = more influence)</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="corerec.pipelines.orchestrator.RecommendationPipeline.set_ranker">
+<span class="sig-name descname"><span class="pre">set_ranker</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ranker</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="ranking.html#corerec.ranking.base.BaseRanker" title="corerec.ranking.base.BaseRanker"><span class="pre">BaseRanker</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#corerec.pipelines.orchestrator.RecommendationPipeline" title="corerec.pipelines.orchestrator.RecommendationPipeline"><span class="pre">RecommendationPipeline</span></a></span></span><a class="reference internal" href="../_modules/corerec/pipelines/orchestrator.html#RecommendationPipeline.set_ranker"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#corerec.pipelines.orchestrator.RecommendationPipeline.set_ranker" title="Link to this definition">#</a></dt>
+<dd><p>Set the ranking model.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>ranker</strong> – the ranker to use for Stage 2</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="corerec.pipelines.orchestrator.RecommendationPipeline.add_reranker">
+<span class="sig-name descname"><span class="pre">add_reranker</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">reranker</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="reranking.html#corerec.reranking.base.BaseReranker" title="corerec.reranking.base.BaseReranker"><span class="pre">BaseReranker</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#corerec.pipelines.orchestrator.RecommendationPipeline" title="corerec.pipelines.orchestrator.RecommendationPipeline"><span class="pre">RecommendationPipeline</span></a></span></span><a class="reference internal" href="../_modules/corerec/pipelines/orchestrator.html#RecommendationPipeline.add_reranker"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#corerec.pipelines.orchestrator.RecommendationPipeline.add_reranker" title="Link to this definition">#</a></dt>
+<dd><p>Add a reranking step.</p>
+<p>Rerankers are applied in the order they’re added.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>reranker</strong> – the reranker to add</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="corerec.pipelines.orchestrator.RecommendationPipeline.recommend">
+<span class="sig-name descname"><span class="pre">recommend</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">query</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Any" title="(in Python v3.14)"><span class="pre">Any</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">context</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Dict" title="(in Python v3.14)"><span class="pre">Dict</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><span class="pre">str</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Any" title="(in Python v3.14)"><span class="pre">Any</span></a><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.14)"><span class="pre">None</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">top_k</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.14)"><span class="pre">int</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.14)"><span class="pre">None</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#corerec.pipelines.orchestrator.PipelineResult" title="corerec.pipelines.orchestrator.PipelineResult"><span class="pre">PipelineResult</span></a></span></span><a class="reference internal" href="../_modules/corerec/pipelines/orchestrator.html#RecommendationPipeline.recommend"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#corerec.pipelines.orchestrator.RecommendationPipeline.recommend" title="Link to this definition">#</a></dt>
+<dd><p>Generate recommendations.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>query</strong> – user_id, text query, or embedding</p></li>
+<li><p><strong>context</strong> – user features, session info, etc.</p></li>
+<li><p><strong>top_k</strong> – number of final recommendations (overrides config)</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>PipelineResult with recommendations and timing info</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="corerec.pipelines.orchestrator.RecommendationPipeline.recommend_batch">
+<span class="sig-name descname"><span class="pre">recommend_batch</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">queries</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.List" title="(in Python v3.14)"><span class="pre">List</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Any" title="(in Python v3.14)"><span class="pre">Any</span></a><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">contexts</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.List" title="(in Python v3.14)"><span class="pre">List</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Dict" title="(in Python v3.14)"><span class="pre">Dict</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><span class="pre">str</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Any" title="(in Python v3.14)"><span class="pre">Any</span></a><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.14)"><span class="pre">None</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">top_k</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.14)"><span class="pre">int</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.14)"><span class="pre">None</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.List" title="(in Python v3.14)"><span class="pre">List</span></a><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#corerec.pipelines.orchestrator.PipelineResult" title="corerec.pipelines.orchestrator.PipelineResult"><span class="pre">PipelineResult</span></a><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="../_modules/corerec/pipelines/orchestrator.html#RecommendationPipeline.recommend_batch"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#corerec.pipelines.orchestrator.RecommendationPipeline.recommend_batch" title="Link to this definition">#</a></dt>
+<dd><p>Batch recommendation for multiple queries.</p>
+<p>Default implementation loops; can be optimized in subclasses.</p>
+</dd></dl>
+
+</dd></dl>
+
 </section>
-<section id="stage-abstractions">
-<h2>Stage Abstractions<a class="headerlink" href="#stage-abstractions" title="Link to this heading">#</a></h2>
+<section id="module-corerec.pipelines.recommendation_pipeline">
+<span id="stage-abstractions"></span><h2>Stage Abstractions<a class="headerlink" href="#module-corerec.pipelines.recommendation_pipeline" title="Link to this heading">#</a></h2>
+<p>Modern RecSys pipeline - mimics industry standard approach.</p>
+<p>This handles the full flow: retrieval -&gt; ranking -&gt; reranking.
+Each stage filters candidates progressively for speed+accuracy.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="corerec.pipelines.recommendation_pipeline.PipelineStage">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">corerec.pipelines.recommendation_pipeline.</span></span><span class="sig-name descname"><span class="pre">PipelineStage</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><span class="pre">str</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">config</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Dict" title="(in Python v3.14)"><span class="pre">Dict</span></a></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/corerec/pipelines/recommendation_pipeline.html#PipelineStage"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#corerec.pipelines.recommendation_pipeline.PipelineStage" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/abc.html#abc.ABC" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">ABC</span></code></a></p>
+<p>Base for stages in the rec pipeline.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="corerec.pipelines.recommendation_pipeline.PipelineStage.process">
+<em class="property"><span class="k"><span class="pre">abstractmethod</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">process</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">user_data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Dict" title="(in Python v3.14)"><span class="pre">Dict</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">item_pool</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.List" title="(in Python v3.14)"><span class="pre">List</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">context</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Dict" title="(in Python v3.14)"><span class="pre">Dict</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.List" title="(in Python v3.14)"><span class="pre">List</span></a></span></span><a class="reference internal" href="../_modules/corerec/pipelines/recommendation_pipeline.html#PipelineStage.process"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#corerec.pipelines.recommendation_pipeline.PipelineStage.process" title="Link to this definition">#</a></dt>
+<dd><p>Transform input to output candidates.</p>
+<p>user_data: info about the user (features, history, etc)
+item_pool: candidate items to score/filter
+context: metadata that might be useful</p>
+<p>Returns: filtered/scored list of items</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="corerec.pipelines.recommendation_pipeline.RetrievalStage">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">corerec.pipelines.recommendation_pipeline.</span></span><span class="sig-name descname"><span class="pre">RetrievalStage</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">model</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">index</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">config</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Dict" title="(in Python v3.14)"><span class="pre">Dict</span></a></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/corerec/pipelines/recommendation_pipeline.html#RetrievalStage"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#corerec.pipelines.recommendation_pipeline.RetrievalStage" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#corerec.pipelines.recommendation_pipeline.PipelineStage" title="corerec.pipelines.recommendation_pipeline.PipelineStage"><code class="xref py py-class docutils literal notranslate"><span class="pre">PipelineStage</span></code></a></p>
+<p>Fast candidate generation - turn millions into thousands.</p>
+<p>Uses vector similarity (ANN search) for speed.
+Goal: recall over precision.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="corerec.pipelines.recommendation_pipeline.RetrievalStage.process">
+<span class="sig-name descname"><span class="pre">process</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">user_data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Dict" title="(in Python v3.14)"><span class="pre">Dict</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">item_pool</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.List" title="(in Python v3.14)"><span class="pre">List</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">context</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Dict" title="(in Python v3.14)"><span class="pre">Dict</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.List" title="(in Python v3.14)"><span class="pre">List</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Tuple" title="(in Python v3.14)"><span class="pre">Tuple</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Any" title="(in Python v3.14)"><span class="pre">Any</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.14)"><span class="pre">float</span></a><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="../_modules/corerec/pipelines/recommendation_pipeline.html#RetrievalStage.process"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#corerec.pipelines.recommendation_pipeline.RetrievalStage.process" title="Link to this definition">#</a></dt>
+<dd><p>Pull top-k candidates using vector similarity.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="corerec.pipelines.recommendation_pipeline.RankingStage">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">corerec.pipelines.recommendation_pipeline.</span></span><span class="sig-name descname"><span class="pre">RankingStage</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">model</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">config</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Dict" title="(in Python v3.14)"><span class="pre">Dict</span></a></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/corerec/pipelines/recommendation_pipeline.html#RankingStage"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#corerec.pipelines.recommendation_pipeline.RankingStage" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#corerec.pipelines.recommendation_pipeline.PipelineStage" title="corerec.pipelines.recommendation_pipeline.PipelineStage"><code class="xref py py-class docutils literal notranslate"><span class="pre">PipelineStage</span></code></a></p>
+<p>Heavy scoring - turn thousands into tens.</p>
+<p>Uses complex feature interactions (DCN, DeepFM, etc).
+Goal: precision.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="corerec.pipelines.recommendation_pipeline.RankingStage.process">
+<span class="sig-name descname"><span class="pre">process</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">user_data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Dict" title="(in Python v3.14)"><span class="pre">Dict</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">candidates</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.List" title="(in Python v3.14)"><span class="pre">List</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Tuple" title="(in Python v3.14)"><span class="pre">Tuple</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Any" title="(in Python v3.14)"><span class="pre">Any</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.14)"><span class="pre">float</span></a><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">context</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Dict" title="(in Python v3.14)"><span class="pre">Dict</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.List" title="(in Python v3.14)"><span class="pre">List</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Tuple" title="(in Python v3.14)"><span class="pre">Tuple</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Any" title="(in Python v3.14)"><span class="pre">Any</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.14)"><span class="pre">float</span></a><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="../_modules/corerec/pipelines/recommendation_pipeline.html#RankingStage.process"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#corerec.pipelines.recommendation_pipeline.RankingStage.process" title="Link to this definition">#</a></dt>
+<dd><p>Score candidates with complex model.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="corerec.pipelines.recommendation_pipeline.RerankingStage">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">corerec.pipelines.recommendation_pipeline.</span></span><span class="sig-name descname"><span class="pre">RerankingStage</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">rules</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.List" title="(in Python v3.14)"><span class="pre">List</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">config</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Dict" title="(in Python v3.14)"><span class="pre">Dict</span></a></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/corerec/pipelines/recommendation_pipeline.html#RerankingStage"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#corerec.pipelines.recommendation_pipeline.RerankingStage" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#corerec.pipelines.recommendation_pipeline.PipelineStage" title="corerec.pipelines.recommendation_pipeline.PipelineStage"><code class="xref py py-class docutils literal notranslate"><span class="pre">PipelineStage</span></code></a></p>
+<p>Final polish - apply business rules, diversity, freshness.</p>
+<p>Can also use RL or LLM for context-aware adjustment.
+Goal: user satisfaction + business objectives.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="corerec.pipelines.recommendation_pipeline.RerankingStage.process">
+<span class="sig-name descname"><span class="pre">process</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">user_data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Dict" title="(in Python v3.14)"><span class="pre">Dict</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">candidates</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.List" title="(in Python v3.14)"><span class="pre">List</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Tuple" title="(in Python v3.14)"><span class="pre">Tuple</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Any" title="(in Python v3.14)"><span class="pre">Any</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.14)"><span class="pre">float</span></a><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">context</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Dict" title="(in Python v3.14)"><span class="pre">Dict</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.List" title="(in Python v3.14)"><span class="pre">List</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Tuple" title="(in Python v3.14)"><span class="pre">Tuple</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Any" title="(in Python v3.14)"><span class="pre">Any</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.14)"><span class="pre">float</span></a><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="../_modules/corerec/pipelines/recommendation_pipeline.html#RerankingStage.process"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#corerec.pipelines.recommendation_pipeline.RerankingStage.process" title="Link to this definition">#</a></dt>
+<dd><p>Apply rules to adjust ranking.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="corerec.pipelines.recommendation_pipeline.DiversityRule">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">corerec.pipelines.recommendation_pipeline.</span></span><span class="sig-name descname"><span class="pre">DiversityRule</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">max_similar</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.14)"><span class="pre">int</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">3</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/corerec/pipelines/recommendation_pipeline.html#DiversityRule"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#corerec.pipelines.recommendation_pipeline.DiversityRule" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+<p>Prevent showing too many similar items.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="corerec.pipelines.recommendation_pipeline.DiversityRule.apply">
+<span class="sig-name descname"><span class="pre">apply</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">candidates</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.List" title="(in Python v3.14)"><span class="pre">List</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Tuple" title="(in Python v3.14)"><span class="pre">Tuple</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Any" title="(in Python v3.14)"><span class="pre">Any</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.14)"><span class="pre">float</span></a><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">user_data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Dict" title="(in Python v3.14)"><span class="pre">Dict</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">context</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Dict" title="(in Python v3.14)"><span class="pre">Dict</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.List" title="(in Python v3.14)"><span class="pre">List</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Tuple" title="(in Python v3.14)"><span class="pre">Tuple</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Any" title="(in Python v3.14)"><span class="pre">Any</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.14)"><span class="pre">float</span></a><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="../_modules/corerec/pipelines/recommendation_pipeline.html#DiversityRule.apply"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#corerec.pipelines.recommendation_pipeline.DiversityRule.apply" title="Link to this definition">#</a></dt>
+<dd><p>Enforce diversity by clustering candidates.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="corerec.pipelines.recommendation_pipeline.FreshnessRule">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">corerec.pipelines.recommendation_pipeline.</span></span><span class="sig-name descname"><span class="pre">FreshnessRule</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">boost_factor</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.14)"><span class="pre">float</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">1.2</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/corerec/pipelines/recommendation_pipeline.html#FreshnessRule"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#corerec.pipelines.recommendation_pipeline.FreshnessRule" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+<p>Boost newer items.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="corerec.pipelines.recommendation_pipeline.FreshnessRule.apply">
+<span class="sig-name descname"><span class="pre">apply</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">candidates</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.List" title="(in Python v3.14)"><span class="pre">List</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Tuple" title="(in Python v3.14)"><span class="pre">Tuple</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Any" title="(in Python v3.14)"><span class="pre">Any</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.14)"><span class="pre">float</span></a><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">user_data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Dict" title="(in Python v3.14)"><span class="pre">Dict</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">context</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Dict" title="(in Python v3.14)"><span class="pre">Dict</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.List" title="(in Python v3.14)"><span class="pre">List</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Tuple" title="(in Python v3.14)"><span class="pre">Tuple</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Any" title="(in Python v3.14)"><span class="pre">Any</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.14)"><span class="pre">float</span></a><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="../_modules/corerec/pipelines/recommendation_pipeline.html#FreshnessRule.apply"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#corerec.pipelines.recommendation_pipeline.FreshnessRule.apply" title="Link to this definition">#</a></dt>
+<dd><p>Apply recency boost.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="corerec.pipelines.recommendation_pipeline.StagePipeline">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">corerec.pipelines.recommendation_pipeline.</span></span><span class="sig-name descname"><span class="pre">StagePipeline</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">config</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Dict" title="(in Python v3.14)"><span class="pre">Dict</span></a></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/corerec/pipelines/recommendation_pipeline.html#StagePipeline"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#corerec.pipelines.recommendation_pipeline.StagePipeline" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+<p>Stage-based pipeline orchestrator.</p>
+<p>A simpler pipeline that chains PipelineStage instances sequentially.
+For the full-featured orchestrator with retrieval/ranking/reranking
+integration, use RecommendationPipeline from corerec.pipelines.orchestrator.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="corerec.pipelines.recommendation_pipeline.StagePipeline.add_stage">
+<span class="sig-name descname"><span class="pre">add_stage</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">stage</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#corerec.pipelines.recommendation_pipeline.PipelineStage" title="corerec.pipelines.recommendation_pipeline.PipelineStage"><span class="pre">PipelineStage</span></a></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/corerec/pipelines/recommendation_pipeline.html#StagePipeline.add_stage"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#corerec.pipelines.recommendation_pipeline.StagePipeline.add_stage" title="Link to this definition">#</a></dt>
+<dd><p>Add a processing stage to the pipeline.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="corerec.pipelines.recommendation_pipeline.StagePipeline.recommend">
+<span class="sig-name descname"><span class="pre">recommend</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">user_data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Dict" title="(in Python v3.14)"><span class="pre">Dict</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">item_pool</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.List" title="(in Python v3.14)"><span class="pre">List</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">top_k</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.14)"><span class="pre">int</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">10</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">context</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Dict" title="(in Python v3.14)"><span class="pre">Dict</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.14)"><span class="pre">None</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.List" title="(in Python v3.14)"><span class="pre">List</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Tuple" title="(in Python v3.14)"><span class="pre">Tuple</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Any" title="(in Python v3.14)"><span class="pre">Any</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.14)"><span class="pre">float</span></a><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="../_modules/corerec/pipelines/recommendation_pipeline.html#StagePipeline.recommend"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#corerec.pipelines.recommendation_pipeline.StagePipeline.recommend" title="Link to this definition">#</a></dt>
+<dd><p>Run full pipeline to generate recommendations.</p>
+<p>user_data: dict with user info (id, features, history)
+item_pool: list of all available items (or None to use indexed items)
+top_k: how many final recommendations to return
+context: extra info (time, location, etc)</p>
+<p>Returns: list of (item, score) tuples</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="corerec.pipelines.recommendation_pipeline.StagePipeline.explain">
+<span class="sig-name descname"><span class="pre">explain</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">user_data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Dict" title="(in Python v3.14)"><span class="pre">Dict</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">item_id</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Any" title="(in Python v3.14)"><span class="pre">Any</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">context</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Dict" title="(in Python v3.14)"><span class="pre">Dict</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.14)"><span class="pre">None</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Dict" title="(in Python v3.14)"><span class="pre">Dict</span></a></span></span><a class="reference internal" href="../_modules/corerec/pipelines/recommendation_pipeline.html#StagePipeline.explain"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#corerec.pipelines.recommendation_pipeline.StagePipeline.explain" title="Link to this definition">#</a></dt>
+<dd><p>Explain why an item was/wasn’t recommended.
+Useful for debugging and transparency.</p>
+</dd></dl>
+
+</dd></dl>
+
 </section>
-<section id="configuration">
-<h2>Configuration<a class="headerlink" href="#configuration" title="Link to this heading">#</a></h2>
+<section id="module-corerec.pipelines.config">
+<span id="configuration"></span><h2>Configuration<a class="headerlink" href="#module-corerec.pipelines.config" title="Link to this heading">#</a></h2>
+<p>Pipeline Configuration</p>
+<p>Load pipeline configurations from YAML or dict.
+Enables config-driven pipeline construction.</p>
+<dl class="py function">
+<dt class="sig sig-object py" id="corerec.pipelines.config.load_pipeline_config">
+<span class="sig-prename descclassname"><span class="pre">corerec.pipelines.config.</span></span><span class="sig-name descname"><span class="pre">load_pipeline_config</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">source</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><span class="pre">str</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/pathlib.html#pathlib.Path" title="(in Python v3.14)"><span class="pre">Path</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Dict" title="(in Python v3.14)"><span class="pre">Dict</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Dict" title="(in Python v3.14)"><span class="pre">Dict</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><span class="pre">str</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Any" title="(in Python v3.14)"><span class="pre">Any</span></a><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="../_modules/corerec/pipelines/config.html#load_pipeline_config"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#corerec.pipelines.config.load_pipeline_config" title="Link to this definition">#</a></dt>
+<dd><p>Load pipeline configuration from YAML file or dict.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>source</strong> – path to YAML file or config dict</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Configuration dictionary</p>
+</dd>
+</dl>
+<p>Example YAML:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pipeline</span><span class="p">:</span>
+  <span class="n">name</span><span class="p">:</span> <span class="n">production_v1</span>
+
+  <span class="n">retrieval</span><span class="p">:</span>
+    <span class="n">k</span><span class="p">:</span> <span class="mi">500</span>
+    <span class="n">fusion</span><span class="p">:</span> <span class="n">rrf</span>
+    <span class="n">sources</span><span class="p">:</span>
+      <span class="o">-</span> <span class="nb">type</span><span class="p">:</span> <span class="n">collaborative</span>
+        <span class="n">model</span><span class="p">:</span> <span class="n">sar</span>
+        <span class="n">weight</span><span class="p">:</span> <span class="mf">1.0</span>
+      <span class="o">-</span> <span class="nb">type</span><span class="p">:</span> <span class="n">semantic</span>
+        <span class="n">encoder</span><span class="p">:</span> <span class="nb">all</span><span class="o">-</span><span class="n">MiniLM</span><span class="o">-</span><span class="n">L6</span><span class="o">-</span><span class="n">v2</span>
+        <span class="n">weight</span><span class="p">:</span> <span class="mf">0.5</span>
+
+  <span class="n">ranking</span><span class="p">:</span>
+    <span class="n">k</span><span class="p">:</span> <span class="mi">100</span>
+    <span class="nb">type</span><span class="p">:</span> <span class="n">pointwise</span>
+    <span class="n">model_path</span><span class="p">:</span> <span class="n">models</span><span class="o">/</span><span class="n">ranker</span><span class="o">.</span><span class="n">pkl</span>
+
+  <span class="n">reranking</span><span class="p">:</span>
+    <span class="o">-</span> <span class="nb">type</span><span class="p">:</span> <span class="n">diversity</span>
+      <span class="k">lambda</span><span class="p">:</span> <span class="mf">0.7</span>
+    <span class="o">-</span> <span class="nb">type</span><span class="p">:</span> <span class="n">business</span>
+      <span class="n">boost</span><span class="p">:</span>
+        <span class="o">-</span> <span class="n">item</span><span class="p">:</span> <span class="mi">123</span>
+          <span class="n">multiplier</span><span class="p">:</span> <span class="mf">2.0</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="corerec.pipelines.config.build_pipeline_from_config">
+<span class="sig-prename descclassname"><span class="pre">corerec.pipelines.config.</span></span><span class="sig-name descname"><span class="pre">build_pipeline_from_config</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">config</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Dict" title="(in Python v3.14)"><span class="pre">Dict</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><span class="pre">str</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Any" title="(in Python v3.14)"><span class="pre">Any</span></a><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#corerec.pipelines.orchestrator.RecommendationPipeline" title="corerec.pipelines.orchestrator.RecommendationPipeline"><span class="pre">RecommendationPipeline</span></a></span></span><a class="reference internal" href="../_modules/corerec/pipelines/config.html#build_pipeline_from_config"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#corerec.pipelines.config.build_pipeline_from_config" title="Link to this definition">#</a></dt>
+<dd><p>Build a pipeline from configuration dict.</p>
+<p>This is a factory function that instantiates all components
+based on the config specification.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>config</strong> – pipeline configuration</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Configured RecommendationPipeline</p>
+</dd>
+</dl>
+</dd></dl>
+
 </section>
-<section id="data-pipeline">
-<h2>Data Pipeline<a class="headerlink" href="#data-pipeline" title="Link to this heading">#</a></h2>
+<section id="module-corerec.pipelines.data_pipeline">
+<span id="data-pipeline"></span><h2>Data Pipeline<a class="headerlink" href="#module-corerec.pipelines.data_pipeline" title="Link to this heading">#</a></h2>
+<p>Data Pipeline for Recommendation Data</p>
+<p>Composable pipeline for data transformation and preprocessing.</p>
+<p>Author: Vishesh Yadav (mail: <a class="reference external" href="mailto:sciencely98&#37;&#52;&#48;gmail&#46;com">sciencely98<span>&#64;</span>gmail<span>&#46;</span>com</a>)</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="corerec.pipelines.data_pipeline.DataTransformer">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">corerec.pipelines.data_pipeline.</span></span><span class="sig-name descname"><span class="pre">DataTransformer</span></span><a class="reference internal" href="../_modules/corerec/pipelines/data_pipeline.html#DataTransformer"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#corerec.pipelines.data_pipeline.DataTransformer" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/abc.html#abc.ABC" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">ABC</span></code></a></p>
+<p>Base class for data transformers.</p>
+<p>All transformers should inherit from this and implement transform().</p>
+<p>Author: Vishesh Yadav (mail: <a class="reference external" href="mailto:sciencely98&#37;&#52;&#48;gmail&#46;com">sciencely98<span>&#64;</span>gmail<span>&#46;</span>com</a>)</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="corerec.pipelines.data_pipeline.DataTransformer.transform">
+<em class="property"><span class="k"><span class="pre">abstractmethod</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">transform</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">DataFrame</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">DataFrame</span></span></span><a class="reference internal" href="../_modules/corerec/pipelines/data_pipeline.html#DataTransformer.transform"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#corerec.pipelines.data_pipeline.DataTransformer.transform" title="Link to this definition">#</a></dt>
+<dd><p>Transform data.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>data</strong> – Input DataFrame</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Transformed DataFrame</p>
+</dd>
+</dl>
+<p>Author: Vishesh Yadav (mail: <a class="reference external" href="mailto:sciencely98&#37;&#52;&#48;gmail&#46;com">sciencely98<span>&#64;</span>gmail<span>&#46;</span>com</a>)</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="corerec.pipelines.data_pipeline.DataTransformer.fit">
+<span class="sig-name descname"><span class="pre">fit</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">DataFrame</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#corerec.pipelines.data_pipeline.DataTransformer" title="corerec.pipelines.data_pipeline.DataTransformer"><span class="pre">DataTransformer</span></a></span></span><a class="reference internal" href="../_modules/corerec/pipelines/data_pipeline.html#DataTransformer.fit"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#corerec.pipelines.data_pipeline.DataTransformer.fit" title="Link to this definition">#</a></dt>
+<dd><p>Fit transformer to data (optional).</p>
+<p>Override this if your transformer needs to learn from data.</p>
+<p>Author: Vishesh Yadav (mail: <a class="reference external" href="mailto:sciencely98&#37;&#52;&#48;gmail&#46;com">sciencely98<span>&#64;</span>gmail<span>&#46;</span>com</a>)</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="corerec.pipelines.data_pipeline.DataTransformer.fit_transform">
+<span class="sig-name descname"><span class="pre">fit_transform</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">DataFrame</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">DataFrame</span></span></span><a class="reference internal" href="../_modules/corerec/pipelines/data_pipeline.html#DataTransformer.fit_transform"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#corerec.pipelines.data_pipeline.DataTransformer.fit_transform" title="Link to this definition">#</a></dt>
+<dd><p>Fit and transform in one step.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="corerec.pipelines.data_pipeline.DataPipeline">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">corerec.pipelines.data_pipeline.</span></span><span class="sig-name descname"><span class="pre">DataPipeline</span></span><a class="reference internal" href="../_modules/corerec/pipelines/data_pipeline.html#DataPipeline"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#corerec.pipelines.data_pipeline.DataPipeline" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+<p>Composable data transformation pipeline.</p>
+<p>Chains multiple transformers together for clean data processing.</p>
+<p>Architecture:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>Raw Data → [Transformer 1] → [Transformer 2] → ... → Clean Data
+     ↓           ↓                ↓                     ↓
+Missing Values  Encoding      Scaling            Ready for Model
+</pre></div>
+</div>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">corerec.pipelines</span><span class="w"> </span><span class="kn">import</span> <span class="n">DataPipeline</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">corerec.pipelines</span><span class="w"> </span><span class="kn">import</span> <span class="n">MissingValueHandler</span><span class="p">,</span> <span class="n">CategoryEncoder</span>
+
+<span class="n">pipeline</span> <span class="o">=</span> <span class="n">DataPipeline</span><span class="p">()</span>
+<span class="n">pipeline</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">MissingValueHandler</span><span class="p">(</span><span class="s1">&#39;mean&#39;</span><span class="p">))</span>
+<span class="n">pipeline</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">CategoryEncoder</span><span class="p">())</span>
+
+<span class="c1"># Transform data</span>
+<span class="n">clean_data</span> <span class="o">=</span> <span class="n">pipeline</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">raw_data</span><span class="p">)</span>
+
+<span class="c1"># Or fit then transform</span>
+<span class="n">pipeline</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">train_data</span><span class="p">)</span>
+<span class="n">clean_train</span> <span class="o">=</span> <span class="n">pipeline</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">train_data</span><span class="p">)</span>
+<span class="n">clean_test</span> <span class="o">=</span> <span class="n">pipeline</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">test_data</span><span class="p">)</span>  <span class="c1"># Uses fitted params</span>
+</pre></div>
+</div>
+<p>Author: Vishesh Yadav (mail: <a class="reference external" href="mailto:sciencely98&#37;&#52;&#48;gmail&#46;com">sciencely98<span>&#64;</span>gmail<span>&#46;</span>com</a>)</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="corerec.pipelines.data_pipeline.DataPipeline.__init__">
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/corerec/pipelines/data_pipeline.html#DataPipeline.__init__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#corerec.pipelines.data_pipeline.DataPipeline.__init__" title="Link to this definition">#</a></dt>
+<dd><p>Initialize empty pipeline.</p>
+<p>Author: Vishesh Yadav (mail: <a class="reference external" href="mailto:sciencely98&#37;&#52;&#48;gmail&#46;com">sciencely98<span>&#64;</span>gmail<span>&#46;</span>com</a>)</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="corerec.pipelines.data_pipeline.DataPipeline.add">
+<span class="sig-name descname"><span class="pre">add</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">transformer</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#corerec.pipelines.data_pipeline.DataTransformer" title="corerec.pipelines.data_pipeline.DataTransformer"><span class="pre">DataTransformer</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#corerec.pipelines.data_pipeline.DataPipeline" title="corerec.pipelines.data_pipeline.DataPipeline"><span class="pre">DataPipeline</span></a></span></span><a class="reference internal" href="../_modules/corerec/pipelines/data_pipeline.html#DataPipeline.add"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#corerec.pipelines.data_pipeline.DataPipeline.add" title="Link to this definition">#</a></dt>
+<dd><p>Add a transformer to the pipeline.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>transformer</strong> – Data transformer to add</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>self for method chaining</p>
+</dd>
+</dl>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pipeline</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">MissingValueHandler</span><span class="p">())</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">CategoryEncoder</span><span class="p">())</span>
+</pre></div>
+</div>
+<p>Author: Vishesh Yadav (mail: <a class="reference external" href="mailto:sciencely98&#37;&#52;&#48;gmail&#46;com">sciencely98<span>&#64;</span>gmail<span>&#46;</span>com</a>)</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="corerec.pipelines.data_pipeline.DataPipeline.fit">
+<span class="sig-name descname"><span class="pre">fit</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">DataFrame</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#corerec.pipelines.data_pipeline.DataPipeline" title="corerec.pipelines.data_pipeline.DataPipeline"><span class="pre">DataPipeline</span></a></span></span><a class="reference internal" href="../_modules/corerec/pipelines/data_pipeline.html#DataPipeline.fit"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#corerec.pipelines.data_pipeline.DataPipeline.fit" title="Link to this definition">#</a></dt>
+<dd><p>Fit all transformers to data.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>data</strong> – Training data to fit transformers on</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>self for method chaining</p>
+</dd>
+</dl>
+<p>Author: Vishesh Yadav (mail: <a class="reference external" href="mailto:sciencely98&#37;&#52;&#48;gmail&#46;com">sciencely98<span>&#64;</span>gmail<span>&#46;</span>com</a>)</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="corerec.pipelines.data_pipeline.DataPipeline.transform">
+<span class="sig-name descname"><span class="pre">transform</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">DataFrame</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">DataFrame</span></span></span><a class="reference internal" href="../_modules/corerec/pipelines/data_pipeline.html#DataPipeline.transform"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#corerec.pipelines.data_pipeline.DataPipeline.transform" title="Link to this definition">#</a></dt>
+<dd><p>Apply all transformers to data.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>data</strong> – Data to transform</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Transformed data</p>
+</dd>
+</dl>
+<p>Author: Vishesh Yadav (mail: <a class="reference external" href="mailto:sciencely98&#37;&#52;&#48;gmail&#46;com">sciencely98<span>&#64;</span>gmail<span>&#46;</span>com</a>)</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="corerec.pipelines.data_pipeline.DataPipeline.fit_transform">
+<span class="sig-name descname"><span class="pre">fit_transform</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">DataFrame</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">DataFrame</span></span></span><a class="reference internal" href="../_modules/corerec/pipelines/data_pipeline.html#DataPipeline.fit_transform"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#corerec.pipelines.data_pipeline.DataPipeline.fit_transform" title="Link to this definition">#</a></dt>
+<dd><p>Fit and transform in one step.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>data</strong> – Data to fit and transform</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Transformed data</p>
+</dd>
+</dl>
+<p>Author: Vishesh Yadav (mail: <a class="reference external" href="mailto:sciencely98&#37;&#52;&#48;gmail&#46;com">sciencely98<span>&#64;</span>gmail<span>&#46;</span>com</a>)</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="corerec.pipelines.data_pipeline.DataPipeline.get_transformers">
+<span class="sig-name descname"><span class="pre">get_transformers</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.List" title="(in Python v3.14)"><span class="pre">List</span></a><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#corerec.pipelines.data_pipeline.DataTransformer" title="corerec.pipelines.data_pipeline.DataTransformer"><span class="pre">DataTransformer</span></a><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="../_modules/corerec/pipelines/data_pipeline.html#DataPipeline.get_transformers"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#corerec.pipelines.data_pipeline.DataPipeline.get_transformers" title="Link to this definition">#</a></dt>
+<dd><p>Get list of transformers in pipeline.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="corerec.pipelines.data_pipeline.DataPipeline.is_fitted">
+<span class="sig-name descname"><span class="pre">is_fitted</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.14)"><span class="pre">bool</span></a></span></span><a class="reference internal" href="../_modules/corerec/pipelines/data_pipeline.html#DataPipeline.is_fitted"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#corerec.pipelines.data_pipeline.DataPipeline.is_fitted" title="Link to this definition">#</a></dt>
+<dd><p>Check if pipeline is fitted.</p>
+</dd></dl>
+
+</dd></dl>
+
 </section>
 </section>
 
@@ -594,10 +1231,96 @@ document.write(`
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#quick-start">Quick Start</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#orchestrator">Orchestrator</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#stage-abstractions">Stage Abstractions</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#configuration">Configuration</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-pipeline">Data Pipeline</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-corerec.pipelines.orchestrator">Orchestrator</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#corerec.pipelines.orchestrator.PipelineConfig"><code class="docutils literal notranslate"><span class="pre">PipelineConfig</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#corerec.pipelines.orchestrator.PipelineConfig.retrieval_k"><code class="docutils literal notranslate"><span class="pre">PipelineConfig.retrieval_k</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#corerec.pipelines.orchestrator.PipelineConfig.ranking_k"><code class="docutils literal notranslate"><span class="pre">PipelineConfig.ranking_k</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#corerec.pipelines.orchestrator.PipelineConfig.final_k"><code class="docutils literal notranslate"><span class="pre">PipelineConfig.final_k</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#corerec.pipelines.orchestrator.PipelineConfig.fusion_strategy"><code class="docutils literal notranslate"><span class="pre">PipelineConfig.fusion_strategy</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#corerec.pipelines.orchestrator.PipelineResult"><code class="docutils literal notranslate"><span class="pre">PipelineResult</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#corerec.pipelines.orchestrator.PipelineResult.items"><code class="docutils literal notranslate"><span class="pre">PipelineResult.items</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#corerec.pipelines.orchestrator.PipelineResult.scores"><code class="docutils literal notranslate"><span class="pre">PipelineResult.scores</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#corerec.pipelines.orchestrator.PipelineResult.retrieval_candidates"><code class="docutils literal notranslate"><span class="pre">PipelineResult.retrieval_candidates</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#corerec.pipelines.orchestrator.PipelineResult.ranking_candidates"><code class="docutils literal notranslate"><span class="pre">PipelineResult.ranking_candidates</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#corerec.pipelines.orchestrator.PipelineResult.final_candidates"><code class="docutils literal notranslate"><span class="pre">PipelineResult.final_candidates</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#corerec.pipelines.orchestrator.PipelineResult.retrieval_ms"><code class="docutils literal notranslate"><span class="pre">PipelineResult.retrieval_ms</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#corerec.pipelines.orchestrator.PipelineResult.ranking_ms"><code class="docutils literal notranslate"><span class="pre">PipelineResult.ranking_ms</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#corerec.pipelines.orchestrator.PipelineResult.reranking_ms"><code class="docutils literal notranslate"><span class="pre">PipelineResult.reranking_ms</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#corerec.pipelines.orchestrator.PipelineResult.total_ms"><code class="docutils literal notranslate"><span class="pre">PipelineResult.total_ms</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#corerec.pipelines.orchestrator.PipelineResult.stage_results"><code class="docutils literal notranslate"><span class="pre">PipelineResult.stage_results</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#corerec.pipelines.orchestrator.PipelineResult.to_list"><code class="docutils literal notranslate"><span class="pre">PipelineResult.to_list()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#corerec.pipelines.orchestrator.RecommendationPipeline"><code class="docutils literal notranslate"><span class="pre">RecommendationPipeline</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#corerec.pipelines.orchestrator.RecommendationPipeline.__init__"><code class="docutils literal notranslate"><span class="pre">RecommendationPipeline.__init__()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#corerec.pipelines.orchestrator.RecommendationPipeline.add_retriever"><code class="docutils literal notranslate"><span class="pre">RecommendationPipeline.add_retriever()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#corerec.pipelines.orchestrator.RecommendationPipeline.set_ranker"><code class="docutils literal notranslate"><span class="pre">RecommendationPipeline.set_ranker()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#corerec.pipelines.orchestrator.RecommendationPipeline.add_reranker"><code class="docutils literal notranslate"><span class="pre">RecommendationPipeline.add_reranker()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#corerec.pipelines.orchestrator.RecommendationPipeline.recommend"><code class="docutils literal notranslate"><span class="pre">RecommendationPipeline.recommend()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#corerec.pipelines.orchestrator.RecommendationPipeline.recommend_batch"><code class="docutils literal notranslate"><span class="pre">RecommendationPipeline.recommend_batch()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-corerec.pipelines.recommendation_pipeline">Stage Abstractions</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#corerec.pipelines.recommendation_pipeline.PipelineStage"><code class="docutils literal notranslate"><span class="pre">PipelineStage</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#corerec.pipelines.recommendation_pipeline.PipelineStage.process"><code class="docutils literal notranslate"><span class="pre">PipelineStage.process()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#corerec.pipelines.recommendation_pipeline.RetrievalStage"><code class="docutils literal notranslate"><span class="pre">RetrievalStage</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#corerec.pipelines.recommendation_pipeline.RetrievalStage.process"><code class="docutils literal notranslate"><span class="pre">RetrievalStage.process()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#corerec.pipelines.recommendation_pipeline.RankingStage"><code class="docutils literal notranslate"><span class="pre">RankingStage</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#corerec.pipelines.recommendation_pipeline.RankingStage.process"><code class="docutils literal notranslate"><span class="pre">RankingStage.process()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#corerec.pipelines.recommendation_pipeline.RerankingStage"><code class="docutils literal notranslate"><span class="pre">RerankingStage</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#corerec.pipelines.recommendation_pipeline.RerankingStage.process"><code class="docutils literal notranslate"><span class="pre">RerankingStage.process()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#corerec.pipelines.recommendation_pipeline.DiversityRule"><code class="docutils literal notranslate"><span class="pre">DiversityRule</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#corerec.pipelines.recommendation_pipeline.DiversityRule.apply"><code class="docutils literal notranslate"><span class="pre">DiversityRule.apply()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#corerec.pipelines.recommendation_pipeline.FreshnessRule"><code class="docutils literal notranslate"><span class="pre">FreshnessRule</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#corerec.pipelines.recommendation_pipeline.FreshnessRule.apply"><code class="docutils literal notranslate"><span class="pre">FreshnessRule.apply()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#corerec.pipelines.recommendation_pipeline.StagePipeline"><code class="docutils literal notranslate"><span class="pre">StagePipeline</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#corerec.pipelines.recommendation_pipeline.StagePipeline.add_stage"><code class="docutils literal notranslate"><span class="pre">StagePipeline.add_stage()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#corerec.pipelines.recommendation_pipeline.StagePipeline.recommend"><code class="docutils literal notranslate"><span class="pre">StagePipeline.recommend()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#corerec.pipelines.recommendation_pipeline.StagePipeline.explain"><code class="docutils literal notranslate"><span class="pre">StagePipeline.explain()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-corerec.pipelines.config">Configuration</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#corerec.pipelines.config.load_pipeline_config"><code class="docutils literal notranslate"><span class="pre">load_pipeline_config()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#corerec.pipelines.config.build_pipeline_from_config"><code class="docutils literal notranslate"><span class="pre">build_pipeline_from_config()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-corerec.pipelines.data_pipeline">Data Pipeline</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#corerec.pipelines.data_pipeline.DataTransformer"><code class="docutils literal notranslate"><span class="pre">DataTransformer</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#corerec.pipelines.data_pipeline.DataTransformer.transform"><code class="docutils literal notranslate"><span class="pre">DataTransformer.transform()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#corerec.pipelines.data_pipeline.DataTransformer.fit"><code class="docutils literal notranslate"><span class="pre">DataTransformer.fit()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#corerec.pipelines.data_pipeline.DataTransformer.fit_transform"><code class="docutils literal notranslate"><span class="pre">DataTransformer.fit_transform()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#corerec.pipelines.data_pipeline.DataPipeline"><code class="docutils literal notranslate"><span class="pre">DataPipeline</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#corerec.pipelines.data_pipeline.DataPipeline.__init__"><code class="docutils literal notranslate"><span class="pre">DataPipeline.__init__()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#corerec.pipelines.data_pipeline.DataPipeline.add"><code class="docutils literal notranslate"><span class="pre">DataPipeline.add()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#corerec.pipelines.data_pipeline.DataPipeline.fit"><code class="docutils literal notranslate"><span class="pre">DataPipeline.fit()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#corerec.pipelines.data_pipeline.DataPipeline.transform"><code class="docutils literal notranslate"><span class="pre">DataPipeline.transform()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#corerec.pipelines.data_pipeline.DataPipeline.fit_transform"><code class="docutils literal notranslate"><span class="pre">DataPipeline.fit_transform()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#corerec.pipelines.data_pipeline.DataPipeline.get_transformers"><code class="docutils literal notranslate"><span class="pre">DataPipeline.get_transformers()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#corerec.pipelines.data_pipeline.DataPipeline.is_fitted"><code class="docutils literal notranslate"><span class="pre">DataPipeline.is_fitted()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
 </ul>
   </nav></div>
 

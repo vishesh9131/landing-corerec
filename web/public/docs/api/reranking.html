@@ -197,10 +197,14 @@
 <li class="toctree-l2"><a class="reference internal" href="../tutorials/mind_tutorial.html">MIND Tutorial: MIND</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../tutorials/nasrec_tutorial.html">NASRec Tutorial: NASRec</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../tutorials/sasrec_tutorial.html">SASRec Tutorial: SASRec</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorials/bert4rec_tutorial.html">Bert4Rec Tutorial: BERT for Sequential Recommendation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorials/ncf_tutorial.html">NCF Tutorial: Neural Collaborative Filtering</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorials/sar_tutorial.html">SAR Tutorial: Smart Adaptive Recommendations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorials/lightgcn_tutorial.html">LightGCN Tutorial: Light Graph Convolutional Network</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorials/tfidf_tutorial.html">TFIDF Tutorial: TF-IDF Based Recommender</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../tutorials/afm_tutorial.html">AFM Tutorial: Attentional Factorization Machine</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../tutorials/autofi_tutorial.html">AutoFI Tutorial: Automatic Feature Interaction</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../tutorials/autoint_tutorial.html">AutoInt Tutorial: Automatic Feature Interaction Learning via Self-Attention</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../tutorials/bert4rec_tutorial.html">Bert4Rec Tutorial: BERT for Sequential Recommendation</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../tutorials/bst_tutorial.html">BST Tutorial: Behavior Sequence Transformer</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../tutorials/bivae_tutorial.html">BiVAE Tutorial: Bilateral Variational Autoencoder</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../tutorials/caser_tutorial.html">Caser Tutorial: Convolutional Sequence Embedding Recommendation</a></li>
@@ -224,7 +228,6 @@
 <li class="toctree-l2"><a class="reference internal" href="../tutorials/gatenet_tutorial.html">GateNet Tutorial: Gating Network</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../tutorials/gnn_base_tutorial.html">GNN_base Tutorial: Graph Neural Network Base</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../tutorials/gru_cf_tutorial.html">GRU-CF Tutorial: GRU for Collaborative Filtering</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../tutorials/ncf_tutorial.html">NCF Tutorial: Neural Collaborative Filtering</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../tutorials/nfm_tutorial.html">NFM Tutorial: Neural Factorization Machine</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../tutorials/nextitnet_tutorial.html">NextItNet Tutorial: Next Item Net</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../tutorials/widedeep_tutorial.html">WideDeep Tutorial: Wide &amp; Deep Learning</a></li>
@@ -242,18 +245,15 @@
 <li class="toctree-l2"><a class="reference internal" href="../tutorials/svd_tutorial.html">SVD Tutorial: Singular Value Decomposition</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../tutorials/userbased_tutorial.html">UserBased Tutorial: User-Based Collaborative Filtering</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../tutorials/geoimc_tutorial.html">GeoIMC Tutorial: Geographic Inductive Matrix Completion</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../tutorials/lightgcn_tutorial.html">LightGCN Tutorial: Light Graph Convolutional Network</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../tutorials/lightgcn_base_tutorial.html">LightGCN_Base Tutorial: LightGCN Base</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../tutorials/rbm_tutorial.html">RBM Tutorial: Restricted Boltzmann Machine</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../tutorials/rlrmc_tutorial.html">RLRMC Tutorial: Reinforcement Learning for Recommendation</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../tutorials/sar_tutorial.html">SAR Tutorial: Smart Adaptive Recommendations</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../tutorials/slirec_tutorial.html">SLiRec Tutorial: Sequential List Recommendation</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../tutorials/sum_tutorial.html">SUM Tutorial: Sequential User Model</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../tutorials/bpr_tutorial.html">BPR Tutorial: Bayesian Personalized Ranking</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../tutorials/bprmf_tutorial.html">BPRMF Tutorial: Bayesian Personalized Ranking Matrix Factorization</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../tutorials/vmf_tutorial.html">VMF Tutorial: Von Mises-Fisher Distribution</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../tutorials/mind_content_tutorial.html">MIND_Content Tutorial: MIND for Content Filtering</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../tutorials/tfidf_tutorial.html">TFIDF Tutorial: TF-IDF Based Recommender</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../tutorials/pipeline_tutorial.html">Multi-Stage Pipeline Tutorial</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../tutorials/imshow_tutorial.html">Demo Frontends Tutorial</a></li>
 </ul>
@@ -501,10 +501,44 @@ document.write(`
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#quick-start">Quick Start</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#api-reference">API Reference</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#diversity-reranker">Diversity Reranker</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fairness-reranker">Fairness Reranker</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#business-rules-reranker">Business Rules Reranker</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-corerec.reranking.base">API Reference</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#corerec.reranking.base.BaseReranker"><code class="docutils literal notranslate"><span class="pre">BaseReranker</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#corerec.reranking.base.BaseReranker.rerank"><code class="docutils literal notranslate"><span class="pre">BaseReranker.rerank()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#module-corerec.reranking.diversity">Diversity Reranker</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#corerec.reranking.diversity.DiversityReranker"><code class="docutils literal notranslate"><span class="pre">DiversityReranker</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#corerec.reranking.diversity.DiversityReranker.__init__"><code class="docutils literal notranslate"><span class="pre">DiversityReranker.__init__()</span></code></a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#corerec.reranking.diversity.DiversityReranker.rerank"><code class="docutils literal notranslate"><span class="pre">DiversityReranker.rerank()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#corerec.reranking.diversity.CategorySpreadReranker"><code class="docutils literal notranslate"><span class="pre">CategorySpreadReranker</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#corerec.reranking.diversity.CategorySpreadReranker.__init__"><code class="docutils literal notranslate"><span class="pre">CategorySpreadReranker.__init__()</span></code></a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#corerec.reranking.diversity.CategorySpreadReranker.rerank"><code class="docutils literal notranslate"><span class="pre">CategorySpreadReranker.rerank()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#module-corerec.reranking.fairness">Fairness Reranker</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#corerec.reranking.fairness.FairnessReranker"><code class="docutils literal notranslate"><span class="pre">FairnessReranker</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#corerec.reranking.fairness.FairnessReranker.__init__"><code class="docutils literal notranslate"><span class="pre">FairnessReranker.__init__()</span></code></a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#corerec.reranking.fairness.FairnessReranker.rerank"><code class="docutils literal notranslate"><span class="pre">FairnessReranker.rerank()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#module-corerec.reranking.business">Business Rules Reranker</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#corerec.reranking.business.BusinessRulesReranker"><code class="docutils literal notranslate"><span class="pre">BusinessRulesReranker</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#corerec.reranking.business.BusinessRulesReranker.add_boost"><code class="docutils literal notranslate"><span class="pre">BusinessRulesReranker.add_boost()</span></code></a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#corerec.reranking.business.BusinessRulesReranker.add_filter"><code class="docutils literal notranslate"><span class="pre">BusinessRulesReranker.add_filter()</span></code></a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#corerec.reranking.business.BusinessRulesReranker.add_pin"><code class="docutils literal notranslate"><span class="pre">BusinessRulesReranker.add_pin()</span></code></a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#corerec.reranking.business.BusinessRulesReranker.add_blocklist"><code class="docutils literal notranslate"><span class="pre">BusinessRulesReranker.add_blocklist()</span></code></a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#corerec.reranking.business.BusinessRulesReranker.clear_rules"><code class="docutils literal notranslate"><span class="pre">BusinessRulesReranker.clear_rules()</span></code></a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#corerec.reranking.business.BusinessRulesReranker.rerank"><code class="docutils literal notranslate"><span class="pre">BusinessRulesReranker.rerank()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -532,16 +566,280 @@ document.write(`
 </pre></div>
 </div>
 </section>
-<section id="api-reference">
-<h2>API Reference<a class="headerlink" href="#api-reference" title="Link to this heading">#</a></h2>
-<section id="diversity-reranker">
-<h3>Diversity Reranker<a class="headerlink" href="#diversity-reranker" title="Link to this heading">#</a></h3>
+<section id="module-corerec.reranking.base">
+<span id="api-reference"></span><h2>API Reference<a class="headerlink" href="#module-corerec.reranking.base" title="Link to this heading">#</a></h2>
+<p>Base classes for reranking stage.</p>
+<p>Rerankers modify the ranked list to satisfy constraints beyond
+pure relevance: diversity, fairness, business rules, etc.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="corerec.reranking.base.BaseReranker">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">corerec.reranking.base.</span></span><span class="sig-name descname"><span class="pre">BaseReranker</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><span class="pre">str</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.14)"><span class="pre">None</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/corerec/reranking/base.html#BaseReranker"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#corerec.reranking.base.BaseReranker" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/abc.html#abc.ABC" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">ABC</span></code></a></p>
+<p>Abstract base class for all rerankers.</p>
+<p>A reranker takes a ranked list and modifies it to satisfy
+additional constraints. Unlike rankers which focus on relevance,
+rerankers balance relevance with other objectives.</p>
+<p>Common reranking objectives:
+- Diversity: avoid showing too-similar items
+- Fairness: ensure exposure across item groups
+- Freshness: boost recently added items
+- Business: promote certain items, apply filters</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="corerec.reranking.base.BaseReranker.rerank">
+<em class="property"><span class="k"><span class="pre">abstractmethod</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">rerank</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ranked</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.List" title="(in Python v3.14)"><span class="pre">List</span></a><span class="p"><span class="pre">[</span></span><a class="reference internal" href="ranking.html#corerec.ranking.base.RankedCandidate" title="corerec.ranking.base.RankedCandidate"><span class="pre">RankedCandidate</span></a><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="ranking.html#corerec.ranking.base.RankingResult" title="corerec.ranking.base.RankingResult"><span class="pre">RankingResult</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">context</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Dict" title="(in Python v3.14)"><span class="pre">Dict</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><span class="pre">str</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Any" title="(in Python v3.14)"><span class="pre">Any</span></a><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.14)"><span class="pre">None</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="ranking.html#corerec.ranking.base.RankingResult" title="corerec.ranking.base.RankingResult"><span class="pre">RankingResult</span></a></span></span><a class="reference internal" href="../_modules/corerec/reranking/base.html#BaseReranker.rerank"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#corerec.reranking.base.BaseReranker.rerank" title="Link to this definition">#</a></dt>
+<dd><p>Rerank the candidates.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>ranked</strong> – ranked candidates from Stage 2</p></li>
+<li><p><strong>context</strong> – user context, constraints, etc.</p></li>
+<li><p><strong>**kwargs</strong> – reranker-specific parameters</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>RankingResult with reranked candidates</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<section id="module-corerec.reranking.diversity">
+<span id="diversity-reranker"></span><h3>Diversity Reranker<a class="headerlink" href="#module-corerec.reranking.diversity" title="Link to this heading">#</a></h3>
+<p>Diversity Reranking</p>
+<p>Prevents recommendation lists from being too homogeneous.
+Users get bored seeing the same type of items repeatedly.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="corerec.reranking.diversity.DiversityReranker">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">corerec.reranking.diversity.</span></span><span class="sig-name descname"><span class="pre">DiversityReranker</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">lambda_</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.14)"><span class="pre">float</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">0.7</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">similarity_fn</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Callable" title="(in Python v3.14)"><span class="pre">Callable</span></a><span class="p"><span class="pre">[</span></span><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Any" title="(in Python v3.14)"><span class="pre">Any</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Any" title="(in Python v3.14)"><span class="pre">Any</span></a><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.14)"><span class="pre">float</span></a><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.14)"><span class="pre">None</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">category_key</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><span class="pre">str</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.14)"><span class="pre">None</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><span class="pre">str</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'diversity'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/corerec/reranking/diversity.html#DiversityReranker"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#corerec.reranking.diversity.DiversityReranker" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#corerec.reranking.base.BaseReranker" title="corerec.reranking.base.BaseReranker"><code class="xref py py-class docutils literal notranslate"><span class="pre">BaseReranker</span></code></a></p>
+<p>Reranks to maximize diversity while preserving relevance.</p>
+<p>Uses Maximal Marginal Relevance (MMR) or similar algorithms to
+iteratively select items that are both relevant AND different
+from already selected items.</p>
+<p>Trade-off controlled by <code class="docutils literal notranslate"><span class="pre">lambda_</span></code>:
+- <code class="docutils literal notranslate"><span class="pre">lambda_</span></code> = 1.0 – pure relevance (no diversity)
+- <code class="docutils literal notranslate"><span class="pre">lambda_</span></code> = 0.0 – pure diversity (ignore relevance)
+- <code class="docutils literal notranslate"><span class="pre">lambda_</span></code> = 0.5 – balanced</p>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">reranker</span> <span class="o">=</span> <span class="n">DiversityReranker</span><span class="p">(</span>
+    <span class="n">lambda_</span><span class="o">=</span><span class="mf">0.7</span><span class="p">,</span>
+    <span class="n">similarity_fn</span><span class="o">=</span><span class="n">cosine_similarity</span><span class="p">,</span>  <span class="c1"># how to measure item similarity</span>
+<span class="p">)</span>
+<span class="n">diverse_recs</span> <span class="o">=</span> <span class="n">reranker</span><span class="o">.</span><span class="n">rerank</span><span class="p">(</span><span class="n">ranked_candidates</span><span class="p">)</span>
+</pre></div>
+</div>
+<dl class="py method">
+<dt class="sig sig-object py" id="corerec.reranking.diversity.DiversityReranker.__init__">
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">lambda_</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.14)"><span class="pre">float</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">0.7</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">similarity_fn</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Callable" title="(in Python v3.14)"><span class="pre">Callable</span></a><span class="p"><span class="pre">[</span></span><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Any" title="(in Python v3.14)"><span class="pre">Any</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Any" title="(in Python v3.14)"><span class="pre">Any</span></a><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.14)"><span class="pre">float</span></a><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.14)"><span class="pre">None</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">category_key</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><span class="pre">str</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.14)"><span class="pre">None</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><span class="pre">str</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'diversity'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/corerec/reranking/diversity.html#DiversityReranker.__init__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#corerec.reranking.diversity.DiversityReranker.__init__" title="Link to this definition">#</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>lambda</strong> – trade-off between relevance (1) and diversity (0)</p></li>
+<li><p><strong>similarity_fn</strong> – function(item_a, item_b) -&gt; similarity score</p></li>
+<li><p><strong>category_key</strong> – if set, diversify by this categorical attribute</p></li>
+<li><p><strong>name</strong> – identifier for this reranker</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="corerec.reranking.diversity.DiversityReranker.rerank">
+<span class="sig-name descname"><span class="pre">rerank</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ranked</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.List" title="(in Python v3.14)"><span class="pre">List</span></a><span class="p"><span class="pre">[</span></span><a class="reference internal" href="ranking.html#corerec.ranking.base.RankedCandidate" title="corerec.ranking.base.RankedCandidate"><span class="pre">RankedCandidate</span></a><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="ranking.html#corerec.ranking.base.RankingResult" title="corerec.ranking.base.RankingResult"><span class="pre">RankingResult</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">context</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Dict" title="(in Python v3.14)"><span class="pre">Dict</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><span class="pre">str</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Any" title="(in Python v3.14)"><span class="pre">Any</span></a><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.14)"><span class="pre">None</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">top_k</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.14)"><span class="pre">int</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.14)"><span class="pre">None</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="ranking.html#corerec.ranking.base.RankingResult" title="corerec.ranking.base.RankingResult"><span class="pre">RankingResult</span></a></span></span><a class="reference internal" href="../_modules/corerec/reranking/diversity.html#DiversityReranker.rerank"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#corerec.reranking.diversity.DiversityReranker.rerank" title="Link to this definition">#</a></dt>
+<dd><p>Rerank for diversity using MMR.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>ranked</strong> – candidates sorted by relevance</p></li>
+<li><p><strong>context</strong> – optional context (unused by default)</p></li>
+<li><p><strong>top_k</strong> – number of items to return (default: all)</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="corerec.reranking.diversity.CategorySpreadReranker">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">corerec.reranking.diversity.</span></span><span class="sig-name descname"><span class="pre">CategorySpreadReranker</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">category_fn</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Callable" title="(in Python v3.14)"><span class="pre">Callable</span></a><span class="p"><span class="pre">[</span></span><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Any" title="(in Python v3.14)"><span class="pre">Any</span></a><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Any" title="(in Python v3.14)"><span class="pre">Any</span></a><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_consecutive</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.14)"><span class="pre">int</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><span class="pre">str</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'category_spread'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/corerec/reranking/diversity.html#CategorySpreadReranker"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#corerec.reranking.diversity.CategorySpreadReranker" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#corerec.reranking.base.BaseReranker" title="corerec.reranking.base.BaseReranker"><code class="xref py py-class docutils literal notranslate"><span class="pre">BaseReranker</span></code></a></p>
+<p>Simple diversity by spreading categories.</p>
+<p>Ensures no more than max_per_category consecutive items
+from the same category. Simpler than MMR, faster too.</p>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">reranker</span> <span class="o">=</span> <span class="n">CategorySpreadReranker</span><span class="p">(</span>
+    <span class="n">category_fn</span><span class="o">=</span><span class="k">lambda</span> <span class="n">item</span><span class="p">:</span> <span class="n">item_categories</span><span class="p">[</span><span class="n">item</span><span class="p">],</span>
+    <span class="n">max_consecutive</span><span class="o">=</span><span class="mi">2</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<dl class="py method">
+<dt class="sig sig-object py" id="corerec.reranking.diversity.CategorySpreadReranker.__init__">
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">category_fn</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Callable" title="(in Python v3.14)"><span class="pre">Callable</span></a><span class="p"><span class="pre">[</span></span><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Any" title="(in Python v3.14)"><span class="pre">Any</span></a><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Any" title="(in Python v3.14)"><span class="pre">Any</span></a><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_consecutive</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.14)"><span class="pre">int</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><span class="pre">str</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'category_spread'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/corerec/reranking/diversity.html#CategorySpreadReranker.__init__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#corerec.reranking.diversity.CategorySpreadReranker.__init__" title="Link to this definition">#</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>category_fn</strong> – function(item_id) -&gt; category</p></li>
+<li><p><strong>max_consecutive</strong> – max items from same category in a row</p></li>
+<li><p><strong>name</strong> – identifier</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="corerec.reranking.diversity.CategorySpreadReranker.rerank">
+<span class="sig-name descname"><span class="pre">rerank</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ranked</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.List" title="(in Python v3.14)"><span class="pre">List</span></a><span class="p"><span class="pre">[</span></span><a class="reference internal" href="ranking.html#corerec.ranking.base.RankedCandidate" title="corerec.ranking.base.RankedCandidate"><span class="pre">RankedCandidate</span></a><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="ranking.html#corerec.ranking.base.RankingResult" title="corerec.ranking.base.RankingResult"><span class="pre">RankingResult</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">context</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Dict" title="(in Python v3.14)"><span class="pre">Dict</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><span class="pre">str</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Any" title="(in Python v3.14)"><span class="pre">Any</span></a><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.14)"><span class="pre">None</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="ranking.html#corerec.ranking.base.RankingResult" title="corerec.ranking.base.RankingResult"><span class="pre">RankingResult</span></a></span></span><a class="reference internal" href="../_modules/corerec/reranking/diversity.html#CategorySpreadReranker.rerank"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#corerec.reranking.diversity.CategorySpreadReranker.rerank" title="Link to this definition">#</a></dt>
+<dd><p>Rerank to spread categories.</p>
+</dd></dl>
+
+</dd></dl>
+
 </section>
-<section id="fairness-reranker">
-<h3>Fairness Reranker<a class="headerlink" href="#fairness-reranker" title="Link to this heading">#</a></h3>
+<section id="module-corerec.reranking.fairness">
+<span id="fairness-reranker"></span><h3>Fairness Reranker<a class="headerlink" href="#module-corerec.reranking.fairness" title="Link to this heading">#</a></h3>
+<p>Fairness Reranking</p>
+<p>Ensures fair exposure across item groups (e.g., sellers, brands).
+Prevents popularity bias from completely dominating recommendations.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="corerec.reranking.fairness.FairnessReranker">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">corerec.reranking.fairness.</span></span><span class="sig-name descname"><span class="pre">FairnessReranker</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">group_fn</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Callable" title="(in Python v3.14)"><span class="pre">Callable</span></a><span class="p"><span class="pre">[</span></span><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Any" title="(in Python v3.14)"><span class="pre">Any</span></a><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Any" title="(in Python v3.14)"><span class="pre">Any</span></a><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">objective</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><span class="pre">str</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'proportional'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fairness_weight</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.14)"><span class="pre">float</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">0.3</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">group_targets</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Dict" title="(in Python v3.14)"><span class="pre">Dict</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Any" title="(in Python v3.14)"><span class="pre">Any</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.14)"><span class="pre">float</span></a><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.14)"><span class="pre">None</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><span class="pre">str</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'fairness'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/corerec/reranking/fairness.html#FairnessReranker"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#corerec.reranking.fairness.FairnessReranker" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#corerec.reranking.base.BaseReranker" title="corerec.reranking.base.BaseReranker"><code class="xref py py-class docutils literal notranslate"><span class="pre">BaseReranker</span></code></a></p>
+<p>Reranks to ensure fair exposure across item groups.</p>
+<p>Without intervention, popular items/sellers dominate recommendations.
+This reranker adjusts exposure to be more equitable while still
+respecting relevance.</p>
+<p>Fairness objectives:
+- <code class="docutils literal notranslate"><span class="pre">proportional</span></code> – exposure proportional to group size
+- <code class="docutils literal notranslate"><span class="pre">equal</span></code> – equal exposure across groups
+- <code class="docutils literal notranslate"><span class="pre">min_exposure</span></code> – ensure minimum exposure per group</p>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">reranker</span> <span class="o">=</span> <span class="n">FairnessReranker</span><span class="p">(</span>
+    <span class="n">group_fn</span><span class="o">=</span><span class="k">lambda</span> <span class="n">item</span><span class="p">:</span> <span class="n">item_to_seller</span><span class="p">[</span><span class="n">item</span><span class="p">],</span>
+    <span class="n">objective</span><span class="o">=</span><span class="s1">&#39;proportional&#39;</span><span class="p">,</span>
+    <span class="n">fairness_weight</span><span class="o">=</span><span class="mf">0.3</span>
+<span class="p">)</span>
+<span class="n">fair_recs</span> <span class="o">=</span> <span class="n">reranker</span><span class="o">.</span><span class="n">rerank</span><span class="p">(</span><span class="n">ranked_candidates</span><span class="p">)</span>
+</pre></div>
+</div>
+<dl class="py method">
+<dt class="sig sig-object py" id="corerec.reranking.fairness.FairnessReranker.__init__">
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">group_fn</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Callable" title="(in Python v3.14)"><span class="pre">Callable</span></a><span class="p"><span class="pre">[</span></span><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Any" title="(in Python v3.14)"><span class="pre">Any</span></a><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Any" title="(in Python v3.14)"><span class="pre">Any</span></a><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">objective</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><span class="pre">str</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'proportional'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fairness_weight</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.14)"><span class="pre">float</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">0.3</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">group_targets</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Dict" title="(in Python v3.14)"><span class="pre">Dict</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Any" title="(in Python v3.14)"><span class="pre">Any</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.14)"><span class="pre">float</span></a><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.14)"><span class="pre">None</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><span class="pre">str</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'fairness'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/corerec/reranking/fairness.html#FairnessReranker.__init__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#corerec.reranking.fairness.FairnessReranker.__init__" title="Link to this definition">#</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>group_fn</strong> – function(item_id) -&gt; group_id</p></li>
+<li><p><strong>objective</strong> – ‘proportional’, ‘equal’, or ‘min_exposure’</p></li>
+<li><p><strong>fairness_weight</strong> – how much to weight fairness vs relevance</p></li>
+<li><p><strong>group_targets</strong> – explicit target exposure per group</p></li>
+<li><p><strong>name</strong> – identifier for this reranker</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="corerec.reranking.fairness.FairnessReranker.rerank">
+<span class="sig-name descname"><span class="pre">rerank</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ranked</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.List" title="(in Python v3.14)"><span class="pre">List</span></a><span class="p"><span class="pre">[</span></span><a class="reference internal" href="ranking.html#corerec.ranking.base.RankedCandidate" title="corerec.ranking.base.RankedCandidate"><span class="pre">RankedCandidate</span></a><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="ranking.html#corerec.ranking.base.RankingResult" title="corerec.ranking.base.RankingResult"><span class="pre">RankingResult</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">context</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Dict" title="(in Python v3.14)"><span class="pre">Dict</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><span class="pre">str</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Any" title="(in Python v3.14)"><span class="pre">Any</span></a><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.14)"><span class="pre">None</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">top_k</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.14)"><span class="pre">int</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.14)"><span class="pre">None</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="ranking.html#corerec.ranking.base.RankingResult" title="corerec.ranking.base.RankingResult"><span class="pre">RankingResult</span></a></span></span><a class="reference internal" href="../_modules/corerec/reranking/fairness.html#FairnessReranker.rerank"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#corerec.reranking.fairness.FairnessReranker.rerank" title="Link to this definition">#</a></dt>
+<dd><p>Rerank for fairness.</p>
+<p>Uses a greedy algorithm that balances relevance with
+exposure fairness.</p>
+</dd></dl>
+
+</dd></dl>
+
 </section>
-<section id="business-rules-reranker">
-<h3>Business Rules Reranker<a class="headerlink" href="#business-rules-reranker" title="Link to this heading">#</a></h3>
+<section id="module-corerec.reranking.business">
+<span id="business-rules-reranker"></span><h3>Business Rules Reranker<a class="headerlink" href="#module-corerec.reranking.business" title="Link to this heading">#</a></h3>
+<p>Business Rules Reranking</p>
+<p>Apply custom business logic: promotions, filtering, boosting, etc.
+This is where domain-specific rules live.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="corerec.reranking.business.BusinessRulesReranker">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">corerec.reranking.business.</span></span><span class="sig-name descname"><span class="pre">BusinessRulesReranker</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><span class="pre">str</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'business_rules'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/corerec/reranking/business.html#BusinessRulesReranker"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#corerec.reranking.business.BusinessRulesReranker" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#corerec.reranking.base.BaseReranker" title="corerec.reranking.base.BaseReranker"><code class="xref py py-class docutils literal notranslate"><span class="pre">BaseReranker</span></code></a></p>
+<p>Apply configurable business rules to rerank items.</p>
+<p>Rules can:
+- Boost specific items (promotions)
+- Filter out items (blocklist)
+- Pin items to positions (sponsored)
+- Apply custom transformations</p>
+<div class="admonition-example admonition">
+<p class="admonition-title">Example</p>
+<p>reranker = BusinessRulesReranker()
+reranker.add_boost(item_id=123, multiplier=2.0)
+reranker.add_filter(lambda item: item not in blocked_items)
+reranker.add_pin(item_id=456, position=1)  # sponsored slot</p>
+<p>result = reranker.rerank(ranked_candidates)</p>
+</div>
+<dl class="py method">
+<dt class="sig sig-object py" id="corerec.reranking.business.BusinessRulesReranker.add_boost">
+<span class="sig-name descname"><span class="pre">add_boost</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">item_id</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Any" title="(in Python v3.14)"><span class="pre">Any</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">multiplier</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.14)"><span class="pre">float</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#corerec.reranking.business.BusinessRulesReranker" title="corerec.reranking.business.BusinessRulesReranker"><span class="pre">BusinessRulesReranker</span></a></span></span><a class="reference internal" href="../_modules/corerec/reranking/business.html#BusinessRulesReranker.add_boost"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#corerec.reranking.business.BusinessRulesReranker.add_boost" title="Link to this definition">#</a></dt>
+<dd><p>Boost an item’s score by a multiplier.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>item_id</strong> – item to boost</p></li>
+<li><p><strong>multiplier</strong> – score multiplier (&gt;1 = boost, &lt;1 = demote)</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="corerec.reranking.business.BusinessRulesReranker.add_filter">
+<span class="sig-name descname"><span class="pre">add_filter</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filter_fn</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Callable" title="(in Python v3.14)"><span class="pre">Callable</span></a><span class="p"><span class="pre">[</span></span><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Any" title="(in Python v3.14)"><span class="pre">Any</span></a><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.14)"><span class="pre">bool</span></a><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#corerec.reranking.business.BusinessRulesReranker" title="corerec.reranking.business.BusinessRulesReranker"><span class="pre">BusinessRulesReranker</span></a></span></span><a class="reference internal" href="../_modules/corerec/reranking/business.html#BusinessRulesReranker.add_filter"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#corerec.reranking.business.BusinessRulesReranker.add_filter" title="Link to this definition">#</a></dt>
+<dd><p>Add a filter function.</p>
+<p>Items where filter_fn(item_id) returns False are removed.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>filter_fn</strong> – function(item_id) -&gt; keep (True/False)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="corerec.reranking.business.BusinessRulesReranker.add_pin">
+<span class="sig-name descname"><span class="pre">add_pin</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">item_id</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Any" title="(in Python v3.14)"><span class="pre">Any</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">position</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.14)"><span class="pre">int</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#corerec.reranking.business.BusinessRulesReranker" title="corerec.reranking.business.BusinessRulesReranker"><span class="pre">BusinessRulesReranker</span></a></span></span><a class="reference internal" href="../_modules/corerec/reranking/business.html#BusinessRulesReranker.add_pin"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#corerec.reranking.business.BusinessRulesReranker.add_pin" title="Link to this definition">#</a></dt>
+<dd><p>Pin an item to a specific position.</p>
+<p>Useful for sponsored/promoted slots.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>item_id</strong> – item to pin</p></li>
+<li><p><strong>position</strong> – 1-indexed position to pin to</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="corerec.reranking.business.BusinessRulesReranker.add_blocklist">
+<span class="sig-name descname"><span class="pre">add_blocklist</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">item_ids</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.List" title="(in Python v3.14)"><span class="pre">List</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Any" title="(in Python v3.14)"><span class="pre">Any</span></a><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#corerec.reranking.business.BusinessRulesReranker" title="corerec.reranking.business.BusinessRulesReranker"><span class="pre">BusinessRulesReranker</span></a></span></span><a class="reference internal" href="../_modules/corerec/reranking/business.html#BusinessRulesReranker.add_blocklist"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#corerec.reranking.business.BusinessRulesReranker.add_blocklist" title="Link to this definition">#</a></dt>
+<dd><p>Block items from appearing in results.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>item_ids</strong> – items to block</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="corerec.reranking.business.BusinessRulesReranker.clear_rules">
+<span class="sig-name descname"><span class="pre">clear_rules</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#corerec.reranking.business.BusinessRulesReranker" title="corerec.reranking.business.BusinessRulesReranker"><span class="pre">BusinessRulesReranker</span></a></span></span><a class="reference internal" href="../_modules/corerec/reranking/business.html#BusinessRulesReranker.clear_rules"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#corerec.reranking.business.BusinessRulesReranker.clear_rules" title="Link to this definition">#</a></dt>
+<dd><p>Clear all rules.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="corerec.reranking.business.BusinessRulesReranker.rerank">
+<span class="sig-name descname"><span class="pre">rerank</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ranked</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.List" title="(in Python v3.14)"><span class="pre">List</span></a><span class="p"><span class="pre">[</span></span><a class="reference internal" href="ranking.html#corerec.ranking.base.RankedCandidate" title="corerec.ranking.base.RankedCandidate"><span class="pre">RankedCandidate</span></a><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="ranking.html#corerec.ranking.base.RankingResult" title="corerec.ranking.base.RankingResult"><span class="pre">RankingResult</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">context</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Dict" title="(in Python v3.14)"><span class="pre">Dict</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><span class="pre">str</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Any" title="(in Python v3.14)"><span class="pre">Any</span></a><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.14)"><span class="pre">None</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="ranking.html#corerec.ranking.base.RankingResult" title="corerec.ranking.base.RankingResult"><span class="pre">RankingResult</span></a></span></span><a class="reference internal" href="../_modules/corerec/reranking/business.html#BusinessRulesReranker.rerank"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#corerec.reranking.business.BusinessRulesReranker.rerank" title="Link to this definition">#</a></dt>
+<dd><p>Apply business rules and rerank.</p>
+</dd></dl>
+
+</dd></dl>
+
 </section>
 </section>
 </section>
@@ -592,10 +890,44 @@ document.write(`
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#quick-start">Quick Start</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#api-reference">API Reference</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#diversity-reranker">Diversity Reranker</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fairness-reranker">Fairness Reranker</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#business-rules-reranker">Business Rules Reranker</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-corerec.reranking.base">API Reference</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#corerec.reranking.base.BaseReranker"><code class="docutils literal notranslate"><span class="pre">BaseReranker</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#corerec.reranking.base.BaseReranker.rerank"><code class="docutils literal notranslate"><span class="pre">BaseReranker.rerank()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#module-corerec.reranking.diversity">Diversity Reranker</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#corerec.reranking.diversity.DiversityReranker"><code class="docutils literal notranslate"><span class="pre">DiversityReranker</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#corerec.reranking.diversity.DiversityReranker.__init__"><code class="docutils literal notranslate"><span class="pre">DiversityReranker.__init__()</span></code></a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#corerec.reranking.diversity.DiversityReranker.rerank"><code class="docutils literal notranslate"><span class="pre">DiversityReranker.rerank()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#corerec.reranking.diversity.CategorySpreadReranker"><code class="docutils literal notranslate"><span class="pre">CategorySpreadReranker</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#corerec.reranking.diversity.CategorySpreadReranker.__init__"><code class="docutils literal notranslate"><span class="pre">CategorySpreadReranker.__init__()</span></code></a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#corerec.reranking.diversity.CategorySpreadReranker.rerank"><code class="docutils literal notranslate"><span class="pre">CategorySpreadReranker.rerank()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#module-corerec.reranking.fairness">Fairness Reranker</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#corerec.reranking.fairness.FairnessReranker"><code class="docutils literal notranslate"><span class="pre">FairnessReranker</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#corerec.reranking.fairness.FairnessReranker.__init__"><code class="docutils literal notranslate"><span class="pre">FairnessReranker.__init__()</span></code></a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#corerec.reranking.fairness.FairnessReranker.rerank"><code class="docutils literal notranslate"><span class="pre">FairnessReranker.rerank()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#module-corerec.reranking.business">Business Rules Reranker</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#corerec.reranking.business.BusinessRulesReranker"><code class="docutils literal notranslate"><span class="pre">BusinessRulesReranker</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#corerec.reranking.business.BusinessRulesReranker.add_boost"><code class="docutils literal notranslate"><span class="pre">BusinessRulesReranker.add_boost()</span></code></a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#corerec.reranking.business.BusinessRulesReranker.add_filter"><code class="docutils literal notranslate"><span class="pre">BusinessRulesReranker.add_filter()</span></code></a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#corerec.reranking.business.BusinessRulesReranker.add_pin"><code class="docutils literal notranslate"><span class="pre">BusinessRulesReranker.add_pin()</span></code></a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#corerec.reranking.business.BusinessRulesReranker.add_blocklist"><code class="docutils literal notranslate"><span class="pre">BusinessRulesReranker.add_blocklist()</span></code></a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#corerec.reranking.business.BusinessRulesReranker.clear_rules"><code class="docutils literal notranslate"><span class="pre">BusinessRulesReranker.clear_rules()</span></code></a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#corerec.reranking.business.BusinessRulesReranker.rerank"><code class="docutils literal notranslate"><span class="pre">BusinessRulesReranker.rerank()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>

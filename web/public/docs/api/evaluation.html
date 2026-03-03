@@ -197,10 +197,14 @@
 <li class="toctree-l2"><a class="reference internal" href="../tutorials/mind_tutorial.html">MIND Tutorial: MIND</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../tutorials/nasrec_tutorial.html">NASRec Tutorial: NASRec</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../tutorials/sasrec_tutorial.html">SASRec Tutorial: SASRec</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorials/bert4rec_tutorial.html">Bert4Rec Tutorial: BERT for Sequential Recommendation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorials/ncf_tutorial.html">NCF Tutorial: Neural Collaborative Filtering</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorials/sar_tutorial.html">SAR Tutorial: Smart Adaptive Recommendations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorials/lightgcn_tutorial.html">LightGCN Tutorial: Light Graph Convolutional Network</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorials/tfidf_tutorial.html">TFIDF Tutorial: TF-IDF Based Recommender</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../tutorials/afm_tutorial.html">AFM Tutorial: Attentional Factorization Machine</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../tutorials/autofi_tutorial.html">AutoFI Tutorial: Automatic Feature Interaction</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../tutorials/autoint_tutorial.html">AutoInt Tutorial: Automatic Feature Interaction Learning via Self-Attention</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../tutorials/bert4rec_tutorial.html">Bert4Rec Tutorial: BERT for Sequential Recommendation</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../tutorials/bst_tutorial.html">BST Tutorial: Behavior Sequence Transformer</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../tutorials/bivae_tutorial.html">BiVAE Tutorial: Bilateral Variational Autoencoder</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../tutorials/caser_tutorial.html">Caser Tutorial: Convolutional Sequence Embedding Recommendation</a></li>
@@ -224,7 +228,6 @@
 <li class="toctree-l2"><a class="reference internal" href="../tutorials/gatenet_tutorial.html">GateNet Tutorial: Gating Network</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../tutorials/gnn_base_tutorial.html">GNN_base Tutorial: Graph Neural Network Base</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../tutorials/gru_cf_tutorial.html">GRU-CF Tutorial: GRU for Collaborative Filtering</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../tutorials/ncf_tutorial.html">NCF Tutorial: Neural Collaborative Filtering</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../tutorials/nfm_tutorial.html">NFM Tutorial: Neural Factorization Machine</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../tutorials/nextitnet_tutorial.html">NextItNet Tutorial: Next Item Net</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../tutorials/widedeep_tutorial.html">WideDeep Tutorial: Wide &amp; Deep Learning</a></li>
@@ -242,18 +245,15 @@
 <li class="toctree-l2"><a class="reference internal" href="../tutorials/svd_tutorial.html">SVD Tutorial: Singular Value Decomposition</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../tutorials/userbased_tutorial.html">UserBased Tutorial: User-Based Collaborative Filtering</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../tutorials/geoimc_tutorial.html">GeoIMC Tutorial: Geographic Inductive Matrix Completion</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../tutorials/lightgcn_tutorial.html">LightGCN Tutorial: Light Graph Convolutional Network</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../tutorials/lightgcn_base_tutorial.html">LightGCN_Base Tutorial: LightGCN Base</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../tutorials/rbm_tutorial.html">RBM Tutorial: Restricted Boltzmann Machine</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../tutorials/rlrmc_tutorial.html">RLRMC Tutorial: Reinforcement Learning for Recommendation</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../tutorials/sar_tutorial.html">SAR Tutorial: Smart Adaptive Recommendations</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../tutorials/slirec_tutorial.html">SLiRec Tutorial: Sequential List Recommendation</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../tutorials/sum_tutorial.html">SUM Tutorial: Sequential User Model</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../tutorials/bpr_tutorial.html">BPR Tutorial: Bayesian Personalized Ranking</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../tutorials/bprmf_tutorial.html">BPRMF Tutorial: Bayesian Personalized Ranking Matrix Factorization</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../tutorials/vmf_tutorial.html">VMF Tutorial: Von Mises-Fisher Distribution</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../tutorials/mind_content_tutorial.html">MIND_Content Tutorial: MIND for Content Filtering</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../tutorials/tfidf_tutorial.html">TFIDF Tutorial: TF-IDF Based Recommender</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../tutorials/pipeline_tutorial.html">Multi-Stage Pipeline Tutorial</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../tutorials/imshow_tutorial.html">Demo Frontends Tutorial</a></li>
 </ul>
@@ -501,9 +501,81 @@ document.write(`
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#quick-start">Quick Start</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#api-reference">API Reference</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#metrics">Metrics</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#evaluator">Evaluator</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-corerec.evaluation">API Reference</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#corerec.evaluation.RankingMetrics"><code class="docutils literal notranslate"><span class="pre">RankingMetrics</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#corerec.evaluation.RankingMetrics.hit_rate_at_k"><code class="docutils literal notranslate"><span class="pre">RankingMetrics.hit_rate_at_k()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#corerec.evaluation.RankingMetrics.map_at_k"><code class="docutils literal notranslate"><span class="pre">RankingMetrics.map_at_k()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#corerec.evaluation.RankingMetrics.mrr_at_k"><code class="docutils literal notranslate"><span class="pre">RankingMetrics.mrr_at_k()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#corerec.evaluation.RankingMetrics.ndcg_at_k"><code class="docutils literal notranslate"><span class="pre">RankingMetrics.ndcg_at_k()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#corerec.evaluation.RankingMetrics.precision_at_k"><code class="docutils literal notranslate"><span class="pre">RankingMetrics.precision_at_k()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#corerec.evaluation.RankingMetrics.recall_at_k"><code class="docutils literal notranslate"><span class="pre">RankingMetrics.recall_at_k()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#corerec.evaluation.ClassificationMetrics"><code class="docutils literal notranslate"><span class="pre">ClassificationMetrics</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#corerec.evaluation.ClassificationMetrics.accuracy"><code class="docutils literal notranslate"><span class="pre">ClassificationMetrics.accuracy()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#corerec.evaluation.ClassificationMetrics.f1_score"><code class="docutils literal notranslate"><span class="pre">ClassificationMetrics.f1_score()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#corerec.evaluation.ClassificationMetrics.precision"><code class="docutils literal notranslate"><span class="pre">ClassificationMetrics.precision()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#corerec.evaluation.ClassificationMetrics.recall"><code class="docutils literal notranslate"><span class="pre">ClassificationMetrics.recall()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#corerec.evaluation.DiversityMetrics"><code class="docutils literal notranslate"><span class="pre">DiversityMetrics</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#corerec.evaluation.DiversityMetrics.coverage"><code class="docutils literal notranslate"><span class="pre">DiversityMetrics.coverage()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#corerec.evaluation.DiversityMetrics.gini_coefficient"><code class="docutils literal notranslate"><span class="pre">DiversityMetrics.gini_coefficient()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#corerec.evaluation.DiversityMetrics.intra_list_diversity"><code class="docutils literal notranslate"><span class="pre">DiversityMetrics.intra_list_diversity()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#corerec.evaluation.Evaluator"><code class="docutils literal notranslate"><span class="pre">Evaluator</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#corerec.evaluation.Evaluator.__init__"><code class="docutils literal notranslate"><span class="pre">Evaluator.__init__()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#corerec.evaluation.Evaluator.compare_models"><code class="docutils literal notranslate"><span class="pre">Evaluator.compare_models()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#corerec.evaluation.Evaluator.evaluate"><code class="docutils literal notranslate"><span class="pre">Evaluator.evaluate()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#corerec.evaluation.Evaluator.generate_report"><code class="docutils literal notranslate"><span class="pre">Evaluator.generate_report()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#corerec.evaluation.CrossValidator"><code class="docutils literal notranslate"><span class="pre">CrossValidator</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#corerec.evaluation.CrossValidator.__init__"><code class="docutils literal notranslate"><span class="pre">CrossValidator.__init__()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#corerec.evaluation.CrossValidator.split"><code class="docutils literal notranslate"><span class="pre">CrossValidator.split()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#module-corerec.evaluation.metrics">Metrics</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#corerec.evaluation.metrics.RankingMetrics"><code class="docutils literal notranslate"><span class="pre">RankingMetrics</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#corerec.evaluation.metrics.RankingMetrics.ndcg_at_k"><code class="docutils literal notranslate"><span class="pre">RankingMetrics.ndcg_at_k()</span></code></a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#corerec.evaluation.metrics.RankingMetrics.map_at_k"><code class="docutils literal notranslate"><span class="pre">RankingMetrics.map_at_k()</span></code></a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#corerec.evaluation.metrics.RankingMetrics.mrr_at_k"><code class="docutils literal notranslate"><span class="pre">RankingMetrics.mrr_at_k()</span></code></a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#corerec.evaluation.metrics.RankingMetrics.precision_at_k"><code class="docutils literal notranslate"><span class="pre">RankingMetrics.precision_at_k()</span></code></a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#corerec.evaluation.metrics.RankingMetrics.recall_at_k"><code class="docutils literal notranslate"><span class="pre">RankingMetrics.recall_at_k()</span></code></a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#corerec.evaluation.metrics.RankingMetrics.hit_rate_at_k"><code class="docutils literal notranslate"><span class="pre">RankingMetrics.hit_rate_at_k()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#corerec.evaluation.metrics.ClassificationMetrics"><code class="docutils literal notranslate"><span class="pre">ClassificationMetrics</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#corerec.evaluation.metrics.ClassificationMetrics.accuracy"><code class="docutils literal notranslate"><span class="pre">ClassificationMetrics.accuracy()</span></code></a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#corerec.evaluation.metrics.ClassificationMetrics.precision"><code class="docutils literal notranslate"><span class="pre">ClassificationMetrics.precision()</span></code></a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#corerec.evaluation.metrics.ClassificationMetrics.recall"><code class="docutils literal notranslate"><span class="pre">ClassificationMetrics.recall()</span></code></a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#corerec.evaluation.metrics.ClassificationMetrics.f1_score"><code class="docutils literal notranslate"><span class="pre">ClassificationMetrics.f1_score()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#corerec.evaluation.metrics.DiversityMetrics"><code class="docutils literal notranslate"><span class="pre">DiversityMetrics</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#corerec.evaluation.metrics.DiversityMetrics.intra_list_diversity"><code class="docutils literal notranslate"><span class="pre">DiversityMetrics.intra_list_diversity()</span></code></a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#corerec.evaluation.metrics.DiversityMetrics.coverage"><code class="docutils literal notranslate"><span class="pre">DiversityMetrics.coverage()</span></code></a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#corerec.evaluation.metrics.DiversityMetrics.gini_coefficient"><code class="docutils literal notranslate"><span class="pre">DiversityMetrics.gini_coefficient()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#module-corerec.evaluation.evaluator">Evaluator</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#corerec.evaluation.evaluator.Evaluator"><code class="docutils literal notranslate"><span class="pre">Evaluator</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#corerec.evaluation.evaluator.Evaluator.__init__"><code class="docutils literal notranslate"><span class="pre">Evaluator.__init__()</span></code></a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#corerec.evaluation.evaluator.Evaluator.evaluate"><code class="docutils literal notranslate"><span class="pre">Evaluator.evaluate()</span></code></a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#corerec.evaluation.evaluator.Evaluator.compare_models"><code class="docutils literal notranslate"><span class="pre">Evaluator.compare_models()</span></code></a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#corerec.evaluation.evaluator.Evaluator.generate_report"><code class="docutils literal notranslate"><span class="pre">Evaluator.generate_report()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#corerec.evaluation.evaluator.CrossValidator"><code class="docutils literal notranslate"><span class="pre">CrossValidator</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#corerec.evaluation.evaluator.CrossValidator.__init__"><code class="docutils literal notranslate"><span class="pre">CrossValidator.__init__()</span></code></a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#corerec.evaluation.evaluator.CrossValidator.split"><code class="docutils literal notranslate"><span class="pre">CrossValidator.split()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -529,13 +601,561 @@ document.write(`
 </pre></div>
 </div>
 </section>
-<section id="api-reference">
-<h2>API Reference<a class="headerlink" href="#api-reference" title="Link to this heading">#</a></h2>
-<section id="metrics">
-<h3>Metrics<a class="headerlink" href="#metrics" title="Link to this heading">#</a></h3>
+<section id="module-corerec.evaluation">
+<span id="api-reference"></span><h2>API Reference<a class="headerlink" href="#module-corerec.evaluation" title="Link to this heading">#</a></h2>
+<p>CoreRec Evaluation Framework</p>
+<p>Comprehensive metrics and evaluation tools for recommendation systems.</p>
+<p>Author: Vishesh Yadav (mail: <a class="reference external" href="mailto:sciencely98&#37;&#52;&#48;gmail&#46;com">sciencely98<span>&#64;</span>gmail<span>&#46;</span>com</a>)</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="corerec.evaluation.RankingMetrics">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">corerec.evaluation.</span></span><span class="sig-name descname"><span class="pre">RankingMetrics</span></span><a class="reference internal" href="../_modules/corerec/evaluation/metrics.html#RankingMetrics"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#corerec.evaluation.RankingMetrics" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+<p>Ranking metrics for recommendation evaluation.</p>
+<p>Implements standard metrics like NDCG, MAP, MRR, Precision, Recall.</p>
+<p>Author: Vishesh Yadav (mail: <a class="reference external" href="mailto:sciencely98&#37;&#52;&#48;gmail&#46;com">sciencely98<span>&#64;</span>gmail<span>&#46;</span>com</a>)</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="corerec.evaluation.RankingMetrics.hit_rate_at_k">
+<em class="property"><span class="k"><span class="pre">static</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">hit_rate_at_k</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">predictions</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.List" title="(in Python v3.14)"><span class="pre">List</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">ground_truth</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.List" title="(in Python v3.14)"><span class="pre">List</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">k</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.14)"><span class="pre">int</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">10</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.14)"><span class="pre">float</span></a></span></span><a class="reference internal" href="../_modules/corerec/evaluation/metrics.html#RankingMetrics.hit_rate_at_k"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#corerec.evaluation.RankingMetrics.hit_rate_at_k" title="Link to this definition">#</a></dt>
+<dd><p>Hit Rate &#64; K (binary: 1 if any hit, 0 otherwise).</p>
+<p>Author: Vishesh Yadav (mail: <a class="reference external" href="mailto:sciencely98&#37;&#52;&#48;gmail&#46;com">sciencely98<span>&#64;</span>gmail<span>&#46;</span>com</a>)</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="corerec.evaluation.RankingMetrics.map_at_k">
+<em class="property"><span class="k"><span class="pre">static</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">map_at_k</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">predictions</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.List" title="(in Python v3.14)"><span class="pre">List</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">ground_truth</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.List" title="(in Python v3.14)"><span class="pre">List</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">k</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.14)"><span class="pre">int</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">10</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.14)"><span class="pre">float</span></a></span></span><a class="reference internal" href="../_modules/corerec/evaluation/metrics.html#RankingMetrics.map_at_k"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#corerec.evaluation.RankingMetrics.map_at_k" title="Link to this definition">#</a></dt>
+<dd><p>Mean Average Precision &#64; K.</p>
+<p>Author: Vishesh Yadav (mail: <a class="reference external" href="mailto:sciencely98&#37;&#52;&#48;gmail&#46;com">sciencely98<span>&#64;</span>gmail<span>&#46;</span>com</a>)</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="corerec.evaluation.RankingMetrics.mrr_at_k">
+<em class="property"><span class="k"><span class="pre">static</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">mrr_at_k</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">predictions</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.List" title="(in Python v3.14)"><span class="pre">List</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">ground_truth</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.List" title="(in Python v3.14)"><span class="pre">List</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">k</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.14)"><span class="pre">int</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">10</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.14)"><span class="pre">float</span></a></span></span><a class="reference internal" href="../_modules/corerec/evaluation/metrics.html#RankingMetrics.mrr_at_k"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#corerec.evaluation.RankingMetrics.mrr_at_k" title="Link to this definition">#</a></dt>
+<dd><p>Mean Reciprocal Rank &#64; K.</p>
+<p>Author: Vishesh Yadav (mail: <a class="reference external" href="mailto:sciencely98&#37;&#52;&#48;gmail&#46;com">sciencely98<span>&#64;</span>gmail<span>&#46;</span>com</a>)</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="corerec.evaluation.RankingMetrics.ndcg_at_k">
+<em class="property"><span class="k"><span class="pre">static</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">ndcg_at_k</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">predictions</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.List" title="(in Python v3.14)"><span class="pre">List</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">ground_truth</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.List" title="(in Python v3.14)"><span class="pre">List</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">k</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.14)"><span class="pre">int</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">10</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.14)"><span class="pre">float</span></a></span></span><a class="reference internal" href="../_modules/corerec/evaluation/metrics.html#RankingMetrics.ndcg_at_k"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#corerec.evaluation.RankingMetrics.ndcg_at_k" title="Link to this definition">#</a></dt>
+<dd><p>Normalized Discounted Cumulative Gain &#64; K.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>predictions</strong> – Predicted ranked list of items</p></li>
+<li><p><strong>ground_truth</strong> – Ground truth relevant items</p></li>
+<li><p><strong>k</strong> – Cut-off position</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>NDCG &#64; K score</p>
+</dd>
+</dl>
+<p>Author: Vishesh Yadav (mail: <a class="reference external" href="mailto:sciencely98&#37;&#52;&#48;gmail&#46;com">sciencely98<span>&#64;</span>gmail<span>&#46;</span>com</a>)</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="corerec.evaluation.RankingMetrics.precision_at_k">
+<em class="property"><span class="k"><span class="pre">static</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">precision_at_k</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">predictions</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.List" title="(in Python v3.14)"><span class="pre">List</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">ground_truth</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.List" title="(in Python v3.14)"><span class="pre">List</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">k</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.14)"><span class="pre">int</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">10</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.14)"><span class="pre">float</span></a></span></span><a class="reference internal" href="../_modules/corerec/evaluation/metrics.html#RankingMetrics.precision_at_k"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#corerec.evaluation.RankingMetrics.precision_at_k" title="Link to this definition">#</a></dt>
+<dd><p>Precision &#64; K.</p>
+<p>Author: Vishesh Yadav (mail: <a class="reference external" href="mailto:sciencely98&#37;&#52;&#48;gmail&#46;com">sciencely98<span>&#64;</span>gmail<span>&#46;</span>com</a>)</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="corerec.evaluation.RankingMetrics.recall_at_k">
+<em class="property"><span class="k"><span class="pre">static</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">recall_at_k</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">predictions</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.List" title="(in Python v3.14)"><span class="pre">List</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">ground_truth</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.List" title="(in Python v3.14)"><span class="pre">List</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">k</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.14)"><span class="pre">int</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">10</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.14)"><span class="pre">float</span></a></span></span><a class="reference internal" href="../_modules/corerec/evaluation/metrics.html#RankingMetrics.recall_at_k"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#corerec.evaluation.RankingMetrics.recall_at_k" title="Link to this definition">#</a></dt>
+<dd><p>Recall &#64; K.</p>
+<p>Author: Vishesh Yadav (mail: <a class="reference external" href="mailto:sciencely98&#37;&#52;&#48;gmail&#46;com">sciencely98<span>&#64;</span>gmail<span>&#46;</span>com</a>)</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="corerec.evaluation.ClassificationMetrics">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">corerec.evaluation.</span></span><span class="sig-name descname"><span class="pre">ClassificationMetrics</span></span><a class="reference internal" href="../_modules/corerec/evaluation/metrics.html#ClassificationMetrics"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#corerec.evaluation.ClassificationMetrics" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+<p>Classification metrics for binary/multi-class prediction.</p>
+<p>Author: Vishesh Yadav (mail: <a class="reference external" href="mailto:sciencely98&#37;&#52;&#48;gmail&#46;com">sciencely98<span>&#64;</span>gmail<span>&#46;</span>com</a>)</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="corerec.evaluation.ClassificationMetrics.accuracy">
+<em class="property"><span class="k"><span class="pre">static</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">accuracy</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">predictions</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.4)"><span class="pre">ndarray</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">ground_truth</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.4)"><span class="pre">ndarray</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.14)"><span class="pre">float</span></a></span></span><a class="reference internal" href="../_modules/corerec/evaluation/metrics.html#ClassificationMetrics.accuracy"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#corerec.evaluation.ClassificationMetrics.accuracy" title="Link to this definition">#</a></dt>
+<dd><p>Calculate accuracy.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="corerec.evaluation.ClassificationMetrics.f1_score">
+<em class="property"><span class="k"><span class="pre">static</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">f1_score</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">predictions</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.4)"><span class="pre">ndarray</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">ground_truth</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.4)"><span class="pre">ndarray</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.14)"><span class="pre">float</span></a></span></span><a class="reference internal" href="../_modules/corerec/evaluation/metrics.html#ClassificationMetrics.f1_score"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#corerec.evaluation.ClassificationMetrics.f1_score" title="Link to this definition">#</a></dt>
+<dd><p>Calculate F1 score.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="corerec.evaluation.ClassificationMetrics.precision">
+<em class="property"><span class="k"><span class="pre">static</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">precision</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">predictions</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.4)"><span class="pre">ndarray</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">ground_truth</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.4)"><span class="pre">ndarray</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.14)"><span class="pre">float</span></a></span></span><a class="reference internal" href="../_modules/corerec/evaluation/metrics.html#ClassificationMetrics.precision"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#corerec.evaluation.ClassificationMetrics.precision" title="Link to this definition">#</a></dt>
+<dd><p>Calculate precision.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="corerec.evaluation.ClassificationMetrics.recall">
+<em class="property"><span class="k"><span class="pre">static</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">recall</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">predictions</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.4)"><span class="pre">ndarray</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">ground_truth</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.4)"><span class="pre">ndarray</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.14)"><span class="pre">float</span></a></span></span><a class="reference internal" href="../_modules/corerec/evaluation/metrics.html#ClassificationMetrics.recall"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#corerec.evaluation.ClassificationMetrics.recall" title="Link to this definition">#</a></dt>
+<dd><p>Calculate recall.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="corerec.evaluation.DiversityMetrics">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">corerec.evaluation.</span></span><span class="sig-name descname"><span class="pre">DiversityMetrics</span></span><a class="reference internal" href="../_modules/corerec/evaluation/metrics.html#DiversityMetrics"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#corerec.evaluation.DiversityMetrics" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+<p>Diversity and novelty metrics for recommendations.</p>
+<p>Author: Vishesh Yadav (mail: <a class="reference external" href="mailto:sciencely98&#37;&#52;&#48;gmail&#46;com">sciencely98<span>&#64;</span>gmail<span>&#46;</span>com</a>)</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="corerec.evaluation.DiversityMetrics.coverage">
+<em class="property"><span class="k"><span class="pre">static</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">coverage</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">all_recommendations</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.List" title="(in Python v3.14)"><span class="pre">List</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.List" title="(in Python v3.14)"><span class="pre">List</span></a><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">total_items</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.14)"><span class="pre">int</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.14)"><span class="pre">float</span></a></span></span><a class="reference internal" href="../_modules/corerec/evaluation/metrics.html#DiversityMetrics.coverage"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#corerec.evaluation.DiversityMetrics.coverage" title="Link to this definition">#</a></dt>
+<dd><p>Catalog coverage (percentage of items ever recommended).</p>
+<p>Author: Vishesh Yadav (mail: <a class="reference external" href="mailto:sciencely98&#37;&#52;&#48;gmail&#46;com">sciencely98<span>&#64;</span>gmail<span>&#46;</span>com</a>)</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="corerec.evaluation.DiversityMetrics.gini_coefficient">
+<em class="property"><span class="k"><span class="pre">static</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">gini_coefficient</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">item_counts</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Dict" title="(in Python v3.14)"><span class="pre">Dict</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Any" title="(in Python v3.14)"><span class="pre">Any</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.14)"><span class="pre">int</span></a><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.14)"><span class="pre">float</span></a></span></span><a class="reference internal" href="../_modules/corerec/evaluation/metrics.html#DiversityMetrics.gini_coefficient"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#corerec.evaluation.DiversityMetrics.gini_coefficient" title="Link to this definition">#</a></dt>
+<dd><p>Gini coefficient (measures recommendation concentration).</p>
+<p>0 = perfect equality, 1 = perfect inequality</p>
+<p>Author: Vishesh Yadav (mail: <a class="reference external" href="mailto:sciencely98&#37;&#52;&#48;gmail&#46;com">sciencely98<span>&#64;</span>gmail<span>&#46;</span>com</a>)</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="corerec.evaluation.DiversityMetrics.intra_list_diversity">
+<em class="property"><span class="k"><span class="pre">static</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">intra_list_diversity</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">recommendations</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.List" title="(in Python v3.14)"><span class="pre">List</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.List" title="(in Python v3.14)"><span class="pre">List</span></a><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.14)"><span class="pre">float</span></a></span></span><a class="reference internal" href="../_modules/corerec/evaluation/metrics.html#DiversityMetrics.intra_list_diversity"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#corerec.evaluation.DiversityMetrics.intra_list_diversity" title="Link to this definition">#</a></dt>
+<dd><p>Intra-list diversity (average pairwise distance within lists).</p>
+<p>Author: Vishesh Yadav (mail: <a class="reference external" href="mailto:sciencely98&#37;&#52;&#48;gmail&#46;com">sciencely98<span>&#64;</span>gmail<span>&#46;</span>com</a>)</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="corerec.evaluation.Evaluator">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">corerec.evaluation.</span></span><span class="sig-name descname"><span class="pre">Evaluator</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">metrics</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.List" title="(in Python v3.14)"><span class="pre">List</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><span class="pre">str</span></a><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/corerec/evaluation/evaluator.html#Evaluator"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#corerec.evaluation.Evaluator" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+<p>Model evaluator for recommendation systems.</p>
+<p>Evaluates models on test data using multiple metrics.</p>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">corerec.evaluation</span><span class="w"> </span><span class="kn">import</span> <span class="n">Evaluator</span>
+
+<span class="n">evaluator</span> <span class="o">=</span> <span class="n">Evaluator</span><span class="p">(</span><span class="n">metrics</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;ndcg@10&#39;</span><span class="p">,</span> <span class="s1">&#39;map@10&#39;</span><span class="p">,</span> <span class="s1">&#39;recall@20&#39;</span><span class="p">])</span>
+
+<span class="c1"># Single model evaluation</span>
+<span class="n">results</span> <span class="o">=</span> <span class="n">evaluator</span><span class="o">.</span><span class="n">evaluate</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">test_data</span><span class="p">)</span>
+
+<span class="c1"># Model comparison</span>
+<span class="n">comparison</span> <span class="o">=</span> <span class="n">evaluator</span><span class="o">.</span><span class="n">compare_models</span><span class="p">({</span>
+    <span class="s1">&#39;NCF&#39;</span><span class="p">:</span> <span class="n">ncf_model</span><span class="p">,</span>
+    <span class="s1">&#39;DeepFM&#39;</span><span class="p">:</span> <span class="n">deepfm_model</span>
+<span class="p">},</span> <span class="n">test_data</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Author: Vishesh Yadav (mail: <a class="reference external" href="mailto:sciencely98&#37;&#52;&#48;gmail&#46;com">sciencely98<span>&#64;</span>gmail<span>&#46;</span>com</a>)</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="corerec.evaluation.Evaluator.__init__">
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">metrics</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.List" title="(in Python v3.14)"><span class="pre">List</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><span class="pre">str</span></a><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/corerec/evaluation/evaluator.html#Evaluator.__init__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#corerec.evaluation.Evaluator.__init__" title="Link to this definition">#</a></dt>
+<dd><p>Initialize evaluator.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>metrics</strong> – List of metrics to compute (e.g., [<a class="reference external" href="mailto:'ndcg&#37;&#52;&#48;10">‘ndcg<span>&#64;</span>10</a>’, <a class="reference external" href="mailto:'map&#37;&#52;&#48;10">‘map<span>&#64;</span>10</a>’])</p>
+</dd>
+</dl>
+<p>Author: Vishesh Yadav (mail: <a class="reference external" href="mailto:sciencely98&#37;&#52;&#48;gmail&#46;com">sciencely98<span>&#64;</span>gmail<span>&#46;</span>com</a>)</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="corerec.evaluation.Evaluator.compare_models">
+<span class="sig-name descname"><span class="pre">compare_models</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">models</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Dict" title="(in Python v3.14)"><span class="pre">Dict</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><span class="pre">str</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Any" title="(in Python v3.14)"><span class="pre">Any</span></a><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">test_data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Dict" title="(in Python v3.14)"><span class="pre">Dict</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Any" title="(in Python v3.14)"><span class="pre">Any</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.List" title="(in Python v3.14)"><span class="pre">List</span></a><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Dict" title="(in Python v3.14)"><span class="pre">Dict</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><span class="pre">str</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Dict" title="(in Python v3.14)"><span class="pre">Dict</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><span class="pre">str</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.14)"><span class="pre">float</span></a><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="../_modules/corerec/evaluation/evaluator.html#Evaluator.compare_models"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#corerec.evaluation.Evaluator.compare_models" title="Link to this definition">#</a></dt>
+<dd><p>Compare multiple models on same test data.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>models</strong> – Dict mapping model_name to model instance</p></li>
+<li><p><strong>test_data</strong> – Test data (user_id -&gt; relevant items)</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Dict mapping model_name to evaluation results</p>
+</dd>
+</dl>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">results</span> <span class="o">=</span> <span class="n">evaluator</span><span class="o">.</span><span class="n">compare_models</span><span class="p">({</span>
+    <span class="s1">&#39;NCF&#39;</span><span class="p">:</span> <span class="n">ncf_model</span><span class="p">,</span>
+    <span class="s1">&#39;DeepFM&#39;</span><span class="p">:</span> <span class="n">deepfm_model</span>
+<span class="p">},</span> <span class="n">test_data</span><span class="p">)</span>
+
+<span class="c1"># Results:</span>
+<span class="c1"># {</span>
+<span class="c1">#   &#39;NCF&#39;: {&#39;ndcg@10&#39;: 0.45, &#39;map@10&#39;: 0.38, ...},</span>
+<span class="c1">#   &#39;DeepFM&#39;: {&#39;ndcg@10&#39;: 0.48, &#39;map@10&#39;: 0.41, ...}</span>
+<span class="c1"># }</span>
+</pre></div>
+</div>
+<p>Author: Vishesh Yadav (mail: <a class="reference external" href="mailto:sciencely98&#37;&#52;&#48;gmail&#46;com">sciencely98<span>&#64;</span>gmail<span>&#46;</span>com</a>)</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="corerec.evaluation.Evaluator.evaluate">
+<span class="sig-name descname"><span class="pre">evaluate</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">model</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">test_data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Dict" title="(in Python v3.14)"><span class="pre">Dict</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Any" title="(in Python v3.14)"><span class="pre">Any</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.List" title="(in Python v3.14)"><span class="pre">List</span></a><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Dict" title="(in Python v3.14)"><span class="pre">Dict</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><span class="pre">str</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.14)"><span class="pre">float</span></a><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="../_modules/corerec/evaluation/evaluator.html#Evaluator.evaluate"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#corerec.evaluation.Evaluator.evaluate" title="Link to this definition">#</a></dt>
+<dd><p>Evaluate model on test data.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>model</strong> – Recommendation model with recommend() method</p></li>
+<li><p><strong>test_data</strong> – Dict mapping user_id to list of relevant items</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Dictionary of metric_name -&gt; score</p>
+</dd>
+</dl>
+<p>Author: Vishesh Yadav (mail: <a class="reference external" href="mailto:sciencely98&#37;&#52;&#48;gmail&#46;com">sciencely98<span>&#64;</span>gmail<span>&#46;</span>com</a>)</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="corerec.evaluation.Evaluator.generate_report">
+<span class="sig-name descname"><span class="pre">generate_report</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">results</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Dict" title="(in Python v3.14)"><span class="pre">Dict</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><span class="pre">str</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Dict" title="(in Python v3.14)"><span class="pre">Dict</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><span class="pre">str</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.14)"><span class="pre">float</span></a><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><span class="pre">str</span></a></span></span><a class="reference internal" href="../_modules/corerec/evaluation/evaluator.html#Evaluator.generate_report"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#corerec.evaluation.Evaluator.generate_report" title="Link to this definition">#</a></dt>
+<dd><p>Generate human-readable evaluation report.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>results</strong> – Evaluation results from compare_models()</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Formatted report string</p>
+</dd>
+</dl>
+<p>Author: Vishesh Yadav (mail: <a class="reference external" href="mailto:sciencely98&#37;&#52;&#48;gmail&#46;com">sciencely98<span>&#64;</span>gmail<span>&#46;</span>com</a>)</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="corerec.evaluation.CrossValidator">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">corerec.evaluation.</span></span><span class="sig-name descname"><span class="pre">CrossValidator</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">n_folds</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.14)"><span class="pre">int</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">5</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">random_state</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.14)"><span class="pre">int</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">42</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/corerec/evaluation/evaluator.html#CrossValidator"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#corerec.evaluation.CrossValidator" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+<p>Cross-validation utilities.</p>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cv</span> <span class="o">=</span> <span class="n">CrossValidator</span><span class="p">(</span><span class="n">n_folds</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
+<span class="n">avg_score</span> <span class="o">=</span> <span class="n">cv</span><span class="o">.</span><span class="n">cross_validate</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">metric</span><span class="o">=</span><span class="s1">&#39;ndcg@10&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Author: Vishesh Yadav (mail: <a class="reference external" href="mailto:sciencely98&#37;&#52;&#48;gmail&#46;com">sciencely98<span>&#64;</span>gmail<span>&#46;</span>com</a>)</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="corerec.evaluation.CrossValidator.__init__">
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">n_folds</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.14)"><span class="pre">int</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">5</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">random_state</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.14)"><span class="pre">int</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">42</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/corerec/evaluation/evaluator.html#CrossValidator.__init__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#corerec.evaluation.CrossValidator.__init__" title="Link to this definition">#</a></dt>
+<dd><p>Initialize cross-validator.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>n_folds</strong> – Number of folds</p></li>
+<li><p><strong>random_state</strong> – Random seed</p></li>
+</ul>
+</dd>
+</dl>
+<p>Author: Vishesh Yadav (mail: <a class="reference external" href="mailto:sciencely98&#37;&#52;&#48;gmail&#46;com">sciencely98<span>&#64;</span>gmail<span>&#46;</span>com</a>)</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="corerec.evaluation.CrossValidator.split">
+<span class="sig-name descname"><span class="pre">split</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Any" title="(in Python v3.14)"><span class="pre">Any</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_folds</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.14)"><span class="pre">int</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.14)"><span class="pre">None</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.List" title="(in Python v3.14)"><span class="pre">List</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#tuple" title="(in Python v3.14)"><span class="pre">tuple</span></a><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="../_modules/corerec/evaluation/evaluator.html#CrossValidator.split"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#corerec.evaluation.CrossValidator.split" title="Link to this definition">#</a></dt>
+<dd><p>Split data into folds.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>data</strong> – Data to split</p></li>
+<li><p><strong>n_folds</strong> – Number of folds (uses self.n_folds if None)</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>List of (train, test) tuples</p>
+</dd>
+</dl>
+<p>Author: Vishesh Yadav (mail: <a class="reference external" href="mailto:sciencely98&#37;&#52;&#48;gmail&#46;com">sciencely98<span>&#64;</span>gmail<span>&#46;</span>com</a>)</p>
+</dd></dl>
+
+</dd></dl>
+
+<section id="module-corerec.evaluation.metrics">
+<span id="metrics"></span><h3>Metrics<a class="headerlink" href="#module-corerec.evaluation.metrics" title="Link to this heading">#</a></h3>
+<p>Evaluation Metrics</p>
+<p>Comprehensive metrics for recommendation system evaluation.</p>
+<p>Author: Vishesh Yadav (mail: <a class="reference external" href="mailto:sciencely98&#37;&#52;&#48;gmail&#46;com">sciencely98<span>&#64;</span>gmail<span>&#46;</span>com</a>)</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="corerec.evaluation.metrics.RankingMetrics">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">corerec.evaluation.metrics.</span></span><span class="sig-name descname"><span class="pre">RankingMetrics</span></span><a class="reference internal" href="../_modules/corerec/evaluation/metrics.html#RankingMetrics"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#corerec.evaluation.metrics.RankingMetrics" title="Link to this definition">#</a></dt>
+<dd><p>Ranking metrics for recommendation evaluation.</p>
+<p>Implements standard metrics like NDCG, MAP, MRR, Precision, Recall.</p>
+<p>Author: Vishesh Yadav (mail: <a class="reference external" href="mailto:sciencely98&#37;&#52;&#48;gmail&#46;com">sciencely98<span>&#64;</span>gmail<span>&#46;</span>com</a>)</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="corerec.evaluation.metrics.RankingMetrics.ndcg_at_k">
+<em class="property"><span class="k"><span class="pre">static</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">ndcg_at_k</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">predictions</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.List" title="(in Python v3.14)"><span class="pre">List</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">ground_truth</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.List" title="(in Python v3.14)"><span class="pre">List</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">k</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.14)"><span class="pre">int</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">10</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.14)"><span class="pre">float</span></a></span></span><a class="reference internal" href="../_modules/corerec/evaluation/metrics.html#RankingMetrics.ndcg_at_k"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#corerec.evaluation.metrics.RankingMetrics.ndcg_at_k" title="Link to this definition">#</a></dt>
+<dd><p>Normalized Discounted Cumulative Gain &#64; K.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>predictions</strong> – Predicted ranked list of items</p></li>
+<li><p><strong>ground_truth</strong> – Ground truth relevant items</p></li>
+<li><p><strong>k</strong> – Cut-off position</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>NDCG &#64; K score</p>
+</dd>
+</dl>
+<p>Author: Vishesh Yadav (mail: <a class="reference external" href="mailto:sciencely98&#37;&#52;&#48;gmail&#46;com">sciencely98<span>&#64;</span>gmail<span>&#46;</span>com</a>)</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="corerec.evaluation.metrics.RankingMetrics.map_at_k">
+<em class="property"><span class="k"><span class="pre">static</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">map_at_k</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">predictions</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.List" title="(in Python v3.14)"><span class="pre">List</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">ground_truth</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.List" title="(in Python v3.14)"><span class="pre">List</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">k</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.14)"><span class="pre">int</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">10</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.14)"><span class="pre">float</span></a></span></span><a class="reference internal" href="../_modules/corerec/evaluation/metrics.html#RankingMetrics.map_at_k"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#corerec.evaluation.metrics.RankingMetrics.map_at_k" title="Link to this definition">#</a></dt>
+<dd><p>Mean Average Precision &#64; K.</p>
+<p>Author: Vishesh Yadav (mail: <a class="reference external" href="mailto:sciencely98&#37;&#52;&#48;gmail&#46;com">sciencely98<span>&#64;</span>gmail<span>&#46;</span>com</a>)</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="corerec.evaluation.metrics.RankingMetrics.mrr_at_k">
+<em class="property"><span class="k"><span class="pre">static</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">mrr_at_k</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">predictions</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.List" title="(in Python v3.14)"><span class="pre">List</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">ground_truth</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.List" title="(in Python v3.14)"><span class="pre">List</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">k</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.14)"><span class="pre">int</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">10</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.14)"><span class="pre">float</span></a></span></span><a class="reference internal" href="../_modules/corerec/evaluation/metrics.html#RankingMetrics.mrr_at_k"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#corerec.evaluation.metrics.RankingMetrics.mrr_at_k" title="Link to this definition">#</a></dt>
+<dd><p>Mean Reciprocal Rank &#64; K.</p>
+<p>Author: Vishesh Yadav (mail: <a class="reference external" href="mailto:sciencely98&#37;&#52;&#48;gmail&#46;com">sciencely98<span>&#64;</span>gmail<span>&#46;</span>com</a>)</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="corerec.evaluation.metrics.RankingMetrics.precision_at_k">
+<em class="property"><span class="k"><span class="pre">static</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">precision_at_k</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">predictions</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.List" title="(in Python v3.14)"><span class="pre">List</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">ground_truth</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.List" title="(in Python v3.14)"><span class="pre">List</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">k</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.14)"><span class="pre">int</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">10</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.14)"><span class="pre">float</span></a></span></span><a class="reference internal" href="../_modules/corerec/evaluation/metrics.html#RankingMetrics.precision_at_k"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#corerec.evaluation.metrics.RankingMetrics.precision_at_k" title="Link to this definition">#</a></dt>
+<dd><p>Precision &#64; K.</p>
+<p>Author: Vishesh Yadav (mail: <a class="reference external" href="mailto:sciencely98&#37;&#52;&#48;gmail&#46;com">sciencely98<span>&#64;</span>gmail<span>&#46;</span>com</a>)</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="corerec.evaluation.metrics.RankingMetrics.recall_at_k">
+<em class="property"><span class="k"><span class="pre">static</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">recall_at_k</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">predictions</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.List" title="(in Python v3.14)"><span class="pre">List</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">ground_truth</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.List" title="(in Python v3.14)"><span class="pre">List</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">k</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.14)"><span class="pre">int</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">10</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.14)"><span class="pre">float</span></a></span></span><a class="reference internal" href="../_modules/corerec/evaluation/metrics.html#RankingMetrics.recall_at_k"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#corerec.evaluation.metrics.RankingMetrics.recall_at_k" title="Link to this definition">#</a></dt>
+<dd><p>Recall &#64; K.</p>
+<p>Author: Vishesh Yadav (mail: <a class="reference external" href="mailto:sciencely98&#37;&#52;&#48;gmail&#46;com">sciencely98<span>&#64;</span>gmail<span>&#46;</span>com</a>)</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="corerec.evaluation.metrics.RankingMetrics.hit_rate_at_k">
+<em class="property"><span class="k"><span class="pre">static</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">hit_rate_at_k</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">predictions</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.List" title="(in Python v3.14)"><span class="pre">List</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">ground_truth</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.List" title="(in Python v3.14)"><span class="pre">List</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">k</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.14)"><span class="pre">int</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">10</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.14)"><span class="pre">float</span></a></span></span><a class="reference internal" href="../_modules/corerec/evaluation/metrics.html#RankingMetrics.hit_rate_at_k"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#corerec.evaluation.metrics.RankingMetrics.hit_rate_at_k" title="Link to this definition">#</a></dt>
+<dd><p>Hit Rate &#64; K (binary: 1 if any hit, 0 otherwise).</p>
+<p>Author: Vishesh Yadav (mail: <a class="reference external" href="mailto:sciencely98&#37;&#52;&#48;gmail&#46;com">sciencely98<span>&#64;</span>gmail<span>&#46;</span>com</a>)</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="corerec.evaluation.metrics.ClassificationMetrics">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">corerec.evaluation.metrics.</span></span><span class="sig-name descname"><span class="pre">ClassificationMetrics</span></span><a class="reference internal" href="../_modules/corerec/evaluation/metrics.html#ClassificationMetrics"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#corerec.evaluation.metrics.ClassificationMetrics" title="Link to this definition">#</a></dt>
+<dd><p>Classification metrics for binary/multi-class prediction.</p>
+<p>Author: Vishesh Yadav (mail: <a class="reference external" href="mailto:sciencely98&#37;&#52;&#48;gmail&#46;com">sciencely98<span>&#64;</span>gmail<span>&#46;</span>com</a>)</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="corerec.evaluation.metrics.ClassificationMetrics.accuracy">
+<em class="property"><span class="k"><span class="pre">static</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">accuracy</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">predictions</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.4)"><span class="pre">ndarray</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">ground_truth</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.4)"><span class="pre">ndarray</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.14)"><span class="pre">float</span></a></span></span><a class="reference internal" href="../_modules/corerec/evaluation/metrics.html#ClassificationMetrics.accuracy"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#corerec.evaluation.metrics.ClassificationMetrics.accuracy" title="Link to this definition">#</a></dt>
+<dd><p>Calculate accuracy.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="corerec.evaluation.metrics.ClassificationMetrics.precision">
+<em class="property"><span class="k"><span class="pre">static</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">precision</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">predictions</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.4)"><span class="pre">ndarray</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">ground_truth</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.4)"><span class="pre">ndarray</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.14)"><span class="pre">float</span></a></span></span><a class="reference internal" href="../_modules/corerec/evaluation/metrics.html#ClassificationMetrics.precision"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#corerec.evaluation.metrics.ClassificationMetrics.precision" title="Link to this definition">#</a></dt>
+<dd><p>Calculate precision.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="corerec.evaluation.metrics.ClassificationMetrics.recall">
+<em class="property"><span class="k"><span class="pre">static</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">recall</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">predictions</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.4)"><span class="pre">ndarray</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">ground_truth</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.4)"><span class="pre">ndarray</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.14)"><span class="pre">float</span></a></span></span><a class="reference internal" href="../_modules/corerec/evaluation/metrics.html#ClassificationMetrics.recall"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#corerec.evaluation.metrics.ClassificationMetrics.recall" title="Link to this definition">#</a></dt>
+<dd><p>Calculate recall.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="corerec.evaluation.metrics.ClassificationMetrics.f1_score">
+<em class="property"><span class="k"><span class="pre">static</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">f1_score</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">predictions</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.4)"><span class="pre">ndarray</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">ground_truth</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.4)"><span class="pre">ndarray</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.14)"><span class="pre">float</span></a></span></span><a class="reference internal" href="../_modules/corerec/evaluation/metrics.html#ClassificationMetrics.f1_score"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#corerec.evaluation.metrics.ClassificationMetrics.f1_score" title="Link to this definition">#</a></dt>
+<dd><p>Calculate F1 score.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="corerec.evaluation.metrics.DiversityMetrics">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">corerec.evaluation.metrics.</span></span><span class="sig-name descname"><span class="pre">DiversityMetrics</span></span><a class="reference internal" href="../_modules/corerec/evaluation/metrics.html#DiversityMetrics"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#corerec.evaluation.metrics.DiversityMetrics" title="Link to this definition">#</a></dt>
+<dd><p>Diversity and novelty metrics for recommendations.</p>
+<p>Author: Vishesh Yadav (mail: <a class="reference external" href="mailto:sciencely98&#37;&#52;&#48;gmail&#46;com">sciencely98<span>&#64;</span>gmail<span>&#46;</span>com</a>)</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="corerec.evaluation.metrics.DiversityMetrics.intra_list_diversity">
+<em class="property"><span class="k"><span class="pre">static</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">intra_list_diversity</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">recommendations</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.List" title="(in Python v3.14)"><span class="pre">List</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.List" title="(in Python v3.14)"><span class="pre">List</span></a><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.14)"><span class="pre">float</span></a></span></span><a class="reference internal" href="../_modules/corerec/evaluation/metrics.html#DiversityMetrics.intra_list_diversity"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#corerec.evaluation.metrics.DiversityMetrics.intra_list_diversity" title="Link to this definition">#</a></dt>
+<dd><p>Intra-list diversity (average pairwise distance within lists).</p>
+<p>Author: Vishesh Yadav (mail: <a class="reference external" href="mailto:sciencely98&#37;&#52;&#48;gmail&#46;com">sciencely98<span>&#64;</span>gmail<span>&#46;</span>com</a>)</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="corerec.evaluation.metrics.DiversityMetrics.coverage">
+<em class="property"><span class="k"><span class="pre">static</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">coverage</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">all_recommendations</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.List" title="(in Python v3.14)"><span class="pre">List</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.List" title="(in Python v3.14)"><span class="pre">List</span></a><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">total_items</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.14)"><span class="pre">int</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.14)"><span class="pre">float</span></a></span></span><a class="reference internal" href="../_modules/corerec/evaluation/metrics.html#DiversityMetrics.coverage"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#corerec.evaluation.metrics.DiversityMetrics.coverage" title="Link to this definition">#</a></dt>
+<dd><p>Catalog coverage (percentage of items ever recommended).</p>
+<p>Author: Vishesh Yadav (mail: <a class="reference external" href="mailto:sciencely98&#37;&#52;&#48;gmail&#46;com">sciencely98<span>&#64;</span>gmail<span>&#46;</span>com</a>)</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="corerec.evaluation.metrics.DiversityMetrics.gini_coefficient">
+<em class="property"><span class="k"><span class="pre">static</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">gini_coefficient</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">item_counts</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Dict" title="(in Python v3.14)"><span class="pre">Dict</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Any" title="(in Python v3.14)"><span class="pre">Any</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.14)"><span class="pre">int</span></a><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.14)"><span class="pre">float</span></a></span></span><a class="reference internal" href="../_modules/corerec/evaluation/metrics.html#DiversityMetrics.gini_coefficient"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#corerec.evaluation.metrics.DiversityMetrics.gini_coefficient" title="Link to this definition">#</a></dt>
+<dd><p>Gini coefficient (measures recommendation concentration).</p>
+<p>0 = perfect equality, 1 = perfect inequality</p>
+<p>Author: Vishesh Yadav (mail: <a class="reference external" href="mailto:sciencely98&#37;&#52;&#48;gmail&#46;com">sciencely98<span>&#64;</span>gmail<span>&#46;</span>com</a>)</p>
+</dd></dl>
+
+</dd></dl>
+
 </section>
-<section id="evaluator">
-<h3>Evaluator<a class="headerlink" href="#evaluator" title="Link to this heading">#</a></h3>
+<section id="module-corerec.evaluation.evaluator">
+<span id="evaluator"></span><h3>Evaluator<a class="headerlink" href="#module-corerec.evaluation.evaluator" title="Link to this heading">#</a></h3>
+<p>Model Evaluator</p>
+<p>Tools for evaluating and comparing recommendation models.</p>
+<p>Author: Vishesh Yadav (mail: <a class="reference external" href="mailto:sciencely98&#37;&#52;&#48;gmail&#46;com">sciencely98<span>&#64;</span>gmail<span>&#46;</span>com</a>)</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="corerec.evaluation.evaluator.Evaluator">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">corerec.evaluation.evaluator.</span></span><span class="sig-name descname"><span class="pre">Evaluator</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">metrics</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.List" title="(in Python v3.14)"><span class="pre">List</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><span class="pre">str</span></a><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/corerec/evaluation/evaluator.html#Evaluator"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#corerec.evaluation.evaluator.Evaluator" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+<p>Model evaluator for recommendation systems.</p>
+<p>Evaluates models on test data using multiple metrics.</p>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">corerec.evaluation</span><span class="w"> </span><span class="kn">import</span> <span class="n">Evaluator</span>
+
+<span class="n">evaluator</span> <span class="o">=</span> <span class="n">Evaluator</span><span class="p">(</span><span class="n">metrics</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;ndcg@10&#39;</span><span class="p">,</span> <span class="s1">&#39;map@10&#39;</span><span class="p">,</span> <span class="s1">&#39;recall@20&#39;</span><span class="p">])</span>
+
+<span class="c1"># Single model evaluation</span>
+<span class="n">results</span> <span class="o">=</span> <span class="n">evaluator</span><span class="o">.</span><span class="n">evaluate</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">test_data</span><span class="p">)</span>
+
+<span class="c1"># Model comparison</span>
+<span class="n">comparison</span> <span class="o">=</span> <span class="n">evaluator</span><span class="o">.</span><span class="n">compare_models</span><span class="p">({</span>
+    <span class="s1">&#39;NCF&#39;</span><span class="p">:</span> <span class="n">ncf_model</span><span class="p">,</span>
+    <span class="s1">&#39;DeepFM&#39;</span><span class="p">:</span> <span class="n">deepfm_model</span>
+<span class="p">},</span> <span class="n">test_data</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Author: Vishesh Yadav (mail: <a class="reference external" href="mailto:sciencely98&#37;&#52;&#48;gmail&#46;com">sciencely98<span>&#64;</span>gmail<span>&#46;</span>com</a>)</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="corerec.evaluation.evaluator.Evaluator.__init__">
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">metrics</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.List" title="(in Python v3.14)"><span class="pre">List</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><span class="pre">str</span></a><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/corerec/evaluation/evaluator.html#Evaluator.__init__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#corerec.evaluation.evaluator.Evaluator.__init__" title="Link to this definition">#</a></dt>
+<dd><p>Initialize evaluator.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>metrics</strong> – List of metrics to compute (e.g., [<a class="reference external" href="mailto:'ndcg&#37;&#52;&#48;10">‘ndcg<span>&#64;</span>10</a>’, <a class="reference external" href="mailto:'map&#37;&#52;&#48;10">‘map<span>&#64;</span>10</a>’])</p>
+</dd>
+</dl>
+<p>Author: Vishesh Yadav (mail: <a class="reference external" href="mailto:sciencely98&#37;&#52;&#48;gmail&#46;com">sciencely98<span>&#64;</span>gmail<span>&#46;</span>com</a>)</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="corerec.evaluation.evaluator.Evaluator.evaluate">
+<span class="sig-name descname"><span class="pre">evaluate</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">model</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">test_data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Dict" title="(in Python v3.14)"><span class="pre">Dict</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Any" title="(in Python v3.14)"><span class="pre">Any</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.List" title="(in Python v3.14)"><span class="pre">List</span></a><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Dict" title="(in Python v3.14)"><span class="pre">Dict</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><span class="pre">str</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.14)"><span class="pre">float</span></a><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="../_modules/corerec/evaluation/evaluator.html#Evaluator.evaluate"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#corerec.evaluation.evaluator.Evaluator.evaluate" title="Link to this definition">#</a></dt>
+<dd><p>Evaluate model on test data.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>model</strong> – Recommendation model with recommend() method</p></li>
+<li><p><strong>test_data</strong> – Dict mapping user_id to list of relevant items</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Dictionary of metric_name -&gt; score</p>
+</dd>
+</dl>
+<p>Author: Vishesh Yadav (mail: <a class="reference external" href="mailto:sciencely98&#37;&#52;&#48;gmail&#46;com">sciencely98<span>&#64;</span>gmail<span>&#46;</span>com</a>)</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="corerec.evaluation.evaluator.Evaluator.compare_models">
+<span class="sig-name descname"><span class="pre">compare_models</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">models</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Dict" title="(in Python v3.14)"><span class="pre">Dict</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><span class="pre">str</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Any" title="(in Python v3.14)"><span class="pre">Any</span></a><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">test_data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Dict" title="(in Python v3.14)"><span class="pre">Dict</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Any" title="(in Python v3.14)"><span class="pre">Any</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.List" title="(in Python v3.14)"><span class="pre">List</span></a><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Dict" title="(in Python v3.14)"><span class="pre">Dict</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><span class="pre">str</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Dict" title="(in Python v3.14)"><span class="pre">Dict</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><span class="pre">str</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.14)"><span class="pre">float</span></a><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="../_modules/corerec/evaluation/evaluator.html#Evaluator.compare_models"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#corerec.evaluation.evaluator.Evaluator.compare_models" title="Link to this definition">#</a></dt>
+<dd><p>Compare multiple models on same test data.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>models</strong> – Dict mapping model_name to model instance</p></li>
+<li><p><strong>test_data</strong> – Test data (user_id -&gt; relevant items)</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Dict mapping model_name to evaluation results</p>
+</dd>
+</dl>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">results</span> <span class="o">=</span> <span class="n">evaluator</span><span class="o">.</span><span class="n">compare_models</span><span class="p">({</span>
+    <span class="s1">&#39;NCF&#39;</span><span class="p">:</span> <span class="n">ncf_model</span><span class="p">,</span>
+    <span class="s1">&#39;DeepFM&#39;</span><span class="p">:</span> <span class="n">deepfm_model</span>
+<span class="p">},</span> <span class="n">test_data</span><span class="p">)</span>
+
+<span class="c1"># Results:</span>
+<span class="c1"># {</span>
+<span class="c1">#   &#39;NCF&#39;: {&#39;ndcg@10&#39;: 0.45, &#39;map@10&#39;: 0.38, ...},</span>
+<span class="c1">#   &#39;DeepFM&#39;: {&#39;ndcg@10&#39;: 0.48, &#39;map@10&#39;: 0.41, ...}</span>
+<span class="c1"># }</span>
+</pre></div>
+</div>
+<p>Author: Vishesh Yadav (mail: <a class="reference external" href="mailto:sciencely98&#37;&#52;&#48;gmail&#46;com">sciencely98<span>&#64;</span>gmail<span>&#46;</span>com</a>)</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="corerec.evaluation.evaluator.Evaluator.generate_report">
+<span class="sig-name descname"><span class="pre">generate_report</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">results</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Dict" title="(in Python v3.14)"><span class="pre">Dict</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><span class="pre">str</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Dict" title="(in Python v3.14)"><span class="pre">Dict</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><span class="pre">str</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.14)"><span class="pre">float</span></a><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><span class="pre">str</span></a></span></span><a class="reference internal" href="../_modules/corerec/evaluation/evaluator.html#Evaluator.generate_report"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#corerec.evaluation.evaluator.Evaluator.generate_report" title="Link to this definition">#</a></dt>
+<dd><p>Generate human-readable evaluation report.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>results</strong> – Evaluation results from compare_models()</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Formatted report string</p>
+</dd>
+</dl>
+<p>Author: Vishesh Yadav (mail: <a class="reference external" href="mailto:sciencely98&#37;&#52;&#48;gmail&#46;com">sciencely98<span>&#64;</span>gmail<span>&#46;</span>com</a>)</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="corerec.evaluation.evaluator.CrossValidator">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">corerec.evaluation.evaluator.</span></span><span class="sig-name descname"><span class="pre">CrossValidator</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">n_folds</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.14)"><span class="pre">int</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">5</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">random_state</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.14)"><span class="pre">int</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">42</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/corerec/evaluation/evaluator.html#CrossValidator"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#corerec.evaluation.evaluator.CrossValidator" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+<p>Cross-validation utilities.</p>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cv</span> <span class="o">=</span> <span class="n">CrossValidator</span><span class="p">(</span><span class="n">n_folds</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
+<span class="n">avg_score</span> <span class="o">=</span> <span class="n">cv</span><span class="o">.</span><span class="n">cross_validate</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">metric</span><span class="o">=</span><span class="s1">&#39;ndcg@10&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Author: Vishesh Yadav (mail: <a class="reference external" href="mailto:sciencely98&#37;&#52;&#48;gmail&#46;com">sciencely98<span>&#64;</span>gmail<span>&#46;</span>com</a>)</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="corerec.evaluation.evaluator.CrossValidator.__init__">
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">n_folds</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.14)"><span class="pre">int</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">5</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">random_state</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.14)"><span class="pre">int</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">42</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/corerec/evaluation/evaluator.html#CrossValidator.__init__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#corerec.evaluation.evaluator.CrossValidator.__init__" title="Link to this definition">#</a></dt>
+<dd><p>Initialize cross-validator.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>n_folds</strong> – Number of folds</p></li>
+<li><p><strong>random_state</strong> – Random seed</p></li>
+</ul>
+</dd>
+</dl>
+<p>Author: Vishesh Yadav (mail: <a class="reference external" href="mailto:sciencely98&#37;&#52;&#48;gmail&#46;com">sciencely98<span>&#64;</span>gmail<span>&#46;</span>com</a>)</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="corerec.evaluation.evaluator.CrossValidator.split">
+<span class="sig-name descname"><span class="pre">split</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Any" title="(in Python v3.14)"><span class="pre">Any</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_folds</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.14)"><span class="pre">int</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.14)"><span class="pre">None</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.List" title="(in Python v3.14)"><span class="pre">List</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#tuple" title="(in Python v3.14)"><span class="pre">tuple</span></a><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="../_modules/corerec/evaluation/evaluator.html#CrossValidator.split"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#corerec.evaluation.evaluator.CrossValidator.split" title="Link to this definition">#</a></dt>
+<dd><p>Split data into folds.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>data</strong> – Data to split</p></li>
+<li><p><strong>n_folds</strong> – Number of folds (uses self.n_folds if None)</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>List of (train, test) tuples</p>
+</dd>
+</dl>
+<p>Author: Vishesh Yadav (mail: <a class="reference external" href="mailto:sciencely98&#37;&#52;&#48;gmail&#46;com">sciencely98<span>&#64;</span>gmail<span>&#46;</span>com</a>)</p>
+</dd></dl>
+
+</dd></dl>
+
 </section>
 </section>
 </section>
@@ -586,9 +1206,81 @@ document.write(`
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#quick-start">Quick Start</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#api-reference">API Reference</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#metrics">Metrics</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#evaluator">Evaluator</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-corerec.evaluation">API Reference</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#corerec.evaluation.RankingMetrics"><code class="docutils literal notranslate"><span class="pre">RankingMetrics</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#corerec.evaluation.RankingMetrics.hit_rate_at_k"><code class="docutils literal notranslate"><span class="pre">RankingMetrics.hit_rate_at_k()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#corerec.evaluation.RankingMetrics.map_at_k"><code class="docutils literal notranslate"><span class="pre">RankingMetrics.map_at_k()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#corerec.evaluation.RankingMetrics.mrr_at_k"><code class="docutils literal notranslate"><span class="pre">RankingMetrics.mrr_at_k()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#corerec.evaluation.RankingMetrics.ndcg_at_k"><code class="docutils literal notranslate"><span class="pre">RankingMetrics.ndcg_at_k()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#corerec.evaluation.RankingMetrics.precision_at_k"><code class="docutils literal notranslate"><span class="pre">RankingMetrics.precision_at_k()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#corerec.evaluation.RankingMetrics.recall_at_k"><code class="docutils literal notranslate"><span class="pre">RankingMetrics.recall_at_k()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#corerec.evaluation.ClassificationMetrics"><code class="docutils literal notranslate"><span class="pre">ClassificationMetrics</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#corerec.evaluation.ClassificationMetrics.accuracy"><code class="docutils literal notranslate"><span class="pre">ClassificationMetrics.accuracy()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#corerec.evaluation.ClassificationMetrics.f1_score"><code class="docutils literal notranslate"><span class="pre">ClassificationMetrics.f1_score()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#corerec.evaluation.ClassificationMetrics.precision"><code class="docutils literal notranslate"><span class="pre">ClassificationMetrics.precision()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#corerec.evaluation.ClassificationMetrics.recall"><code class="docutils literal notranslate"><span class="pre">ClassificationMetrics.recall()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#corerec.evaluation.DiversityMetrics"><code class="docutils literal notranslate"><span class="pre">DiversityMetrics</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#corerec.evaluation.DiversityMetrics.coverage"><code class="docutils literal notranslate"><span class="pre">DiversityMetrics.coverage()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#corerec.evaluation.DiversityMetrics.gini_coefficient"><code class="docutils literal notranslate"><span class="pre">DiversityMetrics.gini_coefficient()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#corerec.evaluation.DiversityMetrics.intra_list_diversity"><code class="docutils literal notranslate"><span class="pre">DiversityMetrics.intra_list_diversity()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#corerec.evaluation.Evaluator"><code class="docutils literal notranslate"><span class="pre">Evaluator</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#corerec.evaluation.Evaluator.__init__"><code class="docutils literal notranslate"><span class="pre">Evaluator.__init__()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#corerec.evaluation.Evaluator.compare_models"><code class="docutils literal notranslate"><span class="pre">Evaluator.compare_models()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#corerec.evaluation.Evaluator.evaluate"><code class="docutils literal notranslate"><span class="pre">Evaluator.evaluate()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#corerec.evaluation.Evaluator.generate_report"><code class="docutils literal notranslate"><span class="pre">Evaluator.generate_report()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#corerec.evaluation.CrossValidator"><code class="docutils literal notranslate"><span class="pre">CrossValidator</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#corerec.evaluation.CrossValidator.__init__"><code class="docutils literal notranslate"><span class="pre">CrossValidator.__init__()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#corerec.evaluation.CrossValidator.split"><code class="docutils literal notranslate"><span class="pre">CrossValidator.split()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#module-corerec.evaluation.metrics">Metrics</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#corerec.evaluation.metrics.RankingMetrics"><code class="docutils literal notranslate"><span class="pre">RankingMetrics</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#corerec.evaluation.metrics.RankingMetrics.ndcg_at_k"><code class="docutils literal notranslate"><span class="pre">RankingMetrics.ndcg_at_k()</span></code></a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#corerec.evaluation.metrics.RankingMetrics.map_at_k"><code class="docutils literal notranslate"><span class="pre">RankingMetrics.map_at_k()</span></code></a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#corerec.evaluation.metrics.RankingMetrics.mrr_at_k"><code class="docutils literal notranslate"><span class="pre">RankingMetrics.mrr_at_k()</span></code></a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#corerec.evaluation.metrics.RankingMetrics.precision_at_k"><code class="docutils literal notranslate"><span class="pre">RankingMetrics.precision_at_k()</span></code></a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#corerec.evaluation.metrics.RankingMetrics.recall_at_k"><code class="docutils literal notranslate"><span class="pre">RankingMetrics.recall_at_k()</span></code></a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#corerec.evaluation.metrics.RankingMetrics.hit_rate_at_k"><code class="docutils literal notranslate"><span class="pre">RankingMetrics.hit_rate_at_k()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#corerec.evaluation.metrics.ClassificationMetrics"><code class="docutils literal notranslate"><span class="pre">ClassificationMetrics</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#corerec.evaluation.metrics.ClassificationMetrics.accuracy"><code class="docutils literal notranslate"><span class="pre">ClassificationMetrics.accuracy()</span></code></a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#corerec.evaluation.metrics.ClassificationMetrics.precision"><code class="docutils literal notranslate"><span class="pre">ClassificationMetrics.precision()</span></code></a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#corerec.evaluation.metrics.ClassificationMetrics.recall"><code class="docutils literal notranslate"><span class="pre">ClassificationMetrics.recall()</span></code></a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#corerec.evaluation.metrics.ClassificationMetrics.f1_score"><code class="docutils literal notranslate"><span class="pre">ClassificationMetrics.f1_score()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#corerec.evaluation.metrics.DiversityMetrics"><code class="docutils literal notranslate"><span class="pre">DiversityMetrics</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#corerec.evaluation.metrics.DiversityMetrics.intra_list_diversity"><code class="docutils literal notranslate"><span class="pre">DiversityMetrics.intra_list_diversity()</span></code></a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#corerec.evaluation.metrics.DiversityMetrics.coverage"><code class="docutils literal notranslate"><span class="pre">DiversityMetrics.coverage()</span></code></a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#corerec.evaluation.metrics.DiversityMetrics.gini_coefficient"><code class="docutils literal notranslate"><span class="pre">DiversityMetrics.gini_coefficient()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#module-corerec.evaluation.evaluator">Evaluator</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#corerec.evaluation.evaluator.Evaluator"><code class="docutils literal notranslate"><span class="pre">Evaluator</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#corerec.evaluation.evaluator.Evaluator.__init__"><code class="docutils literal notranslate"><span class="pre">Evaluator.__init__()</span></code></a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#corerec.evaluation.evaluator.Evaluator.evaluate"><code class="docutils literal notranslate"><span class="pre">Evaluator.evaluate()</span></code></a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#corerec.evaluation.evaluator.Evaluator.compare_models"><code class="docutils literal notranslate"><span class="pre">Evaluator.compare_models()</span></code></a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#corerec.evaluation.evaluator.Evaluator.generate_report"><code class="docutils literal notranslate"><span class="pre">Evaluator.generate_report()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#corerec.evaluation.evaluator.CrossValidator"><code class="docutils literal notranslate"><span class="pre">CrossValidator</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#corerec.evaluation.evaluator.CrossValidator.__init__"><code class="docutils literal notranslate"><span class="pre">CrossValidator.__init__()</span></code></a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#corerec.evaluation.evaluator.CrossValidator.split"><code class="docutils literal notranslate"><span class="pre">CrossValidator.split()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>

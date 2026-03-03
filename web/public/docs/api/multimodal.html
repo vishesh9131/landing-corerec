@@ -197,10 +197,14 @@
 <li class="toctree-l2"><a class="reference internal" href="../tutorials/mind_tutorial.html">MIND Tutorial: MIND</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../tutorials/nasrec_tutorial.html">NASRec Tutorial: NASRec</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../tutorials/sasrec_tutorial.html">SASRec Tutorial: SASRec</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorials/bert4rec_tutorial.html">Bert4Rec Tutorial: BERT for Sequential Recommendation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorials/ncf_tutorial.html">NCF Tutorial: Neural Collaborative Filtering</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorials/sar_tutorial.html">SAR Tutorial: Smart Adaptive Recommendations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorials/lightgcn_tutorial.html">LightGCN Tutorial: Light Graph Convolutional Network</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorials/tfidf_tutorial.html">TFIDF Tutorial: TF-IDF Based Recommender</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../tutorials/afm_tutorial.html">AFM Tutorial: Attentional Factorization Machine</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../tutorials/autofi_tutorial.html">AutoFI Tutorial: Automatic Feature Interaction</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../tutorials/autoint_tutorial.html">AutoInt Tutorial: Automatic Feature Interaction Learning via Self-Attention</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../tutorials/bert4rec_tutorial.html">Bert4Rec Tutorial: BERT for Sequential Recommendation</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../tutorials/bst_tutorial.html">BST Tutorial: Behavior Sequence Transformer</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../tutorials/bivae_tutorial.html">BiVAE Tutorial: Bilateral Variational Autoencoder</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../tutorials/caser_tutorial.html">Caser Tutorial: Convolutional Sequence Embedding Recommendation</a></li>
@@ -224,7 +228,6 @@
 <li class="toctree-l2"><a class="reference internal" href="../tutorials/gatenet_tutorial.html">GateNet Tutorial: Gating Network</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../tutorials/gnn_base_tutorial.html">GNN_base Tutorial: Graph Neural Network Base</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../tutorials/gru_cf_tutorial.html">GRU-CF Tutorial: GRU for Collaborative Filtering</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../tutorials/ncf_tutorial.html">NCF Tutorial: Neural Collaborative Filtering</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../tutorials/nfm_tutorial.html">NFM Tutorial: Neural Factorization Machine</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../tutorials/nextitnet_tutorial.html">NextItNet Tutorial: Next Item Net</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../tutorials/widedeep_tutorial.html">WideDeep Tutorial: Wide &amp; Deep Learning</a></li>
@@ -242,18 +245,15 @@
 <li class="toctree-l2"><a class="reference internal" href="../tutorials/svd_tutorial.html">SVD Tutorial: Singular Value Decomposition</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../tutorials/userbased_tutorial.html">UserBased Tutorial: User-Based Collaborative Filtering</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../tutorials/geoimc_tutorial.html">GeoIMC Tutorial: Geographic Inductive Matrix Completion</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../tutorials/lightgcn_tutorial.html">LightGCN Tutorial: Light Graph Convolutional Network</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../tutorials/lightgcn_base_tutorial.html">LightGCN_Base Tutorial: LightGCN Base</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../tutorials/rbm_tutorial.html">RBM Tutorial: Restricted Boltzmann Machine</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../tutorials/rlrmc_tutorial.html">RLRMC Tutorial: Reinforcement Learning for Recommendation</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../tutorials/sar_tutorial.html">SAR Tutorial: Smart Adaptive Recommendations</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../tutorials/slirec_tutorial.html">SLiRec Tutorial: Sequential List Recommendation</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../tutorials/sum_tutorial.html">SUM Tutorial: Sequential User Model</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../tutorials/bpr_tutorial.html">BPR Tutorial: Bayesian Personalized Ranking</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../tutorials/bprmf_tutorial.html">BPRMF Tutorial: Bayesian Personalized Ranking Matrix Factorization</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../tutorials/vmf_tutorial.html">VMF Tutorial: Von Mises-Fisher Distribution</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../tutorials/mind_content_tutorial.html">MIND_Content Tutorial: MIND for Content Filtering</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../tutorials/tfidf_tutorial.html">TFIDF Tutorial: TF-IDF Based Recommender</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../tutorials/pipeline_tutorial.html">Multi-Stage Pipeline Tutorial</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../tutorials/imshow_tutorial.html">Demo Frontends Tutorial</a></li>
 </ul>
@@ -501,7 +501,42 @@ document.write(`
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#quick-start">Quick Start</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fusion-strategies">Fusion Strategies</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-corerec.multimodal.fusion_strategies">Fusion Strategies</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#corerec.multimodal.fusion_strategies.FusionStrategy"><code class="docutils literal notranslate"><span class="pre">FusionStrategy</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#corerec.multimodal.fusion_strategies.FusionStrategy.CONCAT"><code class="docutils literal notranslate"><span class="pre">FusionStrategy.CONCAT</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#corerec.multimodal.fusion_strategies.FusionStrategy.WEIGHTED"><code class="docutils literal notranslate"><span class="pre">FusionStrategy.WEIGHTED</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#corerec.multimodal.fusion_strategies.FusionStrategy.ATTENTION"><code class="docutils literal notranslate"><span class="pre">FusionStrategy.ATTENTION</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#corerec.multimodal.fusion_strategies.FusionStrategy.GATED"><code class="docutils literal notranslate"><span class="pre">FusionStrategy.GATED</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#corerec.multimodal.fusion_strategies.FusionStrategy.BILINEAR"><code class="docutils literal notranslate"><span class="pre">FusionStrategy.BILINEAR</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#corerec.multimodal.fusion_strategies.FusionStrategy.TUCKER"><code class="docutils literal notranslate"><span class="pre">FusionStrategy.TUCKER</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#corerec.multimodal.fusion_strategies.ConcatFusion"><code class="docutils literal notranslate"><span class="pre">ConcatFusion</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#corerec.multimodal.fusion_strategies.ConcatFusion.forward"><code class="docutils literal notranslate"><span class="pre">ConcatFusion.forward()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#corerec.multimodal.fusion_strategies.WeightedFusion"><code class="docutils literal notranslate"><span class="pre">WeightedFusion</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#corerec.multimodal.fusion_strategies.WeightedFusion.forward"><code class="docutils literal notranslate"><span class="pre">WeightedFusion.forward()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#corerec.multimodal.fusion_strategies.AttentionFusion"><code class="docutils literal notranslate"><span class="pre">AttentionFusion</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#corerec.multimodal.fusion_strategies.AttentionFusion.forward"><code class="docutils literal notranslate"><span class="pre">AttentionFusion.forward()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#corerec.multimodal.fusion_strategies.GatedFusion"><code class="docutils literal notranslate"><span class="pre">GatedFusion</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#corerec.multimodal.fusion_strategies.GatedFusion.forward"><code class="docutils literal notranslate"><span class="pre">GatedFusion.forward()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#corerec.multimodal.fusion_strategies.BilinearFusion"><code class="docutils literal notranslate"><span class="pre">BilinearFusion</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#corerec.multimodal.fusion_strategies.BilinearFusion.forward"><code class="docutils literal notranslate"><span class="pre">BilinearFusion.forward()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#corerec.multimodal.fusion_strategies.MultiModalFusion"><code class="docutils literal notranslate"><span class="pre">MultiModalFusion</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#corerec.multimodal.fusion_strategies.MultiModalFusion.forward"><code class="docutils literal notranslate"><span class="pre">MultiModalFusion.forward()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
 </ul>
             </nav>
         </div>
@@ -525,8 +560,138 @@ document.write(`
 </pre></div>
 </div>
 </section>
-<section id="fusion-strategies">
-<h2>Fusion Strategies<a class="headerlink" href="#fusion-strategies" title="Link to this heading">#</a></h2>
+<section id="module-corerec.multimodal.fusion_strategies">
+<span id="fusion-strategies"></span><h2>Fusion Strategies<a class="headerlink" href="#module-corerec.multimodal.fusion_strategies" title="Link to this heading">#</a></h2>
+<p>Multi-modal fusion strategies for combining different data types.</p>
+<p>Modern recsys uses text, images, audio, user behavior all together.
+This module provides ways to combine these embeddings.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="corerec.multimodal.fusion_strategies.FusionStrategy">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">corerec.multimodal.fusion_strategies.</span></span><span class="sig-name descname"><span class="pre">FusionStrategy</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">values</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/corerec/multimodal/fusion_strategies.html#FusionStrategy"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#corerec.multimodal.fusion_strategies.FusionStrategy" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/enum.html#enum.Enum" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Enum</span></code></a></p>
+<p>Different ways to combine modalities.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="corerec.multimodal.fusion_strategies.FusionStrategy.CONCAT">
+<span class="sig-name descname"><span class="pre">CONCAT</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'concat'</span></em><a class="headerlink" href="#corerec.multimodal.fusion_strategies.FusionStrategy.CONCAT" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="corerec.multimodal.fusion_strategies.FusionStrategy.WEIGHTED">
+<span class="sig-name descname"><span class="pre">WEIGHTED</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'weighted'</span></em><a class="headerlink" href="#corerec.multimodal.fusion_strategies.FusionStrategy.WEIGHTED" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="corerec.multimodal.fusion_strategies.FusionStrategy.ATTENTION">
+<span class="sig-name descname"><span class="pre">ATTENTION</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'attention'</span></em><a class="headerlink" href="#corerec.multimodal.fusion_strategies.FusionStrategy.ATTENTION" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="corerec.multimodal.fusion_strategies.FusionStrategy.GATED">
+<span class="sig-name descname"><span class="pre">GATED</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'gated'</span></em><a class="headerlink" href="#corerec.multimodal.fusion_strategies.FusionStrategy.GATED" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="corerec.multimodal.fusion_strategies.FusionStrategy.BILINEAR">
+<span class="sig-name descname"><span class="pre">BILINEAR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'bilinear'</span></em><a class="headerlink" href="#corerec.multimodal.fusion_strategies.FusionStrategy.BILINEAR" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="corerec.multimodal.fusion_strategies.FusionStrategy.TUCKER">
+<span class="sig-name descname"><span class="pre">TUCKER</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'tucker'</span></em><a class="headerlink" href="#corerec.multimodal.fusion_strategies.FusionStrategy.TUCKER" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="corerec.multimodal.fusion_strategies.ConcatFusion">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">corerec.multimodal.fusion_strategies.</span></span><span class="sig-name descname"><span class="pre">ConcatFusion</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Any</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Any</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/corerec/multimodal/fusion_strategies.html#ConcatFusion"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#corerec.multimodal.fusion_strategies.ConcatFusion" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.pytorch.org/docs/stable/generated/torch.nn.Module.html#torch.nn.Module" title="(in PyTorch v2.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Module</span></code></a></p>
+<p>Simplest fusion: concatenate embeddings and project.
+Fast but doesn’t model cross-modal interactions well.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="corerec.multimodal.fusion_strategies.ConcatFusion.forward">
+<span class="sig-name descname"><span class="pre">forward</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">embeddings</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Dict" title="(in Python v3.14)"><span class="pre">Dict</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><span class="pre">str</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference external" href="https://docs.pytorch.org/docs/stable/tensors.html#torch.Tensor" title="(in PyTorch v2.10)"><span class="pre">torch.Tensor</span></a><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.pytorch.org/docs/stable/tensors.html#torch.Tensor" title="(in PyTorch v2.10)"><span class="pre">torch.Tensor</span></a></span></span><a class="reference internal" href="../_modules/corerec/multimodal/fusion_strategies.html#ConcatFusion.forward"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#corerec.multimodal.fusion_strategies.ConcatFusion.forward" title="Link to this definition">#</a></dt>
+<dd><p>embeddings: dict with keys matching input_dims, values are [batch, dim] tensors</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="corerec.multimodal.fusion_strategies.WeightedFusion">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">corerec.multimodal.fusion_strategies.</span></span><span class="sig-name descname"><span class="pre">WeightedFusion</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Any</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Any</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/corerec/multimodal/fusion_strategies.html#WeightedFusion"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#corerec.multimodal.fusion_strategies.WeightedFusion" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.pytorch.org/docs/stable/generated/torch.nn.Module.html#torch.nn.Module" title="(in PyTorch v2.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Module</span></code></a></p>
+<p>Learned weighted sum of modalities.
+Good when modalities have different importance.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="corerec.multimodal.fusion_strategies.WeightedFusion.forward">
+<span class="sig-name descname"><span class="pre">forward</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">embeddings</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Dict" title="(in Python v3.14)"><span class="pre">Dict</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><span class="pre">str</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference external" href="https://docs.pytorch.org/docs/stable/tensors.html#torch.Tensor" title="(in PyTorch v2.10)"><span class="pre">torch.Tensor</span></a><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.pytorch.org/docs/stable/tensors.html#torch.Tensor" title="(in PyTorch v2.10)"><span class="pre">torch.Tensor</span></a></span></span><a class="reference internal" href="../_modules/corerec/multimodal/fusion_strategies.html#WeightedFusion.forward"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#corerec.multimodal.fusion_strategies.WeightedFusion.forward" title="Link to this definition">#</a></dt>
+<dd><p>embeddings: dict with [batch, embedding_dim] tensors
+All embeddings must have same dimension.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="corerec.multimodal.fusion_strategies.AttentionFusion">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">corerec.multimodal.fusion_strategies.</span></span><span class="sig-name descname"><span class="pre">AttentionFusion</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Any</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Any</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/corerec/multimodal/fusion_strategies.html#AttentionFusion"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#corerec.multimodal.fusion_strategies.AttentionFusion" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.pytorch.org/docs/stable/generated/torch.nn.Module.html#torch.nn.Module" title="(in PyTorch v2.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Module</span></code></a></p>
+<p>Use attention to dynamically weight modalities.
+More flexible than fixed weights, adapts per instance.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="corerec.multimodal.fusion_strategies.AttentionFusion.forward">
+<span class="sig-name descname"><span class="pre">forward</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">embeddings</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Dict" title="(in Python v3.14)"><span class="pre">Dict</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><span class="pre">str</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference external" href="https://docs.pytorch.org/docs/stable/tensors.html#torch.Tensor" title="(in PyTorch v2.10)"><span class="pre">torch.Tensor</span></a><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.pytorch.org/docs/stable/tensors.html#torch.Tensor" title="(in PyTorch v2.10)"><span class="pre">torch.Tensor</span></a></span></span><a class="reference internal" href="../_modules/corerec/multimodal/fusion_strategies.html#AttentionFusion.forward"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#corerec.multimodal.fusion_strategies.AttentionFusion.forward" title="Link to this definition">#</a></dt>
+<dd><p>Use attention to aggregate modality embeddings.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="corerec.multimodal.fusion_strategies.GatedFusion">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">corerec.multimodal.fusion_strategies.</span></span><span class="sig-name descname"><span class="pre">GatedFusion</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Any</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Any</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/corerec/multimodal/fusion_strategies.html#GatedFusion"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#corerec.multimodal.fusion_strategies.GatedFusion" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.pytorch.org/docs/stable/generated/torch.nn.Module.html#torch.nn.Module" title="(in PyTorch v2.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Module</span></code></a></p>
+<p>Gated fusion - learns to filter/select from each modality.</p>
+<p>Used in VQA and other multi-modal tasks.
+Each modality gets a gate that controls its contribution.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="corerec.multimodal.fusion_strategies.GatedFusion.forward">
+<span class="sig-name descname"><span class="pre">forward</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">embeddings</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Dict" title="(in Python v3.14)"><span class="pre">Dict</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><span class="pre">str</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference external" href="https://docs.pytorch.org/docs/stable/tensors.html#torch.Tensor" title="(in PyTorch v2.10)"><span class="pre">torch.Tensor</span></a><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.pytorch.org/docs/stable/tensors.html#torch.Tensor" title="(in PyTorch v2.10)"><span class="pre">torch.Tensor</span></a></span></span><a class="reference internal" href="../_modules/corerec/multimodal/fusion_strategies.html#GatedFusion.forward"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#corerec.multimodal.fusion_strategies.GatedFusion.forward" title="Link to this definition">#</a></dt>
+<dd><p>Apply gating to each modality then combine.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="corerec.multimodal.fusion_strategies.BilinearFusion">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">corerec.multimodal.fusion_strategies.</span></span><span class="sig-name descname"><span class="pre">BilinearFusion</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Any</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Any</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/corerec/multimodal/fusion_strategies.html#BilinearFusion"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#corerec.multimodal.fusion_strategies.BilinearFusion" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.pytorch.org/docs/stable/generated/torch.nn.Module.html#torch.nn.Module" title="(in PyTorch v2.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Module</span></code></a></p>
+<p>Bilinear pooling for two modalities.
+Captures multiplicative interactions between features.</p>
+<p>Commonly used for VQA (vision + language).</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="corerec.multimodal.fusion_strategies.BilinearFusion.forward">
+<span class="sig-name descname"><span class="pre">forward</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">emb1</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.pytorch.org/docs/stable/tensors.html#torch.Tensor" title="(in PyTorch v2.10)"><span class="pre">torch.Tensor</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">emb2</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.pytorch.org/docs/stable/tensors.html#torch.Tensor" title="(in PyTorch v2.10)"><span class="pre">torch.Tensor</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.pytorch.org/docs/stable/tensors.html#torch.Tensor" title="(in PyTorch v2.10)"><span class="pre">torch.Tensor</span></a></span></span><a class="reference internal" href="../_modules/corerec/multimodal/fusion_strategies.html#BilinearFusion.forward"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#corerec.multimodal.fusion_strategies.BilinearFusion.forward" title="Link to this definition">#</a></dt>
+<dd><p>emb1: [batch, dim1]
+emb2: [batch, dim2]</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="corerec.multimodal.fusion_strategies.MultiModalFusion">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">corerec.multimodal.fusion_strategies.</span></span><span class="sig-name descname"><span class="pre">MultiModalFusion</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Any</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Any</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/corerec/multimodal/fusion_strategies.html#MultiModalFusion"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#corerec.multimodal.fusion_strategies.MultiModalFusion" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.pytorch.org/docs/stable/generated/torch.nn.Module.html#torch.nn.Module" title="(in PyTorch v2.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Module</span></code></a></p>
+<p>Unified interface for multi-modal fusion.
+Handles arbitrary number of modalities with flexible strategies.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="corerec.multimodal.fusion_strategies.MultiModalFusion.forward">
+<span class="sig-name descname"><span class="pre">forward</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">raw_embeddings</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Dict" title="(in Python v3.14)"><span class="pre">Dict</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><span class="pre">str</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference external" href="https://docs.pytorch.org/docs/stable/tensors.html#torch.Tensor" title="(in PyTorch v2.10)"><span class="pre">torch.Tensor</span></a><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.pytorch.org/docs/stable/tensors.html#torch.Tensor" title="(in PyTorch v2.10)"><span class="pre">torch.Tensor</span></a></span></span><a class="reference internal" href="../_modules/corerec/multimodal/fusion_strategies.html#MultiModalFusion.forward"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#corerec.multimodal.fusion_strategies.MultiModalFusion.forward" title="Link to this definition">#</a></dt>
+<dd><p>Fuse embeddings from different modalities.</p>
+<p>raw_embeddings: dict with modality name -&gt; [batch, modality_dim] tensor
+Returns: [batch, output_dim] fused representation</p>
+</dd></dl>
+
+</dd></dl>
+
 </section>
 </section>
 
@@ -576,7 +741,42 @@ document.write(`
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#quick-start">Quick Start</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fusion-strategies">Fusion Strategies</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-corerec.multimodal.fusion_strategies">Fusion Strategies</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#corerec.multimodal.fusion_strategies.FusionStrategy"><code class="docutils literal notranslate"><span class="pre">FusionStrategy</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#corerec.multimodal.fusion_strategies.FusionStrategy.CONCAT"><code class="docutils literal notranslate"><span class="pre">FusionStrategy.CONCAT</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#corerec.multimodal.fusion_strategies.FusionStrategy.WEIGHTED"><code class="docutils literal notranslate"><span class="pre">FusionStrategy.WEIGHTED</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#corerec.multimodal.fusion_strategies.FusionStrategy.ATTENTION"><code class="docutils literal notranslate"><span class="pre">FusionStrategy.ATTENTION</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#corerec.multimodal.fusion_strategies.FusionStrategy.GATED"><code class="docutils literal notranslate"><span class="pre">FusionStrategy.GATED</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#corerec.multimodal.fusion_strategies.FusionStrategy.BILINEAR"><code class="docutils literal notranslate"><span class="pre">FusionStrategy.BILINEAR</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#corerec.multimodal.fusion_strategies.FusionStrategy.TUCKER"><code class="docutils literal notranslate"><span class="pre">FusionStrategy.TUCKER</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#corerec.multimodal.fusion_strategies.ConcatFusion"><code class="docutils literal notranslate"><span class="pre">ConcatFusion</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#corerec.multimodal.fusion_strategies.ConcatFusion.forward"><code class="docutils literal notranslate"><span class="pre">ConcatFusion.forward()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#corerec.multimodal.fusion_strategies.WeightedFusion"><code class="docutils literal notranslate"><span class="pre">WeightedFusion</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#corerec.multimodal.fusion_strategies.WeightedFusion.forward"><code class="docutils literal notranslate"><span class="pre">WeightedFusion.forward()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#corerec.multimodal.fusion_strategies.AttentionFusion"><code class="docutils literal notranslate"><span class="pre">AttentionFusion</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#corerec.multimodal.fusion_strategies.AttentionFusion.forward"><code class="docutils literal notranslate"><span class="pre">AttentionFusion.forward()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#corerec.multimodal.fusion_strategies.GatedFusion"><code class="docutils literal notranslate"><span class="pre">GatedFusion</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#corerec.multimodal.fusion_strategies.GatedFusion.forward"><code class="docutils literal notranslate"><span class="pre">GatedFusion.forward()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#corerec.multimodal.fusion_strategies.BilinearFusion"><code class="docutils literal notranslate"><span class="pre">BilinearFusion</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#corerec.multimodal.fusion_strategies.BilinearFusion.forward"><code class="docutils literal notranslate"><span class="pre">BilinearFusion.forward()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#corerec.multimodal.fusion_strategies.MultiModalFusion"><code class="docutils literal notranslate"><span class="pre">MultiModalFusion</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#corerec.multimodal.fusion_strategies.MultiModalFusion.forward"><code class="docutils literal notranslate"><span class="pre">MultiModalFusion.forward()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
 </ul>
   </nav></div>
 

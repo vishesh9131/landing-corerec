@@ -197,10 +197,14 @@
 <li class="toctree-l2"><a class="reference internal" href="../tutorials/mind_tutorial.html">MIND Tutorial: MIND</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../tutorials/nasrec_tutorial.html">NASRec Tutorial: NASRec</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../tutorials/sasrec_tutorial.html">SASRec Tutorial: SASRec</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorials/bert4rec_tutorial.html">Bert4Rec Tutorial: BERT for Sequential Recommendation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorials/ncf_tutorial.html">NCF Tutorial: Neural Collaborative Filtering</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorials/sar_tutorial.html">SAR Tutorial: Smart Adaptive Recommendations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorials/lightgcn_tutorial.html">LightGCN Tutorial: Light Graph Convolutional Network</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorials/tfidf_tutorial.html">TFIDF Tutorial: TF-IDF Based Recommender</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../tutorials/afm_tutorial.html">AFM Tutorial: Attentional Factorization Machine</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../tutorials/autofi_tutorial.html">AutoFI Tutorial: Automatic Feature Interaction</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../tutorials/autoint_tutorial.html">AutoInt Tutorial: Automatic Feature Interaction Learning via Self-Attention</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../tutorials/bert4rec_tutorial.html">Bert4Rec Tutorial: BERT for Sequential Recommendation</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../tutorials/bst_tutorial.html">BST Tutorial: Behavior Sequence Transformer</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../tutorials/bivae_tutorial.html">BiVAE Tutorial: Bilateral Variational Autoencoder</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../tutorials/caser_tutorial.html">Caser Tutorial: Convolutional Sequence Embedding Recommendation</a></li>
@@ -224,7 +228,6 @@
 <li class="toctree-l2"><a class="reference internal" href="../tutorials/gatenet_tutorial.html">GateNet Tutorial: Gating Network</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../tutorials/gnn_base_tutorial.html">GNN_base Tutorial: Graph Neural Network Base</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../tutorials/gru_cf_tutorial.html">GRU-CF Tutorial: GRU for Collaborative Filtering</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../tutorials/ncf_tutorial.html">NCF Tutorial: Neural Collaborative Filtering</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../tutorials/nfm_tutorial.html">NFM Tutorial: Neural Factorization Machine</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../tutorials/nextitnet_tutorial.html">NextItNet Tutorial: Next Item Net</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../tutorials/widedeep_tutorial.html">WideDeep Tutorial: Wide &amp; Deep Learning</a></li>
@@ -242,18 +245,15 @@
 <li class="toctree-l2"><a class="reference internal" href="../tutorials/svd_tutorial.html">SVD Tutorial: Singular Value Decomposition</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../tutorials/userbased_tutorial.html">UserBased Tutorial: User-Based Collaborative Filtering</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../tutorials/geoimc_tutorial.html">GeoIMC Tutorial: Geographic Inductive Matrix Completion</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../tutorials/lightgcn_tutorial.html">LightGCN Tutorial: Light Graph Convolutional Network</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../tutorials/lightgcn_base_tutorial.html">LightGCN_Base Tutorial: LightGCN Base</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../tutorials/rbm_tutorial.html">RBM Tutorial: Restricted Boltzmann Machine</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../tutorials/rlrmc_tutorial.html">RLRMC Tutorial: Reinforcement Learning for Recommendation</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../tutorials/sar_tutorial.html">SAR Tutorial: Smart Adaptive Recommendations</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../tutorials/slirec_tutorial.html">SLiRec Tutorial: Sequential List Recommendation</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../tutorials/sum_tutorial.html">SUM Tutorial: Sequential User Model</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../tutorials/bpr_tutorial.html">BPR Tutorial: Bayesian Personalized Ranking</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../tutorials/bprmf_tutorial.html">BPRMF Tutorial: Bayesian Personalized Ranking Matrix Factorization</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../tutorials/vmf_tutorial.html">VMF Tutorial: Von Mises-Fisher Distribution</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../tutorials/mind_content_tutorial.html">MIND_Content Tutorial: MIND for Content Filtering</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../tutorials/tfidf_tutorial.html">TFIDF Tutorial: TF-IDF Based Recommender</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../tutorials/pipeline_tutorial.html">Multi-Stage Pipeline Tutorial</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../tutorials/imshow_tutorial.html">Demo Frontends Tutorial</a></li>
 </ul>
@@ -500,16 +500,18 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#model-tiers">Model Tiers</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#production-models-tested-stable">Production Models (Tested &amp; Stable)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sandbox-models-experimental">Sandbox Models (Experimental)</a></li>
+</ul>
+</li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#model-categories">Model Categories</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#deep-learning-models"><span class="xref myst">Deep Learning Models</span></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#matrix-factorization"><span class="xref myst">Matrix Factorization</span></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#graph-based-models"><span class="xref myst">Graph-Based Models</span></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sequential-models"><span class="xref myst">Sequential Models</span></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesian-models"><span class="xref myst">Bayesian Models</span></a></li>
-</ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#quick-reference">Quick Reference</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#core-engine-models">Core Engine Models</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#content-based-models"><span class="xref myst">Content-Based Models</span></a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#model-selection-guide">Model Selection Guide</a><ul class="nav section-nav flex-column">
@@ -536,47 +538,137 @@ document.write(`
   <section class="tex2jax_ignore mathjax_ignore" id="model-documentation">
 <h1>Model Documentation<a class="headerlink" href="#model-documentation" title="Link to this heading">#</a></h1>
 <p>Welcome to the CoreRec model documentation. This section provides detailed information about all available recommendation models.</p>
+<section id="model-tiers">
+<span id="id1"></span><h2>Model Tiers<a class="headerlink" href="#model-tiers" title="Link to this heading">#</a></h2>
+<p>CoreRec organizes its models into two tiers:</p>
+<section id="production-models-tested-stable">
+<span id="id2"></span><h3>Production Models (Tested &amp; Stable)<a class="headerlink" href="#production-models-tested-stable" title="Link to this heading">#</a></h3>
+<p>These 13 models are <strong>fully tested</strong>, CI-enforced, and recommended for production use.
+They implement the full <code class="docutils literal notranslate"><span class="pre">BaseRecommender</span></code> interface (<code class="docutils literal notranslate"><span class="pre">fit</span></code>, <code class="docutils literal notranslate"><span class="pre">predict</span></code>, <code class="docutils literal notranslate"><span class="pre">recommend</span></code>, <code class="docutils literal notranslate"><span class="pre">save</span></code>, <code class="docutils literal notranslate"><span class="pre">load</span></code>) and are covered by automated tests on every commit.</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Model</p></th>
+<th class="head"><p>Type</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>DCN</strong></p></td>
+<td><p>Deep Learning</p></td>
+<td><p>Deep &amp; Cross Network for explicit feature interactions</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>DeepFM</strong></p></td>
+<td><p>Deep Learning</p></td>
+<td><p>Factorization Machines + Deep Neural Networks</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>GNNRec</strong></p></td>
+<td><p>Graph</p></td>
+<td><p>Graph Neural Networks for recommendations</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>MIND</strong></p></td>
+<td><p>Multi-Interest</p></td>
+<td><p>Multi-Interest Network with dynamic routing</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>NASRec</strong></p></td>
+<td><p>AutoML</p></td>
+<td><p>Neural Architecture Search for recommendations</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>SASRec</strong></p></td>
+<td><p>Sequential</p></td>
+<td><p>Self-Attentive Sequential Recommendation</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>TwoTower</strong></p></td>
+<td><p>Retrieval</p></td>
+<td><p>Dual-encoder for large-scale candidate retrieval</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>BERT4Rec</strong></p></td>
+<td><p>Sequential</p></td>
+<td><p>Bidirectional self-attention for sequence modeling</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>SAR</strong></p></td>
+<td><p>Collaborative</p></td>
+<td><p>Smart Adaptive Recommendations (co-occurrence)</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>NCF</strong></p></td>
+<td><p>Collaborative</p></td>
+<td><p>Neural Collaborative Filtering (MLP + GMF)</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>FAST</strong></p></td>
+<td><p>Collaborative</p></td>
+<td><p>Fast Approximate Similarity-based filtering</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>FASTRecommender</strong></p></td>
+<td><p>Collaborative</p></td>
+<td><p>Extended FAST with additional features</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>LightGCN</strong></p></td>
+<td><p>Graph</p></td>
+<td><p>Simplified graph convolution for CF</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>TFIDFRecommender</strong></p></td>
+<td><p>Content-Based</p></td>
+<td><p>TF-IDF content similarity recommendations</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="tip admonition">
+<p class="admonition-title">Production Guarantee</p>
+<p>All production models pass automated tests on every push/PR. If a production model test fails, the commit is blocked from merging.</p>
+</div>
+</section>
+<section id="sandbox-models-experimental">
+<span id="id3"></span><h3>Sandbox Models (Experimental)<a class="headerlink" href="#sandbox-models-experimental" title="Link to this heading">#</a></h3>
+<p>CoreRec also includes <strong>~50 sandbox models</strong> in <code class="docutils literal notranslate"><span class="pre">corerec/sandbox/</span></code>. These are experimental implementations of well-known recommendation algorithms intended for <strong>research, learning, and prototyping</strong>.</p>
+<div class="warning admonition">
+<p class="admonition-title">Sandbox Warning</p>
+<p>Sandbox models are <strong>not production-tested</strong>. They may have incomplete implementations, missing methods, or untested edge cases. Use them for exploration and research — not for production deployments without thorough validation.</p>
+</div>
+<p>Sandbox models cover a wide range of architectures:</p>
+<p><strong>Deep Learning</strong> — AFM, AutoInt, BST, BiVAE, Caser, DeepCrossing, DeepRec, DIEN, DiFM, DIN, DLRM, ENSFM, ESCM2, ESMM, FGCNN, FFM, FiBiNet, FLEN, FM, GAN-Rec, GateNet, GRU-CF, NFM, NextItNet, Wide&amp;Deep, YouTubeDNN, PNN, MMoE, PLE, Monolith, TDM, AutoFI</p>
+<p><strong>Matrix Factorization</strong> — ALS, SVD, A2SVD, MF-Base, FM-Base, UserBased CF, Matrix Factorization</p>
+<p><strong>Graph-Based</strong> — GeoIMC, LightGCN-Base, GNN-Base</p>
+<p><strong>Sequential</strong> — RBM, RLRMC, SLi-Rec, SUM</p>
+<p><strong>Bayesian</strong> — BPR, BPR-MF, VMF</p>
+<p><strong>Content-Based</strong> — MIND-Content</p>
+</section>
+</section>
 <section id="model-categories">
 <h2>Model Categories<a class="headerlink" href="#model-categories" title="Link to this heading">#</a></h2>
-<p>CoreRec provides 57+ production-ready models organized into the following categories:</p>
 <section id="deep-learning-models">
 <h3><a class="reference internal" href="deep_learning.html"><span class="std std-doc">Deep Learning Models</span></a><a class="headerlink" href="#deep-learning-models" title="Link to this heading">#</a></h3>
 <p>Neural network-based recommendation models that learn complex patterns from user-item interactions.</p>
-<p><strong>Key Models</strong>: DCN, DeepFM, DIEN, DIN, DLRM, GNNRec, MIND, NASRec, SASRec, and more.</p>
+<p><strong>Production</strong>: DCN, DeepFM, GNNRec, MIND, NASRec, SASRec, TwoTower, BERT4Rec
+<strong>Sandbox</strong>: AFM, AutoInt, BST, BiVAE, Caser, and 25+ more</p>
 </section>
 <section id="matrix-factorization">
 <h3><a class="reference internal" href="matrix_factorization.html"><span class="std std-doc">Matrix Factorization</span></a><a class="headerlink" href="#matrix-factorization" title="Link to this heading">#</a></h3>
 <p>Classic collaborative filtering approaches using matrix decomposition.</p>
-<p><strong>Key Models</strong>: SVD, ALS, Matrix Factorization, and variants.</p>
+<p><strong>Production</strong>: SAR, NCF, FAST, FASTRecommender
+<strong>Sandbox</strong>: ALS, SVD, A2SVD, MF-Base, and more</p>
 </section>
 <section id="graph-based-models">
 <h3><a class="reference internal" href="graph_based.html"><span class="std std-doc">Graph-Based Models</span></a><a class="headerlink" href="#graph-based-models" title="Link to this heading">#</a></h3>
 <p>Models that leverage graph structure and relationships.</p>
-<p><strong>Key Models</strong>: GNNRec, LightGCN, Graph Neural Networks.</p>
+<p><strong>Production</strong>: GNNRec, LightGCN
+<strong>Sandbox</strong>: GeoIMC, LightGCN-Base, GNN-Base</p>
 </section>
 <section id="sequential-models">
 <h3><a class="reference internal" href="sequential.html"><span class="std std-doc">Sequential Models</span></a><a class="headerlink" href="#sequential-models" title="Link to this heading">#</a></h3>
 <p>Time-aware models that consider user behavior sequences.</p>
-<p><strong>Key Models</strong>: SASRec, MIND, RBM, SAR, NextItNet.</p>
+<p><strong>Production</strong>: SASRec, BERT4Rec
+<strong>Sandbox</strong>: RBM, RLRMC, SLi-Rec, SUM</p>
 </section>
 <section id="bayesian-models">
 <h3><a class="reference internal" href="bayesian.html"><span class="std std-doc">Bayesian Models</span></a><a class="headerlink" href="#bayesian-models" title="Link to this heading">#</a></h3>
 <p>Probabilistic approaches to recommendation.</p>
-<p><strong>Key Models</strong>: BPR, BPRMF, VMF.</p>
+<p><strong>Sandbox only</strong>: BPR, BPR-MF, VMF</p>
 </section>
-</section>
-<section id="quick-reference">
-<h2>Quick Reference<a class="headerlink" href="#quick-reference" title="Link to this heading">#</a></h2>
-<section id="core-engine-models">
-<h3>Core Engine Models<a class="headerlink" href="#core-engine-models" title="Link to this heading">#</a></h3>
-<ul class="simple">
-<li><p><strong>DCN</strong> - Deep &amp; Cross Network for feature interactions</p></li>
-<li><p><strong>DeepFM</strong> - Factorization Machines combined with Deep Neural Networks</p></li>
-<li><p><strong>GNNRec</strong> - Graph Neural Networks for recommendations</p></li>
-<li><p><strong>MIND</strong> - Multi-Interest Network for diverse recommendations</p></li>
-<li><p><strong>NASRec</strong> - Neural Architecture Search for recommendations</p></li>
-<li><p><strong>SASRec</strong> - Self-Attentive Sequential Recommendation</p></li>
-</ul>
+<section id="content-based-models">
+<h3><a class="reference internal" href="content_based.html"><span class="std std-doc">Content-Based Models</span></a><a class="headerlink" href="#content-based-models" title="Link to this heading">#</a></h3>
+<p>Feature-based recommendations using item/user attributes.</p>
+<p><strong>Production</strong>: TFIDFRecommender
+<strong>Sandbox</strong>: MIND-Content</p>
 </section>
 </section>
 <section id="model-selection-guide">
@@ -625,10 +717,10 @@ document.write(`
 <section id="getting-started">
 <h2>Getting Started<a class="headerlink" href="#getting-started" title="Link to this heading">#</a></h2>
 <ol class="arabic simple">
-<li><p>Choose a model category based on your needs</p></li>
-<li><p>Read the specific model documentation</p></li>
-<li><p>Check out the tutorial examples</p></li>
-<li><p>Start with a simple model and iterate</p></li>
+<li><p><strong>Start with production models</strong> — they’re tested and guaranteed to work</p></li>
+<li><p>Read the specific model tutorial for code examples</p></li>
+<li><p>Only explore sandbox models if you need a specific algorithm not covered by production models</p></li>
+<li><p>If using a sandbox model in production, validate thoroughly and contribute tests back</p></li>
 </ol>
 </section>
 <section id="tutorials">
@@ -682,16 +774,18 @@ document.write(`
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#model-tiers">Model Tiers</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#production-models-tested-stable">Production Models (Tested &amp; Stable)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sandbox-models-experimental">Sandbox Models (Experimental)</a></li>
+</ul>
+</li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#model-categories">Model Categories</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#deep-learning-models"><span class="xref myst">Deep Learning Models</span></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#matrix-factorization"><span class="xref myst">Matrix Factorization</span></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#graph-based-models"><span class="xref myst">Graph-Based Models</span></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sequential-models"><span class="xref myst">Sequential Models</span></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesian-models"><span class="xref myst">Bayesian Models</span></a></li>
-</ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#quick-reference">Quick Reference</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#core-engine-models">Core Engine Models</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#content-based-models"><span class="xref myst">Content-Based Models</span></a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#model-selection-guide">Model Selection Guide</a><ul class="nav section-nav flex-column">
