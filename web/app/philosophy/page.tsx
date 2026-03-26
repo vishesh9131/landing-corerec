@@ -52,7 +52,7 @@ export default function PhilosophyPage() {
         {/* Hero: asset11 background with typography overlay */}
         <section className="relative w-full min-h-[50vh] md:min-h-[55vh] overflow-hidden">
           <Image
-            src="/assets/asset11.png"
+            src="/assets/asset11.webp"
             alt=""
             fill
             sizes="100vw"
@@ -83,7 +83,7 @@ export default function PhilosophyPage() {
                 <div className="ml-auto w-fit">
                   <div className="relative aspect-[3/4] w-full min-w-[280px] max-w-sm -ml-24 overflow-hidden bg-[#f4f1ea]">
                   <Image
-                    src="/assets/asset10.jpg"
+                    src="/assets/asset10.webp"
                     alt=""
                     fill
                     className="object-cover object-center"
@@ -93,7 +93,7 @@ export default function PhilosophyPage() {
               </div>
               <div className="lg:hidden relative aspect-[4/5] w-full max-w-md mx-auto mb-12 overflow-hidden bg-[#f4f1ea]">
                 <Image
-                  src="/assets/asset10.jpg"
+                  src="/assets/asset10.webp"
                   alt=""
                   fill
                   className="object-cover object-center"
@@ -144,7 +144,7 @@ export default function PhilosophyPage() {
                   <div className="flex flex-col sm:flex-row gap-6 items-start">
                     <div className="relative w-24 h-24 sm:w-28 sm:h-28 shrink-0 rounded-full overflow-hidden bg-[#f4f1ea]">
                       <Image
-                        src="/assets/vishesh.png"
+                        src="/assets/vishesh.webp"
                         alt="Vishesh"
                         fill
                         className="object-cover object-center"

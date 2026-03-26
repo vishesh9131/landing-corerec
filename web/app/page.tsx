@@ -69,7 +69,7 @@ const FINAL_SHOWCASE = [
     title: "Simple by design.",
     desc: "A unified API for every stage of recommendation. Load data, pick a model, and train. Whether it's Matrix Factorization or Deep Learning, the code looks the same.",
     snippet: CODE_SNIPPET,
-    image: "/assets/asset3.jpg",
+    image: "/assets/asset3.webp",
     imageAlt: "Code editor aesthetic",
     align: "left" as const,
   },
@@ -82,7 +82,7 @@ const FINAL_SHOWCASE = [
       "model.fit(user_ids=train_users, item_ids=train_items, ratings=train_ratings)",
       "recommendations = model.recommend(user_id=1, top_k=10)"
     ],
-    image: "/assets/asset2.jpg",
+    image: "/assets/asset2.webp",
     imageAlt: "Tree structure efficiency",
     align: "right" as const,
   },
@@ -95,7 +95,7 @@ const FINAL_SHOWCASE = [
       "model.fit(user_ids=train.users, item_ids=train.items, ratings=train.ratings)",
       "score = model.predict(user_id=1, item_id=100)"
     ],
-    image: "/assets/asset6gif.gif",
+    image: "/assets/asset6gif.webp",
     imageAlt: "Automated search process",
     align: "left" as const,
   },
@@ -108,7 +108,7 @@ const FINAL_SHOWCASE = [
       "model.fit(user_ids=train_users, item_ids=train_items, ratings=train_ratings)",
       "score = model.predict(user_id=1, item_id=100)"
     ],
-    image: "/assets/asset1.png",
+    image: "/assets/asset1.webp",
     imageAlt: "Multi-objective network",
     align: "right" as const,
   },
@@ -121,7 +121,7 @@ const FINAL_SHOWCASE = [
       "fused = fusion(text_emb, image_emb, audio_emb)",
       "# Deep content understanding with attention"
     ],
-    image: "/assets/asset3.jpg",
+    image: "/assets/asset3.webp",
     imageAlt: "Content understanding",
     align: "left" as const,
   },
@@ -134,7 +134,7 @@ const FINAL_SHOWCASE = [
       "server.serve(host='0.0.0.0', port=8000)",
       "# Ready for gRPC/HTTP requests"
     ],
-    image: "/assets/asset4.jpg",
+    image: "/assets/asset4.webp",
     imageAlt: "Production infrastructure",
     align: "right" as const,
   }
@@ -255,7 +255,7 @@ export default function Landing() {
             <div className="col-span-1 md:col-span-7 relative z-10 w-full flex flex-col md:block gap-4 md:gap-0 order-2 md:order-none">
                <Reveal delay={0.2} className="relative w-full max-w-md mx-auto md:mx-0 md:max-w-xl aspect-[4/5] bg-[#e5e5e5] shrink-0">
                   <Image 
-                    src="/assets/asset1.png" 
+                    src="/assets/asset1.webp" 
                     fill 
                     className="object-cover" 
                     alt="Hero" 
