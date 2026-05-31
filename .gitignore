@@ -2,3 +2,4 @@
 
 # sphinx build cache -- never deploy these
 web/public/docs/.doctrees/
+web/.webui_secret_key
