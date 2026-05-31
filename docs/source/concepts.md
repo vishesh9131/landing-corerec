@@ -40,16 +40,26 @@ Combine multiple approaches to leverage strengths of each.
 ### Key Components
 
 #### Base Recommender
-All models inherit from `BaseRecommender`, providing:
+All **production** models inherit from `BaseRecommender`, providing:
 - Unified API (`fit`, `predict`, `recommend`)
 - Model persistence (`save`, `load`)
 - Consistent error handling
 
 #### Engines
-CoreRec organizes models into engines:
-- **Deep Learning Engine**: Neural network models
-- **Unionized Filter Engine**: Collaborative filtering
-- **Content Filter Engine**: Content-based methods
+CoreRec organizes models under `corerec.engines`:
+- **Top-level engines** (`corerec.engines.dcn`, `deepfm`, `sasrec`, …): **14 production models**
+- **`corerec.engines.collaborative`**: SAR, NCF, FAST, LightGCN, …
+- **`corerec.engines.content_based`**: TF-IDF and content methods
+- **`corerec.sandbox`**: ~50 experimental research models (not production-tested)
+
+#### Model Tiers
+
+CoreRec models are organized into two tiers:
+
+- **Production Models** (14 models): Fully tested, CI-enforced, and implement the complete `BaseRecommender` interface. These are recommended for production deployments. Examples: DCN, DeepFM, SASRec, NCF, LightGCN, TwoTower, FAST.
+- **Sandbox Models** (~50 models): Experimental implementations for research and learning. These cover a wide range of published algorithms but are not production-tested. Always validate thoroughly before using in production.
+
+See the [Model Documentation](models/index.md#model-tiers) for the full breakdown.
 
 ### Workflow
 

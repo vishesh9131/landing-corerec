@@ -63,7 +63,7 @@ The code examples below are **reference implementations** for learning purposes.
 ### Step 1: Import and Load Data
 
 ```python
-from corerec.engines.afm import AFM
+from corerec.sandbox.collaborative_full.nn_base.AFM_base import AFM_base as AFM
 from cr_learn import ml_1m
 from sklearn.model_selection import train_test_split
 import numpy as np
@@ -159,10 +159,10 @@ print(f"Test RMSE: {rmse:.4f}")
 
 ```python
 # Save model
-model.save('afm_model.pkl')
+model.save('artifacts/afm_model')
 
 # Load model
-loaded = AFM.load('afm_model.pkl')
+loaded = AFM.load('artifacts/afm_model')
 test_score = loaded.predict(1, 100)
 print(f"Loaded model prediction: {test_score:.3f}")
 ```

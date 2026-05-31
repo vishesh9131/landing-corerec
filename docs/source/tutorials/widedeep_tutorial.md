@@ -1,5 +1,10 @@
 # WideDeep Tutorial: Wide & Deep Learning
 
+```{admonition} Sandbox Model — Experimental
+:class: warning
+This model is part of the CoreRec **Sandbox** — an experimental collection of algorithms for research and exploration. Sandbox models are **not production-tested** and may have incomplete implementations. For production-ready models, see the [Production Models](../models/index.md#production-models-tested--stable).
+```
+
 ## Introduction
 
 **WideDeep** jointly trains wide linear models for memorization and deep neural networks for generalization.
@@ -43,12 +48,18 @@ where:
 **Joint Optimization:**
 Backpropagate gradients to both parts simultaneously using FTRL (Wide) and AdaGrad (Deep).
 
-## Tutorial with cr_learn
+## Reference Implementation
+
+```{admonition} Implementation Note
+:class: info
+The code examples below are **reference implementations** for learning purposes. This is a sandbox model and has not been production-tested. Verify behavior thoroughly before using in production.
+```
+
 
 ### Step 1: Import and Load Data
 
 ```python
-from corerec.engines.widedeep import WideDeep
+from corerec.sandbox.collaborative_full.nn_base.WideDeep_base import WideDeep_base as WideDeep
 from cr_learn import ml_1m
 from sklearn.model_selection import train_test_split
 import numpy as np
@@ -143,10 +154,10 @@ print(f"Test RMSE: {rmse:.4f}")
 
 ```python
 # Save model
-model.save('widedeep_model.pkl')
+model.save('artifacts/widedeep_model')
 
 # Load model
-loaded = WideDeep.load('widedeep_model.pkl')
+loaded = WideDeep.load('artifacts/widedeep_model')
 test_score = loaded.predict(1, 100)
 print(f"Loaded model prediction: {test_score:.3f}")
 ```
@@ -175,6 +186,17 @@ print(f"Loaded model prediction: {test_score:.3f}")
 4. **Hidden Layers**: [1024, 512, 256] typical
 5. **Embedding Dim**: 32-128
 6. **Batch Size**: Large (thousands)
+
+## Scaling & Production Considerations
+
+If you plan to move this sandbox model toward production use, consider:
+
+- **Data Volume**: Test with realistic dataset sizes; sandbox implementations may not be optimized for large-scale data.
+- **Distributed Training**: For datasets exceeding single-machine memory, consider wrapping the model in distributed training frameworks (e.g., PyTorch DDP, Horovod).
+- **Hyperparameter Tuning**: Use systematic search (Optuna, Ray Tune) rather than manual tuning. The defaults in sandbox models are not tuned for any specific domain.
+- **Serving Latency**: Profile inference time. Some architectures (e.g., attention-based) may need quantization or ONNX export for low-latency serving.
+- **Monitoring**: Implement A/B testing and online metrics (CTR, engagement, diversity) before replacing an existing system.
+- **Validation**: Write comprehensive unit tests and integration tests before deploying. Sandbox models do not have CI coverage.
 
 ## Further Reading
 

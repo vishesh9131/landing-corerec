@@ -1,92 +1,82 @@
-# Matrix Factorization Models
+# Matrix Factorization & Collaborative Filtering
 
-Matrix factorization is a classic collaborative filtering approach that decomposes the user-item interaction matrix into lower-dimensional representations.
+Classic and neural collaborative filtering models that learn user/item representations from interactions.
 
-## Overview
+## Production models (CI-tested)
 
-Matrix factorization models learn:
-- **User embeddings**: Low-dimensional representations of users
-- **Item embeddings**: Low-dimensional representations of items
-- **Latent factors**: Hidden features that explain user preferences
+| Model | Type | Import | Tutorial |
+|-------|------|--------|----------|
+| **SAR** | Item similarity / co-occurrence | `from corerec.engines.collaborative import SAR` | [SAR](../tutorials/sar_tutorial.md) |
+| **NCF** | Neural CF (GMF + MLP) | `from corerec.engines.collaborative import NCF` | [NCF](../tutorials/ncf_tutorial.md) |
+| **FAST** | Fast similarity CF | `from corerec.engines.collaborative import FAST` | [FAST](../tutorials/fast_tutorial.md) |
+| **FASTRecommender** | Extended FAST | `from corerec.engines.collaborative import FASTRecommender` | [FASTRecommender](../tutorials/fast_recommender_tutorial.md) |
 
-## Available Models
+### SAR (DataFrame API)
 
-### Core Models
-
-#### SVD (Singular Value Decomposition)
-Classic matrix factorization using SVD decomposition.
-
-**Use Cases**: Baseline recommendation, interpretable factors.
-
-#### ALS (Alternating Least Squares)
-Efficient matrix factorization using alternating optimization.
-
-**Use Cases**: Large-scale collaborative filtering, fast training.
-
-#### Matrix Factorization
-Standard matrix factorization with various optimization methods.
-
-**Use Cases**: General collaborative filtering.
-
-### Variants
-
-- **Bayesian Matrix Factorization**: Probabilistic approach
-- **Weighted Matrix Factorization**: Handling missing data
-- **Non-negative Matrix Factorization**: For non-negative ratings
-
-## Model Characteristics
-
-### Input
-- User-item interaction matrix (ratings, clicks, views)
-- Sparse matrix format supported
-
-### Output
-- User and item embeddings
-- Rating predictions
-- Top-N recommendations
-
-## Training
+SAR expects Microsoft Recommenders-style column names: `userID`, `itemID`, `rating`.
 
 ```python
-from corerec.engines.unionizedFilterEngine.mf_base.als_recommender import ALSRecommender
+from corerec.engines.collaborative import SAR
+import pandas as pd
 
-model = ALSRecommender(
-    n_factors=50,
-    n_iterations=20,
-    regularization=0.1
-)
-
-model.fit(user_item_matrix)
+df = pd.DataFrame({
+    "userID": [0, 0, 1, 1],
+    "itemID": [10, 11, 10, 12],
+    "rating": [5, 4, 3, 5],
+})
+model = SAR(similarity_type="jaccard")
+model.fit(df)
+recs = model.recommend(user_id=0, top_k=10)
 ```
 
-## Advantages
+### NCF (DataFrame API)
 
-- **Interpretable**: Latent factors can be analyzed
-- **Fast**: Efficient training and inference
-- **Scalable**: Works well with large datasets
-- **Cold Start**: Can handle new users/items with proper initialization
+```python
+from corerec.engines.collaborative import NCF
 
-## Limitations
+model = NCF(num_epochs=10, verbose=True)
+model.fit(df)  # columns: user_id, item_id, rating
+recs = model.recommend(user_id=0, top_k=10)
+```
 
-- **Sparsity**: Struggles with very sparse data
-- **Linearity**: Assumes linear relationships
-- **Features**: Doesn't use item/user features directly
+### FAST / FASTRecommender (triplet API)
 
-## Best Practices
+```python
+from corerec.engines.collaborative import FAST
 
-1. **Factor Count**: Start with 50-100 factors
-2. **Regularization**: Prevent overfitting with L2 regularization
-3. **Initialization**: Use proper initialization for embeddings
-4. **Normalization**: Normalize ratings for better performance
+model = FAST(factors=64, iterations=15, seed=42)
+model.fit(user_ids, item_ids, ratings)
+score = model.predict(user_id=0, item_id=10)
+```
 
-## When to Use
+## Sandbox models (experimental)
 
-- Baseline recommendation system
-- Need fast training and inference
-- Interpretable recommendations required
-- Large-scale collaborative filtering
+| Model | Import | Tutorial |
+|-------|--------|----------|
+| ALS | `corerec.sandbox.collaborative_full.mf_base.als_base` | [ALS](../tutorials/als_tutorial.md) |
+| SVD | `corerec.sandbox.collaborative_full.mf_base.svd_base` | [SVD](../tutorials/svd_tutorial.md) |
+| A2SVD | `corerec.sandbox.collaborative_full.mf_base.a2svd_base` | [A2SVD](../tutorials/a2svd_tutorial.md) |
+| MF-Base | `corerec.sandbox.collaborative_full.mf_base.matrix_factorization_base` | [MF Base](../tutorials/mf_base_tutorial.md) |
+| FM-Base | `corerec.sandbox.collaborative_full.nn_base.FM_base` | [FM Base](../tutorials/fm_base_tutorial.md) |
+| Matrix Factorization | `corerec.sandbox.collaborative_full.mf_base.matrix_factorization_base` | [Matrix Factorization](../tutorials/matrixfactorization_tutorial.md) |
+| User-Based CF | `corerec.sandbox.collaborative_full.mf_base.user_based_base` | [User-Based](../tutorials/userbased_tutorial.md) |
 
-## Tutorials
+```{admonition} Legacy paths
+:class: note
+Old docs referenced `corerec.engines.unionizedFilterEngine.*` — that module layout no longer exists. Use production imports above or sandbox paths from tutorials.
+```
 
-See matrix factorization tutorials in the [Tutorials](../tutorials/index.md) section.
+## When to use
 
+| Scenario | Start with |
+|----------|------------|
+| Fast baseline, implicit feedback | **SAR** |
+| Neural pairwise ranking | **NCF** |
+| Low-latency similarity CF | **FAST** |
+| Research / classic MF | Sandbox ALS, SVD |
+
+## See also
+
+- [Model tiers](index.md#model-tiers)
+- [Graph-based models](graph_based.md) (LightGCN)
+- [Tutorials](../tutorials/index.md)

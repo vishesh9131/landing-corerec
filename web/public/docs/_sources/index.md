@@ -10,7 +10,7 @@
 <div class="stat"><span class="stat-num">57+</span><span class="stat-label">Models</span></div>
 <div class="stat"><span class="stat-num">5</span><span class="stat-label">Categories</span></div>
 <div class="stat"><span class="stat-num">3</span><span class="stat-label">Pipeline Stages</span></div>
-<div class="stat"><span class="stat-num">100%</span><span class="stat-label">Type-Hinted</span></div>
+<div class="stat"><span class="stat-num">Typed</span><span class="stat-label">Production API</span></div>
 </div>
 
 <p class="landing-section-title">Get Started</p>
@@ -136,15 +136,19 @@ Batch inference, model loading, and a lightweight model server for production de
 
 ```python
 from corerec.engines.dcn import DCN
-import cr_learn
+from cr_learn import ml_1m
+from sklearn.model_selection import train_test_split
 
-data = cr_learn.load_dataset('movielens-100k')
+# pip install "corerec[datasets]" first
+data = ml_1m.load()
+train_df, _ = train_test_split(data['ratings'], test_size=0.2, random_state=42)
 
 model = DCN(embedding_dim=64, epochs=20, verbose=True)
-model.fit(user_ids=data.user_ids, item_ids=data.item_ids, ratings=data.ratings)
+model.fit(user_ids=train_df['user_id'].values, item_ids=train_df['movie_id'].values,
+          ratings=train_df['rating'].values)
 
 recs = model.recommend(user_id=1, top_k=10)
-model.save('dcn_model.pkl')
+model.save('artifacts/dcn')
 ```
 
 <p class="landing-section-title">Learn More</p>
@@ -200,7 +204,10 @@ user_guide/data_preparation
 user_guide/model_training
 user_guide/making_predictions
 user_guide/model_persistence
+user_guide/safe_bundle_persistence
 user_guide/best_practices
+api_versioning
+torch_nn_vendored
 ```
 
 ```{toctree}

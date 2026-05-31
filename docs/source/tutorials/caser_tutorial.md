@@ -1,5 +1,10 @@
 # Caser Tutorial: Convolutional Sequence Embedding Recommendation
 
+```{admonition} Sandbox Model — Experimental
+:class: warning
+This model is part of the CoreRec **Sandbox** — an experimental collection of algorithms for research and exploration. Sandbox models are **not production-tested** and may have incomplete implementations. For production-ready models, see the [Production Models](../models/index.md#production-models-tested--stable).
+```
+
 ## Introduction
 
 **Caser** treats user sequence as an "image" applying CNNs with horizontal (recent patterns) and vertical (skip patterns) convolutional filters.
@@ -46,12 +51,18 @@ z = [max(c^h₁); ...; max(c^hₙ); max(c^v₁); ...; max(c^vₘ)]
 y = FC(z)
 ```
 
-## Tutorial with cr_learn
+## Reference Implementation
+
+```{admonition} Implementation Note
+:class: info
+The code examples below are **reference implementations** for learning purposes. This is a sandbox model and has not been production-tested. Verify behavior thoroughly before using in production.
+```
+
 
 ### Step 1: Import and Load Data
 
 ```python
-from corerec.engines.caser import Caser
+from corerec.sandbox.collaborative_full.sequential_model_base.caser_base import Caser_base as Caser
 from cr_learn import ml_1m
 from sklearn.model_selection import train_test_split
 import numpy as np
@@ -147,10 +158,10 @@ print(f"Test RMSE: {rmse:.4f}")
 
 ```python
 # Save model
-model.save('caser_model.pkl')
+model.save('artifacts/caser_model')
 
 # Load model
-loaded = Caser.load('caser_model.pkl')
+loaded = Caser.load('artifacts/caser_model')
 test_score = loaded.predict(1, 100)
 print(f"Loaded model prediction: {test_score:.3f}")
 ```
@@ -182,6 +193,17 @@ print(f"Loaded model prediction: {test_score:.3f}")
 6. **Embedding Dim**: 50-100
 7. **Activation**: ReLU standard
 8. **Pooling**: Max pooling works best
+
+## Scaling & Production Considerations
+
+If you plan to move this sandbox model toward production use, consider:
+
+- **Data Volume**: Test with realistic dataset sizes; sandbox implementations may not be optimized for large-scale data.
+- **Distributed Training**: For datasets exceeding single-machine memory, consider wrapping the model in distributed training frameworks (e.g., PyTorch DDP, Horovod).
+- **Hyperparameter Tuning**: Use systematic search (Optuna, Ray Tune) rather than manual tuning. The defaults in sandbox models are not tuned for any specific domain.
+- **Serving Latency**: Profile inference time. Some architectures (e.g., attention-based) may need quantization or ONNX export for low-latency serving.
+- **Monitoring**: Implement A/B testing and online metrics (CTR, engagement, diversity) before replacing an existing system.
+- **Validation**: Write comprehensive unit tests and integration tests before deploying. Sandbox models do not have CI coverage.
 
 ## Further Reading
 

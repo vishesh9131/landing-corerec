@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>LightGCN Tutorial: Light Graph Convolutional Network &#8212; CoreRec 0.5.1 documentation</title>
+    <title>LightGCN Tutorial: Light Graph Convolutional Network &#8212; CoreRec 0.5.3 documentation</title>
   
   
   
@@ -39,7 +39,7 @@
 <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
   <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
 
-    <script src="../_static/documentation_options.js?v=5f152624"></script>
+    <script src="../_static/documentation_options.js?v=f39d245f"></script>
     <script src="../_static/doctools.js?v=9bcbadda"></script>
     <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
@@ -49,8 +49,8 @@
     <script>DOCUMENTATION_OPTIONS.pagename = 'tutorials/lightgcn_tutorial';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="LightGCN_Base Tutorial: LightGCN Base" href="lightgcn_base_tutorial.html" />
-    <link rel="prev" title="GeoIMC Tutorial: Geographic Inductive Matrix Completion" href="geoimc_tutorial.html" />
+    <link rel="next" title="FAST Tutorial: Fast Approximate Similarity Filtering" href="fast_tutorial.html" />
+    <link rel="prev" title="SAR Tutorial: Smart Adaptive Recommendations" href="sar_tutorial.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -138,7 +138,7 @@
   
   
   
-    <p class="title logo__title">CoreRec 0.5.1 documentation</p>
+    <p class="title logo__title">CoreRec 0.5.3 documentation</p>
   
 </a></div>
         <div class="sidebar-primary-item">
@@ -174,17 +174,21 @@
 <li class="toctree-l1"><a class="reference internal" href="../user_guide/model_training.html">Model Training</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../user_guide/making_predictions.html">Making Predictions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../user_guide/model_persistence.html">Model Persistence</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user_guide/safe_bundle_persistence.html">Safe Model Bundles (<code class="docutils literal notranslate"><span class="pre">corerec_safe_v1</span></code>)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../user_guide/best_practices.html">Best Practices</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api_versioning.html">CoreRec API Versioning Policy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../torch_nn_vendored.html">Vendored <code class="docutils literal notranslate"><span class="pre">torch_nn</span></code> and <code class="docutils literal notranslate"><span class="pre">torch_utils</span></code></a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Model Documentation</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../models/index.html">Model Documentation</a></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../models/models_index.html">Model Documentation Index</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../models/models_index.html">Complete Model Index</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../models/deep_learning.html">Deep Learning Models</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../models/matrix_factorization.html">Matrix Factorization Models</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../models/matrix_factorization.html">Matrix Factorization &amp; Collaborative Filtering</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../models/graph_based.html">Graph-Based Models</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../models/sequential.html">Sequential Models</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../models/bayesian.html">Bayesian Models</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../models/content_based.html">Content-Based Models</a></li>
 </ul>
 </details></li>
 </ul>
@@ -197,10 +201,17 @@
 <li class="toctree-l2"><a class="reference internal" href="mind_tutorial.html">MIND Tutorial: MIND</a></li>
 <li class="toctree-l2"><a class="reference internal" href="nasrec_tutorial.html">NASRec Tutorial: NASRec</a></li>
 <li class="toctree-l2"><a class="reference internal" href="sasrec_tutorial.html">SASRec Tutorial: SASRec</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bert4rec_tutorial.html">Bert4Rec Tutorial: BERT for Sequential Recommendation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="two_tower_tutorial.html">TwoTower Tutorial: Dual-Encoder Retrieval</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ncf_tutorial.html">NCF Tutorial: Neural Collaborative Filtering</a></li>
+<li class="toctree-l2"><a class="reference internal" href="sar_tutorial.html">SAR Tutorial: Smart Adaptive Recommendations</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">LightGCN Tutorial: Light Graph Convolutional Network</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fast_tutorial.html">FAST Tutorial: Fast Approximate Similarity Filtering</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fast_recommender_tutorial.html">FASTRecommender Tutorial: Extended FAST Model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tfidf_tutorial.html">TFIDF Tutorial: TF-IDF Based Recommender</a></li>
 <li class="toctree-l2"><a class="reference internal" href="afm_tutorial.html">AFM Tutorial: Attentional Factorization Machine</a></li>
 <li class="toctree-l2"><a class="reference internal" href="autofi_tutorial.html">AutoFI Tutorial: Automatic Feature Interaction</a></li>
 <li class="toctree-l2"><a class="reference internal" href="autoint_tutorial.html">AutoInt Tutorial: Automatic Feature Interaction Learning via Self-Attention</a></li>
-<li class="toctree-l2"><a class="reference internal" href="bert4rec_tutorial.html">Bert4Rec Tutorial: BERT for Sequential Recommendation</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bst_tutorial.html">BST Tutorial: Behavior Sequence Transformer</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bivae_tutorial.html">BiVAE Tutorial: Bilateral Variational Autoencoder</a></li>
 <li class="toctree-l2"><a class="reference internal" href="caser_tutorial.html">Caser Tutorial: Convolutional Sequence Embedding Recommendation</a></li>
@@ -224,7 +235,6 @@
 <li class="toctree-l2"><a class="reference internal" href="gatenet_tutorial.html">GateNet Tutorial: Gating Network</a></li>
 <li class="toctree-l2"><a class="reference internal" href="gnn_base_tutorial.html">GNN_base Tutorial: Graph Neural Network Base</a></li>
 <li class="toctree-l2"><a class="reference internal" href="gru_cf_tutorial.html">GRU-CF Tutorial: GRU for Collaborative Filtering</a></li>
-<li class="toctree-l2"><a class="reference internal" href="ncf_tutorial.html">NCF Tutorial: Neural Collaborative Filtering</a></li>
 <li class="toctree-l2"><a class="reference internal" href="nfm_tutorial.html">NFM Tutorial: Neural Factorization Machine</a></li>
 <li class="toctree-l2"><a class="reference internal" href="nextitnet_tutorial.html">NextItNet Tutorial: Next Item Net</a></li>
 <li class="toctree-l2"><a class="reference internal" href="widedeep_tutorial.html">WideDeep Tutorial: Wide &amp; Deep Learning</a></li>
@@ -242,18 +252,15 @@
 <li class="toctree-l2"><a class="reference internal" href="svd_tutorial.html">SVD Tutorial: Singular Value Decomposition</a></li>
 <li class="toctree-l2"><a class="reference internal" href="userbased_tutorial.html">UserBased Tutorial: User-Based Collaborative Filtering</a></li>
 <li class="toctree-l2"><a class="reference internal" href="geoimc_tutorial.html">GeoIMC Tutorial: Geographic Inductive Matrix Completion</a></li>
-<li class="toctree-l2 current active"><a class="current reference internal" href="#">LightGCN Tutorial: Light Graph Convolutional Network</a></li>
 <li class="toctree-l2"><a class="reference internal" href="lightgcn_base_tutorial.html">LightGCN_Base Tutorial: LightGCN Base</a></li>
 <li class="toctree-l2"><a class="reference internal" href="rbm_tutorial.html">RBM Tutorial: Restricted Boltzmann Machine</a></li>
 <li class="toctree-l2"><a class="reference internal" href="rlrmc_tutorial.html">RLRMC Tutorial: Reinforcement Learning for Recommendation</a></li>
-<li class="toctree-l2"><a class="reference internal" href="sar_tutorial.html">SAR Tutorial: Smart Adaptive Recommendations</a></li>
 <li class="toctree-l2"><a class="reference internal" href="slirec_tutorial.html">SLiRec Tutorial: Sequential List Recommendation</a></li>
 <li class="toctree-l2"><a class="reference internal" href="sum_tutorial.html">SUM Tutorial: Sequential User Model</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpr_tutorial.html">BPR Tutorial: Bayesian Personalized Ranking</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bprmf_tutorial.html">BPRMF Tutorial: Bayesian Personalized Ranking Matrix Factorization</a></li>
 <li class="toctree-l2"><a class="reference internal" href="vmf_tutorial.html">VMF Tutorial: Von Mises-Fisher Distribution</a></li>
 <li class="toctree-l2"><a class="reference internal" href="mind_content_tutorial.html">MIND_Content Tutorial: MIND for Content Filtering</a></li>
-<li class="toctree-l2"><a class="reference internal" href="tfidf_tutorial.html">TFIDF Tutorial: TF-IDF Based Recommender</a></li>
 <li class="toctree-l2"><a class="reference internal" href="pipeline_tutorial.html">Multi-Stage Pipeline Tutorial</a></li>
 <li class="toctree-l2"><a class="reference internal" href="imshow_tutorial.html">Demo Frontends Tutorial</a></li>
 </ul>
@@ -590,7 +597,7 @@ e_i = Σ_{k=0}^K α_k · e_i^(k)
 <h2>Tutorial with cr_learn<a class="headerlink" href="#tutorial-with-cr-learn" title="Link to this heading">#</a></h2>
 <section id="step-1-import-and-load-data">
 <h3>Step 1: Import and Load Data<a class="headerlink" href="#step-1-import-and-load-data" title="Link to this heading">#</a></h3>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">corerec.engines.lightgcn</span><span class="w"> </span><span class="kn">import</span> <span class="n">LightGCN</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">corerec.engines.collaborative</span><span class="w"> </span><span class="kn">import</span> <span class="n">LightGCN</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">cr_learn</span><span class="w"> </span><span class="kn">import</span> <span class="n">ml_1m</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.model_selection</span><span class="w"> </span><span class="kn">import</span> <span class="n">train_test_split</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
@@ -618,15 +625,13 @@ e_i = Σ_{k=0}^K α_k · e_i^(k)
 <section id="step-2-initialize-model">
 <h3>Step 2: Initialize Model<a class="headerlink" href="#step-2-initialize-model" title="Link to this heading">#</a></h3>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">model</span> <span class="o">=</span> <span class="n">LightGCN</span><span class="p">(</span>
-    <span class="n">name</span><span class="o">=</span><span class="s2">&quot;LightGCN_Model&quot;</span><span class="p">,</span>
-    <span class="n">embedding_dim</span><span class="o">=</span><span class="mi">64</span><span class="p">,</span>
-    <span class="n">num_layers</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span>
-    <span class="n">reg_weight</span><span class="o">=</span><span class="mf">1e-4</span><span class="p">,</span>
-    <span class="n">negative_samples</span><span class="o">=</span><span class="mi">1000</span><span class="p">,</span>
+    <span class="n">n_factors</span><span class="o">=</span><span class="mi">64</span><span class="p">,</span>
+    <span class="n">n_layers</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span>
+    <span class="n">regularization</span><span class="o">=</span><span class="mf">1e-4</span><span class="p">,</span>
     <span class="n">epochs</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span>
     <span class="n">batch_size</span><span class="o">=</span><span class="mi">256</span><span class="p">,</span>
     <span class="n">learning_rate</span><span class="o">=</span><span class="mf">0.001</span><span class="p">,</span>
-    <span class="n">verbose</span><span class="o">=</span><span class="kc">True</span>
+    <span class="n">verbose</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
 <span class="p">)</span>
 
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Initialized </span><span class="si">{</span><span class="n">model</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
@@ -686,10 +691,10 @@ e_i = Σ_{k=0}^K α_k · e_i^(k)
 <section id="step-7-save-load">
 <h3>Step 7: Save &amp; Load<a class="headerlink" href="#step-7-save-load" title="Link to this heading">#</a></h3>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Save model</span>
-<span class="n">model</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="s1">&#39;lightgcn_model.pkl&#39;</span><span class="p">)</span>
+<span class="n">model</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="s1">&#39;artifacts/lightgcn_model&#39;</span><span class="p">)</span>
 
 <span class="c1"># Load model</span>
-<span class="n">loaded</span> <span class="o">=</span> <span class="n">LightGCN</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="s1">&#39;lightgcn_model.pkl&#39;</span><span class="p">)</span>
+<span class="n">loaded</span> <span class="o">=</span> <span class="n">LightGCN</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="s1">&#39;artifacts/lightgcn_model&#39;</span><span class="p">)</span>
 <span class="n">test_score</span> <span class="o">=</span> <span class="n">loaded</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Loaded model prediction: </span><span class="si">{</span><span class="n">test_score</span><span class="si">:</span><span class="s2">.3f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 </pre></div>
@@ -719,14 +724,12 @@ e_i = Σ_{k=0}^K α_k · e_i^(k)
 <section id="best-practices">
 <h3>Best Practices<a class="headerlink" href="#best-practices" title="Link to this heading">#</a></h3>
 <ol class="arabic simple">
-<li><p><strong>Number of Layers</strong>: 2-4 layers (3 often optimal)</p></li>
-<li><p><strong>Embedding Dimension</strong>: 64 standard, 128-256 for large datasets</p></li>
-<li><p><strong>Layer Combination</strong>: Uniform weights work well (α_k = 1/(K+1))</p></li>
-<li><p><strong>Negative Sampling</strong>: Sample 1000-2000 negatives per positive (more than NCF!)</p></li>
-<li><p><strong>Dropout</strong>: Not needed (architecture is simple enough)</p></li>
-<li><p><strong>Learning Rate</strong>: 0.001 with decay</p></li>
-<li><p><strong>Batch Size</strong>: Large (2048-8192) for stability</p></li>
-<li><p><strong>Regularization</strong>: L2=1e-4 on embeddings</p></li>
+<li><p><strong>Number of layers</strong>: <code class="docutils literal notranslate"><span class="pre">n_layers=2–4</span></code> (3 is a common default)</p></li>
+<li><p><strong>Embedding size</strong>: <code class="docutils literal notranslate"><span class="pre">n_factors=64</span></code> standard; 128+ for large catalogs</p></li>
+<li><p><strong>Layer combination</strong>: Uniform weights in LightGCN (built into the model)</p></li>
+<li><p><strong>Learning rate</strong>: <code class="docutils literal notranslate"><span class="pre">0.001</span></code> with decay works well</p></li>
+<li><p><strong>Batch size</strong>: 256–2048 depending on GPU memory</p></li>
+<li><p><strong>Regularization</strong>: <code class="docutils literal notranslate"><span class="pre">regularization=1e-4</span></code> on embeddings (L2)</p></li>
 </ol>
 </section>
 </section>
@@ -751,20 +754,20 @@ e_i = Σ_{k=0}^K α_k · e_i^(k)
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="geoimc_tutorial.html"
+       href="sar_tutorial.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">GeoIMC Tutorial: Geographic Inductive Matrix Completion</p>
+        <p class="prev-next-title">SAR Tutorial: Smart Adaptive Recommendations</p>
       </div>
     </a>
     <a class="right-next"
-       href="lightgcn_base_tutorial.html"
+       href="fast_tutorial.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">LightGCN_Base Tutorial: LightGCN Base</p>
+        <p class="prev-next-title">FAST Tutorial: Fast Approximate Similarity Filtering</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>

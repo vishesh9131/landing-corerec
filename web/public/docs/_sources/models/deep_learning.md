@@ -1,115 +1,96 @@
 # Deep Learning Models
 
-CoreRec provides 29+ deep learning-based recommendation models that leverage neural networks to learn complex patterns from user-item interactions.
+Neural network models for rating prediction, ranking, and top-N recommendation.
 
-## Overview
+## Production models (CI-tested)
 
-Deep learning models in CoreRec use neural networks to:
-- Capture non-linear relationships
-- Learn feature interactions automatically
-- Handle high-dimensional sparse data
-- Model complex user behaviors
+These models live under `corerec.engines.*`, inherit `BaseRecommender`, and pass automated tests on every commit.
 
-## Available Models
+| Model | Import | Tutorial |
+|-------|--------|----------|
+| **DCN** | `from corerec.engines.dcn import DCN` | [DCN Tutorial](../tutorials/dcn_tutorial.md) |
+| **DeepFM** | `from corerec.engines.deepfm import DeepFM` | [DeepFM Tutorial](../tutorials/deepfm_tutorial.md) |
+| **GNNRec** | `from corerec.engines.gnnrec import GNNRec` | [GNNRec Tutorial](../tutorials/gnnrec_tutorial.md) |
+| **MIND** | `from corerec.engines.mind import MIND` | [MIND Tutorial](../tutorials/mind_tutorial.md) |
+| **NASRec** | `from corerec.engines.nasrec import NASRec` | [NASRec Tutorial](../tutorials/nasrec_tutorial.md) |
+| **SASRec** | `from corerec.engines.sasrec import SASRec` | [SASRec Tutorial](../tutorials/sasrec_tutorial.md) |
+| **TwoTower** | `from corerec.engines.two_tower import TwoTower` | [TwoTower Tutorial](../tutorials/two_tower_tutorial.md) |
+| **BERT4Rec** | `from corerec.engines.bert4rec import BERT4Rec` | [BERT4Rec Tutorial](../tutorials/bert4rec_tutorial.md) |
 
-### Core Models
+### Example (triplet-based models)
 
-#### DCN (Deep & Cross Network)
-Combines deep neural networks with cross networks for explicit feature interactions.
-
-**Use Cases**: When you need both memorization and generalization.
-
-#### DeepFM
-Factorization Machines + Deep Neural Networks for feature interaction learning.
-
-**Use Cases**: General-purpose recommendation with mixed feature types.
-
-#### DIEN (Deep Interest Evolution Network)
-Models user interest evolution over time using attention mechanisms.
-
-**Use Cases**: E-commerce, content platforms with temporal user behavior.
-
-#### DIN (Deep Interest Network)
-Uses attention to model diverse user interests.
-
-**Use Cases**: When users have multiple interests.
-
-#### DLRM (Deep Learning Recommendation Model)
-Facebook's production model for recommendation.
-
-**Use Cases**: Large-scale recommendation systems.
-
-### Specialized Models
-
-- **GNNRec**: Graph Neural Networks for recommendations
-- **MIND**: Multi-Interest Network for diverse recommendations
-- **NASRec**: Neural Architecture Search for optimal architectures
-- **SASRec**: Self-Attentive Sequential Recommendation
-- **YouTubeDNN**: Deep Neural Networks for YouTube-style recommendations
-
-### Feature Interaction Models
-
-- **AFM**: Attentional Factorization Machines
-- **AutoInt**: Automatic Feature Interaction Learning
-- **FIBINet**: Feature Importance and Bilinear feature Interaction Network
-- **PNN**: Product-based Neural Networks
-- **xDeepFM**: Compressed Interaction Network
-
-### Multi-Task Models
-
-- **ESMM**: Entire Space Multi-Task Model
-- **MMoE**: Multi-gate Mixture-of-Experts
-- **PLE**: Progressive Layered Extraction
-
-## Model Characteristics
-
-### Input Types
-- User IDs
-- Item IDs
-- Categorical features
-- Numerical features
-- Sequential data (for sequential models)
-
-### Output
-- Rating predictions
-- Ranking scores
-- Top-N recommendations
-
-## Training
-
-All deep learning models follow the same training pattern:
+Most production deep models accept `(user_ids, item_ids, ratings)` triplets. Use **binary (0/1) or normalized ratings** for models trained with BCE loss (e.g. GNNRec).
 
 ```python
 from corerec.engines.dcn import DCN
 
-model = DCN(
-    embedding_dim=64,
-    epochs=20,
-    learning_rate=0.001
-)
+model = DCN(embedding_dim=64, epochs=20, verbose=True)
+model.fit(user_ids=user_ids, item_ids=item_ids, ratings=ratings)
 
-model.fit(
-    user_ids=user_ids,
-    item_ids=item_ids,
-    ratings=ratings
-)
+score = model.predict(user_id=1, item_id=100)
+recs = model.recommend(user_id=1, top_k=10)
+model.save("artifacts/dcn")  # safe bundle by default
 ```
 
-## Performance Considerations
+**SASRec** and **BERT4Rec** use an **interaction matrix** instead of raw triplets — see their tutorials.
 
-- **Training Time**: Varies by model complexity (minutes to hours)
-- **Memory**: Depends on embedding dimensions and batch size
-- **Inference**: Fast once trained (milliseconds per prediction)
+## Sandbox models (experimental)
 
-## Best Practices
+Implementations under `corerec/sandbox/`. Not production-tested.
 
-1. **Start Simple**: Begin with DeepFM or DCN
-2. **Tune Embeddings**: Embedding dimension affects performance
-3. **Regularization**: Use dropout to prevent overfitting
-4. **Batch Size**: Adjust based on available memory
-5. **Learning Rate**: Start with 0.001 and adjust
+| Model | Import path | Tutorial |
+|-------|-------------|----------|
+| AFM | `corerec.sandbox.collaborative_full.nn_base.AFM_base` | [AFM](../tutorials/afm_tutorial.md) |
+| AutoInt | `corerec.sandbox.collaborative_full.nn_base.AutoInt_base` | [AutoInt](../tutorials/autoint_tutorial.md) |
+| AutoFI | `corerec.sandbox.collaborative_full.nn_base.AutoFI_base` | [AutoFI](../tutorials/autofi_tutorial.md) |
+| BST | `corerec.sandbox.collaborative_full.nn_base.BST_base` | [BST](../tutorials/bst_tutorial.md) |
+| BiVAE | `corerec.sandbox.collaborative_full.variational_encoder_base.bivae_base` | [BiVAE](../tutorials/bivae_tutorial.md) |
+| Caser | `corerec.sandbox.collaborative_full.nn_base.caser` | [Caser](../tutorials/caser_tutorial.md) |
+| DeepCrossing | sandbox nn_base | [DeepCrossing](../tutorials/deepcrossing_tutorial.md) |
+| DeepRec | `corerec.sandbox.collaborative_full.nn_base.DeepRec_base` | [DeepRec](../tutorials/deeprec_tutorial.md) |
+| DIEN | `corerec.sandbox.collaborative_full.nn_base.DIEN_base` | [DIEN](../tutorials/dien_tutorial.md) |
+| DiFM | sandbox nn_base | [DiFM](../tutorials/difm_tutorial.md) |
+| DIN | `corerec.sandbox.collaborative_full.nn_base.DIN_base` | [DIN](../tutorials/din_tutorial.md) |
+| DLRM | `corerec.sandbox.collaborative_full.nn_base.DLRM_base` | [DLRM](../tutorials/dlrm_tutorial.md) |
+| ENSFM | `corerec.sandbox.collaborative_full.nn_base.ENSFM_base` | [ENSFM](../tutorials/ensfm_tutorial.md) |
+| ESCM2 | `corerec.sandbox.collaborative_full.nn_base.ESCMM_base` | [ESCMM](../tutorials/escmm_tutorial.md) |
+| ESMM | `corerec.sandbox.collaborative_full.nn_base.ESMM_base` | [ESMM](../tutorials/esmm_tutorial.md) |
+| FGCNN | `corerec.sandbox.collaborative_full.nn_base.FGCNN_base` | [FGCNN](../tutorials/fgcnn_tutorial.md) |
+| FFM | `corerec.sandbox.collaborative_full.nn_base.FFM_base` | [FFM](../tutorials/ffm_tutorial.md) |
+| FiBiNet | `corerec.sandbox.collaborative_full.nn_base.Fibinet_base` | [FiBiNet](../tutorials/fibinet_tutorial.md) |
+| FLEN | `corerec.sandbox.collaborative_full.nn_base.FLEN_base` | [FLEN](../tutorials/flen_tutorial.md) |
+| FM | `corerec.sandbox.collaborative_full.nn_base.FM_base` | [FM](../tutorials/fm_tutorial.md) |
+| GAN-Rec | `corerec.sandbox.collaborative_full.nn_base.gan_ufilter_base` | [GAN](../tutorials/gan_tutorial.md) |
+| GateNet | sandbox nn_base | [GateNet](../tutorials/gatenet_tutorial.md) |
+| GRU-CF | `corerec.sandbox.collaborative_full.nn_base.gru_ufilter_base` | [GRU-CF](../tutorials/gru_cf_tutorial.md) |
+| NFM | `corerec.sandbox.collaborative_full.nn_base.NFM_base` | [NFM](../tutorials/nfm_tutorial.md) |
+| NextItNet | `corerec.sandbox.collaborative_full.sequential_model_base.nextitnet_base` | [NextItNet](../tutorials/nextitnet_tutorial.md) |
+| Wide&Deep | `corerec.sandbox.collaborative_full.nn_base.WideDeep_base` | [Wide&Deep](../tutorials/widedeep_tutorial.md) |
+| YouTubeDNN | sandbox content nn | [YouTubeDNN](../tutorials/youtubednn_tutorial.md) |
+| PNN | sandbox nn_base | [PNN](../tutorials/pnn_tutorial.md) |
+| MMoE | `corerec.sandbox.collaborative_full.nn_base.MMoE_base` | [MMoE](../tutorials/mmoe_tutorial.md) |
+| PLE | `corerec.sandbox.collaborative_full.nn_base.PLE_base` | [PLE](../tutorials/ple_tutorial.md) |
+| Monolith | `corerec.sandbox.collaborative_full.nn_base.Monolith_base` | [Monolith](../tutorials/monolith_tutorial.md) |
+| TDM | `corerec.sandbox.collaborative_full.nn_base.TDM_base` | [TDM](../tutorials/tdm_tutorial.md) |
+| DCN-Base | `corerec.sandbox.collaborative_full.nn_base.DCN` | [DCN Base](../tutorials/dcn_base_tutorial.md) |
+| DeepFM-Base | `corerec.sandbox.collaborative_full.nn_base.DeepFM_base` | [DeepFM Base](../tutorials/deepfm_base_tutorial.md) |
 
-## Tutorials
+```{admonition} Sandbox warning
+:class: warning
+Always import sandbox models from `corerec.sandbox.*`, not `corerec.engines.*`. Validate thoroughly before any production use.
+```
 
-See individual model tutorials in the [Tutorials](../tutorials/index.md) section.
+## When to use deep learning models
 
+- Large interaction datasets with non-linear patterns
+- Rich side features (DCN, DeepFM)
+- Sequential behavior (SASRec, BERT4Rec)
+- Graph structure (GNNRec)
+- Multi-interest sessions (MIND)
+- Dual-tower retrieval at scale (TwoTower)
+
+## See also
+
+- [Model tiers overview](index.md#model-tiers)
+- [Full model index](models_index.md)
+- [Tutorials](../tutorials/index.md)

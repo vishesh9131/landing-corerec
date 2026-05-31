@@ -60,7 +60,7 @@ The code examples below are **reference implementations** for learning purposes.
 ### Step 1: Import and Load Data
 
 ```python
-from corerec.engines.a2svd import A2SVD
+from corerec.sandbox.collaborative_full.mf_base.a2svd_base import A2SVD_base as A2SVD
 from cr_learn import ml_1m
 from sklearn.model_selection import train_test_split
 import numpy as np
@@ -156,10 +156,10 @@ print(f"Test RMSE: {rmse:.4f}")
 
 ```python
 # Save model
-model.save('a2svd_model.pkl')
+model.save('artifacts/a2svd_model')
 
 # Load model
-loaded = A2SVD.load('a2svd_model.pkl')
+loaded = A2SVD.load('artifacts/a2svd_model')
 test_score = loaded.predict(1, 100)
 print(f"Loaded model prediction: {test_score:.3f}")
 ```

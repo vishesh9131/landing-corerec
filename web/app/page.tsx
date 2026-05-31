@@ -47,20 +47,20 @@ const CodeLines = ({ lines }: { lines: string[] }) => (
 // ─── Data ───
 
 const CODE_SNIPPET = `from corerec.engines.dcn import DCN
-import cr_learn
+from cr_learn import ml_1m
+from sklearn.model_selection import train_test_split
 
-# Load dataset
-data = cr_learn.load_dataset('movielens-100k')
+data = ml_1m.load()
+train_df, _ = train_test_split(data['ratings'], test_size=0.2, random_state=42)
 
-# Initialize & Train
 model = DCN(embedding_dim=64, epochs=20)
 model.fit(
-    user_ids=data.user_ids,
-    item_ids=data.item_ids,
-    ratings=data.ratings
+    user_ids=train_df['user_id'].values,
+    item_ids=train_df['movie_id'].values,
+    ratings=train_df['rating'].values,
 )
 
-# Predict
+model.save('artifacts/my_dcn')
 recs = model.recommend(user_id=1, top_k=10)`;
 
 const FINAL_SHOWCASE = [

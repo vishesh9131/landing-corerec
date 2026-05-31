@@ -173,17 +173,22 @@
 <li class="toctree-l1"><a class="reference internal" href="../../../user_guide/model_training.html">Model Training</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../user_guide/making_predictions.html">Making Predictions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../user_guide/model_persistence.html">Model Persistence</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../user_guide/safe_bundle_persistence.html">Safe Model Bundles (<code class="docutils literal notranslate"><span class="pre">corerec_safe_v1</span></code>)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../user_guide/best_practices.html">Best Practices</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api_versioning.html">CoreRec API Versioning Policy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../torch_nn_vendored.html">Vendored <code class="docutils literal notranslate"><span class="pre">torch_nn</span></code> and <code class="docutils literal notranslate"><span class="pre">torch_utils</span></code></a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Model Documentation</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../../../models/index.html">Model Documentation</a></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../../../models/models_index.html">Model Documentation Index</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../models/index.html">Model Documentation</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../models/deep_learning.html">Deep Learning Models</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../models/matrix_factorization.html">Matrix Factorization Models</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../models/graph_based.html">Graph-Based Models</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../models/sequential.html">Sequential Models</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../models/bayesian.html">Bayesian Models</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../models/content_based.html">Content-Based Models</a></li>
 </ul>
 </details></li>
 </ul>
@@ -197,9 +202,12 @@
 <li class="toctree-l2"><a class="reference internal" href="../../../tutorials/nasrec_tutorial.html">NASRec Tutorial: NASRec</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../tutorials/sasrec_tutorial.html">SASRec Tutorial: SASRec</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../tutorials/bert4rec_tutorial.html">Bert4Rec Tutorial: BERT for Sequential Recommendation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../tutorials/two_tower_tutorial.html">TwoTower Tutorial: Dual-Encoder Retrieval</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../tutorials/ncf_tutorial.html">NCF Tutorial: Neural Collaborative Filtering</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../tutorials/sar_tutorial.html">SAR Tutorial: Smart Adaptive Recommendations</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../tutorials/lightgcn_tutorial.html">LightGCN Tutorial: Light Graph Convolutional Network</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../tutorials/fast_tutorial.html">FAST Tutorial: Fast Approximate Similarity Filtering</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../tutorials/fast_recommender_tutorial.html">FASTRecommender Tutorial: Extended FAST Model</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../tutorials/tfidf_tutorial.html">TFIDF Tutorial: TF-IDF Based Recommender</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../tutorials/afm_tutorial.html">AFM Tutorial: Attentional Factorization Machine</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../tutorials/autofi_tutorial.html">AutoFI Tutorial: Automatic Feature Interaction</a></li>
@@ -443,7 +451,7 @@ document.write(`
 <span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">List</span><span class="p">,</span> <span class="n">Dict</span><span class="p">,</span> <span class="n">Optional</span><span class="p">,</span> <span class="n">Tuple</span><span class="p">,</span> <span class="n">Any</span><span class="p">,</span> <span class="n">Union</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">corerec.api.base_recommender</span><span class="w"> </span><span class="kn">import</span> <span class="n">BaseRecommender</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">corerec.api.exceptions</span><span class="w"> </span><span class="kn">import</span> <span class="n">ModelNotFittedError</span><span class="p">,</span> <span class="n">InvalidParameterError</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">corerec.api.exceptions</span><span class="w"> </span><span class="kn">import</span> <span class="n">ModelNotFittedError</span><span class="p">,</span> <span class="n">InvalidParameterError</span><span class="p">,</span> <span class="n">RecommendationError</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">corerec.utils.validation</span><span class="w"> </span><span class="kn">import</span> <span class="p">(</span>
     <span class="n">validate_fit_inputs</span><span class="p">,</span>
     <span class="n">validate_user_id</span><span class="p">,</span>
@@ -589,6 +597,9 @@ document.write(`
 <span class="sd">            item_features: Dictionary of item features</span>
 <span class="sd">            batch_size: Batch size for training (overrides init param if provided)</span>
 <span class="sd">        &quot;&quot;&quot;</span>
+        <span class="p">(</span><span class="n">user_ids</span><span class="p">,</span> <span class="n">item_ids</span><span class="p">,</span> <span class="n">ratings</span><span class="p">),</span> <span class="n">_</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_unpack_fit_args</span><span class="p">(</span>
+            <span class="n">user_ids</span><span class="p">,</span> <span class="n">item_ids</span><span class="p">,</span> <span class="n">ratings</span><span class="p">,</span> <span class="n">supported_modes</span><span class="o">=</span><span class="p">(</span><span class="s2">&quot;triplet&quot;</span><span class="p">,)</span>
+        <span class="p">)</span>
         <span class="c1"># Validate inputs</span>
         <span class="n">validate_fit_inputs</span><span class="p">(</span><span class="n">user_ids</span><span class="p">,</span> <span class="n">item_ids</span><span class="p">,</span> <span class="n">ratings</span><span class="p">)</span>
         
@@ -805,35 +816,33 @@ document.write(`
     <span class="k">def</span><span class="w"> </span><span class="nf">recommend</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span>
         <span class="n">user_id</span><span class="p">:</span> <span class="n">Any</span><span class="p">,</span>
-        <span class="n">top_n</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">10</span><span class="p">,</span>
+        <span class="n">top_k</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">10</span><span class="p">,</span>
+        <span class="n">exclude_items</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">List</span><span class="p">[</span><span class="n">Any</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="o">*</span><span class="p">,</span>
+        <span class="n">top_n</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
         <span class="n">exclude_seen</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
         <span class="o">**</span><span class="n">kwargs</span><span class="p">,</span>
     <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="n">Any</span><span class="p">]:</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        Recommend top-N items for a user.</span>
-
-<span class="sd">        Args:</span>
-<span class="sd">            user_id: User ID</span>
-<span class="sd">            top_n: Number of recommendations</span>
-<span class="sd">            exclude_seen: Whether to exclude items the user has already interacted with</span>
-
-<span class="sd">        Returns:</span>
-<span class="sd">            List of recommended item IDs</span>
-<span class="sd">        &quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Recommend top-K items for a user.&quot;&quot;&quot;</span>
+        <span class="n">top_k</span><span class="p">,</span> <span class="n">exclude_items</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_normalize_recommend</span><span class="p">(</span>
+            <span class="n">top_k</span><span class="o">=</span><span class="n">top_k</span><span class="p">,</span>
+            <span class="n">top_n</span><span class="o">=</span><span class="n">top_n</span><span class="p">,</span>
+            <span class="n">exclude_items</span><span class="o">=</span><span class="n">exclude_items</span><span class="p">,</span>
+            <span class="o">**</span><span class="n">kwargs</span><span class="p">,</span>
+        <span class="p">)</span>
         <span class="n">validate_model_fitted</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">is_fitted</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="p">)</span>
-        <span class="n">validate_user_id</span><span class="p">(</span><span class="n">user_id</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">feature_map</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;user&quot;</span><span class="p">,</span> <span class="p">{}))</span>
-        <span class="n">validate_top_k</span><span class="p">(</span><span class="n">top_n</span><span class="p">)</span>
+        <span class="n">validate_top_k</span><span class="p">(</span><span class="n">top_k</span><span class="p">)</span>
 
-        <span class="k">if</span> <span class="n">user_id</span> <span class="ow">not</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">feature_map</span><span class="p">[</span><span class="s2">&quot;user&quot;</span><span class="p">]:</span>
-            <span class="k">return</span> <span class="p">[]</span>
+        <span class="k">if</span> <span class="n">user_id</span> <span class="ow">not</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">feature_map</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;user&quot;</span><span class="p">,</span> <span class="p">{}):</span>
+            <span class="k">raise</span> <span class="n">RecommendationError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Unknown user_id: </span><span class="si">{</span><span class="n">user_id</span><span class="si">!r}</span><span class="s2">&quot;</span><span class="p">)</span>
 
-        <span class="c1"># Get all items</span>
-        <span class="n">all_items</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">feature_map</span><span class="p">[</span><span class="s2">&quot;item&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span>
-
-        <span class="c1"># Get items the user has already interacted with</span>
         <span class="n">seen_items</span> <span class="o">=</span> <span class="nb">set</span><span class="p">()</span>
         <span class="k">if</span> <span class="n">exclude_seen</span> <span class="ow">and</span> <span class="nb">hasattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s2">&quot;_user_item_interactions&quot;</span><span class="p">):</span>
             <span class="n">seen_items</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_user_item_interactions</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">user_id</span><span class="p">,</span> <span class="nb">set</span><span class="p">())</span>
+        <span class="k">if</span> <span class="n">exclude_items</span><span class="p">:</span>
+            <span class="n">seen_items</span> <span class="o">=</span> <span class="n">seen_items</span><span class="o">.</span><span class="n">union</span><span class="p">(</span><span class="nb">set</span><span class="p">(</span><span class="n">exclude_items</span><span class="p">))</span>
+
+        <span class="n">all_items</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">feature_map</span><span class="p">[</span><span class="s2">&quot;item&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span>
 
         <span class="c1"># Generate predictions for all items</span>
         <span class="n">user_idx</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">feature_map</span><span class="p">[</span><span class="s2">&quot;user&quot;</span><span class="p">][</span><span class="n">user_id</span><span class="p">]</span>
@@ -890,46 +899,59 @@ document.write(`
 
         <span class="c1"># Sort predictions and get top-N</span>
         <span class="n">predictions</span><span class="o">.</span><span class="n">sort</span><span class="p">(</span><span class="n">key</span><span class="o">=</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">reverse</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-        <span class="n">top_items</span> <span class="o">=</span> <span class="p">[</span><span class="n">item</span> <span class="k">for</span> <span class="n">item</span><span class="p">,</span> <span class="n">_</span> <span class="ow">in</span> <span class="n">predictions</span><span class="p">[:</span><span class="n">top_n</span><span class="p">]]</span>
+        <span class="n">top_items</span> <span class="o">=</span> <span class="p">[</span><span class="n">item</span> <span class="k">for</span> <span class="n">item</span><span class="p">,</span> <span class="n">_</span> <span class="ow">in</span> <span class="n">predictions</span><span class="p">[:</span><span class="n">top_k</span><span class="p">]]</span>
 
         <span class="k">return</span> <span class="n">top_items</span></div>
 
 
 <div class="viewcode-block" id="DeepFM.save">
 <a class="viewcode-back" href="../../../api/engines.html#corerec.engines.deepfm.DeepFM.save">[docs]</a>
-    <span class="k">def</span><span class="w"> </span><span class="nf">save</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">path</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Path</span><span class="p">],</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">save</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">path</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Path</span><span class="p">],</span> <span class="n">safe</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Save the model to disk.</span>
 
 <span class="sd">        Args:</span>
 <span class="sd">            path: Path to save the model</span>
+<span class="sd">            safe: Use corerec_safe_v1 bundle (default). Set False for legacy torch checkpoint.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">is_fitted</span><span class="p">:</span>
             <span class="k">raise</span> <span class="n">ModelNotFittedError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2"> has not been fitted yet.&quot;</span><span class="p">)</span>
 
-        <span class="n">path_obj</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="n">path</span><span class="p">)</span>
-        <span class="n">path_obj</span><span class="o">.</span><span class="n">parent</span><span class="o">.</span><span class="n">mkdir</span><span class="p">(</span><span class="n">parents</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">exist_ok</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+        <span class="kn">from</span><span class="w"> </span><span class="nn">corerec.api.bundle_helpers</span><span class="w"> </span><span class="kn">import</span> <span class="n">load_map_state</span><span class="p">,</span> <span class="n">save_feature_map</span><span class="p">,</span> <span class="n">save_map_state</span>
+        <span class="kn">from</span><span class="w"> </span><span class="nn">corerec.api.torch_bundle</span><span class="w"> </span><span class="kn">import</span> <span class="n">save_torch_production</span>
 
-        <span class="n">checkpoint</span> <span class="o">=</span> <span class="p">{</span>
-            <span class="s2">&quot;config&quot;</span><span class="p">:</span> <span class="p">{</span>
-                <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="p">,</span>
-                <span class="s2">&quot;embedding_dim&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">embedding_dim</span><span class="p">,</span>
-                <span class="s2">&quot;hidden_layers&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">hidden_layers</span><span class="p">,</span>
-                <span class="s2">&quot;dropout&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">dropout</span><span class="p">,</span>
-                <span class="s2">&quot;learning_rate&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">learning_rate</span><span class="p">,</span>
-                <span class="s2">&quot;batch_size&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">batch_size</span><span class="p">,</span>
-                <span class="s2">&quot;epochs&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">epochs</span><span class="p">,</span>
-                <span class="s2">&quot;verbose&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">verbose</span><span class="p">,</span>
-                <span class="s2">&quot;device&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">device</span><span class="p">,</span>
-            <span class="p">},</span>
-            <span class="s2">&quot;model_state_dict&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">state_dict</span><span class="p">(),</span>
-            <span class="s2">&quot;feature_map&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">feature_map</span><span class="p">,</span>
+        <span class="n">path_obj</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="n">path</span><span class="p">)</span>
+        <span class="n">config</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="p">,</span>
+            <span class="s2">&quot;embedding_dim&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">embedding_dim</span><span class="p">,</span>
+            <span class="s2">&quot;hidden_layers&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">hidden_layers</span><span class="p">,</span>
+            <span class="s2">&quot;dropout&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">dropout</span><span class="p">,</span>
+            <span class="s2">&quot;learning_rate&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">learning_rate</span><span class="p">,</span>
+            <span class="s2">&quot;batch_size&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">batch_size</span><span class="p">,</span>
+            <span class="s2">&quot;epochs&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">epochs</span><span class="p">,</span>
+            <span class="s2">&quot;verbose&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">verbose</span><span class="p">,</span>
+            <span class="s2">&quot;device&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">device</span><span class="p">,</span>
+        <span class="p">}</span>
+        <span class="n">state</span> <span class="o">=</span> <span class="p">{</span>
             <span class="s2">&quot;field_dims&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">field_dims</span><span class="p">,</span>
             <span class="s2">&quot;user_features&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">user_features</span><span class="p">,</span>
             <span class="s2">&quot;item_features&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">item_features</span><span class="p">,</span>
             <span class="s2">&quot;user_feature_types&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">user_feature_types</span><span class="p">,</span>
             <span class="s2">&quot;item_feature_types&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">item_feature_types</span><span class="p">,</span>
             <span class="s2">&quot;is_fitted&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">is_fitted</span><span class="p">,</span>
+            <span class="o">**</span><span class="n">save_feature_map</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">feature_map</span><span class="p">),</span>
+        <span class="p">}</span>
+
+        <span class="k">if</span> <span class="n">save_torch_production</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">path_obj</span><span class="p">,</span> <span class="n">config</span><span class="o">=</span><span class="n">config</span><span class="p">,</span> <span class="n">state</span><span class="o">=</span><span class="n">state</span><span class="p">,</span> <span class="n">safe</span><span class="o">=</span><span class="n">safe</span><span class="p">):</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">verbose</span><span class="p">:</span>
+                <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2"> model saved (safe bundle) to </span><span class="si">{</span><span class="n">path</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+            <span class="k">return</span>
+
+        <span class="n">path_obj</span><span class="o">.</span><span class="n">parent</span><span class="o">.</span><span class="n">mkdir</span><span class="p">(</span><span class="n">parents</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">exist_ok</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+        <span class="n">checkpoint</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="s2">&quot;config&quot;</span><span class="p">:</span> <span class="n">config</span><span class="p">,</span>
+            <span class="s2">&quot;model_state_dict&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">state_dict</span><span class="p">(),</span>
+            <span class="o">**</span><span class="n">state</span><span class="p">,</span>
         <span class="p">}</span>
 
         <span class="n">torch</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="n">checkpoint</span><span class="p">,</span> <span class="n">path_obj</span><span class="p">)</span>
@@ -951,6 +973,28 @@ document.write(`
 <span class="sd">        Returns:</span>
 <span class="sd">            Loaded DeepFM instance</span>
 <span class="sd">        &quot;&quot;&quot;</span>
+        <span class="kn">from</span><span class="w"> </span><span class="nn">corerec.api.bundle_helpers</span><span class="w"> </span><span class="kn">import</span> <span class="n">load_feature_map</span>
+        <span class="kn">from</span><span class="w"> </span><span class="nn">corerec.api.torch_bundle</span><span class="w"> </span><span class="kn">import</span> <span class="n">load_torch_production</span>
+
+        <span class="k">def</span><span class="w"> </span><span class="nf">_restore</span><span class="p">(</span><span class="n">instance</span><span class="p">,</span> <span class="n">config</span><span class="p">,</span> <span class="n">state</span><span class="p">,</span> <span class="n">arrays</span><span class="p">,</span> <span class="n">bundle</span><span class="p">):</span>
+            <span class="n">instance</span><span class="o">.</span><span class="n">feature_map</span> <span class="o">=</span> <span class="n">load_feature_map</span><span class="p">(</span><span class="n">state</span><span class="p">)</span>
+            <span class="n">instance</span><span class="o">.</span><span class="n">field_dims</span> <span class="o">=</span> <span class="n">state</span><span class="p">[</span><span class="s2">&quot;field_dims&quot;</span><span class="p">]</span>
+            <span class="n">instance</span><span class="o">.</span><span class="n">user_features</span> <span class="o">=</span> <span class="n">state</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;user_features&quot;</span><span class="p">)</span>
+            <span class="n">instance</span><span class="o">.</span><span class="n">item_features</span> <span class="o">=</span> <span class="n">state</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;item_features&quot;</span><span class="p">)</span>
+            <span class="n">instance</span><span class="o">.</span><span class="n">user_feature_types</span> <span class="o">=</span> <span class="n">state</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;user_feature_types&quot;</span><span class="p">,</span> <span class="p">[])</span>
+            <span class="n">instance</span><span class="o">.</span><span class="n">item_feature_types</span> <span class="o">=</span> <span class="n">state</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;item_feature_types&quot;</span><span class="p">,</span> <span class="p">[])</span>
+            <span class="n">instance</span><span class="o">.</span><span class="n">is_fitted</span> <span class="o">=</span> <span class="n">state</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;is_fitted&quot;</span><span class="p">,</span> <span class="kc">True</span><span class="p">)</span>
+
+        <span class="k">def</span><span class="w"> </span><span class="nf">_build</span><span class="p">(</span><span class="n">instance</span><span class="p">,</span> <span class="n">bundle</span><span class="p">):</span>
+            <span class="k">if</span> <span class="n">bundle</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;state_dict&quot;</span><span class="p">)</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="n">instance</span><span class="o">.</span><span class="n">model</span> <span class="o">=</span> <span class="n">instance</span><span class="o">.</span><span class="n">_build_model</span><span class="p">(</span><span class="n">instance</span><span class="o">.</span><span class="n">field_dims</span><span class="p">)</span>
+
+        <span class="n">loaded</span> <span class="o">=</span> <span class="n">load_torch_production</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">path</span><span class="p">,</span> <span class="n">build_model</span><span class="o">=</span><span class="n">_build</span><span class="p">,</span> <span class="n">restore</span><span class="o">=</span><span class="n">_restore</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">loaded</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">loaded</span><span class="o">.</span><span class="n">verbose</span><span class="p">:</span>
+                <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">loaded</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2"> model loaded (safe bundle) from </span><span class="si">{</span><span class="n">path</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+            <span class="k">return</span> <span class="n">loaded</span>
+
         <span class="n">path_obj</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="n">path</span><span class="p">)</span>
         <span class="k">if</span> <span class="ow">not</span> <span class="n">path_obj</span><span class="o">.</span><span class="n">exists</span><span class="p">():</span>
             <span class="k">raise</span> <span class="ne">FileNotFoundError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Model file not found: </span><span class="si">{</span><span class="n">path</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>

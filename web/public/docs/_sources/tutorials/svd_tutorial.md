@@ -69,7 +69,7 @@ The code examples below are **reference implementations** for learning purposes.
 ### Step 1: Import and Load Data
 
 ```python
-from corerec.engines.svd import SVD
+from corerec.sandbox.collaborative_full.mf_base.svd_base import SVD_base as SVD
 from cr_learn import ml_1m
 from sklearn.model_selection import train_test_split
 import numpy as np
@@ -164,10 +164,10 @@ print(f"Test RMSE: {rmse:.4f}")
 
 ```python
 # Save model
-model.save('svd_model.pkl')
+model.save('artifacts/svd_model')
 
 # Load model
-loaded = SVD.load('svd_model.pkl')
+loaded = SVD.load('artifacts/svd_model')
 test_score = loaded.predict(1, 100)
 print(f"Loaded model prediction: {test_score:.3f}")
 ```

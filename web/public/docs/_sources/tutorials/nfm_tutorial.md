@@ -54,7 +54,7 @@ The code examples below are **reference implementations** for learning purposes.
 ### Step 1: Import and Load Data
 
 ```python
-from corerec.engines.nfm import NFM
+from corerec.sandbox.collaborative_full.nn_base.NFM_base import NFM_base as NFM
 from cr_learn import ml_1m
 from sklearn.model_selection import train_test_split
 import numpy as np
@@ -149,10 +149,10 @@ print(f"Test RMSE: {rmse:.4f}")
 
 ```python
 # Save model
-model.save('nfm_model.pkl')
+model.save('artifacts/nfm_model')
 
 # Load model
-loaded = NFM.load('nfm_model.pkl')
+loaded = NFM.load('artifacts/nfm_model')
 test_score = loaded.predict(1, 100)
 print(f"Loaded model prediction: {test_score:.3f}")
 ```

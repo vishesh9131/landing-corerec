@@ -60,7 +60,7 @@ The code examples below are **reference implementations** for learning purposes.
 ### Step 1: Import and Load Data
 
 ```python
-from corerec.engines.youtubednn import YouTubeDNN
+from corerec.engines.content_based.nn_based_algorithms.Youtube_dnn import YoutubeDNN
 from cr_learn import ml_1m
 from sklearn.model_selection import train_test_split
 import numpy as np
@@ -155,10 +155,10 @@ print(f"Test RMSE: {rmse:.4f}")
 
 ```python
 # Save model
-model.save('youtubednn_model.pkl')
+model.save('artifacts/youtubednn_model')
 
 # Load model
-loaded = YouTubeDNN.load('youtubednn_model.pkl')
+loaded = YouTubeDNN.load('artifacts/youtubednn_model')
 test_score = loaded.predict(1, 100)
 print(f"Loaded model prediction: {test_score:.3f}")
 ```

@@ -61,7 +61,7 @@ The code examples below are **reference implementations** for learning purposes.
 ### Step 1: Import and Load Data
 
 ```python
-from corerec.engines.mmoe import MMoE
+from corerec.sandbox.collaborative_full.nn_base.MMoE_base import MMoE_base as MMoE
 from cr_learn import ml_1m
 from sklearn.model_selection import train_test_split
 import numpy as np
@@ -156,10 +156,10 @@ print(f"Test RMSE: {rmse:.4f}")
 
 ```python
 # Save model
-model.save('mmoe_model.pkl')
+model.save('artifacts/mmoe_model')
 
 # Load model
-loaded = MMoE.load('mmoe_model.pkl')
+loaded = MMoE.load('artifacts/mmoe_model')
 test_score = loaded.predict(1, 100)
 print(f"Loaded model prediction: {test_score:.3f}")
 ```

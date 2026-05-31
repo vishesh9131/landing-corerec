@@ -1,5 +1,10 @@
 # AFM Tutorial: Attentional Factorization Machine
 
+```{admonition} Sandbox Model — Experimental
+:class: warning
+This model is part of the CoreRec **Sandbox** — an experimental collection of algorithms for research and exploration. Sandbox models are **not production-tested** and may have incomplete implementations. For production-ready models, see the [Production Models](../models/index.md#production-models-tested--stable).
+```
+
 ## Introduction
 
 **AFM** adds attention mechanism to FM to learn the importance of different feature interactions automatically.
@@ -47,12 +52,18 @@ FM:  Σ <v_i, v_j>  # equal weight
 AFM: Σ a_ij(v_i ⊙ v_j)  # learned weight
 ```
 
-## Tutorial with cr_learn
+## Reference Implementation
+
+```{admonition} Implementation Note
+:class: info
+The code examples below are **reference implementations** for learning purposes. This is a sandbox model and has not been production-tested. Verify behavior thoroughly before using in production.
+```
+
 
 ### Step 1: Import and Load Data
 
 ```python
-from corerec.engines.afm import AFM
+from corerec.sandbox.collaborative_full.nn_base.AFM_base import AFM_base as AFM
 from cr_learn import ml_1m
 from sklearn.model_selection import train_test_split
 import numpy as np
@@ -148,10 +159,10 @@ print(f"Test RMSE: {rmse:.4f}")
 
 ```python
 # Save model
-model.save('afm_model.pkl')
+model.save('artifacts/afm_model')
 
 # Load model
-loaded = AFM.load('afm_model.pkl')
+loaded = AFM.load('artifacts/afm_model')
 test_score = loaded.predict(1, 100)
 print(f"Loaded model prediction: {test_score:.3f}")
 ```
@@ -183,6 +194,17 @@ print(f"Loaded model prediction: {test_score:.3f}")
 6. **Batch Normalization**: After attention
 7. **Activation**: ReLU in attention network
 8. **Visualization**: Analyze learned attention weights
+
+## Scaling & Production Considerations
+
+If you plan to move this sandbox model toward production use, consider:
+
+- **Data Volume**: Test with realistic dataset sizes; sandbox implementations may not be optimized for large-scale data.
+- **Distributed Training**: For datasets exceeding single-machine memory, consider wrapping the model in distributed training frameworks (e.g., PyTorch DDP, Horovod).
+- **Hyperparameter Tuning**: Use systematic search (Optuna, Ray Tune) rather than manual tuning. The defaults in sandbox models are not tuned for any specific domain.
+- **Serving Latency**: Profile inference time. Some architectures (e.g., attention-based) may need quantization or ONNX export for low-latency serving.
+- **Monitoring**: Implement A/B testing and online metrics (CTR, engagement, diversity) before replacing an existing system.
+- **Validation**: Write comprehensive unit tests and integration tests before deploying. Sandbox models do not have CI coverage.
 
 ## Further Reading
 

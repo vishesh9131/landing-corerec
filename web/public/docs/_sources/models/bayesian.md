@@ -1,87 +1,41 @@
 # Bayesian Models
 
-Bayesian recommendation models use probabilistic approaches to model uncertainty and provide principled recommendations.
+Probabilistic and ranking-oriented matrix factorization methods.
 
-## Overview
-
-Bayesian models provide:
-- **Uncertainty quantification**: Confidence in predictions
-- **Probabilistic interpretation**: Probability distributions over ratings
-- **Prior knowledge**: Incorporation of prior beliefs
-- **Cold start**: Better handling of new users/items
-
-## Available Models
-
-### Core Models
-
-#### BPR (Bayesian Personalized Ranking)
-Optimizes ranking using Bayesian inference.
-
-**Use Cases**: Implicit feedback, ranking optimization.
-
-#### BPRMF (Bayesian Personalized Ranking Matrix Factorization)
-Combines BPR with matrix factorization.
-
-**Use Cases**: Collaborative filtering with ranking optimization.
-
-#### VMF (Variational Matrix Factorization)
-Variational inference for matrix factorization.
-
-**Use Cases**: When uncertainty quantification is needed.
-
-### Model Characteristics
-
-- **Probabilistic**: Models probability distributions
-- **Uncertainty**: Provides confidence estimates
-- **Ranking**: Optimized for ranking tasks
-- **Implicit Feedback**: Works well with implicit data
-
-## Training
-
-```python
-from corerec.engines.unionizedFilterEngine.mf_base.bayesian_matrix_factorization_base import BayesianMF
-
-model = BayesianMF(
-    n_factors=50,
-    learning_rate=0.01
-)
-
-model.fit(
-    user_ids=user_ids,
-    item_ids=item_ids,
-    ratings=ratings
-)
+```{admonition} Sandbox only
+:class: warning
+All Bayesian models in CoreRec are **sandbox / experimental**. There is no production-tier Bayesian model in the 14-model CI suite.
 ```
 
-## Advantages
+## Sandbox models
 
-- **Uncertainty**: Quantifies prediction uncertainty
-- **Ranking**: Optimized for ranking tasks
-- **Implicit**: Works well with implicit feedback
-- **Cold Start**: Better handling of new users/items
+| Model | Import | Tutorial |
+|-------|--------|----------|
+| **BPR** | `from corerec.sandbox.collaborative_full.cornac_bpr import BPR` | [BPR](../tutorials/bpr_tutorial.md) |
+| **BPR-MF** | `from corerec.sandbox.collaborative_full.bayesian_method_base.bprmf_base import BPRMF_base` | [BPR-MF](../tutorials/bprmf_tutorial.md) |
+| **VMF** | `from corerec.sandbox.collaborative_full.mf_base.vmf_base import VMF_base` | [VMF](../tutorials/vmf_tutorial.md) |
 
-## Limitations
+### Example (BPR)
 
-- **Computation**: Can be slower than deterministic models
-- **Complexity**: More complex to tune
-- **Interpretation**: Requires probabilistic understanding
+```python
+from corerec.sandbox.collaborative_full.cornac_bpr import BPR
 
-## Best Practices
+model = BPR(k=50, max_iter=100, learning_rate=0.01, lambda_reg=0.01, verbose=True)
+model.fit(user_ids, item_ids)  # implicit feedback pairs
+```
 
-1. **Prior Selection**: Choose appropriate priors
-2. **Sampling**: Use proper sampling for inference
-3. **Regularization**: Bayesian priors provide natural regularization
-4. **Ranking**: Focus on ranking metrics for evaluation
+```{admonition} Legacy paths
+:class: note
+Do **not** use `corerec.engines.unionizedFilterEngine.*` or `corerec.engines.bpr` — those modules do not exist. Import from `corerec.sandbox.*` as shown in each tutorial.
+```
 
-## When to Use
+## When to use
 
-- Uncertainty quantification needed
-- Implicit feedback available
-- Ranking optimization important
-- Probabilistic interpretation desired
-- Cold start problems
+- Implicit feedback (clicks, views)
+- Pairwise ranking optimization (BPR)
+- Research prototypes requiring uncertainty (VMF)
 
-## Tutorials
+## See also
 
-See Bayesian model tutorials in the [Tutorials](../tutorials/index.md) section.
-
+- [Matrix factorization](matrix_factorization.md)
+- [Model tiers](index.md#sandbox-models-experimental)

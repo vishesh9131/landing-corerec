@@ -64,7 +64,7 @@ The code examples below are **reference implementations** for learning purposes.
 ### Step 1: Import and Load Data
 
 ```python
-from corerec.engines.geoimc import GeoIMC
+from corerec.sandbox.collaborative_full.graph_based_base.geoimc import GeoIMC
 from cr_learn import ml_1m
 from sklearn.model_selection import train_test_split
 import numpy as np
@@ -160,10 +160,10 @@ print(f"Test RMSE: {rmse:.4f}")
 
 ```python
 # Save model
-model.save('geoimc_model.pkl')
+model.save('artifacts/geoimc_model')
 
 # Load model
-loaded = GeoIMC.load('geoimc_model.pkl')
+loaded = GeoIMC.load('artifacts/geoimc_model')
 test_score = loaded.predict(1, 100)
 print(f"Loaded model prediction: {test_score:.3f}")
 ```

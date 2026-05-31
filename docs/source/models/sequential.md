@@ -1,108 +1,67 @@
 # Sequential Models
 
-Sequential recommendation models consider the order and timing of user interactions to predict the next item a user might be interested in.
+Models that use ordered interaction history for next-item prediction.
 
-## Overview
+## Production models (CI-tested)
 
-Sequential models capture:
-- **Temporal patterns**: How user preferences change over time
-- **Sequence dependencies**: How previous items influence next choices
-- **Behavior evolution**: User interest evolution
+| Model | Import | Tutorial |
+|-------|--------|----------|
+| **SASRec** | `from corerec.engines.sasrec import SASRec` | [SASRec](../tutorials/sasrec_tutorial.md) |
+| **BERT4Rec** | `from corerec.engines.bert4rec import BERT4Rec` | [BERT4Rec](../tutorials/bert4rec_tutorial.md) |
+| **MIND** | `from corerec.engines.mind import MIND` | [MIND](../tutorials/mind_tutorial.md) |
 
-## Available Models
+```{admonition} Not sequential
+:class: note
+**SAR** (Smart Adaptive Recommendations) is **item-similarity collaborative filtering**, not a sequential model. See [Matrix Factorization](matrix_factorization.md).
+```
 
-### Core Models
+### SASRec / BERT4Rec (interaction matrix)
 
-#### SASRec (Self-Attentive Sequential Recommendation)
-Uses self-attention mechanism to model item sequences.
-
-**Use Cases**: E-commerce, content platforms with sequential behavior.
-
-#### MIND (Multi-Interest Network)
-Models multiple user interests and their evolution.
-
-**Use Cases**: Diverse recommendation needs, multiple interests.
-
-#### RBM (Recurrent Behavior Model)
-Uses recurrent neural networks for sequential modeling.
-
-**Use Cases**: When sequence order is critical.
-
-#### SAR (Sequential Association Rules)
-Rule-based sequential recommendation.
-
-**Use Cases**: Fast sequential recommendations, interpretable rules.
-
-#### NextItNet
-Convolutional sequence model for next-item prediction.
-
-**Use Cases**: When local patterns in sequences matter.
-
-### Model Types
-
-- **Attention-based**: SASRec, MIND
-- **RNN-based**: RBM, GRU-based models
-- **CNN-based**: NextItNet, Caser
-- **Rule-based**: SAR
-
-## Model Characteristics
-
-### Input
-- User interaction sequences (ordered item lists)
-- Timestamps (optional)
-- Session data (optional)
-
-### Output
-- Next item predictions
-- Sequence embeddings
-- Top-N recommendations
-
-## Training
+Sequential production models require a user×item **interaction matrix** (not raw rating triplets alone):
 
 ```python
 from corerec.engines.sasrec import SASRec
+import numpy as np
+
+user_list = sorted(train_df["user_id"].unique())
+item_list = sorted(train_df["movie_id"].unique())
+# build train_mat[user_idx, item_idx] = 1.0 for observed interactions
 
 model = SASRec(
-    embedding_dim=64,
-    n_layers=2,
-    n_heads=2,
-    max_len=50
+    hidden_units=64,
+    num_blocks=2,
+    num_heads=2,
+    max_seq_length=50,
+    num_epochs=10,
+    batch_size=256,
+    verbose=True,
 )
-
-model.fit(
-    user_sequences=sequences,
-    item_ids=item_ids
-)
+model.fit(user_list, item_list, train_mat)
+recs = model.recommend(user_id=1, top_k=10)
 ```
 
-## Advantages
+### MIND (triplet API)
 
-- **Temporal**: Captures time-based patterns
-- **Context**: Uses sequence context effectively
-- **Personalization**: Adapts to user behavior changes
-- **Next-Item**: Optimized for next-item prediction
+MIND uses `(user_ids, item_ids, ratings)` triplets — see the [MIND tutorial](../tutorials/mind_tutorial.md).
 
-## Limitations
+## Sandbox models (experimental)
 
-- **Sequence Length**: Limited by maximum sequence length
-- **Cold Start**: New users have no sequence history
-- **Computation**: Can be slower than non-sequential models
+| Model | Import | Tutorial |
+|-------|--------|----------|
+| RBM | `corerec.sandbox.collaborative_full.rbm` | [RBM](../tutorials/rbm_tutorial.md) |
+| RLRMC | sandbox sequential | [RLRMC](../tutorials/rlrmc_tutorial.md) |
+| SLi-Rec | `corerec.sandbox.collaborative_full.sli` | [SLiRec](../tutorials/slirec_tutorial.md) |
+| SUM | `corerec.sandbox.collaborative_full.sum` | [SUM](../tutorials/sum_tutorial.md) |
+| NextItNet | sandbox sequential_model_base | [NextItNet](../tutorials/nextitnet_tutorial.md) |
+| Caser | sandbox nn_base | [Caser](../tutorials/caser_tutorial.md) |
 
-## Best Practices
+## When to use
 
-1. **Sequence Length**: Use 20-100 items typically
-2. **Padding**: Handle variable-length sequences properly
-3. **Masking**: Mask future items during training
-4. **Position Encoding**: Use position encodings for order
+- Session-based or next-item prediction
+- User behavior is strongly order-dependent
+- E-commerce / streaming click sequences
 
-## When to Use
+## See also
 
-- Temporal patterns important
-- User behavior sequences available
-- Need next-item prediction
-- Session-based recommendations
-
-## Tutorials
-
-See sequential model tutorials in the [Tutorials](../tutorials/index.md) section.
-
+- [Deep learning models](deep_learning.md)
+- [Tutorials](../tutorials/index.md)

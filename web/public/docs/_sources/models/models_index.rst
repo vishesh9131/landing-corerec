@@ -3,12 +3,28 @@ Model Documentation Index
 
 This section provides comprehensive documentation for all CoreRec recommendation models.
 
+Model Tiers
+-----------
+
+CoreRec organizes models into two tiers:
+
+**Production Models (14)** — fully tested, CI-enforced, implement ``BaseRecommender``:
+
+- DCN, DeepFM, GNNRec, MIND, NASRec, SASRec, TwoTower, BERT4Rec
+- SAR, NCF, FAST, FASTRecommender, LightGCN
+- TFIDFRecommender
+
+**Sandbox Models (~50)** — experimental, in ``corerec/sandbox/``, not production-tested.
+
+See :doc:`index` for the full production vs sandbox breakdown.
+
 Model Categories
 ----------------
 
 .. toctree::
    :maxdepth: 2
    
+   index
    deep_learning
    matrix_factorization
    graph_based
@@ -16,40 +32,36 @@ Model Categories
    bayesian
    content_based
 
-Quick Reference
----------------
+Production Quick Reference
+--------------------------
 
-Core Engine Models
-~~~~~~~~~~~~~~~~~~
+Deep Learning
+~~~~~~~~~~~~~
 
-* DCN - Deep & Cross Network
-* DeepFM - Factorization Machines + DNN
-* GNNRec - Graph Neural Networks
-* MIND - Multi-Interest Network
-* NASRec - Neural Architecture Search
-* SASRec - Self-Attentive Sequential
+* DCN — Deep & Cross Network
+* DeepFM — Factorization Machines + DNN
+* GNNRec — Graph Neural Networks
+* MIND — Multi-Interest Network
+* NASRec — Neural Architecture Search
+* SASRec — Self-Attentive Sequential
+* TwoTower — Dual-encoder retrieval
+* BERT4Rec — Bidirectional sequential transformer
 
-Deep Learning Models (29)
-~~~~~~~~~~~~~~~~~~~~~~~~~
+Collaborative Filtering
+~~~~~~~~~~~~~~~~~~~~~~~
 
-All neural network-based recommendation models.
+* SAR — Smart Adaptive Recommendations
+* NCF — Neural Collaborative Filtering
+* FAST / FASTRecommender — Fast similarity CF
+* LightGCN — Graph convolution CF
 
-Matrix Factorization (9)
-~~~~~~~~~~~~~~~~~~~~~~~~
+Content-Based
+~~~~~~~~~~~~~
 
-Classic collaborative filtering models.
+* TFIDFRecommender — TF-IDF content similarity
 
-Graph-Based Models (6)
-~~~~~~~~~~~~~~~~~~~~~~
+Sandbox Models
+--------------
 
-Models leveraging graph structure.
-
-Sequential Models (6)
-~~~~~~~~~~~~~~~~~~~~~
-
-Time-aware recommendation models.
-
-Bayesian Models (3)
-~~~~~~~~~~~~~~~~~~~
-
-Probabilistic approaches.
+Experimental algorithms for research — see sandbox tutorials and ``corerec/sandbox/``.
+Not covered by production CI tests.

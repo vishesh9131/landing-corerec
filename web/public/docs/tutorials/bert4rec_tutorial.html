@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Bert4Rec Tutorial: BERT for Sequential Recommendation &#8212; CoreRec 0.5.1 documentation</title>
+    <title>Bert4Rec Tutorial: BERT for Sequential Recommendation &#8212; CoreRec 0.5.3 documentation</title>
   
   
   
@@ -39,7 +39,7 @@
 <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
   <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
 
-    <script src="../_static/documentation_options.js?v=5f152624"></script>
+    <script src="../_static/documentation_options.js?v=f39d245f"></script>
     <script src="../_static/doctools.js?v=9bcbadda"></script>
     <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
@@ -49,8 +49,8 @@
     <script>DOCUMENTATION_OPTIONS.pagename = 'tutorials/bert4rec_tutorial';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="BST Tutorial: Behavior Sequence Transformer" href="bst_tutorial.html" />
-    <link rel="prev" title="AutoInt Tutorial: Automatic Feature Interaction Learning via Self-Attention" href="autoint_tutorial.html" />
+    <link rel="next" title="TwoTower Tutorial: Dual-Encoder Retrieval" href="two_tower_tutorial.html" />
+    <link rel="prev" title="SASRec Tutorial: SASRec" href="sasrec_tutorial.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -138,7 +138,7 @@
   
   
   
-    <p class="title logo__title">CoreRec 0.5.1 documentation</p>
+    <p class="title logo__title">CoreRec 0.5.3 documentation</p>
   
 </a></div>
         <div class="sidebar-primary-item">
@@ -174,17 +174,21 @@
 <li class="toctree-l1"><a class="reference internal" href="../user_guide/model_training.html">Model Training</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../user_guide/making_predictions.html">Making Predictions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../user_guide/model_persistence.html">Model Persistence</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user_guide/safe_bundle_persistence.html">Safe Model Bundles (<code class="docutils literal notranslate"><span class="pre">corerec_safe_v1</span></code>)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../user_guide/best_practices.html">Best Practices</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api_versioning.html">CoreRec API Versioning Policy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../torch_nn_vendored.html">Vendored <code class="docutils literal notranslate"><span class="pre">torch_nn</span></code> and <code class="docutils literal notranslate"><span class="pre">torch_utils</span></code></a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Model Documentation</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../models/index.html">Model Documentation</a></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../models/models_index.html">Model Documentation Index</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../models/models_index.html">Complete Model Index</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../models/deep_learning.html">Deep Learning Models</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../models/matrix_factorization.html">Matrix Factorization Models</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../models/matrix_factorization.html">Matrix Factorization &amp; Collaborative Filtering</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../models/graph_based.html">Graph-Based Models</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../models/sequential.html">Sequential Models</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../models/bayesian.html">Bayesian Models</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../models/content_based.html">Content-Based Models</a></li>
 </ul>
 </details></li>
 </ul>
@@ -197,10 +201,17 @@
 <li class="toctree-l2"><a class="reference internal" href="mind_tutorial.html">MIND Tutorial: MIND</a></li>
 <li class="toctree-l2"><a class="reference internal" href="nasrec_tutorial.html">NASRec Tutorial: NASRec</a></li>
 <li class="toctree-l2"><a class="reference internal" href="sasrec_tutorial.html">SASRec Tutorial: SASRec</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">Bert4Rec Tutorial: BERT for Sequential Recommendation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="two_tower_tutorial.html">TwoTower Tutorial: Dual-Encoder Retrieval</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ncf_tutorial.html">NCF Tutorial: Neural Collaborative Filtering</a></li>
+<li class="toctree-l2"><a class="reference internal" href="sar_tutorial.html">SAR Tutorial: Smart Adaptive Recommendations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lightgcn_tutorial.html">LightGCN Tutorial: Light Graph Convolutional Network</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fast_tutorial.html">FAST Tutorial: Fast Approximate Similarity Filtering</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fast_recommender_tutorial.html">FASTRecommender Tutorial: Extended FAST Model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tfidf_tutorial.html">TFIDF Tutorial: TF-IDF Based Recommender</a></li>
 <li class="toctree-l2"><a class="reference internal" href="afm_tutorial.html">AFM Tutorial: Attentional Factorization Machine</a></li>
 <li class="toctree-l2"><a class="reference internal" href="autofi_tutorial.html">AutoFI Tutorial: Automatic Feature Interaction</a></li>
 <li class="toctree-l2"><a class="reference internal" href="autoint_tutorial.html">AutoInt Tutorial: Automatic Feature Interaction Learning via Self-Attention</a></li>
-<li class="toctree-l2 current active"><a class="current reference internal" href="#">Bert4Rec Tutorial: BERT for Sequential Recommendation</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bst_tutorial.html">BST Tutorial: Behavior Sequence Transformer</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bivae_tutorial.html">BiVAE Tutorial: Bilateral Variational Autoencoder</a></li>
 <li class="toctree-l2"><a class="reference internal" href="caser_tutorial.html">Caser Tutorial: Convolutional Sequence Embedding Recommendation</a></li>
@@ -224,7 +235,6 @@
 <li class="toctree-l2"><a class="reference internal" href="gatenet_tutorial.html">GateNet Tutorial: Gating Network</a></li>
 <li class="toctree-l2"><a class="reference internal" href="gnn_base_tutorial.html">GNN_base Tutorial: Graph Neural Network Base</a></li>
 <li class="toctree-l2"><a class="reference internal" href="gru_cf_tutorial.html">GRU-CF Tutorial: GRU for Collaborative Filtering</a></li>
-<li class="toctree-l2"><a class="reference internal" href="ncf_tutorial.html">NCF Tutorial: Neural Collaborative Filtering</a></li>
 <li class="toctree-l2"><a class="reference internal" href="nfm_tutorial.html">NFM Tutorial: Neural Factorization Machine</a></li>
 <li class="toctree-l2"><a class="reference internal" href="nextitnet_tutorial.html">NextItNet Tutorial: Next Item Net</a></li>
 <li class="toctree-l2"><a class="reference internal" href="widedeep_tutorial.html">WideDeep Tutorial: Wide &amp; Deep Learning</a></li>
@@ -242,18 +252,15 @@
 <li class="toctree-l2"><a class="reference internal" href="svd_tutorial.html">SVD Tutorial: Singular Value Decomposition</a></li>
 <li class="toctree-l2"><a class="reference internal" href="userbased_tutorial.html">UserBased Tutorial: User-Based Collaborative Filtering</a></li>
 <li class="toctree-l2"><a class="reference internal" href="geoimc_tutorial.html">GeoIMC Tutorial: Geographic Inductive Matrix Completion</a></li>
-<li class="toctree-l2"><a class="reference internal" href="lightgcn_tutorial.html">LightGCN Tutorial: Light Graph Convolutional Network</a></li>
 <li class="toctree-l2"><a class="reference internal" href="lightgcn_base_tutorial.html">LightGCN_Base Tutorial: LightGCN Base</a></li>
 <li class="toctree-l2"><a class="reference internal" href="rbm_tutorial.html">RBM Tutorial: Restricted Boltzmann Machine</a></li>
 <li class="toctree-l2"><a class="reference internal" href="rlrmc_tutorial.html">RLRMC Tutorial: Reinforcement Learning for Recommendation</a></li>
-<li class="toctree-l2"><a class="reference internal" href="sar_tutorial.html">SAR Tutorial: Smart Adaptive Recommendations</a></li>
 <li class="toctree-l2"><a class="reference internal" href="slirec_tutorial.html">SLiRec Tutorial: Sequential List Recommendation</a></li>
 <li class="toctree-l2"><a class="reference internal" href="sum_tutorial.html">SUM Tutorial: Sequential User Model</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpr_tutorial.html">BPR Tutorial: Bayesian Personalized Ranking</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bprmf_tutorial.html">BPRMF Tutorial: Bayesian Personalized Ranking Matrix Factorization</a></li>
 <li class="toctree-l2"><a class="reference internal" href="vmf_tutorial.html">VMF Tutorial: Von Mises-Fisher Distribution</a></li>
 <li class="toctree-l2"><a class="reference internal" href="mind_content_tutorial.html">MIND_Content Tutorial: MIND for Content Filtering</a></li>
-<li class="toctree-l2"><a class="reference internal" href="tfidf_tutorial.html">TFIDF Tutorial: TF-IDF Based Recommender</a></li>
 <li class="toctree-l2"><a class="reference internal" href="pipeline_tutorial.html">Multi-Stage Pipeline Tutorial</a></li>
 <li class="toctree-l2"><a class="reference internal" href="imshow_tutorial.html">Demo Frontends Tutorial</a></li>
 </ul>
@@ -580,57 +587,48 @@ document.write(`
 <h2>Tutorial with cr_learn<a class="headerlink" href="#tutorial-with-cr-learn" title="Link to this heading">#</a></h2>
 <section id="step-1-import-and-load-data">
 <h3>Step 1: Import and Load Data<a class="headerlink" href="#step-1-import-and-load-data" title="Link to this heading">#</a></h3>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">corerec.engines.bert4rec</span><span class="w"> </span><span class="kn">import</span> <span class="n">Bert4Rec</span>
+<p>BERT4Rec needs a user–item <strong>interaction matrix</strong> (binary or implicit feedback).</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">corerec.engines.bert4rec</span><span class="w"> </span><span class="kn">import</span> <span class="n">BERT4Rec</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">cr_learn</span><span class="w"> </span><span class="kn">import</span> <span class="n">ml_1m</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.model_selection</span><span class="w"> </span><span class="kn">import</span> <span class="n">train_test_split</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
 
-<span class="c1"># Load dataset with CORRECT API</span>
-<span class="n">data</span> <span class="o">=</span> <span class="n">ml_1m</span><span class="o">.</span><span class="n">load</span><span class="p">()</span>  <span class="c1"># Returns dict with &#39;ratings&#39;, &#39;users&#39;, &#39;movies&#39;</span>
-<span class="n">ratings_df</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;ratings&#39;</span><span class="p">]</span>  <span class="c1"># DataFrame with user_id, movie_id, rating, timestamp</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Loaded </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">ratings_df</span><span class="p">)</span><span class="si">}</span><span class="s2"> ratings&quot;</span><span class="p">)</span>
-
-<span class="c1"># Split data</span>
+<span class="n">data</span> <span class="o">=</span> <span class="n">ml_1m</span><span class="o">.</span><span class="n">load</span><span class="p">()</span>
+<span class="n">ratings_df</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;ratings&#39;</span><span class="p">]</span>
 <span class="n">train_df</span><span class="p">,</span> <span class="n">test_df</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span><span class="n">ratings_df</span><span class="p">,</span> <span class="n">test_size</span><span class="o">=</span><span class="mf">0.2</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">)</span>
 
-<span class="c1"># Extract arrays for model</span>
-<span class="n">train_users</span> <span class="o">=</span> <span class="n">train_df</span><span class="p">[</span><span class="s1">&#39;user_id&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span>
-<span class="n">train_items</span> <span class="o">=</span> <span class="n">train_df</span><span class="p">[</span><span class="s1">&#39;movie_id&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span>
-<span class="n">train_ratings</span> <span class="o">=</span> <span class="n">train_df</span><span class="p">[</span><span class="s1">&#39;rating&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span>
+<span class="n">user_list</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">train_df</span><span class="p">[</span><span class="s1">&#39;user_id&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">unique</span><span class="p">())</span>
+<span class="n">item_list</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">train_df</span><span class="p">[</span><span class="s1">&#39;movie_id&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">unique</span><span class="p">())</span>
+<span class="n">user_idx</span> <span class="o">=</span> <span class="p">{</span><span class="n">u</span><span class="p">:</span> <span class="n">i</span> <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">u</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">user_list</span><span class="p">)}</span>
+<span class="n">item_idx</span> <span class="o">=</span> <span class="p">{</span><span class="n">it</span><span class="p">:</span> <span class="n">j</span> <span class="k">for</span> <span class="n">j</span><span class="p">,</span> <span class="n">it</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">item_list</span><span class="p">)}</span>
 
-<span class="n">test_users</span> <span class="o">=</span> <span class="n">test_df</span><span class="p">[</span><span class="s1">&#39;user_id&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span>
-<span class="n">test_items</span> <span class="o">=</span> <span class="n">test_df</span><span class="p">[</span><span class="s1">&#39;movie_id&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span>
-<span class="n">test_ratings</span> <span class="o">=</span> <span class="n">test_df</span><span class="p">[</span><span class="s1">&#39;rating&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span>
+<span class="n">train_mat</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="nb">len</span><span class="p">(</span><span class="n">user_list</span><span class="p">),</span> <span class="nb">len</span><span class="p">(</span><span class="n">item_list</span><span class="p">)),</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">float32</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">_</span><span class="p">,</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">train_df</span><span class="o">.</span><span class="n">iterrows</span><span class="p">():</span>
+    <span class="n">train_mat</span><span class="p">[</span><span class="n">user_idx</span><span class="p">[</span><span class="n">row</span><span class="p">[</span><span class="s1">&#39;user_id&#39;</span><span class="p">]],</span> <span class="n">item_idx</span><span class="p">[</span><span class="n">row</span><span class="p">[</span><span class="s1">&#39;movie_id&#39;</span><span class="p">]]]</span> <span class="o">=</span> <span class="mf">1.0</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Loaded </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">ratings_df</span><span class="p">)</span><span class="si">}</span><span class="s2"> ratings → </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">user_list</span><span class="p">)</span><span class="si">}</span><span class="s2"> users, </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">item_list</span><span class="p">)</span><span class="si">}</span><span class="s2"> items&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </section>
 <section id="step-2-initialize-model">
 <h3>Step 2: Initialize Model<a class="headerlink" href="#step-2-initialize-model" title="Link to this heading">#</a></h3>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">model</span> <span class="o">=</span> <span class="n">Bert4Rec</span><span class="p">(</span>
-    <span class="n">name</span><span class="o">=</span><span class="s2">&quot;Bert4Rec_Model&quot;</span><span class="p">,</span>
-    <span class="n">max_seq_len</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">model</span> <span class="o">=</span> <span class="n">BERT4Rec</span><span class="p">(</span>
     <span class="n">hidden_dim</span><span class="o">=</span><span class="mi">64</span><span class="p">,</span>
     <span class="n">num_layers</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span>
     <span class="n">num_heads</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span>
+    <span class="n">max_len</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span>
     <span class="n">mask_prob</span><span class="o">=</span><span class="mf">0.15</span><span class="p">,</span>
-    <span class="n">epochs</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span>
+    <span class="n">num_epochs</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span>
     <span class="n">batch_size</span><span class="o">=</span><span class="mi">256</span><span class="p">,</span>
     <span class="n">learning_rate</span><span class="o">=</span><span class="mf">0.001</span><span class="p">,</span>
     <span class="n">verbose</span><span class="o">=</span><span class="kc">True</span>
 <span class="p">)</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Initialized </span><span class="si">{</span><span class="n">model</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </section>
 <section id="step-3-train">
 <h3>Step 3: Train<a class="headerlink" href="#step-3-train" title="Link to this heading">#</a></h3>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span>
-    <span class="n">user_ids</span><span class="o">=</span><span class="n">train_users</span><span class="p">,</span>
-    <span class="n">item_ids</span><span class="o">=</span><span class="n">train_items</span><span class="p">,</span>
-    <span class="n">ratings</span><span class="o">=</span><span class="n">train_ratings</span>
-<span class="p">)</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">user_list</span><span class="p">,</span> <span class="n">item_list</span><span class="p">,</span> <span class="n">train_mat</span><span class="p">)</span>
 
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Training complete!&quot;</span><span class="p">)</span>
 </pre></div>
@@ -638,25 +636,18 @@ document.write(`
 </section>
 <section id="step-4-predict">
 <h3>Step 4: Predict<a class="headerlink" href="#step-4-predict" title="Link to this heading">#</a></h3>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Single prediction</span>
-<span class="n">score</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">user_id</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">item_id</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">sample_user</span> <span class="o">=</span> <span class="nb">next</span><span class="p">(</span><span class="nb">iter</span><span class="p">(</span><span class="n">model</span><span class="o">.</span><span class="n">user_seqs</span><span class="p">))</span> <span class="k">if</span> <span class="n">model</span><span class="o">.</span><span class="n">user_seqs</span> <span class="k">else</span> <span class="n">user_list</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">sample_item</span> <span class="o">=</span> <span class="n">item_list</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">score</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">sample_user</span><span class="p">,</span> <span class="n">sample_item</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Predicted score: </span><span class="si">{</span><span class="n">score</span><span class="si">:</span><span class="s2">.3f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-
-<span class="c1"># Batch predictions</span>
-<span class="n">test_predictions</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">batch_predict</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="nb">zip</span><span class="p">(</span><span class="n">test_users</span><span class="p">[:</span><span class="mi">100</span><span class="p">],</span> <span class="n">test_items</span><span class="p">[:</span><span class="mi">100</span><span class="p">])))</span>
 </pre></div>
 </div>
 </section>
 <section id="step-5-recommend">
 <h3>Step 5: Recommend<a class="headerlink" href="#step-5-recommend" title="Link to this heading">#</a></h3>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Get top-10 recommendations for user</span>
-<span class="n">user_id</span> <span class="o">=</span> <span class="mi">1</span>
-<span class="n">recommendations</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">recommend</span><span class="p">(</span>
-    <span class="n">user_id</span><span class="o">=</span><span class="n">user_id</span><span class="p">,</span>
-    <span class="n">top_k</span><span class="o">=</span><span class="mi">10</span>
-<span class="p">)</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">recommendations</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">recommend</span><span class="p">(</span><span class="n">user_id</span><span class="o">=</span><span class="n">sample_user</span><span class="p">,</span> <span class="n">top_k</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
 
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Top-10 recommendations for User </span><span class="si">{</span><span class="n">user_id</span><span class="si">}</span><span class="s2">:&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Top-10 recommendations for User </span><span class="si">{</span><span class="n">sample_user</span><span class="si">}</span><span class="s2">:&quot;</span><span class="p">)</span>
 <span class="k">for</span> <span class="n">rank</span><span class="p">,</span> <span class="n">item_id</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">recommendations</span><span class="p">,</span> <span class="mi">1</span><span class="p">):</span>
     <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;  </span><span class="si">{</span><span class="n">rank</span><span class="si">}</span><span class="s2">. Item </span><span class="si">{</span><span class="n">item_id</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 </pre></div>
@@ -665,24 +656,23 @@ document.write(`
 <section id="step-6-evaluate">
 <h3>Step 6: Evaluate<a class="headerlink" href="#step-6-evaluate" title="Link to this heading">#</a></h3>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.metrics</span><span class="w"> </span><span class="kn">import</span> <span class="n">mean_squared_error</span>
-<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
 
-<span class="c1"># Predict all test ratings</span>
+<span class="n">test_users</span> <span class="o">=</span> <span class="n">test_df</span><span class="p">[</span><span class="s1">&#39;user_id&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">[:</span><span class="mi">100</span><span class="p">]</span>
+<span class="n">test_items</span> <span class="o">=</span> <span class="n">test_df</span><span class="p">[</span><span class="s1">&#39;movie_id&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">[:</span><span class="mi">100</span><span class="p">]</span>
+<span class="n">test_ratings</span> <span class="o">=</span> <span class="n">test_df</span><span class="p">[</span><span class="s1">&#39;rating&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">[:</span><span class="mi">100</span><span class="p">]</span>
 <span class="n">test_pred</span> <span class="o">=</span> <span class="p">[</span><span class="n">model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">u</span><span class="p">,</span> <span class="n">i</span><span class="p">)</span> <span class="k">for</span> <span class="n">u</span><span class="p">,</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">test_users</span><span class="p">,</span> <span class="n">test_items</span><span class="p">)]</span>
 <span class="n">rmse</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">mean_squared_error</span><span class="p">(</span><span class="n">test_ratings</span><span class="p">,</span> <span class="n">test_pred</span><span class="p">))</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Test RMSE: </span><span class="si">{</span><span class="n">rmse</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Sample Test RMSE: </span><span class="si">{</span><span class="n">rmse</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </section>
 <section id="step-7-save-load">
 <h3>Step 7: Save &amp; Load<a class="headerlink" href="#step-7-save-load" title="Link to this heading">#</a></h3>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Save model</span>
-<span class="n">model</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="s1">&#39;bert4rec_model.pkl&#39;</span><span class="p">)</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">model</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="s1">&#39;artifacts/bert4rec&#39;</span><span class="p">)</span>
 
-<span class="c1"># Load model</span>
-<span class="n">loaded</span> <span class="o">=</span> <span class="n">Bert4Rec</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="s1">&#39;bert4rec_model.pkl&#39;</span><span class="p">)</span>
-<span class="n">test_score</span> <span class="o">=</span> <span class="n">loaded</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Loaded model prediction: </span><span class="si">{</span><span class="n">test_score</span><span class="si">:</span><span class="s2">.3f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="n">loaded</span> <span class="o">=</span> <span class="n">BERT4Rec</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="s1">&#39;artifacts/bert4rec&#39;</span><span class="p">)</span>
+<span class="n">recs</span> <span class="o">=</span> <span class="n">loaded</span><span class="o">.</span><span class="n">recommend</span><span class="p">(</span><span class="n">sample_user</span><span class="p">,</span> <span class="n">top_k</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Loaded model recommendations: </span><span class="si">{</span><span class="n">recs</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </section>
@@ -742,20 +732,20 @@ document.write(`
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="autoint_tutorial.html"
+       href="sasrec_tutorial.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">AutoInt Tutorial: Automatic Feature Interaction Learning via Self-Attention</p>
+        <p class="prev-next-title">SASRec Tutorial: SASRec</p>
       </div>
     </a>
     <a class="right-next"
-       href="bst_tutorial.html"
+       href="two_tower_tutorial.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">BST Tutorial: Behavior Sequence Transformer</p>
+        <p class="prev-next-title">TwoTower Tutorial: Dual-Encoder Retrieval</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>

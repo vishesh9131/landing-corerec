@@ -10,7 +10,7 @@ CoreRec organizes its models into two tiers:
 (production-models-tested--stable)=
 ### Production Models (Tested & Stable)
 
-These 13 models are **fully tested**, CI-enforced, and recommended for production use.
+These **14 models** are **fully tested**, CI-enforced, and recommended for production use.
 They implement the full `BaseRecommender` interface (`fit`, `predict`, `recommend`, `save`, `load`) and are covered by automated tests on every commit.
 
 | Model | Type | Description |
@@ -126,9 +126,10 @@ Feature-based recommendations using item/user attributes.
 ## Getting Started
 
 1. **Start with production models** — they're tested and guaranteed to work
-2. Read the specific model tutorial for code examples
-3. Only explore sandbox models if you need a specific algorithm not covered by production models
-4. If using a sandbox model in production, validate thoroughly and contribute tests back
+2. Browse the [Complete Model Index](models_index.md) for imports and tutorial links
+3. Read the specific model tutorial for code examples
+4. Only explore sandbox models if you need a specific algorithm not covered by production models
+5. If using a sandbox model in production, validate thoroughly and contribute tests back
 
 ## Tutorials
 

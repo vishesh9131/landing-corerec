@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Bayesian Models &#8212; CoreRec 0.5.1 documentation</title>
+    <title>Bayesian Models &#8212; CoreRec 0.5.3 documentation</title>
   
   
   
@@ -39,7 +39,7 @@
 <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
   <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
 
-    <script src="../_static/documentation_options.js?v=5f152624"></script>
+    <script src="../_static/documentation_options.js?v=f39d245f"></script>
     <script src="../_static/doctools.js?v=9bcbadda"></script>
     <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
@@ -49,7 +49,7 @@
     <script>DOCUMENTATION_OPTIONS.pagename = 'models/bayesian';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Tutorial Index" href="../tutorials/index.html" />
+    <link rel="next" title="Content-Based Models" href="content_based.html" />
     <link rel="prev" title="Sequential Models" href="sequential.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
@@ -138,7 +138,7 @@
   
   
   
-    <p class="title logo__title">CoreRec 0.5.1 documentation</p>
+    <p class="title logo__title">CoreRec 0.5.3 documentation</p>
   
 </a></div>
         <div class="sidebar-primary-item">
@@ -174,17 +174,21 @@
 <li class="toctree-l1"><a class="reference internal" href="../user_guide/model_training.html">Model Training</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../user_guide/making_predictions.html">Making Predictions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../user_guide/model_persistence.html">Model Persistence</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user_guide/safe_bundle_persistence.html">Safe Model Bundles (<code class="docutils literal notranslate"><span class="pre">corerec_safe_v1</span></code>)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../user_guide/best_practices.html">Best Practices</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api_versioning.html">CoreRec API Versioning Policy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../torch_nn_vendored.html">Vendored <code class="docutils literal notranslate"><span class="pre">torch_nn</span></code> and <code class="docutils literal notranslate"><span class="pre">torch_utils</span></code></a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Model Documentation</span></p>
 <ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="index.html">Model Documentation</a></li>
-<li class="toctree-l1 current active has-children"><a class="reference internal" href="models_index.html">Model Documentation Index</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="models_index.html">Complete Model Index</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="deep_learning.html">Deep Learning Models</a></li>
-<li class="toctree-l2"><a class="reference internal" href="matrix_factorization.html">Matrix Factorization Models</a></li>
+<li class="toctree-l2"><a class="reference internal" href="matrix_factorization.html">Matrix Factorization &amp; Collaborative Filtering</a></li>
 <li class="toctree-l2"><a class="reference internal" href="graph_based.html">Graph-Based Models</a></li>
 <li class="toctree-l2"><a class="reference internal" href="sequential.html">Sequential Models</a></li>
 <li class="toctree-l2 current active"><a class="current reference internal" href="#">Bayesian Models</a></li>
+<li class="toctree-l2"><a class="reference internal" href="content_based.html">Content-Based Models</a></li>
 </ul>
 </details></li>
 </ul>
@@ -197,10 +201,17 @@
 <li class="toctree-l2"><a class="reference internal" href="../tutorials/mind_tutorial.html">MIND Tutorial: MIND</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../tutorials/nasrec_tutorial.html">NASRec Tutorial: NASRec</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../tutorials/sasrec_tutorial.html">SASRec Tutorial: SASRec</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorials/bert4rec_tutorial.html">Bert4Rec Tutorial: BERT for Sequential Recommendation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorials/two_tower_tutorial.html">TwoTower Tutorial: Dual-Encoder Retrieval</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorials/ncf_tutorial.html">NCF Tutorial: Neural Collaborative Filtering</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorials/sar_tutorial.html">SAR Tutorial: Smart Adaptive Recommendations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorials/lightgcn_tutorial.html">LightGCN Tutorial: Light Graph Convolutional Network</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorials/fast_tutorial.html">FAST Tutorial: Fast Approximate Similarity Filtering</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorials/fast_recommender_tutorial.html">FASTRecommender Tutorial: Extended FAST Model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorials/tfidf_tutorial.html">TFIDF Tutorial: TF-IDF Based Recommender</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../tutorials/afm_tutorial.html">AFM Tutorial: Attentional Factorization Machine</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../tutorials/autofi_tutorial.html">AutoFI Tutorial: Automatic Feature Interaction</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../tutorials/autoint_tutorial.html">AutoInt Tutorial: Automatic Feature Interaction Learning via Self-Attention</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../tutorials/bert4rec_tutorial.html">Bert4Rec Tutorial: BERT for Sequential Recommendation</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../tutorials/bst_tutorial.html">BST Tutorial: Behavior Sequence Transformer</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../tutorials/bivae_tutorial.html">BiVAE Tutorial: Bilateral Variational Autoencoder</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../tutorials/caser_tutorial.html">Caser Tutorial: Convolutional Sequence Embedding Recommendation</a></li>
@@ -224,7 +235,6 @@
 <li class="toctree-l2"><a class="reference internal" href="../tutorials/gatenet_tutorial.html">GateNet Tutorial: Gating Network</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../tutorials/gnn_base_tutorial.html">GNN_base Tutorial: Graph Neural Network Base</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../tutorials/gru_cf_tutorial.html">GRU-CF Tutorial: GRU for Collaborative Filtering</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../tutorials/ncf_tutorial.html">NCF Tutorial: Neural Collaborative Filtering</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../tutorials/nfm_tutorial.html">NFM Tutorial: Neural Factorization Machine</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../tutorials/nextitnet_tutorial.html">NextItNet Tutorial: Next Item Net</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../tutorials/widedeep_tutorial.html">WideDeep Tutorial: Wide &amp; Deep Learning</a></li>
@@ -242,18 +252,15 @@
 <li class="toctree-l2"><a class="reference internal" href="../tutorials/svd_tutorial.html">SVD Tutorial: Singular Value Decomposition</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../tutorials/userbased_tutorial.html">UserBased Tutorial: User-Based Collaborative Filtering</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../tutorials/geoimc_tutorial.html">GeoIMC Tutorial: Geographic Inductive Matrix Completion</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../tutorials/lightgcn_tutorial.html">LightGCN Tutorial: Light Graph Convolutional Network</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../tutorials/lightgcn_base_tutorial.html">LightGCN_Base Tutorial: LightGCN Base</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../tutorials/rbm_tutorial.html">RBM Tutorial: Restricted Boltzmann Machine</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../tutorials/rlrmc_tutorial.html">RLRMC Tutorial: Reinforcement Learning for Recommendation</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../tutorials/sar_tutorial.html">SAR Tutorial: Smart Adaptive Recommendations</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../tutorials/slirec_tutorial.html">SLiRec Tutorial: Sequential List Recommendation</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../tutorials/sum_tutorial.html">SUM Tutorial: Sequential User Model</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../tutorials/bpr_tutorial.html">BPR Tutorial: Bayesian Personalized Ranking</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../tutorials/bprmf_tutorial.html">BPRMF Tutorial: Bayesian Personalized Ranking Matrix Factorization</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../tutorials/vmf_tutorial.html">VMF Tutorial: Von Mises-Fisher Distribution</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../tutorials/mind_content_tutorial.html">MIND_Content Tutorial: MIND for Content Filtering</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../tutorials/tfidf_tutorial.html">TFIDF Tutorial: TF-IDF Based Recommender</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../tutorials/pipeline_tutorial.html">Multi-Stage Pipeline Tutorial</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../tutorials/imshow_tutorial.html">Demo Frontends Tutorial</a></li>
 </ul>
@@ -500,23 +507,12 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#overview">Overview</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#available-models">Available Models</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#core-models">Core Models</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#bpr-bayesian-personalized-ranking">BPR (Bayesian Personalized Ranking)</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#bprmf-bayesian-personalized-ranking-matrix-factorization">BPRMF (Bayesian Personalized Ranking Matrix Factorization)</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#vmf-variational-matrix-factorization">VMF (Variational Matrix Factorization)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sandbox-models">Sandbox models</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-bpr">Example (BPR)</a></li>
 </ul>
 </li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#model-characteristics">Model Characteristics</a></li>
-</ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#training">Training</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#advantages">Advantages</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#limitations">Limitations</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#best-practices">Best Practices</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#when-to-use">When to Use</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tutorials">Tutorials</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#when-to-use">When to use</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#see-also">See also</a></li>
 </ul>
             </nav>
         </div>
@@ -530,103 +526,64 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="bayesian-models">
 <h1>Bayesian Models<a class="headerlink" href="#bayesian-models" title="Link to this heading">#</a></h1>
-<p>Bayesian recommendation models use probabilistic approaches to model uncertainty and provide principled recommendations.</p>
-<section id="overview">
-<h2>Overview<a class="headerlink" href="#overview" title="Link to this heading">#</a></h2>
-<p>Bayesian models provide:</p>
-<ul class="simple">
-<li><p><strong>Uncertainty quantification</strong>: Confidence in predictions</p></li>
-<li><p><strong>Probabilistic interpretation</strong>: Probability distributions over ratings</p></li>
-<li><p><strong>Prior knowledge</strong>: Incorporation of prior beliefs</p></li>
-<li><p><strong>Cold start</strong>: Better handling of new users/items</p></li>
-</ul>
-</section>
-<section id="available-models">
-<h2>Available Models<a class="headerlink" href="#available-models" title="Link to this heading">#</a></h2>
-<section id="core-models">
-<h3>Core Models<a class="headerlink" href="#core-models" title="Link to this heading">#</a></h3>
-<section id="bpr-bayesian-personalized-ranking">
-<h4>BPR (Bayesian Personalized Ranking)<a class="headerlink" href="#bpr-bayesian-personalized-ranking" title="Link to this heading">#</a></h4>
-<p>Optimizes ranking using Bayesian inference.</p>
-<p><strong>Use Cases</strong>: Implicit feedback, ranking optimization.</p>
-</section>
-<section id="bprmf-bayesian-personalized-ranking-matrix-factorization">
-<h4>BPRMF (Bayesian Personalized Ranking Matrix Factorization)<a class="headerlink" href="#bprmf-bayesian-personalized-ranking-matrix-factorization" title="Link to this heading">#</a></h4>
-<p>Combines BPR with matrix factorization.</p>
-<p><strong>Use Cases</strong>: Collaborative filtering with ranking optimization.</p>
-</section>
-<section id="vmf-variational-matrix-factorization">
-<h4>VMF (Variational Matrix Factorization)<a class="headerlink" href="#vmf-variational-matrix-factorization" title="Link to this heading">#</a></h4>
-<p>Variational inference for matrix factorization.</p>
-<p><strong>Use Cases</strong>: When uncertainty quantification is needed.</p>
-</section>
-</section>
-<section id="model-characteristics">
-<h3>Model Characteristics<a class="headerlink" href="#model-characteristics" title="Link to this heading">#</a></h3>
-<ul class="simple">
-<li><p><strong>Probabilistic</strong>: Models probability distributions</p></li>
-<li><p><strong>Uncertainty</strong>: Provides confidence estimates</p></li>
-<li><p><strong>Ranking</strong>: Optimized for ranking tasks</p></li>
-<li><p><strong>Implicit Feedback</strong>: Works well with implicit data</p></li>
-</ul>
-</section>
-</section>
-<section id="training">
-<h2>Training<a class="headerlink" href="#training" title="Link to this heading">#</a></h2>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">corerec.engines.unionizedFilterEngine.mf_base.bayesian_matrix_factorization_base</span><span class="w"> </span><span class="kn">import</span> <span class="n">BayesianMF</span>
+<p>Probabilistic and ranking-oriented matrix factorization methods.</p>
+<div class="warning admonition">
+<p class="admonition-title">Sandbox only</p>
+<p>All Bayesian models in CoreRec are <strong>sandbox / experimental</strong>. There is no production-tier Bayesian model in the 14-model CI suite.</p>
+</div>
+<section id="sandbox-models">
+<h2>Sandbox models<a class="headerlink" href="#sandbox-models" title="Link to this heading">#</a></h2>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Model</p></th>
+<th class="head"><p>Import</p></th>
+<th class="head"><p>Tutorial</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>BPR</strong></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">from</span> <span class="pre">corerec.sandbox.collaborative_full.cornac_bpr</span> <span class="pre">import</span> <span class="pre">BPR</span></code></p></td>
+<td><p><a class="reference internal" href="../tutorials/bpr_tutorial.html"><span class="std std-doc">BPR</span></a></p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>BPR-MF</strong></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">from</span> <span class="pre">corerec.sandbox.collaborative_full.bayesian_method_base.bprmf_base</span> <span class="pre">import</span> <span class="pre">BPRMF_base</span></code></p></td>
+<td><p><a class="reference internal" href="../tutorials/bprmf_tutorial.html"><span class="std std-doc">BPR-MF</span></a></p></td>
+</tr>
+<tr class="row-even"><td><p><strong>VMF</strong></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">from</span> <span class="pre">corerec.sandbox.collaborative_full.mf_base.vmf_base</span> <span class="pre">import</span> <span class="pre">VMF_base</span></code></p></td>
+<td><p><a class="reference internal" href="../tutorials/vmf_tutorial.html"><span class="std std-doc">VMF</span></a></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<section id="example-bpr">
+<h3>Example (BPR)<a class="headerlink" href="#example-bpr" title="Link to this heading">#</a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">corerec.sandbox.collaborative_full.cornac_bpr</span><span class="w"> </span><span class="kn">import</span> <span class="n">BPR</span>
 
-<span class="n">model</span> <span class="o">=</span> <span class="n">BayesianMF</span><span class="p">(</span>
-    <span class="n">n_factors</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span>
-    <span class="n">learning_rate</span><span class="o">=</span><span class="mf">0.01</span>
-<span class="p">)</span>
-
-<span class="n">model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span>
-    <span class="n">user_ids</span><span class="o">=</span><span class="n">user_ids</span><span class="p">,</span>
-    <span class="n">item_ids</span><span class="o">=</span><span class="n">item_ids</span><span class="p">,</span>
-    <span class="n">ratings</span><span class="o">=</span><span class="n">ratings</span>
-<span class="p">)</span>
+<span class="n">model</span> <span class="o">=</span> <span class="n">BPR</span><span class="p">(</span><span class="n">k</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">max_iter</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">learning_rate</span><span class="o">=</span><span class="mf">0.01</span><span class="p">,</span> <span class="n">lambda_reg</span><span class="o">=</span><span class="mf">0.01</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">user_ids</span><span class="p">,</span> <span class="n">item_ids</span><span class="p">)</span>  <span class="c1"># implicit feedback pairs</span>
 </pre></div>
 </div>
+<div class="note admonition">
+<p class="admonition-title">Legacy paths</p>
+<p>Do <strong>not</strong> use <code class="docutils literal notranslate"><span class="pre">corerec.engines.unionizedFilterEngine.*</span></code> or <code class="docutils literal notranslate"><span class="pre">corerec.engines.bpr</span></code> — those modules do not exist. Import from <code class="docutils literal notranslate"><span class="pre">corerec.sandbox.*</span></code> as shown in each tutorial.</p>
+</div>
 </section>
-<section id="advantages">
-<h2>Advantages<a class="headerlink" href="#advantages" title="Link to this heading">#</a></h2>
-<ul class="simple">
-<li><p><strong>Uncertainty</strong>: Quantifies prediction uncertainty</p></li>
-<li><p><strong>Ranking</strong>: Optimized for ranking tasks</p></li>
-<li><p><strong>Implicit</strong>: Works well with implicit feedback</p></li>
-<li><p><strong>Cold Start</strong>: Better handling of new users/items</p></li>
-</ul>
-</section>
-<section id="limitations">
-<h2>Limitations<a class="headerlink" href="#limitations" title="Link to this heading">#</a></h2>
-<ul class="simple">
-<li><p><strong>Computation</strong>: Can be slower than deterministic models</p></li>
-<li><p><strong>Complexity</strong>: More complex to tune</p></li>
-<li><p><strong>Interpretation</strong>: Requires probabilistic understanding</p></li>
-</ul>
-</section>
-<section id="best-practices">
-<h2>Best Practices<a class="headerlink" href="#best-practices" title="Link to this heading">#</a></h2>
-<ol class="arabic simple">
-<li><p><strong>Prior Selection</strong>: Choose appropriate priors</p></li>
-<li><p><strong>Sampling</strong>: Use proper sampling for inference</p></li>
-<li><p><strong>Regularization</strong>: Bayesian priors provide natural regularization</p></li>
-<li><p><strong>Ranking</strong>: Focus on ranking metrics for evaluation</p></li>
-</ol>
 </section>
 <section id="when-to-use">
-<h2>When to Use<a class="headerlink" href="#when-to-use" title="Link to this heading">#</a></h2>
+<h2>When to use<a class="headerlink" href="#when-to-use" title="Link to this heading">#</a></h2>
 <ul class="simple">
-<li><p>Uncertainty quantification needed</p></li>
-<li><p>Implicit feedback available</p></li>
-<li><p>Ranking optimization important</p></li>
-<li><p>Probabilistic interpretation desired</p></li>
-<li><p>Cold start problems</p></li>
+<li><p>Implicit feedback (clicks, views)</p></li>
+<li><p>Pairwise ranking optimization (BPR)</p></li>
+<li><p>Research prototypes requiring uncertainty (VMF)</p></li>
 </ul>
 </section>
-<section id="tutorials">
-<h2>Tutorials<a class="headerlink" href="#tutorials" title="Link to this heading">#</a></h2>
-<p>See Bayesian model tutorials in the <a class="reference internal" href="../tutorials/index.html"><span class="std std-doc">Tutorials</span></a> section.</p>
+<section id="see-also">
+<h2>See also<a class="headerlink" href="#see-also" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p><a class="reference internal" href="matrix_factorization.html"><span class="std std-doc">Matrix factorization</span></a></p></li>
+<li><p><a class="reference internal" href="index.html#sandbox-models-experimental"><span class="std std-ref">Model tiers</span></a></p></li>
+</ul>
 </section>
 </section>
 
@@ -651,11 +608,11 @@ document.write(`
       </div>
     </a>
     <a class="right-next"
-       href="../tutorials/index.html"
+       href="content_based.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Tutorial Index</p>
+        <p class="prev-next-title">Content-Based Models</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -675,23 +632,12 @@ document.write(`
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#overview">Overview</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#available-models">Available Models</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#core-models">Core Models</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#bpr-bayesian-personalized-ranking">BPR (Bayesian Personalized Ranking)</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#bprmf-bayesian-personalized-ranking-matrix-factorization">BPRMF (Bayesian Personalized Ranking Matrix Factorization)</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#vmf-variational-matrix-factorization">VMF (Variational Matrix Factorization)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sandbox-models">Sandbox models</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-bpr">Example (BPR)</a></li>
 </ul>
 </li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#model-characteristics">Model Characteristics</a></li>
-</ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#training">Training</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#advantages">Advantages</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#limitations">Limitations</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#best-practices">Best Practices</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#when-to-use">When to Use</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tutorials">Tutorials</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#when-to-use">When to use</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#see-also">See also</a></li>
 </ul>
   </nav></div>
 

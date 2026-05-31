@@ -59,7 +59,7 @@ The code examples below are **reference implementations** for learning purposes.
 ### Step 1: Import and Load Data
 
 ```python
-from corerec.engines.pnn import PNN
+from corerec.sandbox.collaborative_full.nn_base.PNN_base import PNN_base as PNN
 from cr_learn import ml_1m
 from sklearn.model_selection import train_test_split
 import numpy as np
@@ -153,10 +153,10 @@ print(f"Test RMSE: {rmse:.4f}")
 
 ```python
 # Save model
-model.save('pnn_model.pkl')
+model.save('artifacts/pnn_model')
 
 # Load model
-loaded = PNN.load('pnn_model.pkl')
+loaded = PNN.load('artifacts/pnn_model')
 test_score = loaded.predict(1, 100)
 print(f"Loaded model prediction: {test_score:.3f}")
 ```

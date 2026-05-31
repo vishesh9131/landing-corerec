@@ -30,16 +30,18 @@ The code examples below are **reference implementations** for learning purposes.
 ### Step 1: Import and Load Data
 
 ```python
-from corerec.engines.neural_network.deepcrossing import DeepCrossing_base
-import cr_learn
+from corerec.sandbox.collaborative_full.nn_base.DeepCrossing_base import DeepCrossing_base as DeepCrossing
+from cr_learn import ml_1m
+from sklearn.model_selection import train_test_split
 import numpy as np
 
 # Load dataset
-data = cr_learn.load_dataset('movielens-100k')
-print(f"Loaded {len(data.ratings)} ratings")
+data = ml_1m.load()
+ratings_df = data['ratings']
+print(f"Loaded {len(ratings_df)} ratings")
 
 # Split data
-train_data, test_data = data.train_test_split(test_size=0.2)
+train_df, test_df = train_test_split(ratings_df, test_size=0.2, random_state=42)
 ```
 
 ### Step 2: Initialize Model
@@ -61,9 +63,9 @@ print(f"Initialized {model.name}")
 
 ```python
 model.fit(
-    user_ids=train_data.user_ids,
-    item_ids=train_data.item_ids,
-    ratings=train_data.ratings
+    user_ids=train_users,
+    item_ids=train_items,
+    ratings=train_ratings
 )
 
 print("Training complete!")
@@ -90,7 +92,7 @@ for (uid, iid), s in zip(pairs, scores):
 recommendations = model.recommend(
     user_id=1,
     top_k=10,
-    exclude_items=train_data.get_user_items(1)
+    exclude_items=[]
 )
 
 print(f"Top-10 recommendations for User 1:")
@@ -101,26 +103,25 @@ for rank, item_id in enumerate(recommendations, 1):
 ### Step 6: Evaluate
 
 ```python
-from corerec.metrics import rmse, ndcg_at_k
+from sklearn.metrics import mean_squared_error
+import numpy as np
 
 # Rating prediction
 predictions = [model.predict(u, i) for u, i, r in test_data]
-test_rmse = rmse(test_data.ratings, predictions)
+test_rmse = rmse(test_df['rating'].values, predictions)
 print(f"Test RMSE: {test_rmse:.4f}")
 
 # Ranking quality
-ndcg = ndcg_at_k(model, test_data, k=10)
-print(f"NDCG@10: {ndcg:.4f}")
 ```
 
 ### Step 7: Save & Load
 
 ```python
 # Save model
-model.save('deepcrossing_model.pkl')
+model.save('artifacts/deepcrossing_model')
 
 # Load model
-loaded = DeepCrossing_base.load('deepcrossing_model.pkl')
+loaded = DeepCrossing_base.load('artifacts/deepcrossing_model')
 test_score = loaded.predict(1, 100)
 print(f"Loaded model prediction: {test_score:.3f}")
 ```

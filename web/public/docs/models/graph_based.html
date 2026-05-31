@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Graph-Based Models &#8212; CoreRec 0.5.1 documentation</title>
+    <title>Graph-Based Models &#8212; CoreRec 0.5.3 documentation</title>
   
   
   
@@ -39,7 +39,7 @@
 <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
   <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
 
-    <script src="../_static/documentation_options.js?v=5f152624"></script>
+    <script src="../_static/documentation_options.js?v=f39d245f"></script>
     <script src="../_static/doctools.js?v=9bcbadda"></script>
     <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
@@ -50,7 +50,7 @@
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Sequential Models" href="sequential.html" />
-    <link rel="prev" title="Matrix Factorization Models" href="matrix_factorization.html" />
+    <link rel="prev" title="Matrix Factorization &amp; Collaborative Filtering" href="matrix_factorization.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -138,7 +138,7 @@
   
   
   
-    <p class="title logo__title">CoreRec 0.5.1 documentation</p>
+    <p class="title logo__title">CoreRec 0.5.3 documentation</p>
   
 </a></div>
         <div class="sidebar-primary-item">
@@ -174,17 +174,21 @@
 <li class="toctree-l1"><a class="reference internal" href="../user_guide/model_training.html">Model Training</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../user_guide/making_predictions.html">Making Predictions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../user_guide/model_persistence.html">Model Persistence</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user_guide/safe_bundle_persistence.html">Safe Model Bundles (<code class="docutils literal notranslate"><span class="pre">corerec_safe_v1</span></code>)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../user_guide/best_practices.html">Best Practices</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api_versioning.html">CoreRec API Versioning Policy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../torch_nn_vendored.html">Vendored <code class="docutils literal notranslate"><span class="pre">torch_nn</span></code> and <code class="docutils literal notranslate"><span class="pre">torch_utils</span></code></a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Model Documentation</span></p>
 <ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="index.html">Model Documentation</a></li>
-<li class="toctree-l1 current active has-children"><a class="reference internal" href="models_index.html">Model Documentation Index</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="models_index.html">Complete Model Index</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="deep_learning.html">Deep Learning Models</a></li>
-<li class="toctree-l2"><a class="reference internal" href="matrix_factorization.html">Matrix Factorization Models</a></li>
+<li class="toctree-l2"><a class="reference internal" href="matrix_factorization.html">Matrix Factorization &amp; Collaborative Filtering</a></li>
 <li class="toctree-l2 current active"><a class="current reference internal" href="#">Graph-Based Models</a></li>
 <li class="toctree-l2"><a class="reference internal" href="sequential.html">Sequential Models</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bayesian.html">Bayesian Models</a></li>
+<li class="toctree-l2"><a class="reference internal" href="content_based.html">Content-Based Models</a></li>
 </ul>
 </details></li>
 </ul>
@@ -197,10 +201,17 @@
 <li class="toctree-l2"><a class="reference internal" href="../tutorials/mind_tutorial.html">MIND Tutorial: MIND</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../tutorials/nasrec_tutorial.html">NASRec Tutorial: NASRec</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../tutorials/sasrec_tutorial.html">SASRec Tutorial: SASRec</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorials/bert4rec_tutorial.html">Bert4Rec Tutorial: BERT for Sequential Recommendation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorials/two_tower_tutorial.html">TwoTower Tutorial: Dual-Encoder Retrieval</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorials/ncf_tutorial.html">NCF Tutorial: Neural Collaborative Filtering</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorials/sar_tutorial.html">SAR Tutorial: Smart Adaptive Recommendations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorials/lightgcn_tutorial.html">LightGCN Tutorial: Light Graph Convolutional Network</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorials/fast_tutorial.html">FAST Tutorial: Fast Approximate Similarity Filtering</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorials/fast_recommender_tutorial.html">FASTRecommender Tutorial: Extended FAST Model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorials/tfidf_tutorial.html">TFIDF Tutorial: TF-IDF Based Recommender</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../tutorials/afm_tutorial.html">AFM Tutorial: Attentional Factorization Machine</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../tutorials/autofi_tutorial.html">AutoFI Tutorial: Automatic Feature Interaction</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../tutorials/autoint_tutorial.html">AutoInt Tutorial: Automatic Feature Interaction Learning via Self-Attention</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../tutorials/bert4rec_tutorial.html">Bert4Rec Tutorial: BERT for Sequential Recommendation</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../tutorials/bst_tutorial.html">BST Tutorial: Behavior Sequence Transformer</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../tutorials/bivae_tutorial.html">BiVAE Tutorial: Bilateral Variational Autoencoder</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../tutorials/caser_tutorial.html">Caser Tutorial: Convolutional Sequence Embedding Recommendation</a></li>
@@ -224,7 +235,6 @@
 <li class="toctree-l2"><a class="reference internal" href="../tutorials/gatenet_tutorial.html">GateNet Tutorial: Gating Network</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../tutorials/gnn_base_tutorial.html">GNN_base Tutorial: Graph Neural Network Base</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../tutorials/gru_cf_tutorial.html">GRU-CF Tutorial: GRU for Collaborative Filtering</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../tutorials/ncf_tutorial.html">NCF Tutorial: Neural Collaborative Filtering</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../tutorials/nfm_tutorial.html">NFM Tutorial: Neural Factorization Machine</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../tutorials/nextitnet_tutorial.html">NextItNet Tutorial: Next Item Net</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../tutorials/widedeep_tutorial.html">WideDeep Tutorial: Wide &amp; Deep Learning</a></li>
@@ -242,18 +252,15 @@
 <li class="toctree-l2"><a class="reference internal" href="../tutorials/svd_tutorial.html">SVD Tutorial: Singular Value Decomposition</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../tutorials/userbased_tutorial.html">UserBased Tutorial: User-Based Collaborative Filtering</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../tutorials/geoimc_tutorial.html">GeoIMC Tutorial: Geographic Inductive Matrix Completion</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../tutorials/lightgcn_tutorial.html">LightGCN Tutorial: Light Graph Convolutional Network</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../tutorials/lightgcn_base_tutorial.html">LightGCN_Base Tutorial: LightGCN Base</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../tutorials/rbm_tutorial.html">RBM Tutorial: Restricted Boltzmann Machine</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../tutorials/rlrmc_tutorial.html">RLRMC Tutorial: Reinforcement Learning for Recommendation</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../tutorials/sar_tutorial.html">SAR Tutorial: Smart Adaptive Recommendations</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../tutorials/slirec_tutorial.html">SLiRec Tutorial: Sequential List Recommendation</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../tutorials/sum_tutorial.html">SUM Tutorial: Sequential User Model</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../tutorials/bpr_tutorial.html">BPR Tutorial: Bayesian Personalized Ranking</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../tutorials/bprmf_tutorial.html">BPRMF Tutorial: Bayesian Personalized Ranking Matrix Factorization</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../tutorials/vmf_tutorial.html">VMF Tutorial: Von Mises-Fisher Distribution</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../tutorials/mind_content_tutorial.html">MIND_Content Tutorial: MIND for Content Filtering</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../tutorials/tfidf_tutorial.html">TFIDF Tutorial: TF-IDF Based Recommender</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../tutorials/pipeline_tutorial.html">Multi-Stage Pipeline Tutorial</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../tutorials/imshow_tutorial.html">Demo Frontends Tutorial</a></li>
 </ul>
@@ -500,27 +507,14 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#overview">Overview</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#available-models">Available Models</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#core-models">Core Models</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#gnnrec-graph-neural-network-recommender">GNNRec (Graph Neural Network Recommender)</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#lightgcn">LightGCN</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#production-models-ci-tested">Production models (CI-tested)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#gnnrec">GNNRec</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#lightgcn">LightGCN</a></li>
 </ul>
 </li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#graph-construction">Graph Construction</a></li>
-</ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#model-characteristics">Model Characteristics</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#input">Input</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#output">Output</a></li>
-</ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#training">Training</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#advantages">Advantages</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#limitations">Limitations</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#best-practices">Best Practices</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#when-to-use">When to Use</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tutorials">Tutorials</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sandbox-models-experimental">Sandbox models (experimental)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#when-to-use">When to use</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#see-also">See also</a></li>
 </ul>
             </nav>
         </div>
@@ -534,118 +528,98 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="graph-based-models">
 <h1>Graph-Based Models<a class="headerlink" href="#graph-based-models" title="Link to this heading">#</a></h1>
-<p>Graph-based recommendation models leverage the graph structure of user-item interactions and relationships to generate recommendations.</p>
-<section id="overview">
-<h2>Overview<a class="headerlink" href="#overview" title="Link to this heading">#</a></h2>
-<p>Graph-based models treat recommendation as a graph problem:</p>
-<ul class="simple">
-<li><p><strong>Nodes</strong>: Users and items</p></li>
-<li><p><strong>Edges</strong>: Interactions, relationships, similarities</p></li>
-<li><p><strong>Graph Neural Networks</strong>: Learn node embeddings through message passing</p></li>
-</ul>
-</section>
-<section id="available-models">
-<h2>Available Models<a class="headerlink" href="#available-models" title="Link to this heading">#</a></h2>
-<section id="core-models">
-<h3>Core Models<a class="headerlink" href="#core-models" title="Link to this heading">#</a></h3>
-<section id="gnnrec-graph-neural-network-recommender">
-<h4>GNNRec (Graph Neural Network Recommender)<a class="headerlink" href="#gnnrec-graph-neural-network-recommender" title="Link to this heading">#</a></h4>
-<p>General graph neural network framework for recommendations.</p>
-<p><strong>Use Cases</strong>: When rich relationship data is available.</p>
-</section>
-<section id="lightgcn">
-<h4>LightGCN<a class="headerlink" href="#lightgcn" title="Link to this heading">#</a></h4>
-<p>Lightweight graph convolution network for collaborative filtering.</p>
-<p><strong>Use Cases</strong>: Efficient graph-based collaborative filtering.</p>
-</section>
-</section>
-<section id="graph-construction">
-<h3>Graph Construction<a class="headerlink" href="#graph-construction" title="Link to this heading">#</a></h3>
-<p>Graphs can be built from:</p>
-<ul class="simple">
-<li><p>User-item interactions</p></li>
-<li><p>Item-item similarities</p></li>
-<li><p>User-user similarities</p></li>
-<li><p>Knowledge graphs</p></li>
-<li><p>Social networks</p></li>
-</ul>
-</section>
-</section>
-<section id="model-characteristics">
-<h2>Model Characteristics<a class="headerlink" href="#model-characteristics" title="Link to this heading">#</a></h2>
-<section id="input">
-<h3>Input<a class="headerlink" href="#input" title="Link to this heading">#</a></h3>
-<ul class="simple">
-<li><p>Graph structure (adjacency matrix or edge list)</p></li>
-<li><p>Node features (optional)</p></li>
-<li><p>Edge weights (optional)</p></li>
-</ul>
-</section>
-<section id="output">
-<h3>Output<a class="headerlink" href="#output" title="Link to this heading">#</a></h3>
-<ul class="simple">
-<li><p>Node embeddings (users and items)</p></li>
-<li><p>Recommendation scores</p></li>
-<li><p>Top-N recommendations</p></li>
-</ul>
-</section>
-</section>
-<section id="training">
-<h2>Training<a class="headerlink" href="#training" title="Link to this heading">#</a></h2>
+<p>Models that treat users and items as nodes in a bipartite interaction graph.</p>
+<section id="production-models-ci-tested">
+<h2>Production models (CI-tested)<a class="headerlink" href="#production-models-ci-tested" title="Link to this heading">#</a></h2>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Model</p></th>
+<th class="head"><p>Import</p></th>
+<th class="head"><p>Tutorial</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>GNNRec</strong></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">from</span> <span class="pre">corerec.engines.gnnrec</span> <span class="pre">import</span> <span class="pre">GNNRec</span></code></p></td>
+<td><p><a class="reference internal" href="../tutorials/gnnrec_tutorial.html"><span class="std std-doc">GNNRec</span></a></p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>LightGCN</strong></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">from</span> <span class="pre">corerec.engines.collaborative</span> <span class="pre">import</span> <span class="pre">LightGCN</span></code></p></td>
+<td><p><a class="reference internal" href="../tutorials/lightgcn_tutorial.html"><span class="std std-doc">LightGCN</span></a></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<section id="gnnrec">
+<h3>GNNRec<a class="headerlink" href="#gnnrec" title="Link to this heading">#</a></h3>
+<p>Graph neural message passing on the user–item bipartite graph. Uses BCE loss — pass <strong>0/1 labels</strong> (or normalize explicit ratings to [0, 1]).</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">corerec.engines.gnnrec</span><span class="w"> </span><span class="kn">import</span> <span class="n">GNNRec</span>
 
 <span class="n">model</span> <span class="o">=</span> <span class="n">GNNRec</span><span class="p">(</span>
     <span class="n">embedding_dim</span><span class="o">=</span><span class="mi">64</span><span class="p">,</span>
-    <span class="n">n_layers</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span>
-    <span class="n">dropout</span><span class="o">=</span><span class="mf">0.1</span>
+    <span class="n">num_gnn_layers</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span>
+    <span class="n">epochs</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span>
+    <span class="n">batch_size</span><span class="o">=</span><span class="mi">256</span><span class="p">,</span>
+    <span class="n">verbose</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
 <span class="p">)</span>
-
-<span class="n">model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span>
-    <span class="n">user_ids</span><span class="o">=</span><span class="n">user_ids</span><span class="p">,</span>
-    <span class="n">item_ids</span><span class="o">=</span><span class="n">item_ids</span><span class="p">,</span>
-    <span class="n">ratings</span><span class="o">=</span><span class="n">ratings</span>
-<span class="p">)</span>
+<span class="n">model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">user_ids</span><span class="o">=</span><span class="n">user_ids</span><span class="p">,</span> <span class="n">item_ids</span><span class="o">=</span><span class="n">item_ids</span><span class="p">,</span> <span class="n">ratings</span><span class="o">=</span><span class="n">binary_ratings</span><span class="p">)</span>
+<span class="n">recs</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">recommend</span><span class="p">(</span><span class="n">user_id</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">top_k</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
 </pre></div>
 </div>
 </section>
-<section id="advantages">
-<h2>Advantages<a class="headerlink" href="#advantages" title="Link to this heading">#</a></h2>
-<ul class="simple">
-<li><p><strong>Relationships</strong>: Captures complex relationships</p></li>
-<li><p><strong>Structure</strong>: Leverages graph structure effectively</p></li>
-<li><p><strong>Scalability</strong>: Can handle large graphs</p></li>
-<li><p><strong>Cold Start</strong>: Can use graph structure for new nodes</p></li>
-</ul>
+<section id="lightgcn">
+<h3>LightGCN<a class="headerlink" href="#lightgcn" title="Link to this heading">#</a></h3>
+<p>Simplified graph convolution for collaborative filtering.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">corerec.engines.collaborative</span><span class="w"> </span><span class="kn">import</span> <span class="n">LightGCN</span>
+
+<span class="n">model</span> <span class="o">=</span> <span class="n">LightGCN</span><span class="p">(</span><span class="n">n_factors</span><span class="o">=</span><span class="mi">64</span><span class="p">,</span> <span class="n">n_layers</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">epochs</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">user_ids</span><span class="p">,</span> <span class="n">item_ids</span><span class="p">,</span> <span class="n">ratings</span><span class="p">)</span>  <span class="c1"># triplet implicit feedback</span>
+<span class="n">recs</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">recommend</span><span class="p">(</span><span class="n">user_id</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">top_k</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+</pre></div>
+</div>
 </section>
-<section id="limitations">
-<h2>Limitations<a class="headerlink" href="#limitations" title="Link to this heading">#</a></h2>
-<ul class="simple">
-<li><p><strong>Graph Quality</strong>: Performance depends on graph construction</p></li>
-<li><p><strong>Computation</strong>: Can be computationally intensive</p></li>
-<li><p><strong>Sparsity</strong>: Very sparse graphs may not work well</p></li>
-</ul>
 </section>
-<section id="best-practices">
-<h2>Best Practices<a class="headerlink" href="#best-practices" title="Link to this heading">#</a></h2>
-<ol class="arabic simple">
-<li><p><strong>Graph Construction</strong>: Build meaningful graphs</p></li>
-<li><p><strong>Layers</strong>: 2-4 layers typically work best</p></li>
-<li><p><strong>Regularization</strong>: Use dropout to prevent overfitting</p></li>
-<li><p><strong>Sampling</strong>: Use negative sampling for efficiency</p></li>
-</ol>
+<section id="sandbox-models-experimental">
+<h2>Sandbox models (experimental)<a class="headerlink" href="#sandbox-models-experimental" title="Link to this heading">#</a></h2>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Model</p></th>
+<th class="head"><p>Import</p></th>
+<th class="head"><p>Tutorial</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>GeoIMC</p></td>
+<td><p>sandbox graph_based</p></td>
+<td><p><a class="reference internal" href="../tutorials/geoimc_tutorial.html"><span class="std std-doc">GeoIMC</span></a></p></td>
+</tr>
+<tr class="row-odd"><td><p>LightGCN-Base</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">corerec.sandbox.collaborative_full.graph_based_base.lightgcn_base</span></code></p></td>
+<td><p><a class="reference internal" href="../tutorials/lightgcn_base_tutorial.html"><span class="std std-doc">LightGCN Base</span></a></p></td>
+</tr>
+<tr class="row-even"><td><p>GNN-Base</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">corerec.sandbox.collaborative_full.graph_based_base.GNN_base</span></code></p></td>
+<td><p><a class="reference internal" href="../tutorials/gnn_base_tutorial.html"><span class="std std-doc">GNN Base</span></a></p></td>
+</tr>
+</tbody>
+</table>
+</div>
 </section>
 <section id="when-to-use">
-<h2>When to Use<a class="headerlink" href="#when-to-use" title="Link to this heading">#</a></h2>
+<h2>When to use<a class="headerlink" href="#when-to-use" title="Link to this heading">#</a></h2>
 <ul class="simple">
-<li><p>Rich relationship data available</p></li>
-<li><p>Social networks or knowledge graphs</p></li>
-<li><p>Need to leverage item/item connections</p></li>
-<li><p>User-user relationships important</p></li>
+<li><p>Rich user–item interaction graphs</p></li>
+<li><p>Social or knowledge-graph extensions (sandbox)</p></li>
+<li><p>When CF matrix methods underperform on link structure</p></li>
 </ul>
 </section>
-<section id="tutorials">
-<h2>Tutorials<a class="headerlink" href="#tutorials" title="Link to this heading">#</a></h2>
-<p>See graph-based model tutorials in the <a class="reference internal" href="../tutorials/index.html"><span class="std std-doc">Tutorials</span></a> section.</p>
+<section id="see-also">
+<h2>See also<a class="headerlink" href="#see-also" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p><a class="reference internal" href="deep_learning.html"><span class="std std-doc">Deep learning models</span></a> (GNNRec)</p></li>
+<li><p><a class="reference internal" href="matrix_factorization.html"><span class="std std-doc">Matrix factorization</span></a></p></li>
+<li><p><a class="reference internal" href="models_index.html"><span class="std std-doc">Model index</span></a></p></li>
+</ul>
 </section>
 </section>
 
@@ -666,7 +640,7 @@ document.write(`
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Matrix Factorization Models</p>
+        <p class="prev-next-title">Matrix Factorization &amp; Collaborative Filtering</p>
       </div>
     </a>
     <a class="right-next"
@@ -694,27 +668,14 @@ document.write(`
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#overview">Overview</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#available-models">Available Models</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#core-models">Core Models</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#gnnrec-graph-neural-network-recommender">GNNRec (Graph Neural Network Recommender)</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#lightgcn">LightGCN</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#production-models-ci-tested">Production models (CI-tested)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#gnnrec">GNNRec</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#lightgcn">LightGCN</a></li>
 </ul>
 </li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#graph-construction">Graph Construction</a></li>
-</ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#model-characteristics">Model Characteristics</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#input">Input</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#output">Output</a></li>
-</ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#training">Training</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#advantages">Advantages</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#limitations">Limitations</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#best-practices">Best Practices</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#when-to-use">When to Use</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tutorials">Tutorials</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sandbox-models-experimental">Sandbox models (experimental)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#when-to-use">When to use</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#see-also">See also</a></li>
 </ul>
   </nav></div>
 

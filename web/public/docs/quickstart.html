@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>QuickStart Guide &#8212; CoreRec 0.5.1 documentation</title>
+    <title>QuickStart Guide &#8212; CoreRec 0.5.3 documentation</title>
   
   
   
@@ -39,7 +39,7 @@
 <link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
   <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
 
-    <script src="_static/documentation_options.js?v=5f152624"></script>
+    <script src="_static/documentation_options.js?v=f39d245f"></script>
     <script src="_static/doctools.js?v=9bcbadda"></script>
     <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="_static/clipboard.min.js?v=a7894cd8"></script>
@@ -138,7 +138,7 @@
   
   
   
-    <p class="title logo__title">CoreRec 0.5.1 documentation</p>
+    <p class="title logo__title">CoreRec 0.5.3 documentation</p>
   
 </a></div>
         <div class="sidebar-primary-item">
@@ -174,17 +174,21 @@
 <li class="toctree-l1"><a class="reference internal" href="user_guide/model_training.html">Model Training</a></li>
 <li class="toctree-l1"><a class="reference internal" href="user_guide/making_predictions.html">Making Predictions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="user_guide/model_persistence.html">Model Persistence</a></li>
+<li class="toctree-l1"><a class="reference internal" href="user_guide/safe_bundle_persistence.html">Safe Model Bundles (<code class="docutils literal notranslate"><span class="pre">corerec_safe_v1</span></code>)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="user_guide/best_practices.html">Best Practices</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api_versioning.html">CoreRec API Versioning Policy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="torch_nn_vendored.html">Vendored <code class="docutils literal notranslate"><span class="pre">torch_nn</span></code> and <code class="docutils literal notranslate"><span class="pre">torch_utils</span></code></a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Model Documentation</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="models/index.html">Model Documentation</a></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="models/models_index.html">Model Documentation Index</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="models/models_index.html">Complete Model Index</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="models/deep_learning.html">Deep Learning Models</a></li>
-<li class="toctree-l2"><a class="reference internal" href="models/matrix_factorization.html">Matrix Factorization Models</a></li>
+<li class="toctree-l2"><a class="reference internal" href="models/matrix_factorization.html">Matrix Factorization &amp; Collaborative Filtering</a></li>
 <li class="toctree-l2"><a class="reference internal" href="models/graph_based.html">Graph-Based Models</a></li>
 <li class="toctree-l2"><a class="reference internal" href="models/sequential.html">Sequential Models</a></li>
 <li class="toctree-l2"><a class="reference internal" href="models/bayesian.html">Bayesian Models</a></li>
+<li class="toctree-l2"><a class="reference internal" href="models/content_based.html">Content-Based Models</a></li>
 </ul>
 </details></li>
 </ul>
@@ -198,9 +202,12 @@
 <li class="toctree-l2"><a class="reference internal" href="tutorials/nasrec_tutorial.html">NASRec Tutorial: NASRec</a></li>
 <li class="toctree-l2"><a class="reference internal" href="tutorials/sasrec_tutorial.html">SASRec Tutorial: SASRec</a></li>
 <li class="toctree-l2"><a class="reference internal" href="tutorials/bert4rec_tutorial.html">Bert4Rec Tutorial: BERT for Sequential Recommendation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tutorials/two_tower_tutorial.html">TwoTower Tutorial: Dual-Encoder Retrieval</a></li>
 <li class="toctree-l2"><a class="reference internal" href="tutorials/ncf_tutorial.html">NCF Tutorial: Neural Collaborative Filtering</a></li>
 <li class="toctree-l2"><a class="reference internal" href="tutorials/sar_tutorial.html">SAR Tutorial: Smart Adaptive Recommendations</a></li>
 <li class="toctree-l2"><a class="reference internal" href="tutorials/lightgcn_tutorial.html">LightGCN Tutorial: Light Graph Convolutional Network</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tutorials/fast_tutorial.html">FAST Tutorial: Fast Approximate Similarity Filtering</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tutorials/fast_recommender_tutorial.html">FASTRecommender Tutorial: Extended FAST Model</a></li>
 <li class="toctree-l2"><a class="reference internal" href="tutorials/tfidf_tutorial.html">TFIDF Tutorial: TF-IDF Based Recommender</a></li>
 <li class="toctree-l2"><a class="reference internal" href="tutorials/afm_tutorial.html">AFM Tutorial: Attentional Factorization Machine</a></li>
 <li class="toctree-l2"><a class="reference internal" href="tutorials/autofi_tutorial.html">AutoFI Tutorial: Automatic Feature Interaction</a></li>
@@ -500,6 +507,7 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#install-tutorial-data">Install tutorial data</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#basic-example">Basic Example</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#available-models">Available Models</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#production-models-tested-stable">Production Models (Tested &amp; Stable)</a></li>
@@ -509,8 +517,8 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#next-steps">Next Steps</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#common-workflows">Common Workflows</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rating-prediction">Rating Prediction</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#top-n-recommendation">Top-N Recommendation</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#graph-based">Graph-Based</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#top-k-recommendation-sasrec-interaction-matrix">Top-K Recommendation (SASRec — interaction matrix)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#graph-based-gnnrec-binarize-ratings">Graph-Based (GNNRec — binarize ratings)</a></li>
 </ul>
 </li>
 </ul>
@@ -527,14 +535,24 @@ document.write(`
   <section class="tex2jax_ignore mathjax_ignore" id="quickstart-guide">
 <h1>QuickStart Guide<a class="headerlink" href="#quickstart-guide" title="Link to this heading">#</a></h1>
 <p>Get started with CoreRec in 5 minutes!</p>
+<section id="install-tutorial-data">
+<h2>Install tutorial data<a class="headerlink" href="#install-tutorial-data" title="Link to this heading">#</a></h2>
+<p>The examples below use MovieLens 1M via <code class="docutils literal notranslate"><span class="pre">cr_learn</span></code>:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip<span class="w"> </span>install<span class="w"> </span><span class="s2">&quot;corerec[datasets]&quot;</span>
+</pre></div>
+</div>
+<p>The first <code class="docutils literal notranslate"><span class="pre">ml_1m.load()</span></code> downloads ~25 MB to your local cache.</p>
+</section>
 <section id="basic-example">
 <h2>Basic Example<a class="headerlink" href="#basic-example" title="Link to this heading">#</a></h2>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">corerec.engines.dcn</span><span class="w"> </span><span class="kn">import</span> <span class="n">DCN</span>
-<span class="kn">import</span><span class="w"> </span><span class="nn">cr_learn</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">cr_learn</span><span class="w"> </span><span class="kn">import</span> <span class="n">ml_1m</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.model_selection</span><span class="w"> </span><span class="kn">import</span> <span class="n">train_test_split</span>
 
-<span class="c1"># Load data</span>
-<span class="n">data</span> <span class="o">=</span> <span class="n">cr_learn</span><span class="o">.</span><span class="n">load_dataset</span><span class="p">(</span><span class="s1">&#39;movielens-100k&#39;</span><span class="p">)</span>
-<span class="n">train</span><span class="p">,</span> <span class="n">test</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">train_test_split</span><span class="p">(</span><span class="n">test_size</span><span class="o">=</span><span class="mf">0.2</span><span class="p">)</span>
+<span class="c1"># Load data (cr_learn returns dict with &#39;ratings&#39; DataFrame)</span>
+<span class="n">data</span> <span class="o">=</span> <span class="n">ml_1m</span><span class="o">.</span><span class="n">load</span><span class="p">()</span>
+<span class="n">ratings_df</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;ratings&#39;</span><span class="p">]</span>
+<span class="n">train_df</span><span class="p">,</span> <span class="n">test_df</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span><span class="n">ratings_df</span><span class="p">,</span> <span class="n">test_size</span><span class="o">=</span><span class="mf">0.2</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">)</span>
 
 <span class="c1"># Create model</span>
 <span class="n">model</span> <span class="o">=</span> <span class="n">DCN</span><span class="p">(</span>
@@ -545,9 +563,9 @@ document.write(`
 
 <span class="c1"># Train</span>
 <span class="n">model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span>
-    <span class="n">user_ids</span><span class="o">=</span><span class="n">train</span><span class="o">.</span><span class="n">user_ids</span><span class="p">,</span>
-    <span class="n">item_ids</span><span class="o">=</span><span class="n">train</span><span class="o">.</span><span class="n">item_ids</span><span class="p">,</span>
-    <span class="n">ratings</span><span class="o">=</span><span class="n">train</span><span class="o">.</span><span class="n">ratings</span>
+    <span class="n">user_ids</span><span class="o">=</span><span class="n">train_df</span><span class="p">[</span><span class="s1">&#39;user_id&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">,</span>
+    <span class="n">item_ids</span><span class="o">=</span><span class="n">train_df</span><span class="p">[</span><span class="s1">&#39;movie_id&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">,</span>
+    <span class="n">ratings</span><span class="o">=</span><span class="n">train_df</span><span class="p">[</span><span class="s1">&#39;rating&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span>
 <span class="p">)</span>
 
 <span class="c1"># Predict</span>
@@ -558,11 +576,11 @@ document.write(`
 <span class="n">recs</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">recommend</span><span class="p">(</span><span class="n">user_id</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">top_k</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Top-10 recommendations: </span><span class="si">{</span><span class="n">recs</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 
-<span class="c1"># Save</span>
-<span class="n">model</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="s1">&#39;my_model.pkl&#39;</span><span class="p">)</span>
+<span class="c1"># Save (safe bundle default — base path, not a .pkl file)</span>
+<span class="n">model</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="s1">&#39;artifacts/my_dcn&#39;</span><span class="p">)</span>
 
 <span class="c1"># Load</span>
-<span class="n">loaded_model</span> <span class="o">=</span> <span class="n">DCN</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="s1">&#39;my_model.pkl&#39;</span><span class="p">)</span>
+<span class="n">loaded_model</span> <span class="o">=</span> <span class="n">DCN</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="s1">&#39;artifacts/my_dcn&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </section>
@@ -570,7 +588,7 @@ document.write(`
 <h2>Available Models<a class="headerlink" href="#available-models" title="Link to this heading">#</a></h2>
 <section id="production-models-tested-stable">
 <h3>Production Models (Tested &amp; Stable)<a class="headerlink" href="#production-models-tested-stable" title="Link to this heading">#</a></h3>
-<p>These 13 models are fully tested, CI-enforced, and recommended for production use:</p>
+<p>These 14 models are fully tested, CI-enforced, and recommended for production use:</p>
 <ul class="simple">
 <li><p><strong>Deep Learning</strong>: DCN, DeepFM, GNNRec, MIND, NASRec, SASRec, TwoTower, BERT4Rec</p></li>
 <li><p><strong>Collaborative</strong>: SAR, NCF, FAST, FASTRecommender, LightGCN</p></li>
@@ -605,28 +623,48 @@ document.write(`
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">corerec.engines.deepfm</span><span class="w"> </span><span class="kn">import</span> <span class="n">DeepFM</span>
 
 <span class="n">model</span> <span class="o">=</span> <span class="n">DeepFM</span><span class="p">()</span>
-<span class="n">model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">users</span><span class="p">,</span> <span class="n">items</span><span class="p">,</span> <span class="n">ratings</span><span class="p">)</span>
-<span class="n">score</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">user_id</span><span class="p">,</span> <span class="n">item_id</span><span class="p">)</span>
+<span class="n">model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">user_ids</span><span class="o">=</span><span class="n">user_ids</span><span class="p">,</span> <span class="n">item_ids</span><span class="o">=</span><span class="n">item_ids</span><span class="p">,</span> <span class="n">ratings</span><span class="o">=</span><span class="n">ratings</span><span class="p">)</span>
+<span class="n">score</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">user_id</span><span class="o">=</span><span class="n">user_id</span><span class="p">,</span> <span class="n">item_id</span><span class="o">=</span><span class="n">item_id</span><span class="p">)</span>
 </pre></div>
 </div>
 </section>
-<section id="top-n-recommendation">
-<h3>Top-N Recommendation<a class="headerlink" href="#top-n-recommendation" title="Link to this heading">#</a></h3>
+<section id="top-k-recommendation-sasrec-interaction-matrix">
+<h3>Top-K Recommendation (SASRec — interaction matrix)<a class="headerlink" href="#top-k-recommendation-sasrec-interaction-matrix" title="Link to this heading">#</a></h3>
+<p>SASRec needs a user×item <strong>interaction matrix</strong>, not raw triplets alone:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">corerec.engines.sasrec</span><span class="w"> </span><span class="kn">import</span> <span class="n">SASRec</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
 
-<span class="n">model</span> <span class="o">=</span> <span class="n">SASRec</span><span class="p">()</span>
-<span class="n">model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">users</span><span class="p">,</span> <span class="n">items</span><span class="p">,</span> <span class="n">ratings</span><span class="p">)</span>
-<span class="n">recs</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">recommend</span><span class="p">(</span><span class="n">user_id</span><span class="p">,</span> <span class="n">top_k</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+<span class="n">user_list</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">train_df</span><span class="p">[</span><span class="s1">&#39;user_id&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">unique</span><span class="p">())</span>
+<span class="n">item_list</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">train_df</span><span class="p">[</span><span class="s1">&#39;movie_id&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">unique</span><span class="p">())</span>
+<span class="n">user_idx</span> <span class="o">=</span> <span class="p">{</span><span class="n">u</span><span class="p">:</span> <span class="n">i</span> <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">u</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">user_list</span><span class="p">)}</span>
+<span class="n">item_idx</span> <span class="o">=</span> <span class="p">{</span><span class="n">it</span><span class="p">:</span> <span class="n">j</span> <span class="k">for</span> <span class="n">j</span><span class="p">,</span> <span class="n">it</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">item_list</span><span class="p">)}</span>
+
+<span class="n">train_mat</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="nb">len</span><span class="p">(</span><span class="n">user_list</span><span class="p">),</span> <span class="nb">len</span><span class="p">(</span><span class="n">item_list</span><span class="p">)),</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">float32</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">_</span><span class="p">,</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">train_df</span><span class="o">.</span><span class="n">iterrows</span><span class="p">():</span>
+    <span class="n">train_mat</span><span class="p">[</span><span class="n">user_idx</span><span class="p">[</span><span class="n">row</span><span class="p">[</span><span class="s1">&#39;user_id&#39;</span><span class="p">]],</span> <span class="n">item_idx</span><span class="p">[</span><span class="n">row</span><span class="p">[</span><span class="s1">&#39;movie_id&#39;</span><span class="p">]]]</span> <span class="o">=</span> <span class="mf">1.0</span>
+
+<span class="n">model</span> <span class="o">=</span> <span class="n">SASRec</span><span class="p">(</span><span class="n">num_epochs</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">hidden_units</span><span class="o">=</span><span class="mi">64</span><span class="p">,</span> <span class="n">max_seq_length</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">user_list</span><span class="p">,</span> <span class="n">item_list</span><span class="p">,</span> <span class="n">train_mat</span><span class="p">)</span>
+<span class="n">recs</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">recommend</span><span class="p">(</span><span class="n">user_id</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">top_k</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
 </pre></div>
 </div>
 </section>
-<section id="graph-based">
-<h3>Graph-Based<a class="headerlink" href="#graph-based" title="Link to this heading">#</a></h3>
+<section id="graph-based-gnnrec-binarize-ratings">
+<h3>Graph-Based (GNNRec — binarize ratings)<a class="headerlink" href="#graph-based-gnnrec-binarize-ratings" title="Link to this heading">#</a></h3>
+<p>GNNRec uses <strong>BCE loss</strong>; ratings must be in <strong>[0, 1]</strong> (implicit feedback or normalized explicit ratings):</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">corerec.engines.gnnrec</span><span class="w"> </span><span class="kn">import</span> <span class="n">GNNRec</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
 
-<span class="n">model</span> <span class="o">=</span> <span class="n">GNNRec</span><span class="p">()</span>
-<span class="n">model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">users</span><span class="p">,</span> <span class="n">items</span><span class="p">,</span> <span class="n">ratings</span><span class="p">)</span>
-<span class="n">recs</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">recommend</span><span class="p">(</span><span class="n">user_id</span><span class="p">,</span> <span class="n">top_k</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+<span class="c1"># Implicit feedback: rating &gt;= 1 → 1.0, else 0.0</span>
+<span class="n">binary_ratings</span> <span class="o">=</span> <span class="p">(</span><span class="n">train_df</span><span class="p">[</span><span class="s1">&#39;rating&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span> <span class="o">&gt;=</span> <span class="mf">1.0</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">float32</span><span class="p">)</span>
+
+<span class="n">model</span> <span class="o">=</span> <span class="n">GNNRec</span><span class="p">(</span><span class="n">embedding_dim</span><span class="o">=</span><span class="mi">64</span><span class="p">,</span> <span class="n">num_gnn_layers</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">epochs</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span>
+    <span class="n">user_ids</span><span class="o">=</span><span class="n">train_df</span><span class="p">[</span><span class="s1">&#39;user_id&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">,</span>
+    <span class="n">item_ids</span><span class="o">=</span><span class="n">train_df</span><span class="p">[</span><span class="s1">&#39;movie_id&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">,</span>
+    <span class="n">ratings</span><span class="o">=</span><span class="n">binary_ratings</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="n">recs</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">recommend</span><span class="p">(</span><span class="n">user_id</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">top_k</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
 </pre></div>
 </div>
 </section>
@@ -678,6 +716,7 @@ document.write(`
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#install-tutorial-data">Install tutorial data</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#basic-example">Basic Example</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#available-models">Available Models</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#production-models-tested-stable">Production Models (Tested &amp; Stable)</a></li>
@@ -687,8 +726,8 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#next-steps">Next Steps</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#common-workflows">Common Workflows</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rating-prediction">Rating Prediction</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#top-n-recommendation">Top-N Recommendation</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#graph-based">Graph-Based</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#top-k-recommendation-sasrec-interaction-matrix">Top-K Recommendation (SASRec — interaction matrix)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#graph-based-gnnrec-binarize-ratings">Graph-Based (GNNRec — binarize ratings)</a></li>
 </ul>
 </li>
 </ul>

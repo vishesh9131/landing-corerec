@@ -173,17 +173,22 @@
 <li class="toctree-l1"><a class="reference internal" href="../../../../user_guide/model_training.html">Model Training</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../user_guide/making_predictions.html">Making Predictions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../user_guide/model_persistence.html">Model Persistence</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../user_guide/safe_bundle_persistence.html">Safe Model Bundles (<code class="docutils literal notranslate"><span class="pre">corerec_safe_v1</span></code>)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../user_guide/best_practices.html">Best Practices</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../api_versioning.html">CoreRec API Versioning Policy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../torch_nn_vendored.html">Vendored <code class="docutils literal notranslate"><span class="pre">torch_nn</span></code> and <code class="docutils literal notranslate"><span class="pre">torch_utils</span></code></a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Model Documentation</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../../../../models/index.html">Model Documentation</a></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../../../../models/models_index.html">Model Documentation Index</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../../models/index.html">Model Documentation</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../models/deep_learning.html">Deep Learning Models</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../models/matrix_factorization.html">Matrix Factorization Models</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../models/graph_based.html">Graph-Based Models</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../models/sequential.html">Sequential Models</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../models/bayesian.html">Bayesian Models</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../models/content_based.html">Content-Based Models</a></li>
 </ul>
 </details></li>
 </ul>
@@ -197,9 +202,12 @@
 <li class="toctree-l2"><a class="reference internal" href="../../../../tutorials/nasrec_tutorial.html">NASRec Tutorial: NASRec</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../tutorials/sasrec_tutorial.html">SASRec Tutorial: SASRec</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../tutorials/bert4rec_tutorial.html">Bert4Rec Tutorial: BERT for Sequential Recommendation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../tutorials/two_tower_tutorial.html">TwoTower Tutorial: Dual-Encoder Retrieval</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../tutorials/ncf_tutorial.html">NCF Tutorial: Neural Collaborative Filtering</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../tutorials/sar_tutorial.html">SAR Tutorial: Smart Adaptive Recommendations</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../tutorials/lightgcn_tutorial.html">LightGCN Tutorial: Light Graph Convolutional Network</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../tutorials/fast_tutorial.html">FAST Tutorial: Fast Approximate Similarity Filtering</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../tutorials/fast_recommender_tutorial.html">FASTRecommender Tutorial: Extended FAST Model</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../tutorials/tfidf_tutorial.html">TFIDF Tutorial: TF-IDF Based Recommender</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../tutorials/afm_tutorial.html">AFM Tutorial: Attentional Factorization Machine</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../tutorials/autofi_tutorial.html">AutoFI Tutorial: Automatic Feature Interaction</a></li>
@@ -494,6 +502,27 @@ document.write(`
 <span class="n">logger</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="vm">__name__</span><span class="p">)</span>
 
 
+<span class="k">def</span><span class="w"> </span><span class="nf">_sar_to_dense_array</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Convert sparse matrix to dense ndarray for safe bundle save.&quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="n">x</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="k">return</span> <span class="kc">None</span>
+    <span class="k">if</span> <span class="n">sparse</span><span class="o">.</span><span class="n">issparse</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">x</span><span class="o">.</span><span class="n">toarray</span><span class="p">()</span>
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">_sar_to_sparse_matrix</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Restore sparse CSR matrix from dense ndarray after safe bundle load.&quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="n">x</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="k">return</span> <span class="kc">None</span>
+    <span class="k">if</span> <span class="n">sparse</span><span class="o">.</span><span class="n">issparse</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">x</span>
+    <span class="n">arr</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">arr</span><span class="o">.</span><span class="n">size</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">return</span> <span class="kc">None</span>
+    <span class="k">return</span> <span class="n">sparse</span><span class="o">.</span><span class="n">csr_matrix</span><span class="p">(</span><span class="n">arr</span><span class="p">)</span>
+
+
 <div class="viewcode-block" id="SAR">
 <a class="viewcode-back" href="../../../../api/engines.html#corerec.engines.collaborative.sar.SAR">[docs]</a>
 <span class="k">class</span><span class="w"> </span><span class="nc">SAR</span><span class="p">(</span><span class="n">BaseRecommender</span><span class="p">):</span>
@@ -786,6 +815,7 @@ document.write(`
 <div class="viewcode-block" id="SAR.fit">
 <a class="viewcode-back" href="../../../../api/engines.html#corerec.engines.collaborative.sar.SAR.fit">[docs]</a>
     <span class="k">def</span><span class="w"> </span><span class="nf">fit</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">df</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="s2">&quot;SAR&quot;</span><span class="p">:</span>
+        <span class="n">df</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_coerce_fit_dataframe</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">sar_format</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Train the SAR model on interaction data.</span>
 <span class="sd">        </span>
@@ -1025,8 +1055,12 @@ document.write(`
         <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">is_fitted</span><span class="p">:</span>
             <span class="k">raise</span> <span class="n">ModelNotFittedError</span><span class="p">()</span>
 
-        <span class="k">if</span> <span class="n">user_id</span> <span class="ow">not</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">user2index</span><span class="p">:</span>
-            <span class="k">return</span> <span class="p">[]</span>  <span class="c1"># cold user, can&#39;t recommend</span>
+        <span class="n">cold_start</span> <span class="o">=</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s2">&quot;cold_start&quot;</span><span class="p">,</span> <span class="kc">False</span><span class="p">)</span>
+        <span class="n">mapped</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_validate_user_in_map</span><span class="p">(</span>
+            <span class="n">user_id</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">user2index</span><span class="p">,</span> <span class="n">cold_start</span><span class="o">=</span><span class="n">cold_start</span>
+        <span class="p">)</span>
+        <span class="k">if</span> <span class="n">mapped</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">return</span> <span class="p">[]</span>
 
         <span class="n">user_idx</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">user2index</span><span class="p">[</span><span class="n">user_id</span><span class="p">]</span>
 
@@ -1363,19 +1397,58 @@ document.write(`
     
 <div class="viewcode-block" id="SAR.save">
 <a class="viewcode-back" href="../../../../api/engines.html#corerec.engines.collaborative.sar.SAR.save">[docs]</a>
-    <span class="k">def</span><span class="w"> </span><span class="nf">save</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">path</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">save</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">path</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">safe</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        Save model to disk.</span>
-<span class="sd">        </span>
-<span class="sd">        Args:</span>
-<span class="sd">            path: file path for the saved model</span>
+<span class="sd">        Save model to disk (safe npz bundle by default).</span>
 <span class="sd">        &quot;&quot;&quot;</span>
-        <span class="c1"># ensure directory exists</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_check_fitted</span><span class="p">()</span>
         <span class="n">dir_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">dirname</span><span class="p">(</span><span class="n">path</span><span class="p">)</span>
         <span class="k">if</span> <span class="n">dir_path</span><span class="p">:</span>
             <span class="n">os</span><span class="o">.</span><span class="n">makedirs</span><span class="p">(</span><span class="n">dir_path</span><span class="p">,</span> <span class="n">exist_ok</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-        
+
+        <span class="n">config</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="s2">&quot;col_user&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">col_user</span><span class="p">,</span>
+            <span class="s2">&quot;col_item&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">col_item</span><span class="p">,</span>
+            <span class="s2">&quot;col_rating&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">col_rating</span><span class="p">,</span>
+            <span class="s2">&quot;col_timestamp&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">col_timestamp</span><span class="p">,</span>
+            <span class="s2">&quot;col_prediction&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">col_prediction</span><span class="p">,</span>
+            <span class="s2">&quot;similarity_type&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">similarity_type</span><span class="p">,</span>
+            <span class="s2">&quot;time_decay_half_life&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">time_decay_half_life</span><span class="p">,</span>
+            <span class="s2">&quot;time_decay_flag&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">time_decay_flag</span><span class="p">,</span>
+            <span class="s2">&quot;time_now&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">time_now</span><span class="p">,</span>
+            <span class="s2">&quot;threshold&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">threshold</span><span class="p">,</span>
+            <span class="s2">&quot;normalize&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">normalize</span><span class="p">,</span>
+        <span class="p">}</span>
         <span class="n">state</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="s2">&quot;user2index_pairs&quot;</span><span class="p">:</span> <span class="nb">list</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">user2index</span><span class="o">.</span><span class="n">items</span><span class="p">()),</span>
+            <span class="s2">&quot;index2user_pairs&quot;</span><span class="p">:</span> <span class="nb">list</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">index2user</span><span class="o">.</span><span class="n">items</span><span class="p">()),</span>
+            <span class="s2">&quot;item2index_pairs&quot;</span><span class="p">:</span> <span class="nb">list</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">item2index</span><span class="o">.</span><span class="n">items</span><span class="p">()),</span>
+            <span class="s2">&quot;index2item_pairs&quot;</span><span class="p">:</span> <span class="nb">list</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">index2item</span><span class="o">.</span><span class="n">items</span><span class="p">()),</span>
+            <span class="s2">&quot;n_users&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">n_users</span><span class="p">,</span>
+            <span class="s2">&quot;n_items&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">n_items</span><span class="p">,</span>
+            <span class="s2">&quot;item_frequencies_pairs&quot;</span><span class="p">:</span> <span class="nb">list</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">item_frequencies</span><span class="o">.</span><span class="n">items</span><span class="p">())</span> <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">item_frequencies</span><span class="p">,</span> <span class="nb">dict</span><span class="p">)</span> <span class="k">else</span> <span class="p">[],</span>
+            <span class="s2">&quot;user_frequencies_pairs&quot;</span><span class="p">:</span> <span class="nb">list</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">user_frequencies</span><span class="o">.</span><span class="n">items</span><span class="p">())</span> <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">user_frequencies</span><span class="p">,</span> <span class="nb">dict</span><span class="p">)</span> <span class="k">else</span> <span class="p">[],</span>
+            <span class="s2">&quot;rating_min&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">rating_min</span><span class="p">,</span>
+            <span class="s2">&quot;rating_max&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">rating_max</span><span class="p">,</span>
+            <span class="s2">&quot;is_fitted&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">is_fitted</span><span class="p">,</span>
+        <span class="p">}</span>
+        <span class="n">arrays</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="k">for</span> <span class="n">name</span><span class="p">,</span> <span class="n">value</span> <span class="ow">in</span> <span class="p">(</span>
+            <span class="p">(</span><span class="s2">&quot;user_affinity&quot;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">user_affinity</span><span class="p">),</span>
+            <span class="p">(</span><span class="s2">&quot;item_similarity&quot;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">item_similarity</span><span class="p">),</span>
+            <span class="p">(</span><span class="s2">&quot;unity_user_affinity&quot;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">unity_user_affinity</span><span class="p">),</span>
+        <span class="p">):</span>
+            <span class="n">dense</span> <span class="o">=</span> <span class="n">_sar_to_dense_array</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">dense</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="n">arrays</span><span class="p">[</span><span class="n">name</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">dense</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">float64</span><span class="p">)</span>
+
+        <span class="kn">from</span><span class="w"> </span><span class="nn">corerec.api.torch_bundle</span><span class="w"> </span><span class="kn">import</span> <span class="n">save_numpy_production</span>
+
+        <span class="k">if</span> <span class="n">save_numpy_production</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">path</span><span class="p">,</span> <span class="n">config</span><span class="o">=</span><span class="n">config</span><span class="p">,</span> <span class="n">state</span><span class="o">=</span><span class="n">state</span><span class="p">,</span> <span class="n">arrays</span><span class="o">=</span><span class="n">arrays</span><span class="p">,</span> <span class="n">safe</span><span class="o">=</span><span class="n">safe</span><span class="p">):</span>
+            <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Model saved (safe bundle) to </span><span class="si">{</span><span class="n">path</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+            <span class="k">return</span>
+
+        <span class="n">state_legacy</span> <span class="o">=</span> <span class="p">{</span>
             <span class="c1"># config</span>
             <span class="s2">&quot;col_user&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">col_user</span><span class="p">,</span>
             <span class="s2">&quot;col_item&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">col_item</span><span class="p">,</span>
@@ -1406,7 +1479,7 @@ document.write(`
         <span class="p">}</span>
         
         <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="s2">&quot;wb&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
-            <span class="n">pickle</span><span class="o">.</span><span class="n">dump</span><span class="p">(</span><span class="n">state</span><span class="p">,</span> <span class="n">f</span><span class="p">,</span> <span class="n">protocol</span><span class="o">=</span><span class="n">pickle</span><span class="o">.</span><span class="n">HIGHEST_PROTOCOL</span><span class="p">)</span>
+            <span class="n">pickle</span><span class="o">.</span><span class="n">dump</span><span class="p">(</span><span class="n">state_legacy</span><span class="p">,</span> <span class="n">f</span><span class="p">,</span> <span class="n">protocol</span><span class="o">=</span><span class="n">pickle</span><span class="o">.</span><span class="n">HIGHEST_PROTOCOL</span><span class="p">)</span>
         
         <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Model saved to </span><span class="si">{</span><span class="n">path</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span></div>
 
@@ -1416,14 +1489,47 @@ document.write(`
     <span class="nd">@classmethod</span>
     <span class="k">def</span><span class="w"> </span><span class="nf">load</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">path</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="s2">&quot;SAR&quot;</span><span class="p">:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        Load model from disk.</span>
-<span class="sd">        </span>
-<span class="sd">        Args:</span>
-<span class="sd">            path: file path to load from</span>
-<span class="sd">        </span>
-<span class="sd">        Returns:</span>
-<span class="sd">            loaded SAR model</span>
+<span class="sd">        Load model from disk (safe bundle or legacy pickle).</span>
 <span class="sd">        &quot;&quot;&quot;</span>
+        <span class="kn">from</span><span class="w"> </span><span class="nn">corerec.api.torch_bundle</span><span class="w"> </span><span class="kn">import</span> <span class="n">load_numpy_production</span>
+
+        <span class="k">def</span><span class="w"> </span><span class="nf">_restore</span><span class="p">(</span><span class="n">instance</span><span class="p">,</span> <span class="n">config</span><span class="p">,</span> <span class="n">state</span><span class="p">,</span> <span class="n">arrays</span><span class="p">):</span>
+            <span class="n">instance</span><span class="o">.</span><span class="n">user2index</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">state</span><span class="p">[</span><span class="s2">&quot;user2index_pairs&quot;</span><span class="p">])</span>
+            <span class="n">instance</span><span class="o">.</span><span class="n">index2user</span> <span class="o">=</span> <span class="p">{</span><span class="nb">int</span><span class="p">(</span><span class="n">k</span><span class="p">):</span> <span class="n">v</span> <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">state</span><span class="p">[</span><span class="s2">&quot;index2user_pairs&quot;</span><span class="p">]}</span>
+            <span class="n">instance</span><span class="o">.</span><span class="n">item2index</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">state</span><span class="p">[</span><span class="s2">&quot;item2index_pairs&quot;</span><span class="p">])</span>
+            <span class="n">instance</span><span class="o">.</span><span class="n">index2item</span> <span class="o">=</span> <span class="p">{</span><span class="nb">int</span><span class="p">(</span><span class="n">k</span><span class="p">):</span> <span class="n">v</span> <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">state</span><span class="p">[</span><span class="s2">&quot;index2item_pairs&quot;</span><span class="p">]}</span>
+            <span class="n">instance</span><span class="o">.</span><span class="n">n_users</span> <span class="o">=</span> <span class="n">state</span><span class="p">[</span><span class="s2">&quot;n_users&quot;</span><span class="p">]</span>
+            <span class="n">instance</span><span class="o">.</span><span class="n">n_items</span> <span class="o">=</span> <span class="n">state</span><span class="p">[</span><span class="s2">&quot;n_items&quot;</span><span class="p">]</span>
+            <span class="n">instance</span><span class="o">.</span><span class="n">item_frequencies</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">state</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;item_frequencies_pairs&quot;</span><span class="p">,</span> <span class="p">[]))</span>
+            <span class="n">instance</span><span class="o">.</span><span class="n">user_frequencies</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">state</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;user_frequencies_pairs&quot;</span><span class="p">,</span> <span class="p">[]))</span>
+            <span class="n">instance</span><span class="o">.</span><span class="n">rating_min</span> <span class="o">=</span> <span class="n">state</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;rating_min&quot;</span><span class="p">)</span>
+            <span class="n">instance</span><span class="o">.</span><span class="n">rating_max</span> <span class="o">=</span> <span class="n">state</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;rating_max&quot;</span><span class="p">)</span>
+            <span class="n">instance</span><span class="o">.</span><span class="n">is_fitted</span> <span class="o">=</span> <span class="n">state</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;is_fitted&quot;</span><span class="p">,</span> <span class="kc">True</span><span class="p">)</span>
+            <span class="n">arrays</span> <span class="o">=</span> <span class="n">arrays</span> <span class="ow">or</span> <span class="p">{}</span>
+            <span class="n">instance</span><span class="o">.</span><span class="n">user_affinity</span> <span class="o">=</span> <span class="n">_sar_to_sparse_matrix</span><span class="p">(</span><span class="n">arrays</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;user_affinity&quot;</span><span class="p">))</span>
+            <span class="n">instance</span><span class="o">.</span><span class="n">item_similarity</span> <span class="o">=</span> <span class="n">_sar_to_sparse_matrix</span><span class="p">(</span><span class="n">arrays</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;item_similarity&quot;</span><span class="p">))</span>
+            <span class="n">instance</span><span class="o">.</span><span class="n">unity_user_affinity</span> <span class="o">=</span> <span class="n">_sar_to_sparse_matrix</span><span class="p">(</span><span class="n">arrays</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;unity_user_affinity&quot;</span><span class="p">))</span>
+
+        <span class="k">def</span><span class="w"> </span><span class="nf">_factory</span><span class="p">(</span><span class="n">cfg</span><span class="p">):</span>
+            <span class="k">return</span> <span class="bp">cls</span><span class="p">(</span>
+                <span class="n">col_user</span><span class="o">=</span><span class="n">cfg</span><span class="p">[</span><span class="s2">&quot;col_user&quot;</span><span class="p">],</span>
+                <span class="n">col_item</span><span class="o">=</span><span class="n">cfg</span><span class="p">[</span><span class="s2">&quot;col_item&quot;</span><span class="p">],</span>
+                <span class="n">col_rating</span><span class="o">=</span><span class="n">cfg</span><span class="p">[</span><span class="s2">&quot;col_rating&quot;</span><span class="p">],</span>
+                <span class="n">col_timestamp</span><span class="o">=</span><span class="n">cfg</span><span class="p">[</span><span class="s2">&quot;col_timestamp&quot;</span><span class="p">],</span>
+                <span class="n">col_prediction</span><span class="o">=</span><span class="n">cfg</span><span class="p">[</span><span class="s2">&quot;col_prediction&quot;</span><span class="p">],</span>
+                <span class="n">similarity_type</span><span class="o">=</span><span class="n">cfg</span><span class="p">[</span><span class="s2">&quot;similarity_type&quot;</span><span class="p">],</span>
+                <span class="n">time_decay_coefficient</span><span class="o">=</span><span class="n">cfg</span><span class="p">[</span><span class="s2">&quot;time_decay_half_life&quot;</span><span class="p">]</span> <span class="o">/</span> <span class="p">(</span><span class="mi">24</span> <span class="o">*</span> <span class="mi">60</span> <span class="o">*</span> <span class="mi">60</span><span class="p">),</span>
+                <span class="n">timedecay_formula</span><span class="o">=</span><span class="n">cfg</span><span class="p">[</span><span class="s2">&quot;time_decay_flag&quot;</span><span class="p">],</span>
+                <span class="n">time_now</span><span class="o">=</span><span class="n">cfg</span><span class="p">[</span><span class="s2">&quot;time_now&quot;</span><span class="p">],</span>
+                <span class="n">threshold</span><span class="o">=</span><span class="n">cfg</span><span class="p">[</span><span class="s2">&quot;threshold&quot;</span><span class="p">],</span>
+                <span class="n">normalize</span><span class="o">=</span><span class="n">cfg</span><span class="p">[</span><span class="s2">&quot;normalize&quot;</span><span class="p">],</span>
+            <span class="p">)</span>
+
+        <span class="n">loaded</span> <span class="o">=</span> <span class="n">load_numpy_production</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">path</span><span class="p">,</span> <span class="n">restore</span><span class="o">=</span><span class="n">_restore</span><span class="p">,</span> <span class="n">factory</span><span class="o">=</span><span class="n">_factory</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">loaded</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Model loaded (safe bundle) from </span><span class="si">{</span><span class="n">path</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+            <span class="k">return</span> <span class="n">loaded</span>
+
         <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="s2">&quot;rb&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
             <span class="n">state</span> <span class="o">=</span> <span class="n">pickle</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
         

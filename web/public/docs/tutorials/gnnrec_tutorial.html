@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>GNNRec Tutorial: Graph Neural Network Recommender &#8212; CoreRec 0.5.1 documentation</title>
+    <title>GNNRec Tutorial: Graph Neural Network Recommender &#8212; CoreRec 0.5.3 documentation</title>
   
   
   
@@ -39,7 +39,7 @@
 <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
   <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
 
-    <script src="../_static/documentation_options.js?v=5f152624"></script>
+    <script src="../_static/documentation_options.js?v=f39d245f"></script>
     <script src="../_static/doctools.js?v=9bcbadda"></script>
     <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
@@ -138,7 +138,7 @@
   
   
   
-    <p class="title logo__title">CoreRec 0.5.1 documentation</p>
+    <p class="title logo__title">CoreRec 0.5.3 documentation</p>
   
 </a></div>
         <div class="sidebar-primary-item">
@@ -174,17 +174,21 @@
 <li class="toctree-l1"><a class="reference internal" href="../user_guide/model_training.html">Model Training</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../user_guide/making_predictions.html">Making Predictions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../user_guide/model_persistence.html">Model Persistence</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user_guide/safe_bundle_persistence.html">Safe Model Bundles (<code class="docutils literal notranslate"><span class="pre">corerec_safe_v1</span></code>)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../user_guide/best_practices.html">Best Practices</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api_versioning.html">CoreRec API Versioning Policy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../torch_nn_vendored.html">Vendored <code class="docutils literal notranslate"><span class="pre">torch_nn</span></code> and <code class="docutils literal notranslate"><span class="pre">torch_utils</span></code></a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Model Documentation</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../models/index.html">Model Documentation</a></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../models/models_index.html">Model Documentation Index</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../models/models_index.html">Complete Model Index</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../models/deep_learning.html">Deep Learning Models</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../models/matrix_factorization.html">Matrix Factorization Models</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../models/matrix_factorization.html">Matrix Factorization &amp; Collaborative Filtering</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../models/graph_based.html">Graph-Based Models</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../models/sequential.html">Sequential Models</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../models/bayesian.html">Bayesian Models</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../models/content_based.html">Content-Based Models</a></li>
 </ul>
 </details></li>
 </ul>
@@ -197,10 +201,17 @@
 <li class="toctree-l2"><a class="reference internal" href="mind_tutorial.html">MIND Tutorial: MIND</a></li>
 <li class="toctree-l2"><a class="reference internal" href="nasrec_tutorial.html">NASRec Tutorial: NASRec</a></li>
 <li class="toctree-l2"><a class="reference internal" href="sasrec_tutorial.html">SASRec Tutorial: SASRec</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bert4rec_tutorial.html">Bert4Rec Tutorial: BERT for Sequential Recommendation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="two_tower_tutorial.html">TwoTower Tutorial: Dual-Encoder Retrieval</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ncf_tutorial.html">NCF Tutorial: Neural Collaborative Filtering</a></li>
+<li class="toctree-l2"><a class="reference internal" href="sar_tutorial.html">SAR Tutorial: Smart Adaptive Recommendations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lightgcn_tutorial.html">LightGCN Tutorial: Light Graph Convolutional Network</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fast_tutorial.html">FAST Tutorial: Fast Approximate Similarity Filtering</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fast_recommender_tutorial.html">FASTRecommender Tutorial: Extended FAST Model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tfidf_tutorial.html">TFIDF Tutorial: TF-IDF Based Recommender</a></li>
 <li class="toctree-l2"><a class="reference internal" href="afm_tutorial.html">AFM Tutorial: Attentional Factorization Machine</a></li>
 <li class="toctree-l2"><a class="reference internal" href="autofi_tutorial.html">AutoFI Tutorial: Automatic Feature Interaction</a></li>
 <li class="toctree-l2"><a class="reference internal" href="autoint_tutorial.html">AutoInt Tutorial: Automatic Feature Interaction Learning via Self-Attention</a></li>
-<li class="toctree-l2"><a class="reference internal" href="bert4rec_tutorial.html">Bert4Rec Tutorial: BERT for Sequential Recommendation</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bst_tutorial.html">BST Tutorial: Behavior Sequence Transformer</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bivae_tutorial.html">BiVAE Tutorial: Bilateral Variational Autoencoder</a></li>
 <li class="toctree-l2"><a class="reference internal" href="caser_tutorial.html">Caser Tutorial: Convolutional Sequence Embedding Recommendation</a></li>
@@ -224,7 +235,6 @@
 <li class="toctree-l2"><a class="reference internal" href="gatenet_tutorial.html">GateNet Tutorial: Gating Network</a></li>
 <li class="toctree-l2"><a class="reference internal" href="gnn_base_tutorial.html">GNN_base Tutorial: Graph Neural Network Base</a></li>
 <li class="toctree-l2"><a class="reference internal" href="gru_cf_tutorial.html">GRU-CF Tutorial: GRU for Collaborative Filtering</a></li>
-<li class="toctree-l2"><a class="reference internal" href="ncf_tutorial.html">NCF Tutorial: Neural Collaborative Filtering</a></li>
 <li class="toctree-l2"><a class="reference internal" href="nfm_tutorial.html">NFM Tutorial: Neural Factorization Machine</a></li>
 <li class="toctree-l2"><a class="reference internal" href="nextitnet_tutorial.html">NextItNet Tutorial: Next Item Net</a></li>
 <li class="toctree-l2"><a class="reference internal" href="widedeep_tutorial.html">WideDeep Tutorial: Wide &amp; Deep Learning</a></li>
@@ -242,18 +252,15 @@
 <li class="toctree-l2"><a class="reference internal" href="svd_tutorial.html">SVD Tutorial: Singular Value Decomposition</a></li>
 <li class="toctree-l2"><a class="reference internal" href="userbased_tutorial.html">UserBased Tutorial: User-Based Collaborative Filtering</a></li>
 <li class="toctree-l2"><a class="reference internal" href="geoimc_tutorial.html">GeoIMC Tutorial: Geographic Inductive Matrix Completion</a></li>
-<li class="toctree-l2"><a class="reference internal" href="lightgcn_tutorial.html">LightGCN Tutorial: Light Graph Convolutional Network</a></li>
 <li class="toctree-l2"><a class="reference internal" href="lightgcn_base_tutorial.html">LightGCN_Base Tutorial: LightGCN Base</a></li>
 <li class="toctree-l2"><a class="reference internal" href="rbm_tutorial.html">RBM Tutorial: Restricted Boltzmann Machine</a></li>
 <li class="toctree-l2"><a class="reference internal" href="rlrmc_tutorial.html">RLRMC Tutorial: Reinforcement Learning for Recommendation</a></li>
-<li class="toctree-l2"><a class="reference internal" href="sar_tutorial.html">SAR Tutorial: Smart Adaptive Recommendations</a></li>
 <li class="toctree-l2"><a class="reference internal" href="slirec_tutorial.html">SLiRec Tutorial: Sequential List Recommendation</a></li>
 <li class="toctree-l2"><a class="reference internal" href="sum_tutorial.html">SUM Tutorial: Sequential User Model</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bpr_tutorial.html">BPR Tutorial: Bayesian Personalized Ranking</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bprmf_tutorial.html">BPRMF Tutorial: Bayesian Personalized Ranking Matrix Factorization</a></li>
 <li class="toctree-l2"><a class="reference internal" href="vmf_tutorial.html">VMF Tutorial: Von Mises-Fisher Distribution</a></li>
 <li class="toctree-l2"><a class="reference internal" href="mind_content_tutorial.html">MIND_Content Tutorial: MIND for Content Filtering</a></li>
-<li class="toctree-l2"><a class="reference internal" href="tfidf_tutorial.html">TFIDF Tutorial: TF-IDF Based Recommender</a></li>
 <li class="toctree-l2"><a class="reference internal" href="pipeline_tutorial.html">Multi-Stage Pipeline Tutorial</a></li>
 <li class="toctree-l2"><a class="reference internal" href="imshow_tutorial.html">Demo Frontends Tutorial</a></li>
 </ul>
@@ -560,13 +567,6 @@ document.write(`
 <li><p>Stack multiple layers for multi-hop propagation</p></li>
 </ul>
 </li>
-<li><p><strong>Aggregation Functions</strong>:</p>
-<ul class="simple">
-<li><p>Mean: <code class="docutils literal notranslate"><span class="pre">h_v</span> <span class="pre">=</span> <span class="pre">σ(W</span> <span class="pre">·</span> <span class="pre">MEAN{h_u</span> <span class="pre">:</span> <span class="pre">u</span> <span class="pre">∈</span> <span class="pre">N(v)})</span></code></p></li>
-<li><p>Sum: <code class="docutils literal notranslate"><span class="pre">h_v</span> <span class="pre">=</span> <span class="pre">σ(W</span> <span class="pre">·</span> <span class="pre">SUM{h_u</span> <span class="pre">:</span> <span class="pre">u</span> <span class="pre">∈</span> <span class="pre">N(v)})</span></code></p></li>
-<li><p>Attention: <code class="docutils literal notranslate"><span class="pre">h_v</span> <span class="pre">=</span> <span class="pre">σ(Σ</span> <span class="pre">α_uv</span> <span class="pre">·</span> <span class="pre">h_u)</span></code></p></li>
-</ul>
-</li>
 </ol>
 <p><strong>Flow:</strong></p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>Graph → Embed → Aggregate^(1) → ... → Aggregate^(L) → Predict
@@ -579,18 +579,13 @@ document.write(`
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>h_v^(l) = σ(W^(l) · AGG({h_u^(l-1) : u ∈ N(v)}) + b^(l))
 </pre></div>
 </div>
-<p><strong>Mean Aggregator:</strong></p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>AGG = (1/|N(v)|) · Σ_{u ∈ N(v)} h_u^(l-1)
-</pre></div>
-</div>
-<p><strong>Attention Aggregator:</strong></p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>α_uv = exp(LeakyReLU(a^T [W·h_u || W·h_v])) / Z
-h_v = σ(Σ_{u ∈ N(v)} α_uv · W · h_u)
-</pre></div>
-</div>
 <p><strong>Prediction:</strong></p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>score(u,i) = h_u^(L)^T · h_i^(L)
 </pre></div>
+</div>
+<div class="important admonition">
+<p class="admonition-title">Rating range</p>
+<p>GNNRec trains with <strong>binary cross-entropy</strong>. Use <strong>0/1 labels</strong> (implicit feedback) or normalize explicit ratings to <strong>[0, 1]</strong> before calling <code class="docutils literal notranslate"><span class="pre">fit()</span></code>.</p>
 </div>
 </section>
 </section>
@@ -603,23 +598,21 @@ h_v = σ(Σ_{u ∈ N(v)} α_uv · W · h_u)
 <span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.model_selection</span><span class="w"> </span><span class="kn">import</span> <span class="n">train_test_split</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
 
-<span class="c1"># Load dataset with CORRECT API</span>
-<span class="n">data</span> <span class="o">=</span> <span class="n">ml_1m</span><span class="o">.</span><span class="n">load</span><span class="p">()</span>  <span class="c1"># Returns dict with &#39;ratings&#39;, &#39;users&#39;, &#39;movies&#39;</span>
-<span class="n">ratings_df</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;ratings&#39;</span><span class="p">]</span>  <span class="c1"># DataFrame with user_id, movie_id, rating, timestamp</span>
+<span class="n">data</span> <span class="o">=</span> <span class="n">ml_1m</span><span class="o">.</span><span class="n">load</span><span class="p">()</span>
+<span class="n">ratings_df</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;ratings&#39;</span><span class="p">]</span>
 
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Loaded </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">ratings_df</span><span class="p">)</span><span class="si">}</span><span class="s2"> ratings&quot;</span><span class="p">)</span>
 
-<span class="c1"># Split data</span>
 <span class="n">train_df</span><span class="p">,</span> <span class="n">test_df</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span><span class="n">ratings_df</span><span class="p">,</span> <span class="n">test_size</span><span class="o">=</span><span class="mf">0.2</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">)</span>
 
-<span class="c1"># Extract arrays for model</span>
 <span class="n">train_users</span> <span class="o">=</span> <span class="n">train_df</span><span class="p">[</span><span class="s1">&#39;user_id&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span>
 <span class="n">train_items</span> <span class="o">=</span> <span class="n">train_df</span><span class="p">[</span><span class="s1">&#39;movie_id&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span>
-<span class="n">train_ratings</span> <span class="o">=</span> <span class="n">train_df</span><span class="p">[</span><span class="s1">&#39;rating&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span>
+<span class="c1"># BCE loss: binarize explicit ratings (watched/liked = 1.0)</span>
+<span class="n">train_ratings</span> <span class="o">=</span> <span class="p">(</span><span class="n">train_df</span><span class="p">[</span><span class="s1">&#39;rating&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span> <span class="o">&gt;=</span> <span class="mf">1.0</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">float32</span><span class="p">)</span>
 
 <span class="n">test_users</span> <span class="o">=</span> <span class="n">test_df</span><span class="p">[</span><span class="s1">&#39;user_id&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span>
 <span class="n">test_items</span> <span class="o">=</span> <span class="n">test_df</span><span class="p">[</span><span class="s1">&#39;movie_id&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span>
-<span class="n">test_ratings</span> <span class="o">=</span> <span class="n">test_df</span><span class="p">[</span><span class="s1">&#39;rating&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span>
+<span class="n">test_ratings</span> <span class="o">=</span> <span class="n">test_df</span><span class="p">[</span><span class="s1">&#39;rating&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span>  <span class="c1"># keep original for RMSE comparison if desired</span>
 </pre></div>
 </div>
 </section>
@@ -628,14 +621,12 @@ h_v = σ(Σ_{u ∈ N(v)} α_uv · W · h_u)
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">model</span> <span class="o">=</span> <span class="n">GNNRec</span><span class="p">(</span>
     <span class="n">name</span><span class="o">=</span><span class="s2">&quot;GNNRec_Model&quot;</span><span class="p">,</span>
     <span class="n">embedding_dim</span><span class="o">=</span><span class="mi">128</span><span class="p">,</span>
-    <span class="n">num_layers</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span>
-    <span class="n">aggregator</span><span class="o">=</span><span class="s1">&#39;mean&#39;</span><span class="p">,</span>
+    <span class="n">num_gnn_layers</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span>
     <span class="n">dropout</span><span class="o">=</span><span class="mf">0.1</span><span class="p">,</span>
-    <span class="n">negative_samples</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span>
     <span class="n">epochs</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span>
     <span class="n">batch_size</span><span class="o">=</span><span class="mi">256</span><span class="p">,</span>
     <span class="n">learning_rate</span><span class="o">=</span><span class="mf">0.001</span><span class="p">,</span>
-    <span class="n">verbose</span><span class="o">=</span><span class="kc">True</span>
+    <span class="n">verbose</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
 <span class="p">)</span>
 
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Initialized </span><span class="si">{</span><span class="n">model</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
@@ -647,7 +638,7 @@ h_v = σ(Σ_{u ∈ N(v)} α_uv · W · h_u)
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span>
     <span class="n">user_ids</span><span class="o">=</span><span class="n">train_users</span><span class="p">,</span>
     <span class="n">item_ids</span><span class="o">=</span><span class="n">train_items</span><span class="p">,</span>
-    <span class="n">ratings</span><span class="o">=</span><span class="n">train_ratings</span>
+    <span class="n">ratings</span><span class="o">=</span><span class="n">train_ratings</span><span class="p">,</span>
 <span class="p">)</span>
 
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Training complete!&quot;</span><span class="p">)</span>
@@ -656,23 +647,17 @@ h_v = σ(Σ_{u ∈ N(v)} α_uv · W · h_u)
 </section>
 <section id="step-4-predict">
 <h3>Step 4: Predict<a class="headerlink" href="#step-4-predict" title="Link to this heading">#</a></h3>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Single prediction</span>
-<span class="n">score</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">user_id</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">item_id</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">score</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">user_id</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">item_id</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Predicted score: </span><span class="si">{</span><span class="n">score</span><span class="si">:</span><span class="s2">.3f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 
-<span class="c1"># Batch predictions</span>
 <span class="n">test_predictions</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">batch_predict</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="nb">zip</span><span class="p">(</span><span class="n">test_users</span><span class="p">[:</span><span class="mi">100</span><span class="p">],</span> <span class="n">test_items</span><span class="p">[:</span><span class="mi">100</span><span class="p">])))</span>
 </pre></div>
 </div>
 </section>
 <section id="step-5-recommend">
 <h3>Step 5: Recommend<a class="headerlink" href="#step-5-recommend" title="Link to this heading">#</a></h3>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Get top-10 recommendations for user</span>
-<span class="n">user_id</span> <span class="o">=</span> <span class="mi">1</span>
-<span class="n">recommendations</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">recommend</span><span class="p">(</span>
-    <span class="n">user_id</span><span class="o">=</span><span class="n">user_id</span><span class="p">,</span>
-    <span class="n">top_k</span><span class="o">=</span><span class="mi">10</span>
-<span class="p">)</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">user_id</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="n">recommendations</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">recommend</span><span class="p">(</span><span class="n">user_id</span><span class="o">=</span><span class="n">user_id</span><span class="p">,</span> <span class="n">top_k</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
 
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Top-10 recommendations for User </span><span class="si">{</span><span class="n">user_id</span><span class="si">}</span><span class="s2">:&quot;</span><span class="p">)</span>
 <span class="k">for</span> <span class="n">rank</span><span class="p">,</span> <span class="n">item_id</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">recommendations</span><span class="p">,</span> <span class="mi">1</span><span class="p">):</span>
@@ -685,20 +670,16 @@ h_v = σ(Σ_{u ∈ N(v)} α_uv · W · h_u)
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.metrics</span><span class="w"> </span><span class="kn">import</span> <span class="n">mean_squared_error</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
 
-<span class="c1"># Predict all test ratings</span>
 <span class="n">test_pred</span> <span class="o">=</span> <span class="p">[</span><span class="n">model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">u</span><span class="p">,</span> <span class="n">i</span><span class="p">)</span> <span class="k">for</span> <span class="n">u</span><span class="p">,</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">test_users</span><span class="p">,</span> <span class="n">test_items</span><span class="p">)]</span>
 <span class="n">rmse</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">mean_squared_error</span><span class="p">(</span><span class="n">test_ratings</span><span class="p">,</span> <span class="n">test_pred</span><span class="p">))</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Test RMSE: </span><span class="si">{</span><span class="n">rmse</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Test RMSE (on original 1–5 scale): </span><span class="si">{</span><span class="n">rmse</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </section>
 <section id="step-7-save-load">
 <h3>Step 7: Save &amp; Load<a class="headerlink" href="#step-7-save-load" title="Link to this heading">#</a></h3>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Save model</span>
-<span class="n">model</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="s1">&#39;gnnrec_model.pkl&#39;</span><span class="p">)</span>
-
-<span class="c1"># Load model</span>
-<span class="n">loaded</span> <span class="o">=</span> <span class="n">GNNRec</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="s1">&#39;gnnrec_model.pkl&#39;</span><span class="p">)</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">model</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="s1">&#39;artifacts/gnnrec&#39;</span><span class="p">)</span>
+<span class="n">loaded</span> <span class="o">=</span> <span class="n">GNNRec</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="s1">&#39;artifacts/gnnrec&#39;</span><span class="p">)</span>
 <span class="n">test_score</span> <span class="o">=</span> <span class="n">loaded</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Loaded model prediction: </span><span class="si">{</span><span class="n">test_score</span><span class="si">:</span><span class="s2">.3f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 </pre></div>
@@ -711,31 +692,25 @@ h_v = σ(Σ_{u ∈ N(v)} α_uv · W · h_u)
 <h3>When to Use GNNRec<a class="headerlink" href="#when-to-use-gnnrec" title="Link to this heading">#</a></h3>
 <p>✅ <strong>Best For:</strong></p>
 <ul class="simple">
-<li><p>Social networks with user connections (trust, follow, friendship)</p></li>
-<li><p>Multi-hop relationships matter (friend-of-friend)</p></li>
-<li><p>Cold-start users (can leverage network)</p></li>
-<li><p>Heterogeneous graphs (users, items, categories, attributes)</p></li>
-<li><p>When graph structure provides signal</p></li>
+<li><p>User–item interaction graphs with enough density</p></li>
+<li><p>Multi-hop collaborative signal on bipartite graphs</p></li>
+<li><p>When graph convolution fits your retrieval/ranking stack</p></li>
 </ul>
 <p>❌ <strong>Not For:</strong></p>
 <ul class="simple">
-<li><p>No graph structure available → use collaborative filtering</p></li>
-<li><p>Very sparse graphs (avg degree &lt; 2) → not enough signal</p></li>
-<li><p>Real-time constraints (GNN can be slow)</p></li>
-<li><p>Pure sequential patterns → use RNN</p></li>
+<li><p>Pure sequential next-item modeling → use SASRec or BERT4Rec</p></li>
+<li><p>Very sparse graphs with almost no edges</p></li>
+<li><p>Raw 1–5 star labels without binarization or normalization</p></li>
 </ul>
 </section>
 <section id="best-practices">
 <h3>Best Practices<a class="headerlink" href="#best-practices" title="Link to this heading">#</a></h3>
 <ol class="arabic simple">
-<li><p><strong>Number of Layers</strong>: 2-3 layers optimal (more causes over-smoothing)</p></li>
-<li><p><strong>Aggregator Choice</strong>: Mean for homogeneous, Attention for heterogeneous</p></li>
-<li><p><strong>Embedding Dimension</strong>: 64-128 for most graphs</p></li>
-<li><p><strong>Neighborhood Sampling</strong>: Sample 10-25 neighbors per node (for scalability)</p></li>
-<li><p><strong>Mini-batch Training</strong>: Use GraphSAINT or cluster-GCN for large graphs</p></li>
-<li><p><strong>Dropout</strong>: 0.1-0.3 on edges/messages</p></li>
-<li><p><strong>Skip Connections</strong>: Add for deep networks (&gt;3 layers)</p></li>
-<li><p><strong>Negative Sampling</strong>: 5-10 negatives per positive edge</p></li>
+<li><p><strong>Layers</strong>: <code class="docutils literal notranslate"><span class="pre">num_gnn_layers=2–3</span></code> is a good default</p></li>
+<li><p><strong>Labels</strong>: Use 0/1 implicit feedback or scale ratings to [0, 1]</p></li>
+<li><p><strong>Embedding dimension</strong>: 64–128 for most datasets</p></li>
+<li><p><strong>Batch size</strong>: 256–1024 depending on GPU memory</p></li>
+<li><p><strong>Save path</strong>: Use a base path (<code class="docutils literal notranslate"><span class="pre">artifacts/gnnrec</span></code>) for the safe bundle</p></li>
 </ol>
 </section>
 </section>

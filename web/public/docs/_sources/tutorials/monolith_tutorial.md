@@ -57,7 +57,7 @@ The code examples below are **reference implementations** for learning purposes.
 ### Step 1: Import and Load Data
 
 ```python
-from corerec.engines.monolith import Monolith
+from corerec.sandbox.collaborative_full.nn_base.Monolith_base import Monolith_base as Monolith
 from cr_learn import ml_1m
 from sklearn.model_selection import train_test_split
 import numpy as np
@@ -152,10 +152,10 @@ print(f"Test RMSE: {rmse:.4f}")
 
 ```python
 # Save model
-model.save('monolith_model.pkl')
+model.save('artifacts/monolith_model')
 
 # Load model
-loaded = Monolith.load('monolith_model.pkl')
+loaded = Monolith.load('artifacts/monolith_model')
 test_score = loaded.predict(1, 100)
 print(f"Loaded model prediction: {test_score:.3f}")
 ```

@@ -60,7 +60,7 @@ The code examples below are **reference implementations** for learning purposes.
 ### Step 1: Import and Load Data
 
 ```python
-from corerec.engines.bprmf import BPRMF
+from corerec.sandbox.collaborative_full.bayesian_method_base.bprmf_base import BPRMF_base as BPRMF
 from cr_learn import ml_1m
 from sklearn.model_selection import train_test_split
 import numpy as np
@@ -155,10 +155,10 @@ print(f"Test RMSE: {rmse:.4f}")
 
 ```python
 # Save model
-model.save('bprmf_model.pkl')
+model.save('artifacts/bprmf_model')
 
 # Load model
-loaded = BPRMF.load('bprmf_model.pkl')
+loaded = BPRMF.load('artifacts/bprmf_model')
 test_score = loaded.predict(1, 100)
 print(f"Loaded model prediction: {test_score:.3f}")
 ```

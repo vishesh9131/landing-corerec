@@ -68,7 +68,7 @@ The code examples below are **reference implementations** for learning purposes.
 ### Step 1: Import and Load Data
 
 ```python
-from corerec.engines.bst import BST
+from corerec.sandbox.collaborative_full.nn_base.BST_base import BST_base as BST
 from cr_learn import ml_1m
 from sklearn.model_selection import train_test_split
 import numpy as np
@@ -165,10 +165,10 @@ print(f"Test RMSE: {rmse:.4f}")
 
 ```python
 # Save model
-model.save('bst_model.pkl')
+model.save('artifacts/bst_model')
 
 # Load model
-loaded = BST.load('bst_model.pkl')
+loaded = BST.load('artifacts/bst_model')
 test_score = loaded.predict(1, 100)
 print(f"Loaded model prediction: {test_score:.3f}")
 ```

@@ -2,58 +2,47 @@
 
 ## Introduction
 
-**SAR** is a Sequential Models model for recommendation systems. This model implements Smart Adaptive Recommendations.
+**SAR** (Smart Adaptive Recommendations) is an **item-based collaborative filtering** model. It uses item co-occurrence and similarity (Jaccard, lift, etc.) to produce fast, interpretable recommendations — similar in spirit to classic “users who liked this also liked…” systems.
 
 ## How SAR Works
 
 ### Architecture
 
-SAR uses a sophisticated architecture for recommendation tasks.
+SAR builds item–item similarity from user interaction history, then scores candidate items for each user from items they have already interacted with.
 
 ### Mathematical Foundation
 
-The model learns user and item representations for prediction.
+Recommendations combine item affinity and similarity signals over the user’s history (see Microsoft Recommenders SAR for the original formulation).
 
 ## Tutorial with cr_learn
 
 ### Step 1: Import and Load Data
 
 ```python
-from corerec.engines.sequential.sar import SAR
-import cr_learn
-import numpy as np
+from corerec.engines.collaborative import SAR
+from cr_learn import ml_1m
+from sklearn.model_selection import train_test_split
 
-# Load dataset
-data = cr_learn.load_dataset('movielens-100k')
-print(f"Loaded {len(data.ratings)} ratings")
+data = ml_1m.load()
+ratings_df = data['ratings']
+ratings_df = ratings_df.rename(columns={"user_id": "userID", "movie_id": "itemID"})
+train_df, test_df = train_test_split(ratings_df, test_size=0.2, random_state=42)
 
-# Split data
-train_data, test_data = data.train_test_split(test_size=0.2)
+print(f"Loaded {len(ratings_df)} ratings")
 ```
 
 ### Step 2: Initialize Model
 
 ```python
-model = SAR(
-    name="SAR_Model",
-    embedding_dim=64,
-    epochs=20,
-    batch_size=256,
-    learning_rate=0.001,
-    verbose=True
-)
+model = SAR(similarity_type='jaccard')
 
-print(f"Initialized {model.name}")
+print(f"Initialized SAR with {model.similarity_type} similarity")
 ```
 
 ### Step 3: Train
 
 ```python
-model.fit(
-    user_ids=train_data.user_ids,
-    item_ids=train_data.item_ids,
-    ratings=train_data.ratings
-)
+model.fit(train_df)
 
 print("Training complete!")
 ```
@@ -61,68 +50,51 @@ print("Training complete!")
 ### Step 4: Predict
 
 ```python
-# Single prediction
-score = model.predict(user_id=1, item_id=100)
+sample_user = train_df['userID'].iloc[0]
+sample_item = train_df['itemID'].iloc[0]
+score = model.predict(sample_user, sample_item)
 print(f"Predicted score: {score:.3f}")
-
-# Batch predictions
-pairs = [(1, 100), (2, 200), (3, 300)]
-scores = model.batch_predict(pairs)
-for (uid, iid), s in zip(pairs, scores):
-    print(f"User {uid}, Item {iid}: {s:.3f}")
 ```
 
 ### Step 5: Recommend
 
 ```python
-# Get top-10 recommendations
-recommendations = model.recommend(
-    user_id=1,
-    top_k=10,
-    exclude_items=train_data.get_user_items(1)
-)
+recommendations = model.recommend(user_id=sample_user, top_k=10)
 
-print(f"Top-10 recommendations for User 1:")
+print(f"Top-10 recommendations for User {sample_user}:")
 for rank, item_id in enumerate(recommendations, 1):
     print(f"  {rank}. Item {item_id}")
 ```
 
-### Step 6: Evaluate
+### Step 6: Save & Load
 
 ```python
-from corerec.metrics import rmse, ndcg_at_k
-
-# Rating prediction
-predictions = [model.predict(u, i) for u, i, r in test_data]
-test_rmse = rmse(test_data.ratings, predictions)
-print(f"Test RMSE: {test_rmse:.4f}")
-
-# Ranking quality
-ndcg = ndcg_at_k(model, test_data, k=10)
-print(f"NDCG@10: {ndcg:.4f}")
-```
-
-### Step 7: Save & Load
-
-```python
-# Save model
-model.save('sar_model.pkl')
-
-# Load model
-loaded = SAR.load('sar_model.pkl')
-test_score = loaded.predict(1, 100)
-print(f"Loaded model prediction: {test_score:.3f}")
+model.save('artifacts/sar')
+loaded = SAR.load('artifacts/sar')
+recs = loaded.recommend(sample_user, top_k=5)
+print(f"Loaded model recommendations: {recs}")
 ```
 
 ## Key Takeaways
 
 ### When to Use SAR
 
-✅ Best for datasets with sequential models characteristics
+✅ **Best for:**
+- Implicit or explicit feedback with item co-occurrence signal
+- Fast baseline CF without neural training
+- Interpretable item-similarity recommendations
+
+❌ **Not ideal for:**
+- Strict sequential next-item prediction (use SASRec / BERT4Rec)
+- Rich side features only (pair with content models)
 
 ### Best Practices
 
-1. Start with default parameters\n2. Tune embedding_dim based on data\n3. Use early stopping\n4. Monitor validation metrics
+1. Use `userID`, `itemID`, `rating` column names (or pass custom columns to `fit`)
+2. Try `similarity_type='jaccard'` or `'lift'` for implicit data
+3. Save with a base path (`artifacts/sar`) for the safe bundle default
 
 ## Further Reading
 
+- [SAR on Microsoft Recommenders](https://github.com/recommenders-team/recommenders)
+- [Production deployment](../examples/production_deployment.md)

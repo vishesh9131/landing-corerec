@@ -1,95 +1,60 @@
 # Graph-Based Models
 
-Graph-based recommendation models leverage the graph structure of user-item interactions and relationships to generate recommendations.
+Models that treat users and items as nodes in a bipartite interaction graph.
 
-## Overview
+## Production models (CI-tested)
 
-Graph-based models treat recommendation as a graph problem:
-- **Nodes**: Users and items
-- **Edges**: Interactions, relationships, similarities
-- **Graph Neural Networks**: Learn node embeddings through message passing
+| Model | Import | Tutorial |
+|-------|--------|----------|
+| **GNNRec** | `from corerec.engines.gnnrec import GNNRec` | [GNNRec](../tutorials/gnnrec_tutorial.md) |
+| **LightGCN** | `from corerec.engines.collaborative import LightGCN` | [LightGCN](../tutorials/lightgcn_tutorial.md) |
 
-## Available Models
+### GNNRec
 
-### Core Models
-
-#### GNNRec (Graph Neural Network Recommender)
-General graph neural network framework for recommendations.
-
-**Use Cases**: When rich relationship data is available.
-
-#### LightGCN
-Lightweight graph convolution network for collaborative filtering.
-
-**Use Cases**: Efficient graph-based collaborative filtering.
-
-### Graph Construction
-
-Graphs can be built from:
-- User-item interactions
-- Item-item similarities
-- User-user similarities
-- Knowledge graphs
-- Social networks
-
-## Model Characteristics
-
-### Input
-- Graph structure (adjacency matrix or edge list)
-- Node features (optional)
-- Edge weights (optional)
-
-### Output
-- Node embeddings (users and items)
-- Recommendation scores
-- Top-N recommendations
-
-## Training
+Graph neural message passing on the user–item bipartite graph. Uses BCE loss — pass **0/1 labels** (or normalize explicit ratings to [0, 1]).
 
 ```python
 from corerec.engines.gnnrec import GNNRec
 
 model = GNNRec(
     embedding_dim=64,
-    n_layers=3,
-    dropout=0.1
+    num_gnn_layers=3,
+    epochs=20,
+    batch_size=256,
+    verbose=True,
 )
-
-model.fit(
-    user_ids=user_ids,
-    item_ids=item_ids,
-    ratings=ratings
-)
+model.fit(user_ids=user_ids, item_ids=item_ids, ratings=binary_ratings)
+recs = model.recommend(user_id=1, top_k=10)
 ```
 
-## Advantages
+### LightGCN
 
-- **Relationships**: Captures complex relationships
-- **Structure**: Leverages graph structure effectively
-- **Scalability**: Can handle large graphs
-- **Cold Start**: Can use graph structure for new nodes
+Simplified graph convolution for collaborative filtering.
 
-## Limitations
+```python
+from corerec.engines.collaborative import LightGCN
 
-- **Graph Quality**: Performance depends on graph construction
-- **Computation**: Can be computationally intensive
-- **Sparsity**: Very sparse graphs may not work well
+model = LightGCN(n_factors=64, n_layers=3, epochs=100, verbose=True)
+model.fit(user_ids, item_ids, ratings)  # triplet implicit feedback
+recs = model.recommend(user_id=1, top_k=10)
+```
 
-## Best Practices
+## Sandbox models (experimental)
 
-1. **Graph Construction**: Build meaningful graphs
-2. **Layers**: 2-4 layers typically work best
-3. **Regularization**: Use dropout to prevent overfitting
-4. **Sampling**: Use negative sampling for efficiency
+| Model | Import | Tutorial |
+|-------|--------|----------|
+| GeoIMC | sandbox graph_based | [GeoIMC](../tutorials/geoimc_tutorial.md) |
+| LightGCN-Base | `corerec.sandbox.collaborative_full.graph_based_base.lightgcn_base` | [LightGCN Base](../tutorials/lightgcn_base_tutorial.md) |
+| GNN-Base | `corerec.sandbox.collaborative_full.graph_based_base.GNN_base` | [GNN Base](../tutorials/gnn_base_tutorial.md) |
 
-## When to Use
+## When to use
 
-- Rich relationship data available
-- Social networks or knowledge graphs
-- Need to leverage item/item connections
-- User-user relationships important
+- Rich user–item interaction graphs
+- Social or knowledge-graph extensions (sandbox)
+- When CF matrix methods underperform on link structure
 
-## Tutorials
+## See also
 
-See graph-based model tutorials in the [Tutorials](../tutorials/index.md) section.
-
+- [Deep learning models](deep_learning.md) (GNNRec)
+- [Matrix factorization](matrix_factorization.md)
+- [Model index](models_index.md)

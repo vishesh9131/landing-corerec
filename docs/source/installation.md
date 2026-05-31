@@ -20,28 +20,38 @@ cd CoreRec
 pip install -e .
 ```
 
-## Install with Optional Dependencies
+## Optional Extras
 
-### For Deep Learning Models
 ```bash
-pip install corerec[deeplearning]
+# Serving (FastAPI REST API)
+pip install "corerec[serving]"
+
+# Tutorial datasets (cr_learn)
+pip install "corerec[datasets]"
+
+# Development + tests
+pip install "corerec[dev]"
+
+# Everything
+pip install "corerec[all]"
 ```
 
-### For Graph Models
-```bash
-pip install corerec[graph]
-```
-
-### For All Features
-```bash
-pip install corerec[all]
-```
+See also: {doc}`api_versioning` (API stability policy) and {doc}`torch_nn_vendored` (internal PyTorch modules).
 
 ## Install cr_learn (for tutorials)
+
+Tutorial examples use the `cr_learn` dataset package:
 
 ```bash
 pip install cr_learn
 ```
+
+The first run of `ml_1m.load()` downloads MovieLens 1M (~25 MB) to your local cache.
+
+## Environment Notes
+
+- **NumPy / PyTorch**: If you see NumPy compatibility warnings with PyTorch, use a matched pair, e.g. `pip install 'numpy<2'` with older PyTorch builds, or upgrade PyTorch to a NumPy 2–compatible release.
+- **GPU**: Deep learning models auto-detect CUDA when available; CPU works for small examples.
 
 ## Verify Installation
 

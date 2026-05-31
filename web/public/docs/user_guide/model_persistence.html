@@ -49,7 +49,7 @@
     <script>DOCUMENTATION_OPTIONS.pagename = 'user_guide/model_persistence';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Best Practices" href="best_practices.html" />
+    <link rel="next" title="Safe Model Bundles (corerec_safe_v1)" href="safe_bundle_persistence.html" />
     <link rel="prev" title="Making Predictions" href="making_predictions.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
@@ -174,17 +174,22 @@
 <li class="toctree-l1"><a class="reference internal" href="model_training.html">Model Training</a></li>
 <li class="toctree-l1"><a class="reference internal" href="making_predictions.html">Making Predictions</a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Model Persistence</a></li>
+<li class="toctree-l1"><a class="reference internal" href="safe_bundle_persistence.html">Safe Model Bundles (<code class="docutils literal notranslate"><span class="pre">corerec_safe_v1</span></code>)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="best_practices.html">Best Practices</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api_versioning.html">CoreRec API Versioning Policy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../torch_nn_vendored.html">Vendored <code class="docutils literal notranslate"><span class="pre">torch_nn</span></code> and <code class="docutils literal notranslate"><span class="pre">torch_utils</span></code></a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Model Documentation</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../models/index.html">Model Documentation</a></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../models/models_index.html">Model Documentation Index</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../models/index.html">Model Documentation</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../models/deep_learning.html">Deep Learning Models</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../models/matrix_factorization.html">Matrix Factorization Models</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../models/graph_based.html">Graph-Based Models</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../models/sequential.html">Sequential Models</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../models/bayesian.html">Bayesian Models</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../models/content_based.html">Content-Based Models</a></li>
 </ul>
 </details></li>
 </ul>
@@ -198,9 +203,12 @@
 <li class="toctree-l2"><a class="reference internal" href="../tutorials/nasrec_tutorial.html">NASRec Tutorial: NASRec</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../tutorials/sasrec_tutorial.html">SASRec Tutorial: SASRec</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../tutorials/bert4rec_tutorial.html">Bert4Rec Tutorial: BERT for Sequential Recommendation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorials/two_tower_tutorial.html">TwoTower Tutorial: Dual-Encoder Retrieval</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../tutorials/ncf_tutorial.html">NCF Tutorial: Neural Collaborative Filtering</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../tutorials/sar_tutorial.html">SAR Tutorial: Smart Adaptive Recommendations</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../tutorials/lightgcn_tutorial.html">LightGCN Tutorial: Light Graph Convolutional Network</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorials/fast_tutorial.html">FAST Tutorial: Fast Approximate Similarity Filtering</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorials/fast_recommender_tutorial.html">FASTRecommender Tutorial: Extended FAST Model</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../tutorials/tfidf_tutorial.html">TFIDF Tutorial: TF-IDF Based Recommender</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../tutorials/afm_tutorial.html">AFM Tutorial: Attentional Factorization Machine</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../tutorials/autofi_tutorial.html">AutoFI Tutorial: Automatic Feature Interaction</a></li>
@@ -500,10 +508,13 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#saving-models">Saving Models</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#loading-models">Loading Models</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#model-information">Model Information</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#checking-model-state">Checking Model State</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#saving-models-production-default">Saving models (production default)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#loading-models">Loading models</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#safe-bundle-specification">Safe bundle specification</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#legacy-formats">Legacy formats</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#verify-round-trip-quality">Verify round-trip quality</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#model-information">Model information</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#checking-model-state">Checking model state</a></li>
 </ul>
             </nav>
         </div>
@@ -517,42 +528,59 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="model-persistence">
 <h1>Model Persistence<a class="headerlink" href="#model-persistence" title="Link to this heading">#</a></h1>
-<section id="saving-models">
-<h2>Saving Models<a class="headerlink" href="#saving-models" title="Link to this heading">#</a></h2>
-<p>All CoreRec models support saving to disk:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Save model</span>
-<span class="n">model</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="s1">&#39;my_model.pkl&#39;</span><span class="p">)</span>
+<section id="saving-models-production-default">
+<h2>Saving models (production default)<a class="headerlink" href="#saving-models-production-default" title="Link to this heading">#</a></h2>
+<p>All 14 production models support safe bundles (<code class="docutils literal notranslate"><span class="pre">corerec_safe_v1</span></code>):</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">model</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="s2">&quot;/artifacts/my_model&quot;</span><span class="p">)</span>   <span class="c1"># safe=True by default</span>
+</pre></div>
+</div>
+<p>This writes JSON metadata plus separate weight/array files — no pickle in the default path.</p>
+</section>
+<section id="loading-models">
+<h2>Loading models<a class="headerlink" href="#loading-models" title="Link to this heading">#</a></h2>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">corerec.engines</span><span class="w"> </span><span class="kn">import</span> <span class="n">DCN</span>
+
+<span class="n">loaded</span> <span class="o">=</span> <span class="n">DCN</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="s2">&quot;/artifacts/my_model&quot;</span><span class="p">)</span>  <span class="c1"># auto-detects safe vs legacy</span>
+<span class="n">recommendations</span> <span class="o">=</span> <span class="n">loaded</span><span class="o">.</span><span class="n">recommend</span><span class="p">(</span><span class="n">user_id</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">top_k</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
 </pre></div>
 </div>
 </section>
-<section id="loading-models">
-<h2>Loading Models<a class="headerlink" href="#loading-models" title="Link to this heading">#</a></h2>
-<p>Load a previously saved model:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">corerec.engines</span><span class="w"> </span><span class="kn">import</span> <span class="n">DeepFM</span>
-
-<span class="n">model</span> <span class="o">=</span> <span class="n">DeepFM</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="s1">&#39;my_model.pkl&#39;</span><span class="p">)</span>
-<span class="n">recommendations</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">recommend</span><span class="p">(</span><span class="n">user_id</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">top_k</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+<section id="safe-bundle-specification">
+<h2>Safe bundle specification<a class="headerlink" href="#safe-bundle-specification" title="Link to this heading">#</a></h2>
+<p>See <a class="reference internal" href="safe_bundle_persistence.html"><span class="doc">Safe Model Bundles (corerec_safe_v1)</span></a> for file layout, ID map encoding, and migration from legacy <code class="docutils literal notranslate"><span class="pre">.pkl</span></code> / <code class="docutils literal notranslate"><span class="pre">.pt</span></code> artifacts.</p>
+</section>
+<section id="legacy-formats">
+<h2>Legacy formats<a class="headerlink" href="#legacy-formats" title="Link to this heading">#</a></h2>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">model</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="s2">&quot;legacy.pkl&quot;</span><span class="p">,</span> <span class="n">safe</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>  <span class="c1"># pickle/torch — untrusted files are unsafe</span>
+</pre></div>
+</div>
+<p>Migrate existing deployments:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">legacy</span> <span class="o">=</span> <span class="n">SAR</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="s2">&quot;old/sar.pkl&quot;</span><span class="p">)</span>
+<span class="n">legacy</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="s2">&quot;prod/sar&quot;</span><span class="p">,</span> <span class="n">safe</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="verify-round-trip-quality">
+<h2>Verify round-trip quality<a class="headerlink" href="#verify-round-trip-quality" title="Link to this heading">#</a></h2>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">uid</span><span class="p">,</span> <span class="n">iid</span> <span class="o">=</span> <span class="mi">42</span><span class="p">,</span> <span class="mi">1001</span>
+<span class="k">assert</span> <span class="nb">abs</span><span class="p">(</span><span class="n">model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">uid</span><span class="p">,</span> <span class="n">iid</span><span class="p">)</span> <span class="o">-</span> <span class="n">loaded</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">uid</span><span class="p">,</span> <span class="n">iid</span><span class="p">))</span> <span class="o">&lt;</span> <span class="mf">1e-2</span>
+<span class="n">recs</span> <span class="o">=</span> <span class="n">loaded</span><span class="o">.</span><span class="n">recommend</span><span class="p">(</span><span class="n">uid</span><span class="p">,</span> <span class="n">top_k</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
 </pre></div>
 </div>
 </section>
 <section id="model-information">
-<h2>Model Information<a class="headerlink" href="#model-information" title="Link to this heading">#</a></h2>
-<p>Inspect a model’s configuration and state:</p>
+<h2>Model information<a class="headerlink" href="#model-information" title="Link to this heading">#</a></h2>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">info</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">get_model_info</span><span class="p">()</span>
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Model: </span><span class="si">{</span><span class="n">info</span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Users: </span><span class="si">{</span><span class="n">info</span><span class="p">[</span><span class="s1">&#39;num_users&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Items: </span><span class="si">{</span><span class="n">info</span><span class="p">[</span><span class="s1">&#39;num_items&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Fitted: </span><span class="si">{</span><span class="n">info</span><span class="p">[</span><span class="s1">&#39;is_fitted&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </section>
 <section id="checking-model-state">
-<h2>Checking Model State<a class="headerlink" href="#checking-model-state" title="Link to this heading">#</a></h2>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Check if model has been trained</span>
-<span class="k">if</span> <span class="n">model</span><span class="o">.</span><span class="n">is_fitted</span><span class="p">:</span>
+<h2>Checking model state<a class="headerlink" href="#checking-model-state" title="Link to this heading">#</a></h2>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="n">model</span><span class="o">.</span><span class="n">is_fitted</span><span class="p">:</span>
     <span class="n">recs</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">recommend</span><span class="p">(</span><span class="n">user_id</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">top_k</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
 
-<span class="c1"># Check if model knows a specific user/item</span>
 <span class="k">if</span> <span class="n">model</span><span class="o">.</span><span class="n">knows_user</span><span class="p">(</span><span class="mi">42</span><span class="p">):</span>
     <span class="n">score</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">user_id</span><span class="o">=</span><span class="mi">42</span><span class="p">,</span> <span class="n">item_id</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span>
 </pre></div>
@@ -581,11 +609,11 @@ document.write(`
       </div>
     </a>
     <a class="right-next"
-       href="best_practices.html"
+       href="safe_bundle_persistence.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Best Practices</p>
+        <p class="prev-next-title">Safe Model Bundles (<code class="docutils literal notranslate"><span class="pre">corerec_safe_v1</span></code>)</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -605,10 +633,13 @@ document.write(`
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#saving-models">Saving Models</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#loading-models">Loading Models</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#model-information">Model Information</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#checking-model-state">Checking Model State</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#saving-models-production-default">Saving models (production default)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#loading-models">Loading models</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#safe-bundle-specification">Safe bundle specification</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#legacy-formats">Legacy formats</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#verify-round-trip-quality">Verify round-trip quality</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#model-information">Model information</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#checking-model-state">Checking model state</a></li>
 </ul>
   </nav></div>
 
