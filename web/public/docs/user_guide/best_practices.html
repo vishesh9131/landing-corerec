@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Best Practices &#8212; CoreRec 0.5.1 documentation</title>
+    <title>Best Practices &#8212; CoreRec 0.5.4 documentation</title>
   
   
   
@@ -39,7 +39,7 @@
 <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
   <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
 
-    <script src="../_static/documentation_options.js?v=5f152624"></script>
+    <script src="../_static/documentation_options.js?v=6688a68e"></script>
     <script src="../_static/doctools.js?v=9bcbadda"></script>
     <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
@@ -49,8 +49,8 @@
     <script>DOCUMENTATION_OPTIONS.pagename = 'user_guide/best_practices';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Model Documentation" href="../models/index.html" />
-    <link rel="prev" title="Model Persistence" href="model_persistence.html" />
+    <link rel="next" title="CoreRec API Versioning Policy" href="../api_versioning.html" />
+    <link rel="prev" title="Safe Model Bundles (corerec_safe_v1)" href="safe_bundle_persistence.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -138,7 +138,7 @@
   
   
   
-    <p class="title logo__title">CoreRec 0.5.1 documentation</p>
+    <p class="title logo__title">CoreRec 0.5.4 documentation</p>
   
 </a></div>
         <div class="sidebar-primary-item">
@@ -173,16 +173,19 @@
 <li class="toctree-l1"><a class="reference internal" href="data_preparation.html">Data Preparation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="model_training.html">Model Training</a></li>
 <li class="toctree-l1"><a class="reference internal" href="making_predictions.html">Making Predictions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="online_serving.html">Online Serving at Scale</a></li>
 <li class="toctree-l1"><a class="reference internal" href="model_persistence.html">Model Persistence</a></li>
+<li class="toctree-l1"><a class="reference internal" href="safe_bundle_persistence.html">Safe Model Bundles (<code class="docutils literal notranslate"><span class="pre">corerec_safe_v1</span></code>)</a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Best Practices</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api_versioning.html">CoreRec API Versioning Policy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../torch_nn_vendored.html">Vendored <code class="docutils literal notranslate"><span class="pre">torch_nn</span></code> and <code class="docutils literal notranslate"><span class="pre">torch_utils</span></code></a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Model Documentation</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../models/index.html">Model Documentation</a></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../models/models_index.html">Model Documentation Index</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l2"><a class="reference internal" href="../models/index.html">Model Documentation</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../models/models_index.html">Complete Model Index</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../models/deep_learning.html">Deep Learning Models</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../models/matrix_factorization.html">Matrix Factorization Models</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../models/matrix_factorization.html">Matrix Factorization &amp; Collaborative Filtering</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../models/graph_based.html">Graph-Based Models</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../models/sequential.html">Sequential Models</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../models/bayesian.html">Bayesian Models</a></li>
@@ -645,20 +648,20 @@ document.write(`
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="model_persistence.html"
+       href="safe_bundle_persistence.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Model Persistence</p>
+        <p class="prev-next-title">Safe Model Bundles (<code class="docutils literal notranslate"><span class="pre">corerec_safe_v1</span></code>)</p>
       </div>
     </a>
     <a class="right-next"
-       href="../models/index.html"
+       href="../api_versioning.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Model Documentation</p>
+        <p class="prev-next-title">CoreRec API Versioning Policy</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>

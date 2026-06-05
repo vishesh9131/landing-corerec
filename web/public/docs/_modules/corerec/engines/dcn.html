@@ -7,7 +7,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>corerec.engines.dcn &#8212; CoreRec 0.5.1 documentation</title>
+    <title>corerec.engines.dcn &#8212; CoreRec 0.5.4 documentation</title>
   
   
   
@@ -38,7 +38,7 @@
 <link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
   <script src="../../../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
 
-    <script src="../../../_static/documentation_options.js?v=5f152624"></script>
+    <script src="../../../_static/documentation_options.js?v=6688a68e"></script>
     <script src="../../../_static/doctools.js?v=9bcbadda"></script>
     <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../../../_static/clipboard.min.js?v=a7894cd8"></script>
@@ -137,7 +137,7 @@
   
   
   
-    <p class="title logo__title">CoreRec 0.5.1 documentation</p>
+    <p class="title logo__title">CoreRec 0.5.4 documentation</p>
   
 </a></div>
         <div class="sidebar-primary-item">
@@ -172,6 +172,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../../../user_guide/data_preparation.html">Data Preparation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../user_guide/model_training.html">Model Training</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../user_guide/making_predictions.html">Making Predictions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../user_guide/online_serving.html">Online Serving at Scale</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../user_guide/model_persistence.html">Model Persistence</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../user_guide/safe_bundle_persistence.html">Safe Model Bundles (<code class="docutils literal notranslate"><span class="pre">corerec_safe_v1</span></code>)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../user_guide/best_practices.html">Best Practices</a></li>
@@ -181,10 +182,9 @@
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Model Documentation</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../../../models/index.html">Model Documentation</a></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../../../models/models_index.html">Model Documentation Index</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l2"><a class="reference internal" href="../../../models/index.html">Model Documentation</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../models/models_index.html">Complete Model Index</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../../../models/deep_learning.html">Deep Learning Models</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../models/matrix_factorization.html">Matrix Factorization Models</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../models/matrix_factorization.html">Matrix Factorization &amp; Collaborative Filtering</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../models/graph_based.html">Graph-Based Models</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../models/sequential.html">Sequential Models</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../models/bayesian.html">Bayesian Models</a></li>
@@ -518,6 +518,8 @@ document.write(`
         <span class="n">trainable</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
         <span class="n">verbose</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
         <span class="n">device</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;cuda&quot;</span> <span class="k">if</span> <span class="n">torch</span><span class="o">.</span><span class="n">cuda</span><span class="o">.</span><span class="n">is_available</span><span class="p">()</span> <span class="k">else</span> <span class="s2">&quot;cpu&quot;</span><span class="p">,</span>
+        <span class="n">task</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;auto&quot;</span><span class="p">,</span>
+        <span class="n">num_negatives</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">4</span><span class="p">,</span>
     <span class="p">):</span>
         <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="n">name</span><span class="p">,</span> <span class="n">trainable</span><span class="o">=</span><span class="n">trainable</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="n">verbose</span><span class="p">)</span>
 
@@ -546,6 +548,20 @@ document.write(`
         <span class="k">if</span> <span class="n">epochs</span> <span class="o">&lt;</span> <span class="mi">1</span><span class="p">:</span>
             <span class="k">raise</span> <span class="n">InvalidParameterError</span><span class="p">(</span><span class="s2">&quot;epochs must be at least 1&quot;</span><span class="p">)</span>
 
+        <span class="k">if</span> <span class="n">task</span> <span class="ow">not</span> <span class="ow">in</span> <span class="p">(</span><span class="s2">&quot;auto&quot;</span><span class="p">,</span> <span class="s2">&quot;implicit&quot;</span><span class="p">,</span> <span class="s2">&quot;rating&quot;</span><span class="p">):</span>
+            <span class="k">raise</span> <span class="n">InvalidParameterError</span><span class="p">(</span><span class="s2">&quot;task must be one of {&#39;auto&#39;, &#39;implicit&#39;, &#39;rating&#39;}&quot;</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="n">num_negatives</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">InvalidParameterError</span><span class="p">(</span><span class="s2">&quot;num_negatives must be &gt;= 0&quot;</span><span class="p">)</span>
+
+        <span class="c1"># task contract:</span>
+        <span class="c1">#   implicit -&gt; binary relevance + negative sampling, sigmoid + BCE (ranking)</span>
+        <span class="c1">#   rating   -&gt; regress the supplied rating, linear head + MSE</span>
+        <span class="c1">#   auto     -&gt; implicit (top-K recommendation is the primary path)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">task</span> <span class="o">=</span> <span class="n">task</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">num_negatives</span> <span class="o">=</span> <span class="n">num_negatives</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_fit_task</span> <span class="o">=</span> <span class="kc">None</span>  <span class="c1"># resolved task after fit</span>
+
         <span class="bp">self</span><span class="o">.</span><span class="n">embedding_dim</span> <span class="o">=</span> <span class="n">embedding_dim</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">num_cross_layers</span> <span class="o">=</span> <span class="n">num_cross_layers</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">deep_layers</span> <span class="o">=</span> <span class="n">deep_layers</span>
@@ -566,7 +582,7 @@ document.write(`
         <span class="bp">self</span><span class="o">.</span><span class="n">item_features</span> <span class="o">=</span> <span class="p">{}</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">model</span> <span class="o">=</span> <span class="kc">None</span>
 
-    <span class="k">def</span><span class="w"> </span><span class="nf">_build_model</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">num_features</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">max_features</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">2</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">_build_model</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">num_features</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">max_features</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">2</span><span class="p">,</span> <span class="n">use_sigmoid</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">):</span>
         <span class="k">class</span><span class="w"> </span><span class="nc">CrossLayer</span><span class="p">(</span><span class="n">nn</span><span class="o">.</span><span class="n">Module</span><span class="p">):</span>
             <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">input_dim</span><span class="p">:</span> <span class="nb">int</span><span class="p">):</span>
                 <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
@@ -631,16 +647,20 @@ document.write(`
                 <span class="n">combined</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">cat</span><span class="p">([</span><span class="n">cross_output</span><span class="p">,</span> <span class="n">deep_output</span><span class="p">],</span> <span class="n">dim</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
                 <span class="n">output</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">combination</span><span class="p">(</span><span class="n">combined</span><span class="p">)</span>
 
-                <span class="k">return</span> <span class="n">torch</span><span class="o">.</span><span class="n">sigmoid</span><span class="p">(</span><span class="n">output</span><span class="p">)</span><span class="o">.</span><span class="n">squeeze</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+                <span class="n">output</span> <span class="o">=</span> <span class="n">output</span><span class="o">.</span><span class="n">squeeze</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+                <span class="c1"># sigmoid only for the implicit (BCE) head; rating head is linear</span>
+                <span class="k">return</span> <span class="n">torch</span><span class="o">.</span><span class="n">sigmoid</span><span class="p">(</span><span class="n">output</span><span class="p">)</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">use_sigmoid</span> <span class="k">else</span> <span class="n">output</span>
 
-        <span class="k">return</span> <span class="n">DeepCrossNetworkModel</span><span class="p">(</span>
+        <span class="n">model</span> <span class="o">=</span> <span class="n">DeepCrossNetworkModel</span><span class="p">(</span>
             <span class="n">num_features</span><span class="p">,</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">embedding_dim</span><span class="p">,</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">num_cross_layers</span><span class="p">,</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">deep_layers</span><span class="p">,</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">dropout</span><span class="p">,</span>
             <span class="n">max_features</span><span class="p">,</span>
-        <span class="p">)</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">device</span><span class="p">)</span>
+        <span class="p">)</span>
+        <span class="n">model</span><span class="o">.</span><span class="n">use_sigmoid</span> <span class="o">=</span> <span class="n">use_sigmoid</span>
+        <span class="k">return</span> <span class="n">model</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">device</span><span class="p">)</span>
 
 <div class="viewcode-block" id="DCN.fit">
 <a class="viewcode-back" href="../../../api/engines.html#corerec.engines.dcn.DCN.fit">[docs]</a>
@@ -709,37 +729,59 @@ document.write(`
                         <span class="p">)</span>
                     <span class="n">feature_values</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">feature_map</span><span class="p">[</span><span class="n">feature_key</span><span class="p">])</span>
 
+        <span class="c1"># Resolve the task contract. &#39;auto&#39; -&gt; implicit, because top-K</span>
+        <span class="c1"># recommendation is the primary path and implicit training (positives</span>
+        <span class="c1"># plus sampled negatives) is what makes ranking work. Training BCE on</span>
+        <span class="c1"># observed-only data (all labels = 1) collapses the model to a constant.</span>
+        <span class="n">task</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">task</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">task</span> <span class="o">!=</span> <span class="s2">&quot;auto&quot;</span> <span class="k">else</span> <span class="s2">&quot;implicit&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_fit_task</span> <span class="o">=</span> <span class="n">task</span>
+
+        <span class="c1"># Per-user seen items for negative sampling</span>
+        <span class="kn">from</span><span class="w"> </span><span class="nn">collections</span><span class="w"> </span><span class="kn">import</span> <span class="n">defaultdict</span>
+
+        <span class="n">seen</span> <span class="o">=</span> <span class="n">defaultdict</span><span class="p">(</span><span class="nb">set</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">u</span><span class="p">,</span> <span class="n">it</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">user_ids</span><span class="p">,</span> <span class="n">item_ids</span><span class="p">):</span>
+            <span class="n">seen</span><span class="p">[</span><span class="n">u</span><span class="p">]</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">it</span><span class="p">)</span>
+        <span class="n">all_item_ids</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">unique_items</span><span class="p">)</span>
+        <span class="n">n_items_total</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">all_item_ids</span><span class="p">)</span>
+        <span class="n">rng</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">RandomState</span><span class="p">(</span><span class="mi">42</span><span class="p">)</span>
+
+        <span class="k">def</span><span class="w"> </span><span class="nf">build_feat</span><span class="p">(</span><span class="n">uid</span><span class="p">,</span> <span class="n">iid</span><span class="p">):</span>
+            <span class="n">fi</span> <span class="o">=</span> <span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">user_map</span><span class="p">[</span><span class="n">uid</span><span class="p">],</span> <span class="bp">self</span><span class="o">.</span><span class="n">item_map</span><span class="p">[</span><span class="n">iid</span><span class="p">]]</span>
+            <span class="k">if</span> <span class="n">user_features</span> <span class="ow">and</span> <span class="n">uid</span> <span class="ow">in</span> <span class="n">user_features</span><span class="p">:</span>
+                <span class="k">for</span> <span class="n">feature</span><span class="p">,</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">user_features</span><span class="p">[</span><span class="n">uid</span><span class="p">]</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+                    <span class="n">fk</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;user_</span><span class="si">{</span><span class="n">feature</span><span class="si">}</span><span class="s2">_</span><span class="si">{</span><span class="n">value</span><span class="si">}</span><span class="s2">&quot;</span>
+                    <span class="k">if</span> <span class="n">fk</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">feature_map</span><span class="p">:</span>
+                        <span class="n">fi</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">feature_map</span><span class="p">[</span><span class="n">fk</span><span class="p">])</span>
+            <span class="k">if</span> <span class="n">item_features</span> <span class="ow">and</span> <span class="n">iid</span> <span class="ow">in</span> <span class="n">item_features</span><span class="p">:</span>
+                <span class="k">for</span> <span class="n">feature</span><span class="p">,</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">item_features</span><span class="p">[</span><span class="n">iid</span><span class="p">]</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+                    <span class="n">fk</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;item_</span><span class="si">{</span><span class="n">feature</span><span class="si">}</span><span class="s2">_</span><span class="si">{</span><span class="n">value</span><span class="si">}</span><span class="s2">&quot;</span>
+                    <span class="k">if</span> <span class="n">fk</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">feature_map</span><span class="p">:</span>
+                        <span class="n">fi</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">feature_map</span><span class="p">[</span><span class="n">fk</span><span class="p">])</span>
+            <span class="k">return</span> <span class="n">fi</span>
+
         <span class="c1"># Create training data first to determine max_features</span>
         <span class="n">train_features</span> <span class="o">=</span> <span class="p">[]</span>
         <span class="n">train_labels</span> <span class="o">=</span> <span class="p">[]</span>
 
         <span class="k">for</span> <span class="n">user_id</span><span class="p">,</span> <span class="n">item_id</span><span class="p">,</span> <span class="n">rating</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">user_ids</span><span class="p">,</span> <span class="n">item_ids</span><span class="p">,</span> <span class="n">ratings</span><span class="p">):</span>
-            <span class="c1"># Get user and item indices</span>
-            <span class="n">user_idx</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">user_map</span><span class="p">[</span><span class="n">user_id</span><span class="p">]</span>
-            <span class="n">item_idx</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">item_map</span><span class="p">[</span><span class="n">item_id</span><span class="p">]</span>
-
-            <span class="c1"># Get feature indices</span>
-            <span class="n">feature_indices</span> <span class="o">=</span> <span class="p">[</span><span class="n">user_idx</span><span class="p">,</span> <span class="n">item_idx</span><span class="p">]</span>
-
-            <span class="c1"># Add user features</span>
-            <span class="k">if</span> <span class="n">user_features</span> <span class="ow">and</span> <span class="n">user_id</span> <span class="ow">in</span> <span class="n">user_features</span><span class="p">:</span>
-                <span class="k">for</span> <span class="n">feature</span><span class="p">,</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">user_features</span><span class="p">[</span><span class="n">user_id</span><span class="p">]</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
-                    <span class="n">feature_key</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;user_</span><span class="si">{</span><span class="n">feature</span><span class="si">}</span><span class="s2">_</span><span class="si">{</span><span class="n">value</span><span class="si">}</span><span class="s2">&quot;</span>
-                    <span class="k">if</span> <span class="n">feature_key</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">feature_map</span><span class="p">:</span>
-                        <span class="n">feature_indices</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">feature_map</span><span class="p">[</span><span class="n">feature_key</span><span class="p">])</span>
-
-            <span class="c1"># Add item features</span>
-            <span class="k">if</span> <span class="n">item_features</span> <span class="ow">and</span> <span class="n">item_id</span> <span class="ow">in</span> <span class="n">item_features</span><span class="p">:</span>
-                <span class="k">for</span> <span class="n">feature</span><span class="p">,</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">item_features</span><span class="p">[</span><span class="n">item_id</span><span class="p">]</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
-                    <span class="n">feature_key</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;item_</span><span class="si">{</span><span class="n">feature</span><span class="si">}</span><span class="s2">_</span><span class="si">{</span><span class="n">value</span><span class="si">}</span><span class="s2">&quot;</span>
-                    <span class="k">if</span> <span class="n">feature_key</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">feature_map</span><span class="p">:</span>
-                        <span class="n">feature_indices</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">feature_map</span><span class="p">[</span><span class="n">feature_key</span><span class="p">])</span>
-
-            <span class="c1"># Add to training data</span>
-            <span class="n">train_features</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">feature_indices</span><span class="p">)</span>
-            <span class="n">train_labels</span><span class="o">.</span><span class="n">append</span><span class="p">(</span>
-                <span class="mf">1.0</span> <span class="k">if</span> <span class="n">rating</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="k">else</span> <span class="mf">0.0</span>
-            <span class="p">)</span>  <span class="c1"># Convert to binary for implicit feedback</span>
+            <span class="k">if</span> <span class="n">task</span> <span class="o">==</span> <span class="s2">&quot;rating&quot;</span><span class="p">:</span>
+                <span class="n">train_features</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">build_feat</span><span class="p">(</span><span class="n">user_id</span><span class="p">,</span> <span class="n">item_id</span><span class="p">))</span>
+                <span class="n">train_labels</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="n">rating</span><span class="p">))</span>
+                <span class="k">continue</span>
+            <span class="c1"># implicit: observed interaction is a positive ...</span>
+            <span class="n">train_features</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">build_feat</span><span class="p">(</span><span class="n">user_id</span><span class="p">,</span> <span class="n">item_id</span><span class="p">))</span>
+            <span class="n">train_labels</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mf">1.0</span><span class="p">)</span>
+            <span class="c1"># ... plus sampled unobserved negatives so BCE has real signal</span>
+            <span class="n">user_seen</span> <span class="o">=</span> <span class="n">seen</span><span class="p">[</span><span class="n">user_id</span><span class="p">]</span>
+            <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">num_negatives</span><span class="p">):</span>
+                <span class="n">neg</span> <span class="o">=</span> <span class="n">all_item_ids</span><span class="p">[</span><span class="n">rng</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="n">n_items_total</span><span class="p">)]</span>
+                <span class="k">for</span> <span class="n">_try</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">):</span>
+                    <span class="k">if</span> <span class="n">neg</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">user_seen</span><span class="p">:</span>
+                        <span class="k">break</span>
+                    <span class="n">neg</span> <span class="o">=</span> <span class="n">all_item_ids</span><span class="p">[</span><span class="n">rng</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="n">n_items_total</span><span class="p">)]</span>
+                <span class="n">train_features</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">build_feat</span><span class="p">(</span><span class="n">user_id</span><span class="p">,</span> <span class="n">neg</span><span class="p">))</span>
+                <span class="n">train_labels</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mf">0.0</span><span class="p">)</span>
 
         <span class="c1"># Pad feature lists to the same length</span>
         <span class="n">max_features</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">features</span><span class="p">)</span> <span class="k">for</span> <span class="n">features</span> <span class="ow">in</span> <span class="n">train_features</span><span class="p">)</span> <span class="k">if</span> <span class="n">train_features</span> <span class="k">else</span> <span class="mi">2</span>
@@ -751,15 +793,15 @@ document.write(`
         <span class="n">num_features</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">feature_values</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span>  <span class="c1"># +1 for padding/unknown</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_num_features</span> <span class="o">=</span> <span class="n">num_features</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_max_features</span> <span class="o">=</span> <span class="n">max_features</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">model</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_build_model</span><span class="p">(</span><span class="n">num_features</span><span class="p">,</span> <span class="n">max_features</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">model</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_build_model</span><span class="p">(</span><span class="n">num_features</span><span class="p">,</span> <span class="n">max_features</span><span class="p">,</span> <span class="n">use_sigmoid</span><span class="o">=</span><span class="p">(</span><span class="n">task</span> <span class="o">!=</span> <span class="s2">&quot;rating&quot;</span><span class="p">))</span>
 
         <span class="c1"># Convert to tensors</span>
         <span class="n">train_features</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">LongTensor</span><span class="p">(</span><span class="n">train_features</span><span class="p">)</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">device</span><span class="p">)</span>
         <span class="n">train_labels</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">FloatTensor</span><span class="p">(</span><span class="n">train_labels</span><span class="p">)</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">device</span><span class="p">)</span>
 
-        <span class="c1"># Define optimizer and loss</span>
+        <span class="c1"># Define optimizer and loss (BCE for implicit ranking, MSE for rating)</span>
         <span class="n">optimizer</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">optim</span><span class="o">.</span><span class="n">Adam</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">parameters</span><span class="p">(),</span> <span class="n">lr</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">learning_rate</span><span class="p">)</span>
-        <span class="n">criterion</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">BCELoss</span><span class="p">()</span>
+        <span class="n">criterion</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">BCELoss</span><span class="p">()</span> <span class="k">if</span> <span class="n">task</span> <span class="o">!=</span> <span class="s2">&quot;rating&quot;</span> <span class="k">else</span> <span class="n">nn</span><span class="o">.</span><span class="n">MSELoss</span><span class="p">()</span>
 
         <span class="c1"># Train the model</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">train</span><span class="p">()</span>
@@ -797,6 +839,21 @@ document.write(`
 
             <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">verbose</span><span class="p">:</span>
                 <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Epoch </span><span class="si">{</span><span class="n">epoch</span><span class="o">+</span><span class="mi">1</span><span class="si">}</span><span class="s2">/</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">epochs</span><span class="si">}</span><span class="s2">, Loss: </span><span class="si">{</span><span class="n">total_loss</span><span class="o">/</span><span class="n">n_batches</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+        <span class="c1"># Collapse guard: a healthy model produces varied scores across items.</span>
+        <span class="c1"># If every score is (near) identical the model has degenerated (e.g. bad</span>
+        <span class="c1"># label scale) and any ranking from it is meaningless.</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">eval</span><span class="p">()</span>
+        <span class="k">with</span> <span class="n">torch</span><span class="o">.</span><span class="n">no_grad</span><span class="p">():</span>
+            <span class="n">probe</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="p">(</span><span class="n">train_features</span><span class="p">[:</span> <span class="nb">min</span><span class="p">(</span><span class="mi">2048</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">train_features</span><span class="p">))])</span>
+            <span class="n">score_std</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">probe</span><span class="o">.</span><span class="n">std</span><span class="p">()</span><span class="o">.</span><span class="n">item</span><span class="p">())</span>
+        <span class="k">if</span> <span class="n">score_std</span> <span class="o">&lt;</span> <span class="mf">1e-4</span><span class="p">:</span>
+            <span class="n">logger</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span>
+                <span class="s2">&quot;DCN output collapsed (score std=</span><span class="si">%.2e</span><span class="s2">): predictions are nearly &quot;</span>
+                <span class="s2">&quot;constant, so rankings will be meaningless. Check that labels match &quot;</span>
+                <span class="s2">&quot;the task (&#39;implicit&#39; expects relevance, &#39;rating&#39; expects scores).&quot;</span><span class="p">,</span>
+                <span class="n">score_std</span><span class="p">,</span>
+            <span class="p">)</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">is_fitted</span> <span class="o">=</span> <span class="kc">True</span>
         <span class="k">return</span> <span class="bp">self</span></div>
@@ -857,24 +914,46 @@ document.write(`
         <span class="k">if</span> <span class="n">user_id</span> <span class="ow">not</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">user_map</span><span class="p">:</span>
             <span class="k">return</span> <span class="p">[]</span>
 
-        <span class="n">exclude_items</span> <span class="o">=</span> <span class="n">exclude_items</span> <span class="ow">or</span> <span class="p">[]</span>
-        <span class="n">exclude_seen</span> <span class="o">=</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;exclude_seen&quot;</span><span class="p">,</span> <span class="kc">True</span><span class="p">)</span>
+        <span class="n">exclude_items</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span><span class="n">exclude_items</span> <span class="ow">or</span> <span class="p">[])</span>
 
-        <span class="c1"># Get all items</span>
+        <span class="c1"># Vectorized full ranking: score every item in ONE batched forward pass</span>
+        <span class="c1"># instead of a Python loop of per-item predict() calls. This is the</span>
+        <span class="c1"># production-critical path (turns ~hundreds of ms/user into a few ms).</span>
+        <span class="n">scores</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_score_all_items</span><span class="p">(</span><span class="n">user_id</span><span class="p">)</span>  <span class="c1"># np.ndarray over item ids</span>
         <span class="n">all_items</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">item_map</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span>
-
-        <span class="c1"># Generate predictions</span>
-        <span class="n">predictions</span> <span class="o">=</span> <span class="p">[]</span>
-        <span class="k">for</span> <span class="n">item_id</span> <span class="ow">in</span> <span class="n">all_items</span><span class="p">:</span>
+        <span class="n">order</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">argsort</span><span class="p">(</span><span class="o">-</span><span class="n">scores</span><span class="p">)</span>
+        <span class="n">out</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">for</span> <span class="n">idx</span> <span class="ow">in</span> <span class="n">order</span><span class="p">:</span>
+            <span class="n">item_id</span> <span class="o">=</span> <span class="n">all_items</span><span class="p">[</span><span class="n">idx</span><span class="p">]</span>
             <span class="k">if</span> <span class="n">item_id</span> <span class="ow">in</span> <span class="n">exclude_items</span><span class="p">:</span>
                 <span class="k">continue</span>
-            <span class="n">score</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">user_id</span><span class="p">,</span> <span class="n">item_id</span><span class="p">)</span>
-            <span class="n">predictions</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">item_id</span><span class="p">,</span> <span class="n">score</span><span class="p">))</span>
+            <span class="n">out</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">item_id</span><span class="p">)</span>
+            <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">out</span><span class="p">)</span> <span class="o">&gt;=</span> <span class="n">top_k</span><span class="p">:</span>
+                <span class="k">break</span>
+        <span class="k">return</span> <span class="n">out</span></div>
 
-        <span class="c1"># Sort and return top-K</span>
-        <span class="n">predictions</span><span class="o">.</span><span class="n">sort</span><span class="p">(</span><span class="n">key</span><span class="o">=</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">reverse</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-        <span class="k">return</span> <span class="p">[</span><span class="n">item_id</span> <span class="k">for</span> <span class="n">item_id</span><span class="p">,</span> <span class="n">_</span> <span class="ow">in</span> <span class="n">predictions</span><span class="p">[:</span><span class="n">top_k</span><span class="p">]]</span></div>
 
+    <span class="k">def</span><span class="w"> </span><span class="nf">_score_all_items</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">user_id</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Score every known item for a user in a single batched forward pass.</span>
+
+<span class="sd">        Returns scores aligned with ``list(self.item_map.keys())`` order.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">all_items</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">item_map</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span>
+        <span class="n">max_len</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">input_dim</span> <span class="o">//</span> <span class="bp">self</span><span class="o">.</span><span class="n">embedding_dim</span>
+        <span class="n">user_idx</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">user_map</span><span class="p">[</span><span class="n">user_id</span><span class="p">]</span>
+
+        <span class="c1"># Build a [num_items, max_len] feature matrix: column 0 = user, column 1</span>
+        <span class="c1"># = item, remaining columns padded. Per-item side features are omitted on</span>
+        <span class="c1"># this fast path (ids only), matching the dominant id-based usage.</span>
+        <span class="n">feats</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="nb">len</span><span class="p">(</span><span class="n">all_items</span><span class="p">),</span> <span class="n">max_len</span><span class="p">),</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">int64</span><span class="p">)</span>
+        <span class="n">feats</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">user_idx</span>
+        <span class="n">feats</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">item_map</span><span class="p">[</span><span class="n">it</span><span class="p">]</span> <span class="k">for</span> <span class="n">it</span> <span class="ow">in</span> <span class="n">all_items</span><span class="p">]</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">eval</span><span class="p">()</span>
+        <span class="k">with</span> <span class="n">torch</span><span class="o">.</span><span class="n">no_grad</span><span class="p">():</span>
+            <span class="n">t</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">LongTensor</span><span class="p">(</span><span class="n">feats</span><span class="p">)</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">device</span><span class="p">)</span>
+            <span class="n">scores</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="p">(</span><span class="n">t</span><span class="p">)</span><span class="o">.</span><span class="n">detach</span><span class="p">()</span><span class="o">.</span><span class="n">cpu</span><span class="p">()</span><span class="o">.</span><span class="n">numpy</span><span class="p">()</span>
+        <span class="k">return</span> <span class="n">scores</span>
 
 <div class="viewcode-block" id="DCN.save">
 <a class="viewcode-back" href="../../../api/engines.html#corerec.engines.dcn.DCN.save">[docs]</a>
@@ -897,10 +976,13 @@ document.write(`
             <span class="s2">&quot;checkpoint_dir&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">checkpoint_dir</span><span class="p">,</span>
             <span class="s2">&quot;verbose&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">verbose</span><span class="p">,</span>
             <span class="s2">&quot;device&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">device</span><span class="p">,</span>
+            <span class="s2">&quot;task&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">task</span><span class="p">,</span>
+            <span class="s2">&quot;num_negatives&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">num_negatives</span><span class="p">,</span>
         <span class="p">}</span>
         <span class="n">state</span> <span class="o">=</span> <span class="p">{</span>
             <span class="s2">&quot;_num_features&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">_num_features</span><span class="p">,</span>
             <span class="s2">&quot;_max_features&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">_max_features</span><span class="p">,</span>
+            <span class="s2">&quot;_fit_task&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">_fit_task</span><span class="p">,</span>  <span class="c1"># &#39;implicit&#39;/&#39;rating&#39; -&gt; sets the head</span>
             <span class="s2">&quot;feature_map_pairs&quot;</span><span class="p">:</span> <span class="n">pairs</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">feature_map</span><span class="p">),</span>
             <span class="s2">&quot;user_features&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">user_features</span><span class="p">,</span>
             <span class="s2">&quot;item_features&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">item_features</span><span class="p">,</span>
@@ -971,11 +1053,13 @@ document.write(`
             <span class="n">instance</span><span class="o">.</span><span class="n">user_features</span> <span class="o">=</span> <span class="n">state</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;user_features&quot;</span><span class="p">)</span>
             <span class="n">instance</span><span class="o">.</span><span class="n">item_features</span> <span class="o">=</span> <span class="n">state</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;item_features&quot;</span><span class="p">)</span>
             <span class="n">instance</span><span class="o">.</span><span class="n">is_fitted</span> <span class="o">=</span> <span class="n">state</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;is_fitted&quot;</span><span class="p">,</span> <span class="kc">True</span><span class="p">)</span>
+            <span class="n">instance</span><span class="o">.</span><span class="n">_fit_task</span> <span class="o">=</span> <span class="n">state</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;_fit_task&quot;</span><span class="p">,</span> <span class="s2">&quot;implicit&quot;</span><span class="p">)</span>
 
         <span class="k">def</span><span class="w"> </span><span class="nf">_build</span><span class="p">(</span><span class="n">instance</span><span class="p">,</span> <span class="n">bundle</span><span class="p">):</span>
             <span class="k">if</span> <span class="n">bundle</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;state_dict&quot;</span><span class="p">)</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
                 <span class="n">instance</span><span class="o">.</span><span class="n">model</span> <span class="o">=</span> <span class="n">instance</span><span class="o">.</span><span class="n">_build_model</span><span class="p">(</span>
-                    <span class="n">instance</span><span class="o">.</span><span class="n">_num_features</span><span class="p">,</span> <span class="n">instance</span><span class="o">.</span><span class="n">_max_features</span>
+                    <span class="n">instance</span><span class="o">.</span><span class="n">_num_features</span><span class="p">,</span> <span class="n">instance</span><span class="o">.</span><span class="n">_max_features</span><span class="p">,</span>
+                    <span class="n">use_sigmoid</span><span class="o">=</span><span class="p">(</span><span class="nb">getattr</span><span class="p">(</span><span class="n">instance</span><span class="p">,</span> <span class="s2">&quot;_fit_task&quot;</span><span class="p">,</span> <span class="s2">&quot;implicit&quot;</span><span class="p">)</span> <span class="o">!=</span> <span class="s2">&quot;rating&quot;</span><span class="p">),</span>
                 <span class="p">)</span>
 
         <span class="n">loaded</span> <span class="o">=</span> <span class="n">load_torch_production</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">path</span><span class="p">,</span> <span class="n">build_model</span><span class="o">=</span><span class="n">_build</span><span class="p">,</span> <span class="n">restore</span><span class="o">=</span><span class="n">_restore</span><span class="p">)</span>
@@ -1000,7 +1084,12 @@ document.write(`
             <span class="n">checkpoint_dir</span><span class="o">=</span><span class="n">cfg</span><span class="p">[</span><span class="s2">&quot;checkpoint_dir&quot;</span><span class="p">],</span>
             <span class="n">verbose</span><span class="o">=</span><span class="n">cfg</span><span class="p">[</span><span class="s2">&quot;verbose&quot;</span><span class="p">],</span>
             <span class="n">device</span><span class="o">=</span><span class="n">cfg</span><span class="p">[</span><span class="s2">&quot;device&quot;</span><span class="p">],</span>
+            <span class="n">task</span><span class="o">=</span><span class="n">cfg</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;task&quot;</span><span class="p">,</span> <span class="s2">&quot;auto&quot;</span><span class="p">),</span>
+            <span class="n">num_negatives</span><span class="o">=</span><span class="n">cfg</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;num_negatives&quot;</span><span class="p">,</span> <span class="mi">4</span><span class="p">),</span>
         <span class="p">)</span>
+        <span class="n">instance</span><span class="o">.</span><span class="n">_fit_task</span> <span class="o">=</span> <span class="n">checkpoint</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;_fit_task&quot;</span><span class="p">,</span> <span class="n">cfg</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;task&quot;</span><span class="p">,</span> <span class="s2">&quot;implicit&quot;</span><span class="p">))</span>
+        <span class="k">if</span> <span class="n">instance</span><span class="o">.</span><span class="n">_fit_task</span> <span class="o">==</span> <span class="s2">&quot;auto&quot;</span><span class="p">:</span>
+            <span class="n">instance</span><span class="o">.</span><span class="n">_fit_task</span> <span class="o">=</span> <span class="s2">&quot;implicit&quot;</span>
 
         <span class="n">instance</span><span class="o">.</span><span class="n">user_map</span> <span class="o">=</span> <span class="n">checkpoint</span><span class="p">[</span><span class="s2">&quot;user_map&quot;</span><span class="p">]</span>
         <span class="n">instance</span><span class="o">.</span><span class="n">item_map</span> <span class="o">=</span> <span class="n">checkpoint</span><span class="p">[</span><span class="s2">&quot;item_map&quot;</span><span class="p">]</span>
@@ -1016,7 +1105,10 @@ document.write(`
         <span class="n">instance</span><span class="o">.</span><span class="n">_max_features</span> <span class="o">=</span> <span class="n">bp</span><span class="p">[</span><span class="s2">&quot;max_features&quot;</span><span class="p">]</span>
 
         <span class="k">if</span> <span class="n">checkpoint</span><span class="p">[</span><span class="s2">&quot;model_state_dict&quot;</span><span class="p">]</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
-            <span class="n">instance</span><span class="o">.</span><span class="n">model</span> <span class="o">=</span> <span class="n">instance</span><span class="o">.</span><span class="n">_build_model</span><span class="p">(</span><span class="n">bp</span><span class="p">[</span><span class="s2">&quot;num_features&quot;</span><span class="p">],</span> <span class="n">bp</span><span class="p">[</span><span class="s2">&quot;max_features&quot;</span><span class="p">])</span>
+            <span class="n">instance</span><span class="o">.</span><span class="n">model</span> <span class="o">=</span> <span class="n">instance</span><span class="o">.</span><span class="n">_build_model</span><span class="p">(</span>
+                <span class="n">bp</span><span class="p">[</span><span class="s2">&quot;num_features&quot;</span><span class="p">],</span> <span class="n">bp</span><span class="p">[</span><span class="s2">&quot;max_features&quot;</span><span class="p">],</span>
+                <span class="n">use_sigmoid</span><span class="o">=</span><span class="p">(</span><span class="n">instance</span><span class="o">.</span><span class="n">_fit_task</span> <span class="o">!=</span> <span class="s2">&quot;rating&quot;</span><span class="p">),</span>
+            <span class="p">)</span>
             <span class="n">instance</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">load_state_dict</span><span class="p">(</span><span class="n">checkpoint</span><span class="p">[</span><span class="s2">&quot;model_state_dict&quot;</span><span class="p">])</span>
             <span class="n">instance</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">eval</span><span class="p">()</span>
 

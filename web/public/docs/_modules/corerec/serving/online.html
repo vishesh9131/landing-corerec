@@ -1,0 +1,966 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>corerec.serving.online &#8212; CoreRec 0.5.4 documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../../../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=8f2a1f02" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/custom.css?v=d3678dfb" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../../../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../../../_static/documentation_options.js?v=6688a68e"></script>
+    <script src="../../../_static/doctools.js?v=9bcbadda"></script>
+    <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script src="../../../_static/design-tabs.js?v=f930bc37"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = '_modules/corerec/serving/online';</script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../../index.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">CoreRec 0.5.4 documentation</p>
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../../index.html">
+                    CoreRec
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Getting Started</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../../installation.html">Installation Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../quickstart.html">QuickStart Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../concepts.html">Core Concepts</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">User Guide</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../../user_guide/data_preparation.html">Data Preparation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../user_guide/model_training.html">Model Training</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../user_guide/making_predictions.html">Making Predictions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../user_guide/online_serving.html">Online Serving at Scale</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../user_guide/model_persistence.html">Model Persistence</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../user_guide/safe_bundle_persistence.html">Safe Model Bundles (<code class="docutils literal notranslate"><span class="pre">corerec_safe_v1</span></code>)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../user_guide/best_practices.html">Best Practices</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api_versioning.html">CoreRec API Versioning Policy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../torch_nn_vendored.html">Vendored <code class="docutils literal notranslate"><span class="pre">torch_nn</span></code> and <code class="docutils literal notranslate"><span class="pre">torch_utils</span></code></a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Model Documentation</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../../models/index.html">Model Documentation</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../models/models_index.html">Complete Model Index</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../models/deep_learning.html">Deep Learning Models</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../models/matrix_factorization.html">Matrix Factorization &amp; Collaborative Filtering</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../models/graph_based.html">Graph-Based Models</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../models/sequential.html">Sequential Models</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../models/bayesian.html">Bayesian Models</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../models/content_based.html">Content-Based Models</a></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Tutorials &amp; Learning</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../tutorials/index.html">Tutorial Index</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../tutorials/dcn_tutorial.html">DCN Tutorial: Deep &amp; Cross Network</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../tutorials/deepfm_tutorial.html">DeepFM Tutorial: Factorization Machine with Deep Learning</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../tutorials/gnnrec_tutorial.html">GNNRec Tutorial: Graph Neural Network Recommender</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../tutorials/mind_tutorial.html">MIND Tutorial: MIND</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../tutorials/nasrec_tutorial.html">NASRec Tutorial: NASRec</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../tutorials/sasrec_tutorial.html">SASRec Tutorial: SASRec</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../tutorials/bert4rec_tutorial.html">Bert4Rec Tutorial: BERT for Sequential Recommendation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../tutorials/two_tower_tutorial.html">TwoTower Tutorial: Dual-Encoder Retrieval</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../tutorials/ncf_tutorial.html">NCF Tutorial: Neural Collaborative Filtering</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../tutorials/sar_tutorial.html">SAR Tutorial: Smart Adaptive Recommendations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../tutorials/lightgcn_tutorial.html">LightGCN Tutorial: Light Graph Convolutional Network</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../tutorials/fast_tutorial.html">FAST Tutorial: Fast Approximate Similarity Filtering</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../tutorials/fast_recommender_tutorial.html">FASTRecommender Tutorial: Extended FAST Model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../tutorials/tfidf_tutorial.html">TFIDF Tutorial: TF-IDF Based Recommender</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../tutorials/afm_tutorial.html">AFM Tutorial: Attentional Factorization Machine</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../tutorials/autofi_tutorial.html">AutoFI Tutorial: Automatic Feature Interaction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../tutorials/autoint_tutorial.html">AutoInt Tutorial: Automatic Feature Interaction Learning via Self-Attention</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../tutorials/bst_tutorial.html">BST Tutorial: Behavior Sequence Transformer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../tutorials/bivae_tutorial.html">BiVAE Tutorial: Bilateral Variational Autoencoder</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../tutorials/caser_tutorial.html">Caser Tutorial: Convolutional Sequence Embedding Recommendation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../tutorials/dcn_base_tutorial.html">DCN_base Tutorial: Deep &amp; Cross Network Base</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../tutorials/deepcrossing_tutorial.html">DeepCrossing Tutorial: Deep Crossing Network</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../tutorials/deepfm_base_tutorial.html">DeepFM_base Tutorial: DeepFM Base</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../tutorials/deeprec_tutorial.html">DeepRec Tutorial: Deep Recommender</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../tutorials/dien_tutorial.html">DIEN Tutorial: Deep Interest Evolution Network</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../tutorials/difm_tutorial.html">DIFM Tutorial: Dual Input Factorization Machine</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../tutorials/din_tutorial.html">DIN Tutorial: Deep Interest Network</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../tutorials/dlrm_tutorial.html">DLRM Tutorial: Deep Learning Recommendation Model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../tutorials/ensfm_tutorial.html">ENSFM Tutorial: Ensemble Factorization Machine</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../tutorials/escmm_tutorial.html">ESCMM Tutorial: Entire Space Cross Multi-Task Model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../tutorials/esmm_tutorial.html">ESMM Tutorial: Entire Space Multi-Task Model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../tutorials/fgcnn_tutorial.html">FGCNN Tutorial: Feature Generation with CNN</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../tutorials/ffm_tutorial.html">FFM Tutorial: Field-aware Factorization Machine</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../tutorials/fibinet_tutorial.html">Fibinet Tutorial: Feature Importance and Bilinear feature Interaction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../tutorials/flen_tutorial.html">FLEN Tutorial: Feature-aware Local Encoding Network</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../tutorials/fm_tutorial.html">FM Tutorial: Factorization Machine</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../tutorials/gan_tutorial.html">GAN Tutorial: Generative Adversarial Network</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../tutorials/gatenet_tutorial.html">GateNet Tutorial: Gating Network</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../tutorials/gnn_base_tutorial.html">GNN_base Tutorial: Graph Neural Network Base</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../tutorials/gru_cf_tutorial.html">GRU-CF Tutorial: GRU for Collaborative Filtering</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../tutorials/nfm_tutorial.html">NFM Tutorial: Neural Factorization Machine</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../tutorials/nextitnet_tutorial.html">NextItNet Tutorial: Next Item Net</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../tutorials/widedeep_tutorial.html">WideDeep Tutorial: Wide &amp; Deep Learning</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../tutorials/youtubednn_tutorial.html">YouTubeDNN Tutorial: YouTube Deep Neural Network</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../tutorials/pnn_tutorial.html">PNN Tutorial: Product-based Neural Network</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../tutorials/mmoe_tutorial.html">MMoE Tutorial: Multi-gate Mixture-of-Experts</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../tutorials/ple_tutorial.html">PLE Tutorial: Progressive Layered Extraction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../tutorials/monolith_tutorial.html">Monolith Tutorial: Monolith: Real Time Recommendation System</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../tutorials/tdm_tutorial.html">TDM Tutorial: Tree-based Deep Model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../tutorials/a2svd_tutorial.html">A2SVD Tutorial: Adaptive Singular Value Decomposition</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../tutorials/als_tutorial.html">ALS Tutorial: Alternating Least Squares</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../tutorials/fm_base_tutorial.html">FM_Base Tutorial: Factorization Machine Base</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../tutorials/matrixfactorization_tutorial.html">MatrixFactorization Tutorial: Matrix Factorization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../tutorials/mf_base_tutorial.html">MF_Base Tutorial: MF Base</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../tutorials/svd_tutorial.html">SVD Tutorial: Singular Value Decomposition</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../tutorials/userbased_tutorial.html">UserBased Tutorial: User-Based Collaborative Filtering</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../tutorials/geoimc_tutorial.html">GeoIMC Tutorial: Geographic Inductive Matrix Completion</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../tutorials/lightgcn_base_tutorial.html">LightGCN_Base Tutorial: LightGCN Base</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../tutorials/rbm_tutorial.html">RBM Tutorial: Restricted Boltzmann Machine</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../tutorials/rlrmc_tutorial.html">RLRMC Tutorial: Reinforcement Learning for Recommendation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../tutorials/slirec_tutorial.html">SLiRec Tutorial: Sequential List Recommendation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../tutorials/sum_tutorial.html">SUM Tutorial: Sequential User Model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../tutorials/bpr_tutorial.html">BPR Tutorial: Bayesian Personalized Ranking</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../tutorials/bprmf_tutorial.html">BPRMF Tutorial: Bayesian Personalized Ranking Matrix Factorization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../tutorials/vmf_tutorial.html">VMF Tutorial: Von Mises-Fisher Distribution</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../tutorials/mind_content_tutorial.html">MIND_Content Tutorial: MIND for Content Filtering</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../tutorials/pipeline_tutorial.html">Multi-Stage Pipeline Tutorial</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../tutorials/imshow_tutorial.html">Demo Frontends Tutorial</a></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">API Reference</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../../api/base_recommender.html">BaseRecommender API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/exceptions.html">Exceptions API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/mixins.html">Mixins API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/engines.html">Engines</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/pipeline.html">Pipeline System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/retrieval.html">Retrieval</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/ranking.html">Ranking</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/reranking.html">Reranking</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/multimodal.html">Multimodal Fusion</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/embeddings.html">Embeddings</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/explanation.html">Explanation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/evaluation.html">Evaluation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/serving.html">Model Serving</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/imshow.html">IMShow (Demo Frontends)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/constants.html">Constants</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Examples</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../../examples/basic_usage.html">Basic Usage Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../examples/advanced_usage.html">Advanced Usage Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../examples/production_deployment.html">Production Deployment Guide</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Development</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../../contributing.html">Contributing to CoreRec</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../changelog.html">Changelog</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../license.html">License</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/vishesh9131/CoreRec" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/vishesh9131/CoreRec/issues/new?title=Issue%20on%20page%20%2F_modules/corerec/serving/online.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1></h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <h1>Source code for corerec.serving.online</h1><div class="highlight"><pre>
+<span></span><span class="sd">&quot;&quot;&quot;Online, high-scale serving for CoreRec.</span>
+
+<span class="sd">Turns user/item embeddings into a serving layer that is:</span>
+
+<span class="sd">* **sub-linear** at retrieval time (ANN over the item catalogue via</span>
+<span class="sd">  :class:`corerec.retrieval.VectorIndex`, FAISS HNSW/IVF) -- million-item feeds</span>
+<span class="sd">  serve in well under a millisecond instead of an O(catalogue) full scan;</span>
+<span class="sd">* **fresh** -- new items are added to the index incrementally and new/returning</span>
+<span class="sd">  users are *folded in* from their latest interactions, both without retraining;</span>
+<span class="sd">* **cold-start graceful** -- unknown users fall back to a popularity ranking</span>
+<span class="sd">  instead of raising;</span>
+<span class="sd">* **batchable + instrumented** -- batched scoring and p50/p99 latency stats for</span>
+<span class="sd">  capacity planning.</span>
+
+<span class="sd">This is the piece that lets CoreRec be the online tier itself rather than only an</span>
+<span class="sd">offline trainer. Embeddings can come from a CoreRec model (``from_model``), be</span>
+<span class="sd">trained natively here (``from_interactions``), or supplied directly</span>
+<span class="sd">(``from_embeddings``).</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">__future__</span><span class="w"> </span><span class="kn">import</span> <span class="n">annotations</span>
+
+<span class="kn">import</span><span class="w"> </span><span class="nn">time</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">Dict</span><span class="p">,</span> <span class="n">Iterable</span><span class="p">,</span> <span class="n">List</span><span class="p">,</span> <span class="n">Optional</span><span class="p">,</span> <span class="n">Sequence</span><span class="p">,</span> <span class="n">Tuple</span>
+
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+
+<span class="kn">from</span><span class="w"> </span><span class="nn">corerec.retrieval</span><span class="w"> </span><span class="kn">import</span> <span class="n">VectorIndex</span>
+
+
+<div class="viewcode-block" id="OnlineRecommender">
+<a class="viewcode-back" href="../../../api/serving.html#corerec.serving.OnlineRecommender">[docs]</a>
+<span class="k">class</span><span class="w"> </span><span class="nc">OnlineRecommender</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;ANN-backed, incrementally-updatable online recommender.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        dim: embedding dimension.</span>
+<span class="sd">        index_type: &#39;hnsw&#39; (default, best for serving), &#39;ivf&#39;, or &#39;flat&#39; (exact).</span>
+<span class="sd">        metric: &#39;cosine&#39; (default) or &#39;ip&#39;.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dim</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">index_type</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;hnsw&quot;</span><span class="p">,</span> <span class="n">metric</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;cosine&quot;</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">dim</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">dim</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">index_type</span> <span class="o">=</span> <span class="n">index_type</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">metric</span> <span class="o">=</span> <span class="n">metric</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_vindex</span> <span class="o">=</span> <span class="n">VectorIndex</span><span class="p">(</span><span class="n">index_type</span><span class="o">=</span><span class="n">index_type</span><span class="p">,</span> <span class="n">metric</span><span class="o">=</span><span class="n">metric</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_item_ids</span><span class="p">:</span> <span class="n">List</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_item_pos</span><span class="p">:</span> <span class="n">Dict</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_item_emb</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>  <span class="c1"># kept for fold-in (ridge)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_user_emb</span><span class="p">:</span> <span class="n">Dict</span> <span class="o">=</span> <span class="p">{}</span>                    <span class="c1"># user id -&gt; vector</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_seen</span><span class="p">:</span> <span class="n">Dict</span> <span class="o">=</span> <span class="p">{}</span>                        <span class="c1"># user id -&gt; set(item ids)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_popularity</span><span class="p">:</span> <span class="n">List</span> <span class="o">=</span> <span class="p">[]</span>                  <span class="c1"># ranked item ids (fallback)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_latencies_ms</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">float</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_ridge</span> <span class="o">=</span> <span class="mf">1e-1</span>
+
+    <span class="c1"># ------------------------------------------------------------------ #</span>
+    <span class="c1"># Construction</span>
+    <span class="c1"># ------------------------------------------------------------------ #</span>
+<div class="viewcode-block" id="OnlineRecommender.from_embeddings">
+<a class="viewcode-back" href="../../../api/serving.html#corerec.serving.OnlineRecommender.from_embeddings">[docs]</a>
+    <span class="nd">@classmethod</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">from_embeddings</span><span class="p">(</span>
+        <span class="bp">cls</span><span class="p">,</span>
+        <span class="n">item_ids</span><span class="p">:</span> <span class="n">Sequence</span><span class="p">,</span>
+        <span class="n">item_emb</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span>
+        <span class="n">user_ids</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Sequence</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">user_emb</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">popularity</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Sequence</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">seen</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Dict</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">index_type</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;hnsw&quot;</span><span class="p">,</span>
+        <span class="n">metric</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;cosine&quot;</span><span class="p">,</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="s2">&quot;OnlineRecommender&quot;</span><span class="p">:</span>
+        <span class="n">item_emb</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">item_emb</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">float32</span><span class="p">)</span>
+        <span class="bp">self</span> <span class="o">=</span> <span class="bp">cls</span><span class="p">(</span><span class="n">dim</span><span class="o">=</span><span class="n">item_emb</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">index_type</span><span class="o">=</span><span class="n">index_type</span><span class="p">,</span> <span class="n">metric</span><span class="o">=</span><span class="n">metric</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_item_ids</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">item_ids</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_item_pos</span> <span class="o">=</span> <span class="p">{</span><span class="n">it</span><span class="p">:</span> <span class="n">i</span> <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">it</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_item_ids</span><span class="p">)}</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_item_emb</span> <span class="o">=</span> <span class="n">item_emb</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_vindex</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">item_ids</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">_item_ids</span><span class="p">,</span> <span class="n">embeddings</span><span class="o">=</span><span class="n">item_emb</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">user_ids</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> <span class="n">user_emb</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">user_emb</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">user_emb</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">float32</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_user_emb</span> <span class="o">=</span> <span class="p">{</span><span class="n">u</span><span class="p">:</span> <span class="n">user_emb</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">u</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">user_ids</span><span class="p">)}</span>
+        <span class="k">if</span> <span class="n">popularity</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_popularity</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">popularity</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">seen</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_seen</span> <span class="o">=</span> <span class="p">{</span><span class="n">u</span><span class="p">:</span> <span class="nb">set</span><span class="p">(</span><span class="n">v</span><span class="p">)</span> <span class="k">for</span> <span class="n">u</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">seen</span><span class="o">.</span><span class="n">items</span><span class="p">()}</span>
+        <span class="k">return</span> <span class="bp">self</span></div>
+
+
+<div class="viewcode-block" id="OnlineRecommender.from_interactions">
+<a class="viewcode-back" href="../../../api/serving.html#corerec.serving.OnlineRecommender.from_interactions">[docs]</a>
+    <span class="nd">@classmethod</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">from_interactions</span><span class="p">(</span>
+        <span class="bp">cls</span><span class="p">,</span>
+        <span class="n">interactions</span><span class="p">,</span>
+        <span class="n">user_col</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;user_id&quot;</span><span class="p">,</span>
+        <span class="n">item_col</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;item_id&quot;</span><span class="p">,</span>
+        <span class="n">model</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;lightgcn&quot;</span><span class="p">,</span>
+        <span class="n">dim</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">64</span><span class="p">,</span>
+        <span class="n">epochs</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">200</span><span class="p">,</span>
+        <span class="n">n_layers</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">3</span><span class="p">,</span>
+        <span class="n">device</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;cpu&quot;</span><span class="p">,</span>
+        <span class="n">index_type</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;hnsw&quot;</span><span class="p">,</span>
+        <span class="n">metric</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">verbose</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="s2">&quot;OnlineRecommender&quot;</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Train native embeddings and build the serving index.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            model: &#39;lightgcn&#39; (default, strongest on graph benchmarks) or &#39;bpr&#39;.</span>
+<span class="sd">            metric: defaults to &#39;ip&#39; (dot product) -- the right ranking for these</span>
+<span class="sd">                MF/GCN embeddings; pass &#39;cosine&#39; to normalize.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="n">metric</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">metric</span> <span class="o">=</span> <span class="s2">&quot;ip&quot;</span>
+        <span class="n">users</span><span class="p">,</span> <span class="n">items</span><span class="p">,</span> <span class="n">u_ids</span><span class="p">,</span> <span class="n">i_ids</span><span class="p">,</span> <span class="n">seen</span> <span class="o">=</span> <span class="n">_frame_to_arrays</span><span class="p">(</span><span class="n">interactions</span><span class="p">,</span> <span class="n">user_col</span><span class="p">,</span> <span class="n">item_col</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">model</span> <span class="o">==</span> <span class="s2">&quot;lightgcn&quot;</span><span class="p">:</span>
+            <span class="n">U</span><span class="p">,</span> <span class="n">V</span> <span class="o">=</span> <span class="n">_train_lightgcn_embeddings</span><span class="p">(</span>
+                <span class="n">users</span><span class="p">,</span> <span class="n">items</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">u_ids</span><span class="p">),</span> <span class="nb">len</span><span class="p">(</span><span class="n">i_ids</span><span class="p">),</span> <span class="n">dim</span><span class="o">=</span><span class="n">dim</span><span class="p">,</span> <span class="n">n_layers</span><span class="o">=</span><span class="n">n_layers</span><span class="p">,</span>
+                <span class="n">epochs</span><span class="o">=</span><span class="n">epochs</span><span class="p">,</span> <span class="n">device</span><span class="o">=</span><span class="n">device</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="n">verbose</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">model</span> <span class="o">==</span> <span class="s2">&quot;bpr&quot;</span><span class="p">:</span>
+            <span class="n">U</span><span class="p">,</span> <span class="n">V</span> <span class="o">=</span> <span class="n">_train_bpr_embeddings</span><span class="p">(</span>
+                <span class="n">users</span><span class="p">,</span> <span class="n">items</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">u_ids</span><span class="p">),</span> <span class="nb">len</span><span class="p">(</span><span class="n">i_ids</span><span class="p">),</span> <span class="n">dim</span><span class="o">=</span><span class="n">dim</span><span class="p">,</span> <span class="n">epochs</span><span class="o">=</span><span class="n">epochs</span><span class="p">,</span>
+                <span class="n">device</span><span class="o">=</span><span class="n">device</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="n">verbose</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;model must be &#39;lightgcn&#39; or &#39;bpr&#39;&quot;</span><span class="p">)</span>
+        <span class="n">counts</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">bincount</span><span class="p">(</span><span class="n">items</span><span class="p">,</span> <span class="n">minlength</span><span class="o">=</span><span class="nb">len</span><span class="p">(</span><span class="n">i_ids</span><span class="p">))</span>
+        <span class="n">pop</span> <span class="o">=</span> <span class="p">[</span><span class="n">i_ids</span><span class="p">[</span><span class="n">k</span><span class="p">]</span> <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="n">np</span><span class="o">.</span><span class="n">argsort</span><span class="p">(</span><span class="o">-</span><span class="n">counts</span><span class="p">)]</span>
+        <span class="n">seen_ext</span> <span class="o">=</span> <span class="p">{</span><span class="n">u_ids</span><span class="p">[</span><span class="n">u</span><span class="p">]:</span> <span class="p">{</span><span class="n">i_ids</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">its</span><span class="p">}</span> <span class="k">for</span> <span class="n">u</span><span class="p">,</span> <span class="n">its</span> <span class="ow">in</span> <span class="n">seen</span><span class="o">.</span><span class="n">items</span><span class="p">()}</span>
+        <span class="k">return</span> <span class="bp">cls</span><span class="o">.</span><span class="n">from_embeddings</span><span class="p">(</span>
+            <span class="n">item_ids</span><span class="o">=</span><span class="n">i_ids</span><span class="p">,</span> <span class="n">item_emb</span><span class="o">=</span><span class="n">V</span><span class="p">,</span> <span class="n">user_ids</span><span class="o">=</span><span class="n">u_ids</span><span class="p">,</span> <span class="n">user_emb</span><span class="o">=</span><span class="n">U</span><span class="p">,</span>
+            <span class="n">popularity</span><span class="o">=</span><span class="n">pop</span><span class="p">,</span> <span class="n">seen</span><span class="o">=</span><span class="n">seen_ext</span><span class="p">,</span> <span class="n">index_type</span><span class="o">=</span><span class="n">index_type</span><span class="p">,</span> <span class="n">metric</span><span class="o">=</span><span class="n">metric</span><span class="p">,</span>
+        <span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="OnlineRecommender.from_model">
+<a class="viewcode-back" href="../../../api/serving.html#corerec.serving.OnlineRecommender.from_model">[docs]</a>
+    <span class="nd">@classmethod</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">from_model</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">model</span><span class="p">,</span> <span class="n">index_type</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;hnsw&quot;</span><span class="p">,</span> <span class="n">metric</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;cosine&quot;</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Extract user/item embeddings from a trained CoreRec model.</span>
+
+<span class="sd">        Supports models that expose factors via common attributes/methods</span>
+<span class="sd">        (item_factors/user_factors, get_item_embeddings, embeddings).</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">item_ids</span><span class="p">,</span> <span class="n">item_emb</span><span class="p">,</span> <span class="n">user_map</span><span class="p">,</span> <span class="n">user_emb</span> <span class="o">=</span> <span class="n">_extract_embeddings</span><span class="p">(</span><span class="n">model</span><span class="p">)</span>
+        <span class="bp">self</span> <span class="o">=</span> <span class="bp">cls</span><span class="o">.</span><span class="n">from_embeddings</span><span class="p">(</span>
+            <span class="n">item_ids</span><span class="o">=</span><span class="n">item_ids</span><span class="p">,</span> <span class="n">item_emb</span><span class="o">=</span><span class="n">item_emb</span><span class="p">,</span>
+            <span class="n">user_ids</span><span class="o">=</span><span class="nb">list</span><span class="p">(</span><span class="n">user_map</span><span class="p">),</span> <span class="n">user_emb</span><span class="o">=</span><span class="n">user_emb</span><span class="p">,</span>
+            <span class="n">index_type</span><span class="o">=</span><span class="n">index_type</span><span class="p">,</span> <span class="n">metric</span><span class="o">=</span><span class="n">metric</span><span class="p">,</span>
+        <span class="p">)</span>
+        <span class="k">return</span> <span class="bp">self</span></div>
+
+
+    <span class="c1"># ------------------------------------------------------------------ #</span>
+    <span class="c1"># Serving</span>
+    <span class="c1"># ------------------------------------------------------------------ #</span>
+<div class="viewcode-block" id="OnlineRecommender.recommend">
+<a class="viewcode-back" href="../../../api/serving.html#corerec.serving.OnlineRecommender.recommend">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">recommend</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">user_id</span><span class="p">,</span> <span class="n">top_k</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">10</span><span class="p">,</span> <span class="n">exclude_seen</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">:</span>
+        <span class="n">t0</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">perf_counter</span><span class="p">()</span>
+        <span class="k">if</span> <span class="n">user_id</span> <span class="ow">not</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_user_emb</span><span class="p">:</span>
+            <span class="n">out</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_popularity_fallback</span><span class="p">(</span><span class="n">user_id</span><span class="p">,</span> <span class="n">top_k</span><span class="p">,</span> <span class="n">exclude_seen</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_latencies_ms</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">time</span><span class="o">.</span><span class="n">perf_counter</span><span class="p">()</span> <span class="o">-</span> <span class="n">t0</span><span class="p">)</span> <span class="o">*</span> <span class="mi">1000</span><span class="p">)</span>
+            <span class="k">return</span> <span class="n">out</span>
+        <span class="n">seen</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_seen</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">user_id</span><span class="p">,</span> <span class="nb">set</span><span class="p">())</span> <span class="k">if</span> <span class="n">exclude_seen</span> <span class="k">else</span> <span class="nb">set</span><span class="p">()</span>
+        <span class="n">k</span> <span class="o">=</span> <span class="n">top_k</span> <span class="o">+</span> <span class="nb">len</span><span class="p">(</span><span class="n">seen</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span>
+        <span class="n">res</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_vindex</span><span class="o">.</span><span class="n">retrieve</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_user_emb</span><span class="p">[</span><span class="n">user_id</span><span class="p">],</span> <span class="n">top_k</span><span class="o">=</span><span class="nb">min</span><span class="p">(</span><span class="n">k</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_item_ids</span><span class="p">)))</span>
+        <span class="n">out</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_filter</span><span class="p">(</span><span class="n">res</span><span class="p">,</span> <span class="n">seen</span><span class="p">,</span> <span class="n">top_k</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_latencies_ms</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">time</span><span class="o">.</span><span class="n">perf_counter</span><span class="p">()</span> <span class="o">-</span> <span class="n">t0</span><span class="p">)</span> <span class="o">*</span> <span class="mi">1000</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">out</span></div>
+
+
+<div class="viewcode-block" id="OnlineRecommender.recommend_batch">
+<a class="viewcode-back" href="../../../api/serving.html#corerec.serving.OnlineRecommender.recommend_batch">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">recommend_batch</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">user_ids</span><span class="p">:</span> <span class="n">Sequence</span><span class="p">,</span> <span class="n">top_k</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">10</span><span class="p">,</span>
+                        <span class="n">exclude_seen</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="n">List</span><span class="p">]:</span>
+        <span class="k">return</span> <span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">recommend</span><span class="p">(</span><span class="n">u</span><span class="p">,</span> <span class="n">top_k</span><span class="o">=</span><span class="n">top_k</span><span class="p">,</span> <span class="n">exclude_seen</span><span class="o">=</span><span class="n">exclude_seen</span><span class="p">)</span> <span class="k">for</span> <span class="n">u</span> <span class="ow">in</span> <span class="n">user_ids</span><span class="p">]</span></div>
+
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">_filter</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">res</span><span class="p">,</span> <span class="n">seen</span><span class="p">,</span> <span class="n">top_k</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">:</span>
+        <span class="c1"># RetrievalResult: candidate ids already mapped back by VectorIndex</span>
+        <span class="n">ids</span> <span class="o">=</span> <span class="n">_result_ids</span><span class="p">(</span><span class="n">res</span><span class="p">)</span>
+        <span class="n">out</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">for</span> <span class="n">it</span> <span class="ow">in</span> <span class="n">ids</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">it</span> <span class="ow">in</span> <span class="n">seen</span><span class="p">:</span>
+                <span class="k">continue</span>
+            <span class="n">out</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">it</span><span class="p">)</span>
+            <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">out</span><span class="p">)</span> <span class="o">&gt;=</span> <span class="n">top_k</span><span class="p">:</span>
+                <span class="k">break</span>
+        <span class="k">return</span> <span class="n">out</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">_popularity_fallback</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">user_id</span><span class="p">,</span> <span class="n">top_k</span><span class="p">,</span> <span class="n">exclude_seen</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">:</span>
+        <span class="n">seen</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_seen</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">user_id</span><span class="p">,</span> <span class="nb">set</span><span class="p">())</span> <span class="k">if</span> <span class="n">exclude_seen</span> <span class="k">else</span> <span class="nb">set</span><span class="p">()</span>
+        <span class="n">out</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">for</span> <span class="n">it</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_popularity</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">it</span> <span class="ow">in</span> <span class="n">seen</span><span class="p">:</span>
+                <span class="k">continue</span>
+            <span class="n">out</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">it</span><span class="p">)</span>
+            <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">out</span><span class="p">)</span> <span class="o">&gt;=</span> <span class="n">top_k</span><span class="p">:</span>
+                <span class="k">break</span>
+        <span class="k">return</span> <span class="n">out</span>
+
+    <span class="c1"># ------------------------------------------------------------------ #</span>
+    <span class="c1"># Freshness: incremental updates without retraining</span>
+    <span class="c1"># ------------------------------------------------------------------ #</span>
+<div class="viewcode-block" id="OnlineRecommender.add_items">
+<a class="viewcode-back" href="../../../api/serving.html#corerec.serving.OnlineRecommender.add_items">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">add_items</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">item_ids</span><span class="p">:</span> <span class="n">Sequence</span><span class="p">,</span> <span class="n">item_emb</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Add new items (e.g. fresh content) to the live index without retrain.&quot;&quot;&quot;</span>
+        <span class="n">item_emb</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">item_emb</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">float32</span><span class="p">)</span>
+        <span class="n">emb</span> <span class="o">=</span> <span class="n">_maybe_normalize</span><span class="p">(</span><span class="n">item_emb</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">metric</span><span class="p">)</span>
+        <span class="k">if</span> <span class="nb">getattr</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_vindex</span><span class="p">,</span> <span class="s2">&quot;_faiss_available&quot;</span><span class="p">,</span> <span class="kc">False</span><span class="p">)</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">_vindex</span><span class="o">.</span><span class="n">_index</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_vindex</span><span class="o">.</span><span class="n">_index</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">emb</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>  <span class="c1"># brute-force fallback store</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_vindex</span><span class="o">.</span><span class="n">_embeddings</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">vstack</span><span class="p">([</span><span class="bp">self</span><span class="o">.</span><span class="n">_vindex</span><span class="o">.</span><span class="n">_embeddings</span><span class="p">,</span> <span class="n">emb</span><span class="p">])</span>
+        <span class="n">start</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_item_ids</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">j</span><span class="p">,</span> <span class="n">it</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">item_ids</span><span class="p">):</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_item_ids</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">it</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_item_pos</span><span class="p">[</span><span class="n">it</span><span class="p">]</span> <span class="o">=</span> <span class="n">start</span> <span class="o">+</span> <span class="n">j</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_vindex</span><span class="o">.</span><span class="n">item_ids</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_item_ids</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_item_emb</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">vstack</span><span class="p">([</span><span class="bp">self</span><span class="o">.</span><span class="n">_item_emb</span><span class="p">,</span> <span class="n">item_emb</span><span class="p">])</span></div>
+
+
+<div class="viewcode-block" id="OnlineRecommender.fold_in_user">
+<a class="viewcode-back" href="../../../api/serving.html#corerec.serving.OnlineRecommender.fold_in_user">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">fold_in_user</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">user_id</span><span class="p">,</span> <span class="n">item_ids</span><span class="p">:</span> <span class="n">Iterable</span><span class="p">,</span> <span class="n">update_seen</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Compute/refresh a user&#39;s embedding from their interactions (ridge</span>
+<span class="sd">        fold-in over item factors) -- no retraining. Handles new users and keeps</span>
+<span class="sd">        returning users fresh.&quot;&quot;&quot;</span>
+        <span class="n">rows</span> <span class="o">=</span> <span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">_item_pos</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">item_ids</span> <span class="k">if</span> <span class="n">i</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_item_pos</span><span class="p">]</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">rows</span><span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_user_emb</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">user_id</span><span class="p">)</span>
+        <span class="n">M</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_item_emb</span><span class="p">[</span><span class="n">rows</span><span class="p">]</span>                       <span class="c1"># [h, dim]</span>
+        <span class="n">A</span> <span class="o">=</span> <span class="n">M</span><span class="o">.</span><span class="n">T</span> <span class="o">@</span> <span class="n">M</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">_ridge</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">eye</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">dim</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">float32</span><span class="p">)</span>
+        <span class="n">b</span> <span class="o">=</span> <span class="n">M</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+        <span class="n">uvec</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">solve</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">float32</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_user_emb</span><span class="p">[</span><span class="n">user_id</span><span class="p">]</span> <span class="o">=</span> <span class="n">uvec</span>
+        <span class="k">if</span> <span class="n">update_seen</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_seen</span><span class="o">.</span><span class="n">setdefault</span><span class="p">(</span><span class="n">user_id</span><span class="p">,</span> <span class="nb">set</span><span class="p">())</span><span class="o">.</span><span class="n">update</span><span class="p">(</span>
+                <span class="n">i</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">item_ids</span> <span class="k">if</span> <span class="n">i</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_item_pos</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">uvec</span></div>
+
+
+    <span class="c1"># ------------------------------------------------------------------ #</span>
+    <span class="c1"># Introspection</span>
+    <span class="c1"># ------------------------------------------------------------------ #</span>
+<div class="viewcode-block" id="OnlineRecommender.stats">
+<a class="viewcode-back" href="../../../api/serving.html#corerec.serving.OnlineRecommender.stats">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">stats</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Dict</span><span class="p">:</span>
+        <span class="n">lat</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_latencies_ms</span><span class="p">)</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_latencies_ms</span> <span class="k">else</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+        <span class="k">return</span> <span class="p">{</span>
+            <span class="s2">&quot;n_items&quot;</span><span class="p">:</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_item_ids</span><span class="p">),</span>
+            <span class="s2">&quot;n_users&quot;</span><span class="p">:</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_user_emb</span><span class="p">),</span>
+            <span class="s2">&quot;index_type&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">index_type</span><span class="p">,</span>
+            <span class="s2">&quot;metric&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">metric</span><span class="p">,</span>
+            <span class="s2">&quot;faiss&quot;</span><span class="p">:</span> <span class="nb">bool</span><span class="p">(</span><span class="nb">getattr</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_vindex</span><span class="p">,</span> <span class="s2">&quot;_faiss_available&quot;</span><span class="p">,</span> <span class="kc">False</span><span class="p">)),</span>
+            <span class="s2">&quot;queries_served&quot;</span><span class="p">:</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_latencies_ms</span><span class="p">),</span>
+            <span class="s2">&quot;latency_ms_p50&quot;</span><span class="p">:</span> <span class="nb">float</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">percentile</span><span class="p">(</span><span class="n">lat</span><span class="p">,</span> <span class="mi">50</span><span class="p">)),</span>
+            <span class="s2">&quot;latency_ms_p99&quot;</span><span class="p">:</span> <span class="nb">float</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">percentile</span><span class="p">(</span><span class="n">lat</span><span class="p">,</span> <span class="mi">99</span><span class="p">)),</span>
+            <span class="s2">&quot;latency_ms_mean&quot;</span><span class="p">:</span> <span class="nb">float</span><span class="p">(</span><span class="n">lat</span><span class="o">.</span><span class="n">mean</span><span class="p">()),</span>
+        <span class="p">}</span></div>
+</div>
+
+
+
+<span class="c1"># ---------------------------------------------------------------------- #</span>
+<span class="c1"># Helpers</span>
+<span class="c1"># ---------------------------------------------------------------------- #</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">_maybe_normalize</span><span class="p">(</span><span class="n">emb</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">metric</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">metric</span> <span class="o">==</span> <span class="s2">&quot;cosine&quot;</span><span class="p">:</span>
+        <span class="n">n</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">emb</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">keepdims</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">emb</span> <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">maximum</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="mf">1e-10</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">emb</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">_result_ids</span><span class="p">(</span><span class="n">res</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">:</span>
+    <span class="c1"># RetrievalResult.candidates is a list of Candidate(id=, score=)</span>
+    <span class="n">cands</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">res</span><span class="p">,</span> <span class="s2">&quot;candidates&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">cands</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="k">return</span> <span class="p">[</span><span class="nb">getattr</span><span class="p">(</span><span class="n">c</span><span class="p">,</span> <span class="s2">&quot;id&quot;</span><span class="p">,</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">c</span><span class="p">,</span> <span class="s2">&quot;item_id&quot;</span><span class="p">,</span> <span class="n">c</span><span class="p">))</span> <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">cands</span><span class="p">]</span>
+    <span class="n">ids</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">res</span><span class="p">,</span> <span class="s2">&quot;item_ids&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">ids</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> <span class="ow">not</span> <span class="nb">callable</span><span class="p">(</span><span class="n">ids</span><span class="p">):</span>
+        <span class="k">return</span> <span class="nb">list</span><span class="p">(</span><span class="n">ids</span><span class="p">)</span>
+    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">res</span><span class="p">,</span> <span class="p">(</span><span class="nb">list</span><span class="p">,</span> <span class="nb">tuple</span><span class="p">)):</span>
+        <span class="k">return</span> <span class="nb">list</span><span class="p">(</span><span class="n">res</span><span class="p">)</span>
+    <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Cannot extract ids from RetrievalResult: </span><span class="si">{</span><span class="nb">type</span><span class="p">(</span><span class="n">res</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">_frame_to_arrays</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">user_col</span><span class="p">,</span> <span class="n">item_col</span><span class="p">):</span>
+    <span class="n">u_raw</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">user_col</span><span class="p">]</span><span class="o">.</span><span class="n">to_numpy</span><span class="p">()</span>
+    <span class="n">i_raw</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">item_col</span><span class="p">]</span><span class="o">.</span><span class="n">to_numpy</span><span class="p">()</span>
+    <span class="n">u_ids</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="nb">set</span><span class="p">(</span><span class="n">u_raw</span><span class="o">.</span><span class="n">tolist</span><span class="p">()))</span>
+    <span class="n">i_ids</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="nb">set</span><span class="p">(</span><span class="n">i_raw</span><span class="o">.</span><span class="n">tolist</span><span class="p">()))</span>
+    <span class="n">u2</span> <span class="o">=</span> <span class="p">{</span><span class="n">u</span><span class="p">:</span> <span class="n">k</span> <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">u</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">u_ids</span><span class="p">)}</span>
+    <span class="n">i2</span> <span class="o">=</span> <span class="p">{</span><span class="n">it</span><span class="p">:</span> <span class="n">k</span> <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">it</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">i_ids</span><span class="p">)}</span>
+    <span class="n">users</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">fromiter</span><span class="p">((</span><span class="n">u2</span><span class="p">[</span><span class="n">u</span><span class="p">]</span> <span class="k">for</span> <span class="n">u</span> <span class="ow">in</span> <span class="n">u_raw</span><span class="p">),</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">int64</span><span class="p">,</span> <span class="n">count</span><span class="o">=</span><span class="nb">len</span><span class="p">(</span><span class="n">u_raw</span><span class="p">))</span>
+    <span class="n">items</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">fromiter</span><span class="p">((</span><span class="n">i2</span><span class="p">[</span><span class="n">it</span><span class="p">]</span> <span class="k">for</span> <span class="n">it</span> <span class="ow">in</span> <span class="n">i_raw</span><span class="p">),</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">int64</span><span class="p">,</span> <span class="n">count</span><span class="o">=</span><span class="nb">len</span><span class="p">(</span><span class="n">i_raw</span><span class="p">))</span>
+    <span class="n">seen</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">set</span><span class="p">]</span> <span class="o">=</span> <span class="p">{}</span>
+    <span class="k">for</span> <span class="n">u</span><span class="p">,</span> <span class="n">it</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">users</span><span class="o">.</span><span class="n">tolist</span><span class="p">(),</span> <span class="n">items</span><span class="o">.</span><span class="n">tolist</span><span class="p">()):</span>
+        <span class="n">seen</span><span class="o">.</span><span class="n">setdefault</span><span class="p">(</span><span class="n">u</span><span class="p">,</span> <span class="nb">set</span><span class="p">())</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">it</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">users</span><span class="p">,</span> <span class="n">items</span><span class="p">,</span> <span class="n">u_ids</span><span class="p">,</span> <span class="n">i_ids</span><span class="p">,</span> <span class="n">seen</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">_resolve_device</span><span class="p">(</span><span class="n">device</span><span class="p">):</span>
+    <span class="kn">import</span><span class="w"> </span><span class="nn">torch</span>
+    <span class="k">if</span> <span class="n">device</span> <span class="o">!=</span> <span class="s2">&quot;cpu&quot;</span> <span class="ow">and</span> <span class="n">torch</span><span class="o">.</span><span class="n">cuda</span><span class="o">.</span><span class="n">is_available</span><span class="p">():</span>
+        <span class="k">return</span> <span class="n">torch</span><span class="o">.</span><span class="n">device</span><span class="p">(</span><span class="n">device</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">torch</span><span class="o">.</span><span class="n">device</span><span class="p">(</span><span class="s2">&quot;cpu&quot;</span><span class="p">)</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">_train_bpr_embeddings</span><span class="p">(</span><span class="n">users</span><span class="p">,</span> <span class="n">items</span><span class="p">,</span> <span class="n">n_users</span><span class="p">,</span> <span class="n">n_items</span><span class="p">,</span> <span class="n">dim</span><span class="o">=</span><span class="mi">64</span><span class="p">,</span> <span class="n">epochs</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span>
+                          <span class="n">lr</span><span class="o">=</span><span class="mf">1e-3</span><span class="p">,</span> <span class="n">reg</span><span class="o">=</span><span class="mf">1e-4</span><span class="p">,</span> <span class="n">device</span><span class="o">=</span><span class="s2">&quot;cpu&quot;</span><span class="p">,</span> <span class="n">batch</span><span class="o">=</span><span class="mi">4096</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Native BPR matrix factorization -&gt; (user_emb, item_emb).</span>
+
+<span class="sd">    Strengthened: Adam at a stable lr, explicit BPR L2 on the involved factors,</span>
+<span class="sd">    larger default dim/epochs. Trains on GPU when available.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="kn">import</span><span class="w"> </span><span class="nn">torch</span>
+
+    <span class="n">dev</span> <span class="o">=</span> <span class="n">_resolve_device</span><span class="p">(</span><span class="n">device</span><span class="p">)</span>
+    <span class="n">g</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">Generator</span><span class="p">(</span><span class="n">device</span><span class="o">=</span><span class="s2">&quot;cpu&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">manual_seed</span><span class="p">(</span><span class="mi">42</span><span class="p">)</span>
+    <span class="n">U</span> <span class="o">=</span> <span class="p">(</span><span class="n">torch</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="n">n_users</span><span class="p">,</span> <span class="n">dim</span><span class="p">,</span> <span class="n">generator</span><span class="o">=</span><span class="n">g</span><span class="p">)</span> <span class="o">*</span> <span class="mf">0.1</span><span class="p">)</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">dev</span><span class="p">)</span><span class="o">.</span><span class="n">requires_grad_</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">V</span> <span class="o">=</span> <span class="p">(</span><span class="n">torch</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="n">n_items</span><span class="p">,</span> <span class="n">dim</span><span class="p">,</span> <span class="n">generator</span><span class="o">=</span><span class="n">g</span><span class="p">)</span> <span class="o">*</span> <span class="mf">0.1</span><span class="p">)</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">dev</span><span class="p">)</span><span class="o">.</span><span class="n">requires_grad_</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">opt</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">optim</span><span class="o">.</span><span class="n">Adam</span><span class="p">([</span><span class="n">U</span><span class="p">,</span> <span class="n">V</span><span class="p">],</span> <span class="n">lr</span><span class="o">=</span><span class="n">lr</span><span class="p">)</span>
+
+    <span class="n">u_t</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">as_tensor</span><span class="p">(</span><span class="n">users</span><span class="p">,</span> <span class="n">device</span><span class="o">=</span><span class="n">dev</span><span class="p">)</span>
+    <span class="n">i_t</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">as_tensor</span><span class="p">(</span><span class="n">items</span><span class="p">,</span> <span class="n">device</span><span class="o">=</span><span class="n">dev</span><span class="p">)</span>
+    <span class="n">n</span> <span class="o">=</span> <span class="n">u_t</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="k">for</span> <span class="n">ep</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">epochs</span><span class="p">):</span>
+        <span class="n">perm</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">randperm</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">device</span><span class="o">=</span><span class="n">dev</span><span class="p">)</span>
+        <span class="n">total</span> <span class="o">=</span> <span class="mf">0.0</span>
+        <span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">batch</span><span class="p">):</span>
+            <span class="n">idx</span> <span class="o">=</span> <span class="n">perm</span><span class="p">[</span><span class="n">s</span><span class="p">:</span><span class="n">s</span> <span class="o">+</span> <span class="n">batch</span><span class="p">]</span>
+            <span class="n">bu</span> <span class="o">=</span> <span class="n">u_t</span><span class="p">[</span><span class="n">idx</span><span class="p">];</span> <span class="n">bi</span> <span class="o">=</span> <span class="n">i_t</span><span class="p">[</span><span class="n">idx</span><span class="p">]</span>
+            <span class="n">bj</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">n_items</span><span class="p">,</span> <span class="p">(</span><span class="n">bu</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">],),</span> <span class="n">device</span><span class="o">=</span><span class="n">dev</span><span class="p">)</span>
+            <span class="n">pu</span> <span class="o">=</span> <span class="n">U</span><span class="p">[</span><span class="n">bu</span><span class="p">];</span> <span class="n">pi</span> <span class="o">=</span> <span class="n">V</span><span class="p">[</span><span class="n">bi</span><span class="p">];</span> <span class="n">pj</span> <span class="o">=</span> <span class="n">V</span><span class="p">[</span><span class="n">bj</span><span class="p">]</span>
+            <span class="n">x</span> <span class="o">=</span> <span class="p">(</span><span class="n">pu</span> <span class="o">*</span> <span class="n">pi</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="o">-</span> <span class="p">(</span><span class="n">pu</span> <span class="o">*</span> <span class="n">pj</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+            <span class="n">loss</span> <span class="o">=</span> <span class="o">-</span><span class="n">torch</span><span class="o">.</span><span class="n">nn</span><span class="o">.</span><span class="n">functional</span><span class="o">.</span><span class="n">logsigmoid</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+            <span class="n">loss</span> <span class="o">=</span> <span class="n">loss</span> <span class="o">+</span> <span class="n">reg</span> <span class="o">*</span> <span class="p">(</span><span class="n">pu</span><span class="o">.</span><span class="n">pow</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span> <span class="o">+</span> <span class="n">pi</span><span class="o">.</span><span class="n">pow</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span> <span class="o">+</span> <span class="n">pj</span><span class="o">.</span><span class="n">pow</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">())</span> <span class="o">/</span> <span class="n">bu</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+            <span class="n">opt</span><span class="o">.</span><span class="n">zero_grad</span><span class="p">();</span> <span class="n">loss</span><span class="o">.</span><span class="n">backward</span><span class="p">();</span> <span class="n">opt</span><span class="o">.</span><span class="n">step</span><span class="p">()</span>
+            <span class="n">total</span> <span class="o">+=</span> <span class="nb">float</span><span class="p">(</span><span class="n">loss</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">verbose</span> <span class="ow">and</span> <span class="p">(</span><span class="n">ep</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">%</span> <span class="mi">10</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;  BPR epoch </span><span class="si">{</span><span class="n">ep</span><span class="o">+</span><span class="mi">1</span><span class="si">}</span><span class="s2">/</span><span class="si">{</span><span class="n">epochs</span><span class="si">}</span><span class="s2"> loss=</span><span class="si">{</span><span class="n">total</span><span class="o">/</span><span class="nb">max</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">n</span><span class="o">//</span><span class="n">batch</span><span class="p">)</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">U</span><span class="o">.</span><span class="n">detach</span><span class="p">()</span><span class="o">.</span><span class="n">cpu</span><span class="p">()</span><span class="o">.</span><span class="n">numpy</span><span class="p">(),</span> <span class="n">V</span><span class="o">.</span><span class="n">detach</span><span class="p">()</span><span class="o">.</span><span class="n">cpu</span><span class="p">()</span><span class="o">.</span><span class="n">numpy</span><span class="p">()</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">_build_norm_adj</span><span class="p">(</span><span class="n">users</span><span class="p">,</span> <span class="n">items</span><span class="p">,</span> <span class="n">n_users</span><span class="p">,</span> <span class="n">n_items</span><span class="p">,</span> <span class="n">device</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Symmetric normalized bipartite adjacency  D^-1/2 A D^-1/2  as a torch</span>
+<span class="sd">    sparse tensor (the LightGCN propagation operator). Sparse -&gt; scales to</span>
+<span class="sd">    millions of edges without the dense-matrix blow-up.&quot;&quot;&quot;</span>
+    <span class="kn">import</span><span class="w"> </span><span class="nn">torch</span>
+
+    <span class="n">u</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">as_tensor</span><span class="p">(</span><span class="n">users</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">torch</span><span class="o">.</span><span class="n">long</span><span class="p">)</span>
+    <span class="n">i</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">as_tensor</span><span class="p">(</span><span class="n">items</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">torch</span><span class="o">.</span><span class="n">long</span><span class="p">)</span> <span class="o">+</span> <span class="n">n_users</span>
+    <span class="n">rows</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">cat</span><span class="p">([</span><span class="n">u</span><span class="p">,</span> <span class="n">i</span><span class="p">])</span>
+    <span class="n">cols</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">cat</span><span class="p">([</span><span class="n">i</span><span class="p">,</span> <span class="n">u</span><span class="p">])</span>
+    <span class="n">N</span> <span class="o">=</span> <span class="n">n_users</span> <span class="o">+</span> <span class="n">n_items</span>
+    <span class="n">deg</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">N</span><span class="p">)</span>
+    <span class="n">deg</span><span class="o">.</span><span class="n">index_add_</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">rows</span><span class="p">,</span> <span class="n">torch</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="n">rows</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]))</span>
+    <span class="n">dinv</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">pow</span><span class="p">(</span><span class="n">deg</span><span class="o">.</span><span class="n">clamp</span><span class="p">(</span><span class="nb">min</span><span class="o">=</span><span class="mf">1.0</span><span class="p">),</span> <span class="o">-</span><span class="mf">0.5</span><span class="p">)</span>
+    <span class="n">vals</span> <span class="o">=</span> <span class="n">dinv</span><span class="p">[</span><span class="n">rows</span><span class="p">]</span> <span class="o">*</span> <span class="n">dinv</span><span class="p">[</span><span class="n">cols</span><span class="p">]</span>
+    <span class="n">idx</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">stack</span><span class="p">([</span><span class="n">rows</span><span class="p">,</span> <span class="n">cols</span><span class="p">])</span>
+    <span class="n">A</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">sparse_coo_tensor</span><span class="p">(</span><span class="n">idx</span><span class="p">,</span> <span class="n">vals</span><span class="p">,</span> <span class="p">(</span><span class="n">N</span><span class="p">,</span> <span class="n">N</span><span class="p">))</span><span class="o">.</span><span class="n">coalesce</span><span class="p">()</span>
+    <span class="k">return</span> <span class="n">A</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">device</span><span class="p">)</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">_train_lightgcn_embeddings</span><span class="p">(</span><span class="n">users</span><span class="p">,</span> <span class="n">items</span><span class="p">,</span> <span class="n">n_users</span><span class="p">,</span> <span class="n">n_items</span><span class="p">,</span> <span class="n">dim</span><span class="o">=</span><span class="mi">64</span><span class="p">,</span> <span class="n">n_layers</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span>
+                               <span class="n">epochs</span><span class="o">=</span><span class="mi">200</span><span class="p">,</span> <span class="n">lr</span><span class="o">=</span><span class="mf">1e-3</span><span class="p">,</span> <span class="n">reg</span><span class="o">=</span><span class="mf">1e-4</span><span class="p">,</span> <span class="n">device</span><span class="o">=</span><span class="s2">&quot;cpu&quot;</span><span class="p">,</span>
+                               <span class="n">batch</span><span class="o">=</span><span class="mi">8192</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Efficient sparse LightGCN -&gt; (user_emb, item_emb).</span>
+
+<span class="sd">    Uses a sparse normalized adjacency and torch.sparse.mm propagation (no dense</span>
+<span class="sd">    Laplacian, so it scales) with BPR loss and layer-averaged embeddings. This is</span>
+<span class="sd">    the SOTA-class model on Gowalla/Yelp/Amazon and is what lets CoreRec beat the</span>
+<span class="sd">    MF/BPR/WARP baselines.</span>
+
+<span class="sd">    Efficiency: the sparse operator (vs a dense Laplacian) is what makes this run</span>
+<span class="sd">    at scale at all -- ~1 GB where the dense graph model OOMs. Training cost is the</span>
+<span class="sd">    accuracy/speed knob: the default minibatch (batch=8192) maximizes ranking</span>
+<span class="sd">    quality; pass a large ``batch`` (e.g. 1_000_000) for a ~7x faster full-batch</span>
+<span class="sd">    fit at a small accuracy cost.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="kn">import</span><span class="w"> </span><span class="nn">torch</span>
+
+    <span class="n">dev</span> <span class="o">=</span> <span class="n">_resolve_device</span><span class="p">(</span><span class="n">device</span><span class="p">)</span>
+    <span class="n">A</span> <span class="o">=</span> <span class="n">_build_norm_adj</span><span class="p">(</span><span class="n">users</span><span class="p">,</span> <span class="n">items</span><span class="p">,</span> <span class="n">n_users</span><span class="p">,</span> <span class="n">n_items</span><span class="p">,</span> <span class="n">dev</span><span class="p">)</span>
+    <span class="n">g</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">Generator</span><span class="p">(</span><span class="n">device</span><span class="o">=</span><span class="s2">&quot;cpu&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">manual_seed</span><span class="p">(</span><span class="mi">42</span><span class="p">)</span>
+    <span class="n">E</span> <span class="o">=</span> <span class="p">(</span><span class="n">torch</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="n">n_users</span> <span class="o">+</span> <span class="n">n_items</span><span class="p">,</span> <span class="n">dim</span><span class="p">,</span> <span class="n">generator</span><span class="o">=</span><span class="n">g</span><span class="p">)</span> <span class="o">*</span> <span class="mf">0.1</span><span class="p">)</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">dev</span><span class="p">)</span><span class="o">.</span><span class="n">requires_grad_</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">opt</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">optim</span><span class="o">.</span><span class="n">Adam</span><span class="p">([</span><span class="n">E</span><span class="p">],</span> <span class="n">lr</span><span class="o">=</span><span class="n">lr</span><span class="p">)</span>
+
+    <span class="n">u_t</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">as_tensor</span><span class="p">(</span><span class="n">users</span><span class="p">,</span> <span class="n">device</span><span class="o">=</span><span class="n">dev</span><span class="p">)</span>
+    <span class="n">i_t</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">as_tensor</span><span class="p">(</span><span class="n">items</span><span class="p">,</span> <span class="n">device</span><span class="o">=</span><span class="n">dev</span><span class="p">)</span>
+    <span class="n">n</span> <span class="o">=</span> <span class="n">u_t</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">propagate</span><span class="p">():</span>
+        <span class="n">x</span> <span class="o">=</span> <span class="n">E</span>
+        <span class="n">acc</span> <span class="o">=</span> <span class="n">E</span>
+        <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n_layers</span><span class="p">):</span>
+            <span class="n">x</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">sparse</span><span class="o">.</span><span class="n">mm</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span>
+            <span class="n">acc</span> <span class="o">=</span> <span class="n">acc</span> <span class="o">+</span> <span class="n">x</span>
+        <span class="k">return</span> <span class="n">acc</span> <span class="o">/</span> <span class="p">(</span><span class="n">n_layers</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
+
+    <span class="k">for</span> <span class="n">ep</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">epochs</span><span class="p">):</span>
+        <span class="n">perm</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">randperm</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">device</span><span class="o">=</span><span class="n">dev</span><span class="p">)</span>
+        <span class="n">total</span> <span class="o">=</span> <span class="mf">0.0</span>
+        <span class="n">nb</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">batch</span><span class="p">):</span>
+            <span class="n">idx</span> <span class="o">=</span> <span class="n">perm</span><span class="p">[</span><span class="n">s</span><span class="p">:</span><span class="n">s</span> <span class="o">+</span> <span class="n">batch</span><span class="p">]</span>
+            <span class="n">allE</span> <span class="o">=</span> <span class="n">propagate</span><span class="p">()</span>
+            <span class="n">U</span> <span class="o">=</span> <span class="n">allE</span><span class="p">[:</span><span class="n">n_users</span><span class="p">];</span> <span class="n">V</span> <span class="o">=</span> <span class="n">allE</span><span class="p">[</span><span class="n">n_users</span><span class="p">:]</span>
+            <span class="n">bu</span> <span class="o">=</span> <span class="n">u_t</span><span class="p">[</span><span class="n">idx</span><span class="p">];</span> <span class="n">bi</span> <span class="o">=</span> <span class="n">i_t</span><span class="p">[</span><span class="n">idx</span><span class="p">]</span>
+            <span class="n">bj</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">n_items</span><span class="p">,</span> <span class="p">(</span><span class="n">bu</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">],),</span> <span class="n">device</span><span class="o">=</span><span class="n">dev</span><span class="p">)</span>
+            <span class="n">pu</span> <span class="o">=</span> <span class="n">U</span><span class="p">[</span><span class="n">bu</span><span class="p">];</span> <span class="n">pi</span> <span class="o">=</span> <span class="n">V</span><span class="p">[</span><span class="n">bi</span><span class="p">];</span> <span class="n">pj</span> <span class="o">=</span> <span class="n">V</span><span class="p">[</span><span class="n">bj</span><span class="p">]</span>
+            <span class="n">x</span> <span class="o">=</span> <span class="p">(</span><span class="n">pu</span> <span class="o">*</span> <span class="n">pi</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="o">-</span> <span class="p">(</span><span class="n">pu</span> <span class="o">*</span> <span class="n">pj</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+            <span class="n">loss</span> <span class="o">=</span> <span class="o">-</span><span class="n">torch</span><span class="o">.</span><span class="n">nn</span><span class="o">.</span><span class="n">functional</span><span class="o">.</span><span class="n">logsigmoid</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+            <span class="n">e0u</span> <span class="o">=</span> <span class="n">E</span><span class="p">[</span><span class="n">bu</span><span class="p">];</span> <span class="n">e0i</span> <span class="o">=</span> <span class="n">E</span><span class="p">[</span><span class="n">n_users</span> <span class="o">+</span> <span class="n">bi</span><span class="p">];</span> <span class="n">e0j</span> <span class="o">=</span> <span class="n">E</span><span class="p">[</span><span class="n">n_users</span> <span class="o">+</span> <span class="n">bj</span><span class="p">]</span>
+            <span class="n">loss</span> <span class="o">=</span> <span class="n">loss</span> <span class="o">+</span> <span class="n">reg</span> <span class="o">*</span> <span class="p">(</span><span class="n">e0u</span><span class="o">.</span><span class="n">pow</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span> <span class="o">+</span> <span class="n">e0i</span><span class="o">.</span><span class="n">pow</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span> <span class="o">+</span> <span class="n">e0j</span><span class="o">.</span><span class="n">pow</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">())</span> <span class="o">/</span> <span class="n">bu</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+            <span class="n">opt</span><span class="o">.</span><span class="n">zero_grad</span><span class="p">();</span> <span class="n">loss</span><span class="o">.</span><span class="n">backward</span><span class="p">();</span> <span class="n">opt</span><span class="o">.</span><span class="n">step</span><span class="p">()</span>
+            <span class="n">total</span> <span class="o">+=</span> <span class="nb">float</span><span class="p">(</span><span class="n">loss</span><span class="p">);</span> <span class="n">nb</span> <span class="o">+=</span> <span class="mi">1</span>
+        <span class="k">if</span> <span class="n">verbose</span> <span class="ow">and</span> <span class="p">(</span><span class="n">ep</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">%</span> <span class="mi">20</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;  LightGCN epoch </span><span class="si">{</span><span class="n">ep</span><span class="o">+</span><span class="mi">1</span><span class="si">}</span><span class="s2">/</span><span class="si">{</span><span class="n">epochs</span><span class="si">}</span><span class="s2"> loss=</span><span class="si">{</span><span class="n">total</span><span class="o">/</span><span class="nb">max</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">nb</span><span class="p">)</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+    <span class="k">with</span> <span class="n">torch</span><span class="o">.</span><span class="n">no_grad</span><span class="p">():</span>
+        <span class="n">allE</span> <span class="o">=</span> <span class="n">propagate</span><span class="p">()</span><span class="o">.</span><span class="n">float</span><span class="p">()</span>
+    <span class="k">return</span> <span class="n">allE</span><span class="p">[:</span><span class="n">n_users</span><span class="p">]</span><span class="o">.</span><span class="n">detach</span><span class="p">()</span><span class="o">.</span><span class="n">cpu</span><span class="p">()</span><span class="o">.</span><span class="n">numpy</span><span class="p">(),</span> <span class="n">allE</span><span class="p">[</span><span class="n">n_users</span><span class="p">:]</span><span class="o">.</span><span class="n">detach</span><span class="p">()</span><span class="o">.</span><span class="n">cpu</span><span class="p">()</span><span class="o">.</span><span class="n">numpy</span><span class="p">()</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">_extract_embeddings</span><span class="p">(</span><span class="n">model</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Tuple</span><span class="p">[</span><span class="n">List</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">List</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">]:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Best-effort extraction of (item_ids, item_emb, user_ids, user_emb).&quot;&quot;&quot;</span>
+    <span class="kn">import</span><span class="w"> </span><span class="nn">torch</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">_np</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">):</span>
+            <span class="k">return</span> <span class="n">x</span><span class="o">.</span><span class="n">detach</span><span class="p">()</span><span class="o">.</span><span class="n">cpu</span><span class="p">()</span><span class="o">.</span><span class="n">numpy</span><span class="p">()</span>
+        <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+
+    <span class="c1"># implicit/factor-style</span>
+    <span class="k">for</span> <span class="n">ue</span><span class="p">,</span> <span class="n">ie</span> <span class="ow">in</span> <span class="p">((</span><span class="s2">&quot;user_factors&quot;</span><span class="p">,</span> <span class="s2">&quot;item_factors&quot;</span><span class="p">),</span> <span class="p">(</span><span class="s2">&quot;user_embeddings&quot;</span><span class="p">,</span> <span class="s2">&quot;item_embeddings&quot;</span><span class="p">)):</span>
+        <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">ue</span><span class="p">)</span> <span class="ow">and</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">ie</span><span class="p">):</span>
+            <span class="n">U</span> <span class="o">=</span> <span class="n">_np</span><span class="p">(</span><span class="nb">getattr</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">ue</span><span class="p">));</span> <span class="n">V</span> <span class="o">=</span> <span class="n">_np</span><span class="p">(</span><span class="nb">getattr</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">ie</span><span class="p">))</span>
+            <span class="n">users</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">getattr</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="s2">&quot;uid_map&quot;</span><span class="p">,</span> <span class="nb">range</span><span class="p">(</span><span class="n">U</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">])))</span>
+            <span class="n">items</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">getattr</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="s2">&quot;iid_map&quot;</span><span class="p">,</span> <span class="nb">range</span><span class="p">(</span><span class="n">V</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">])))</span>
+            <span class="k">return</span> <span class="n">items</span><span class="p">,</span> <span class="n">V</span><span class="p">,</span> <span class="n">users</span><span class="p">,</span> <span class="n">U</span>
+    <span class="c1"># method-based</span>
+    <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="s2">&quot;get_item_embeddings&quot;</span><span class="p">)</span> <span class="ow">and</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="s2">&quot;get_user_embeddings&quot;</span><span class="p">):</span>
+        <span class="n">V</span> <span class="o">=</span> <span class="n">_np</span><span class="p">(</span><span class="n">model</span><span class="o">.</span><span class="n">get_item_embeddings</span><span class="p">());</span> <span class="n">U</span> <span class="o">=</span> <span class="n">_np</span><span class="p">(</span><span class="n">model</span><span class="o">.</span><span class="n">get_user_embeddings</span><span class="p">())</span>
+        <span class="n">users</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">getattr</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="s2">&quot;uid_map&quot;</span><span class="p">,</span> <span class="nb">range</span><span class="p">(</span><span class="n">U</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">])))</span>
+        <span class="n">items</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">getattr</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="s2">&quot;iid_map&quot;</span><span class="p">,</span> <span class="nb">range</span><span class="p">(</span><span class="n">V</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">])))</span>
+        <span class="k">return</span> <span class="n">items</span><span class="p">,</span> <span class="n">V</span><span class="p">,</span> <span class="n">users</span><span class="p">,</span> <span class="n">U</span>
+    <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">(</span>
+        <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="nb">type</span><span class="p">(</span><span class="n">model</span><span class="p">)</span><span class="o">.</span><span class="vm">__name__</span><span class="si">}</span><span class="s2"> does not expose embeddings; use &quot;</span>
+        <span class="s2">&quot;OnlineRecommender.from_interactions or from_embeddings instead.&quot;</span><span class="p">)</span>
+</pre></div>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Vishesh Yadav
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2024, Vishesh Yadav.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

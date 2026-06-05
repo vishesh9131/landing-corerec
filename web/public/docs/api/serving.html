@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Model Serving &#8212; CoreRec 0.5.3 documentation</title>
+    <title>Model Serving &#8212; CoreRec 0.5.4 documentation</title>
   
   
   
@@ -39,7 +39,7 @@
 <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
   <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
 
-    <script src="../_static/documentation_options.js?v=f39d245f"></script>
+    <script src="../_static/documentation_options.js?v=6688a68e"></script>
     <script src="../_static/doctools.js?v=9bcbadda"></script>
     <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
@@ -138,7 +138,7 @@
   
   
   
-    <p class="title logo__title">CoreRec 0.5.3 documentation</p>
+    <p class="title logo__title">CoreRec 0.5.4 documentation</p>
   
 </a></div>
         <div class="sidebar-primary-item">
@@ -173,6 +173,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../user_guide/data_preparation.html">Data Preparation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../user_guide/model_training.html">Model Training</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../user_guide/making_predictions.html">Making Predictions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user_guide/online_serving.html">Online Serving at Scale</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../user_guide/model_persistence.html">Model Persistence</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../user_guide/safe_bundle_persistence.html">Safe Model Bundles (<code class="docutils literal notranslate"><span class="pre">corerec_safe_v1</span></code>)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../user_guide/best_practices.html">Best Practices</a></li>
@@ -507,7 +508,8 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#quick-start">Quick Start</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#online-serving-recommended-for-production">Online serving (recommended for production)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#rest-batch-server">REST / batch server</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#api-endpoints">API Endpoints</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-corerec.serving">API Reference</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#corerec.serving.ModelServer"><code class="docutils literal notranslate"><span class="pre">ModelServer</span></code></a><ul class="nav section-nav flex-column">
@@ -543,6 +545,17 @@ document.write(`
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#corerec.serving.ModelLoader.clear_cache"><code class="docutils literal notranslate"><span class="pre">ModelLoader.clear_cache()</span></code></a></li>
 </ul>
 </li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#corerec.serving.OnlineRecommender"><code class="docutils literal notranslate"><span class="pre">OnlineRecommender</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#corerec.serving.OnlineRecommender.from_embeddings"><code class="docutils literal notranslate"><span class="pre">OnlineRecommender.from_embeddings()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#corerec.serving.OnlineRecommender.from_interactions"><code class="docutils literal notranslate"><span class="pre">OnlineRecommender.from_interactions()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#corerec.serving.OnlineRecommender.from_model"><code class="docutils literal notranslate"><span class="pre">OnlineRecommender.from_model()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#corerec.serving.OnlineRecommender.recommend"><code class="docutils literal notranslate"><span class="pre">OnlineRecommender.recommend()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#corerec.serving.OnlineRecommender.recommend_batch"><code class="docutils literal notranslate"><span class="pre">OnlineRecommender.recommend_batch()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#corerec.serving.OnlineRecommender.add_items"><code class="docutils literal notranslate"><span class="pre">OnlineRecommender.add_items()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#corerec.serving.OnlineRecommender.fold_in_user"><code class="docutils literal notranslate"><span class="pre">OnlineRecommender.fold_in_user()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#corerec.serving.OnlineRecommender.stats"><code class="docutils literal notranslate"><span class="pre">OnlineRecommender.stats()</span></code></a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -558,9 +571,24 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="model-serving">
 <h1>Model Serving<a class="headerlink" href="#model-serving" title="Link to this heading">#</a></h1>
-<p>Production REST API and batch serving for recommendation models.</p>
-<section id="quick-start">
-<h2>Quick Start<a class="headerlink" href="#quick-start" title="Link to this heading">#</a></h2>
+<p>Production serving for recommendation models: an ANN-backed online recommendation
+engine for high-scale, always-fresh feeds, plus a REST/batch server.</p>
+<section id="online-serving-recommended-for-production">
+<h2>Online serving (recommended for production)<a class="headerlink" href="#online-serving-recommended-for-production" title="Link to this heading">#</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">OnlineRecommender</span></code> serves top-K via ANN (sub-millisecond at million-item scale),
+supports incremental freshness, and falls back gracefully for unknown users. See
+the <a class="reference internal" href="../user_guide/online_serving.html"><span class="std std-doc">Online Serving guide</span></a> for the full walkthrough.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">corerec.serving</span><span class="w"> </span><span class="kn">import</span> <span class="n">OnlineRecommender</span>
+
+<span class="n">rec</span> <span class="o">=</span> <span class="n">OnlineRecommender</span><span class="o">.</span><span class="n">from_interactions</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">model</span><span class="o">=</span><span class="s2">&quot;lightgcn&quot;</span><span class="p">,</span> <span class="n">device</span><span class="o">=</span><span class="s2">&quot;cuda&quot;</span><span class="p">)</span>
+<span class="n">rec</span><span class="o">.</span><span class="n">recommend</span><span class="p">(</span><span class="n">user_id</span><span class="o">=</span><span class="mi">42</span><span class="p">,</span> <span class="n">top_k</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>              <span class="c1"># sub-ms ANN</span>
+<span class="n">rec</span><span class="o">.</span><span class="n">add_items</span><span class="p">(</span><span class="n">new_ids</span><span class="p">,</span> <span class="n">new_vectors</span><span class="p">)</span>              <span class="c1"># freshness, no retrain</span>
+<span class="n">rec</span><span class="o">.</span><span class="n">fold_in_user</span><span class="p">(</span><span class="s2">&quot;new_user&quot;</span><span class="p">,</span> <span class="n">item_ids</span><span class="o">=</span><span class="p">[</span><span class="o">...</span><span class="p">])</span>     <span class="c1"># new user, no retrain</span>
+</pre></div>
+</div>
+</section>
+<section id="rest-batch-server">
+<h2>REST / batch server<a class="headerlink" href="#rest-batch-server" title="Link to this heading">#</a></h2>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">corerec.serving</span><span class="w"> </span><span class="kn">import</span> <span class="n">ModelServer</span>
 
 <span class="n">server</span> <span class="o">=</span> <span class="n">ModelServer</span><span class="p">(</span><span class="n">model</span><span class="o">=</span><span class="n">my_model</span><span class="p">,</span> <span class="n">host</span><span class="o">=</span><span class="s2">&quot;0.0.0.0&quot;</span><span class="p">,</span> <span class="n">port</span><span class="o">=</span><span class="mi">8000</span><span class="p">)</span>
@@ -844,6 +872,79 @@ model2 = loader.load(‘models/ncf_v1.pkl’)  # From cache!</p>
 
 </dd></dl>
 
+<dl class="py class">
+<dt class="sig sig-object py" id="corerec.serving.OnlineRecommender">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">corerec.serving.</span></span><span class="sig-name descname"><span class="pre">OnlineRecommender</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dim</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.14)"><span class="pre">int</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">index_type</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><span class="pre">str</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'hnsw'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">metric</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><span class="pre">str</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'cosine'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/corerec/serving/online.html#OnlineRecommender"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#corerec.serving.OnlineRecommender" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+<p>ANN-backed, incrementally-updatable online recommender.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>dim</strong> – embedding dimension.</p></li>
+<li><p><strong>index_type</strong> – ‘hnsw’ (default, best for serving), ‘ivf’, or ‘flat’ (exact).</p></li>
+<li><p><strong>metric</strong> – ‘cosine’ (default) or ‘ip’.</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="corerec.serving.OnlineRecommender.from_embeddings">
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">from_embeddings</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">item_ids</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Sequence" title="(in Python v3.14)"><span class="pre">Sequence</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">item_emb</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.4)"><span class="pre">ndarray</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">user_ids</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Sequence" title="(in Python v3.14)"><span class="pre">Sequence</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.14)"><span class="pre">None</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">user_emb</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.4)"><span class="pre">ndarray</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.14)"><span class="pre">None</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">popularity</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Sequence" title="(in Python v3.14)"><span class="pre">Sequence</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.14)"><span class="pre">None</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">seen</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Dict" title="(in Python v3.14)"><span class="pre">Dict</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.14)"><span class="pre">None</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">index_type</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><span class="pre">str</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'hnsw'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">metric</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><span class="pre">str</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'cosine'</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#corerec.serving.OnlineRecommender" title="corerec.serving.online.OnlineRecommender"><span class="pre">OnlineRecommender</span></a></span></span><a class="reference internal" href="../_modules/corerec/serving/online.html#OnlineRecommender.from_embeddings"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#corerec.serving.OnlineRecommender.from_embeddings" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="corerec.serving.OnlineRecommender.from_interactions">
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">from_interactions</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">interactions</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">user_col</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><span class="pre">str</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'user_id'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">item_col</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><span class="pre">str</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'item_id'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">model</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><span class="pre">str</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'lightgcn'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dim</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.14)"><span class="pre">int</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">64</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">epochs</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.14)"><span class="pre">int</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">200</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_layers</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.14)"><span class="pre">int</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">3</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">device</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><span class="pre">str</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'cpu'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">index_type</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><span class="pre">str</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'hnsw'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">metric</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><span class="pre">str</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.14)"><span class="pre">None</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">verbose</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.14)"><span class="pre">bool</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#corerec.serving.OnlineRecommender" title="corerec.serving.online.OnlineRecommender"><span class="pre">OnlineRecommender</span></a></span></span><a class="reference internal" href="../_modules/corerec/serving/online.html#OnlineRecommender.from_interactions"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#corerec.serving.OnlineRecommender.from_interactions" title="Link to this definition">#</a></dt>
+<dd><p>Train native embeddings and build the serving index.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>model</strong> – ‘lightgcn’ (default, strongest on graph benchmarks) or ‘bpr’.</p></li>
+<li><p><strong>metric</strong> – defaults to ‘ip’ (dot product) – the right ranking for these
+MF/GCN embeddings; pass ‘cosine’ to normalize.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="corerec.serving.OnlineRecommender.from_model">
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">from_model</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">model</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">index_type</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><span class="pre">str</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'hnsw'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">metric</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><span class="pre">str</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'cosine'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/corerec/serving/online.html#OnlineRecommender.from_model"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#corerec.serving.OnlineRecommender.from_model" title="Link to this definition">#</a></dt>
+<dd><p>Extract user/item embeddings from a trained CoreRec model.</p>
+<p>Supports models that expose factors via common attributes/methods
+(item_factors/user_factors, get_item_embeddings, embeddings).</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="corerec.serving.OnlineRecommender.recommend">
+<span class="sig-name descname"><span class="pre">recommend</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">user_id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">top_k</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.14)"><span class="pre">int</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">10</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">exclude_seen</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.14)"><span class="pre">bool</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.List" title="(in Python v3.14)"><span class="pre">List</span></a></span></span><a class="reference internal" href="../_modules/corerec/serving/online.html#OnlineRecommender.recommend"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#corerec.serving.OnlineRecommender.recommend" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="corerec.serving.OnlineRecommender.recommend_batch">
+<span class="sig-name descname"><span class="pre">recommend_batch</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">user_ids</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Sequence" title="(in Python v3.14)"><span class="pre">Sequence</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">top_k</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.14)"><span class="pre">int</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">10</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">exclude_seen</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.14)"><span class="pre">bool</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.List" title="(in Python v3.14)"><span class="pre">List</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.List" title="(in Python v3.14)"><span class="pre">List</span></a><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="../_modules/corerec/serving/online.html#OnlineRecommender.recommend_batch"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#corerec.serving.OnlineRecommender.recommend_batch" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="corerec.serving.OnlineRecommender.add_items">
+<span class="sig-name descname"><span class="pre">add_items</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">item_ids</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Sequence" title="(in Python v3.14)"><span class="pre">Sequence</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">item_emb</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.4)"><span class="pre">ndarray</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.14)"><span class="pre">None</span></a></span></span><a class="reference internal" href="../_modules/corerec/serving/online.html#OnlineRecommender.add_items"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#corerec.serving.OnlineRecommender.add_items" title="Link to this definition">#</a></dt>
+<dd><p>Add new items (e.g. fresh content) to the live index without retrain.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="corerec.serving.OnlineRecommender.fold_in_user">
+<span class="sig-name descname"><span class="pre">fold_in_user</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">user_id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">item_ids</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Iterable" title="(in Python v3.14)"><span class="pre">Iterable</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">update_seen</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.14)"><span class="pre">bool</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.4)"><span class="pre">ndarray</span></a></span></span><a class="reference internal" href="../_modules/corerec/serving/online.html#OnlineRecommender.fold_in_user"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#corerec.serving.OnlineRecommender.fold_in_user" title="Link to this definition">#</a></dt>
+<dd><p>Compute/refresh a user’s embedding from their interactions (ridge
+fold-in over item factors) – no retraining. Handles new users and keeps
+returning users fresh.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="corerec.serving.OnlineRecommender.stats">
+<span class="sig-name descname"><span class="pre">stats</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Dict" title="(in Python v3.14)"><span class="pre">Dict</span></a></span></span><a class="reference internal" href="../_modules/corerec/serving/online.html#OnlineRecommender.stats"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#corerec.serving.OnlineRecommender.stats" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
 </section>
 </section>
 
@@ -892,7 +993,8 @@ model2 = loader.load(‘models/ncf_v1.pkl’)  # From cache!</p>
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#quick-start">Quick Start</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#online-serving-recommended-for-production">Online serving (recommended for production)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#rest-batch-server">REST / batch server</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#api-endpoints">API Endpoints</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-corerec.serving">API Reference</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#corerec.serving.ModelServer"><code class="docutils literal notranslate"><span class="pre">ModelServer</span></code></a><ul class="nav section-nav flex-column">
@@ -926,6 +1028,17 @@ model2 = loader.load(‘models/ncf_v1.pkl’)  # From cache!</p>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#corerec.serving.ModelLoader.__init__"><code class="docutils literal notranslate"><span class="pre">ModelLoader.__init__()</span></code></a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#corerec.serving.ModelLoader.load"><code class="docutils literal notranslate"><span class="pre">ModelLoader.load()</span></code></a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#corerec.serving.ModelLoader.clear_cache"><code class="docutils literal notranslate"><span class="pre">ModelLoader.clear_cache()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#corerec.serving.OnlineRecommender"><code class="docutils literal notranslate"><span class="pre">OnlineRecommender</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#corerec.serving.OnlineRecommender.from_embeddings"><code class="docutils literal notranslate"><span class="pre">OnlineRecommender.from_embeddings()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#corerec.serving.OnlineRecommender.from_interactions"><code class="docutils literal notranslate"><span class="pre">OnlineRecommender.from_interactions()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#corerec.serving.OnlineRecommender.from_model"><code class="docutils literal notranslate"><span class="pre">OnlineRecommender.from_model()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#corerec.serving.OnlineRecommender.recommend"><code class="docutils literal notranslate"><span class="pre">OnlineRecommender.recommend()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#corerec.serving.OnlineRecommender.recommend_batch"><code class="docutils literal notranslate"><span class="pre">OnlineRecommender.recommend_batch()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#corerec.serving.OnlineRecommender.add_items"><code class="docutils literal notranslate"><span class="pre">OnlineRecommender.add_items()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#corerec.serving.OnlineRecommender.fold_in_user"><code class="docutils literal notranslate"><span class="pre">OnlineRecommender.fold_in_user()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#corerec.serving.OnlineRecommender.stats"><code class="docutils literal notranslate"><span class="pre">OnlineRecommender.stats()</span></code></a></li>
 </ul>
 </li>
 </ul>

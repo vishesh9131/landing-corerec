@@ -7,7 +7,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>corerec.engines.gnnrec &#8212; CoreRec 0.5.1 documentation</title>
+    <title>corerec.engines.gnnrec &#8212; CoreRec 0.5.4 documentation</title>
   
   
   
@@ -38,7 +38,7 @@
 <link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
   <script src="../../../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
 
-    <script src="../../../_static/documentation_options.js?v=5f152624"></script>
+    <script src="../../../_static/documentation_options.js?v=6688a68e"></script>
     <script src="../../../_static/doctools.js?v=9bcbadda"></script>
     <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../../../_static/clipboard.min.js?v=a7894cd8"></script>
@@ -137,7 +137,7 @@
   
   
   
-    <p class="title logo__title">CoreRec 0.5.1 documentation</p>
+    <p class="title logo__title">CoreRec 0.5.4 documentation</p>
   
 </a></div>
         <div class="sidebar-primary-item">
@@ -172,6 +172,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../../../user_guide/data_preparation.html">Data Preparation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../user_guide/model_training.html">Model Training</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../user_guide/making_predictions.html">Making Predictions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../user_guide/online_serving.html">Online Serving at Scale</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../user_guide/model_persistence.html">Model Persistence</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../user_guide/safe_bundle_persistence.html">Safe Model Bundles (<code class="docutils literal notranslate"><span class="pre">corerec_safe_v1</span></code>)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../user_guide/best_practices.html">Best Practices</a></li>
@@ -181,10 +182,9 @@
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Model Documentation</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../../../models/index.html">Model Documentation</a></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../../../models/models_index.html">Model Documentation Index</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l2"><a class="reference internal" href="../../../models/index.html">Model Documentation</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../models/models_index.html">Complete Model Index</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../../../models/deep_learning.html">Deep Learning Models</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../models/matrix_factorization.html">Matrix Factorization Models</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../models/matrix_factorization.html">Matrix Factorization &amp; Collaborative Filtering</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../models/graph_based.html">Graph-Based Models</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../models/sequential.html">Sequential Models</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../models/bayesian.html">Bayesian Models</a></li>
@@ -486,8 +486,15 @@ document.write(`
         <span class="n">trainable</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
         <span class="n">verbose</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
         <span class="n">device</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;cuda&quot;</span> <span class="k">if</span> <span class="n">torch</span><span class="o">.</span><span class="n">cuda</span><span class="o">.</span><span class="n">is_available</span><span class="p">()</span> <span class="k">else</span> <span class="s2">&quot;cpu&quot;</span><span class="p">,</span>
+        <span class="n">num_negatives</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">4</span><span class="p">,</span>
     <span class="p">):</span>
         <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="n">name</span><span class="p">,</span> <span class="n">trainable</span><span class="o">=</span><span class="n">trainable</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="n">verbose</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">num_negatives</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;num_negatives must be &gt;= 0&quot;</span><span class="p">)</span>
+        <span class="c1"># GNNRec trains a BCE head; observed interactions are positives and we</span>
+        <span class="c1"># sample unobserved negatives so ranking has signal (avoids the all-ones</span>
+        <span class="c1"># collapse). The bipartite graph is still built from observed edges only.</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">num_negatives</span> <span class="o">=</span> <span class="n">num_negatives</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">embedding_dim</span> <span class="o">=</span> <span class="n">embedding_dim</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">num_gnn_layers</span> <span class="o">=</span> <span class="n">num_gnn_layers</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">dropout</span> <span class="o">=</span> <span class="n">dropout</span>
@@ -658,10 +665,29 @@ document.write(`
         <span class="bp">self</span><span class="o">.</span><span class="n">laplacian_matrix</span> <span class="o">=</span> <span class="n">laplacian_matrix</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">model</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_build_model</span><span class="p">(</span><span class="n">num_users</span><span class="p">,</span> <span class="n">num_items</span><span class="p">,</span> <span class="n">laplacian_matrix</span><span class="p">)</span>
 
-        <span class="c1"># Create training data</span>
-        <span class="n">train_user_indices</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">tensor</span><span class="p">(</span><span class="n">user_indices</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">torch</span><span class="o">.</span><span class="n">long</span><span class="p">)</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">device</span><span class="p">)</span>
-        <span class="n">train_item_indices</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">tensor</span><span class="p">(</span><span class="n">item_indices</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">torch</span><span class="o">.</span><span class="n">long</span><span class="p">)</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">device</span><span class="p">)</span>
-        <span class="n">train_labels</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">tensor</span><span class="p">(</span><span class="n">ratings</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">torch</span><span class="o">.</span><span class="n">float</span><span class="p">)</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">device</span><span class="p">)</span>
+        <span class="c1"># Create training data: observed interactions are positives (label 1);</span>
+        <span class="c1"># sample unobserved items per positive as negatives (label 0). Binarizing</span>
+        <span class="c1"># observed (instead of using raw ratings) avoids BCE on out-of-range</span>
+        <span class="c1"># targets, and the negatives give the ranking objective real signal.</span>
+        <span class="n">seen</span> <span class="o">=</span> <span class="p">[</span><span class="nb">set</span><span class="p">()</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">num_users</span><span class="p">)]</span>
+        <span class="k">for</span> <span class="n">u</span><span class="p">,</span> <span class="n">it</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">user_indices</span><span class="p">,</span> <span class="n">item_indices</span><span class="p">):</span>
+            <span class="n">seen</span><span class="p">[</span><span class="n">u</span><span class="p">]</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">it</span><span class="p">)</span>
+        <span class="n">rng</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">RandomState</span><span class="p">(</span><span class="mi">42</span><span class="p">)</span>
+        <span class="n">ex_users</span><span class="p">,</span> <span class="n">ex_items</span><span class="p">,</span> <span class="n">ex_labels</span> <span class="o">=</span> <span class="p">[],</span> <span class="p">[],</span> <span class="p">[]</span>
+        <span class="k">for</span> <span class="n">u</span><span class="p">,</span> <span class="n">it</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">user_indices</span><span class="p">,</span> <span class="n">item_indices</span><span class="p">):</span>
+            <span class="n">ex_users</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">u</span><span class="p">);</span> <span class="n">ex_items</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">it</span><span class="p">);</span> <span class="n">ex_labels</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mf">1.0</span><span class="p">)</span>
+            <span class="n">us</span> <span class="o">=</span> <span class="n">seen</span><span class="p">[</span><span class="n">u</span><span class="p">]</span>
+            <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">num_negatives</span><span class="p">):</span>
+                <span class="n">neg</span> <span class="o">=</span> <span class="n">rng</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="n">num_items</span><span class="p">)</span>
+                <span class="k">for</span> <span class="n">_t</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">):</span>
+                    <span class="k">if</span> <span class="n">neg</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">us</span><span class="p">:</span>
+                        <span class="k">break</span>
+                    <span class="n">neg</span> <span class="o">=</span> <span class="n">rng</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="n">num_items</span><span class="p">)</span>
+                <span class="n">ex_users</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">u</span><span class="p">);</span> <span class="n">ex_items</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">neg</span><span class="p">);</span> <span class="n">ex_labels</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mf">0.0</span><span class="p">)</span>
+
+        <span class="n">train_user_indices</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">tensor</span><span class="p">(</span><span class="n">ex_users</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">torch</span><span class="o">.</span><span class="n">long</span><span class="p">)</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">device</span><span class="p">)</span>
+        <span class="n">train_item_indices</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">tensor</span><span class="p">(</span><span class="n">ex_items</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">torch</span><span class="o">.</span><span class="n">long</span><span class="p">)</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">device</span><span class="p">)</span>
+        <span class="n">train_labels</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">tensor</span><span class="p">(</span><span class="n">ex_labels</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">torch</span><span class="o">.</span><span class="n">float</span><span class="p">)</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">device</span><span class="p">)</span>
 
         <span class="c1"># Define optimizer and loss</span>
         <span class="n">optimizer</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">optim</span><span class="o">.</span><span class="n">Adam</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">parameters</span><span class="p">(),</span> <span class="n">lr</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">learning_rate</span><span class="p">)</span>
@@ -706,6 +732,18 @@ document.write(`
 
             <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">verbose</span><span class="p">:</span>
                 <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Epoch </span><span class="si">{</span><span class="n">epoch</span><span class="o">+</span><span class="mi">1</span><span class="si">}</span><span class="s2">/</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">epochs</span><span class="si">}</span><span class="s2">, Loss: </span><span class="si">{</span><span class="n">total_loss</span><span class="o">/</span><span class="n">n_batches</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+        <span class="c1"># Collapse guard: warn if scores are near-constant across items.</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">eval</span><span class="p">()</span>
+        <span class="k">with</span> <span class="n">torch</span><span class="o">.</span><span class="n">no_grad</span><span class="p">():</span>
+            <span class="n">n_probe</span> <span class="o">=</span> <span class="nb">min</span><span class="p">(</span><span class="mi">2048</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">train_user_indices</span><span class="p">))</span>
+            <span class="n">probe</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="p">(</span><span class="n">train_user_indices</span><span class="p">[:</span><span class="n">n_probe</span><span class="p">],</span> <span class="n">train_item_indices</span><span class="p">[:</span><span class="n">n_probe</span><span class="p">])</span>
+            <span class="n">score_std</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">probe</span><span class="o">.</span><span class="n">std</span><span class="p">()</span><span class="o">.</span><span class="n">item</span><span class="p">())</span>
+        <span class="k">if</span> <span class="n">score_std</span> <span class="o">&lt;</span> <span class="mf">1e-4</span><span class="p">:</span>
+            <span class="n">logger</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span>
+                <span class="s2">&quot;GNNRec output collapsed (score std=</span><span class="si">%.2e</span><span class="s2">): predictions are nearly &quot;</span>
+                <span class="s2">&quot;constant, rankings will be meaningless.&quot;</span><span class="p">,</span> <span class="n">score_std</span><span class="p">,</span>
+            <span class="p">)</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">is_fitted</span> <span class="o">=</span> <span class="kc">True</span>
         <span class="k">return</span> <span class="bp">self</span></div>

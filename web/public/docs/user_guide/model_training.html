@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Model Training &#8212; CoreRec 0.5.3 documentation</title>
+    <title>Model Training &#8212; CoreRec 0.5.4 documentation</title>
   
   
   
@@ -39,7 +39,7 @@
 <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
   <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
 
-    <script src="../_static/documentation_options.js?v=f39d245f"></script>
+    <script src="../_static/documentation_options.js?v=6688a68e"></script>
     <script src="../_static/doctools.js?v=9bcbadda"></script>
     <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
@@ -138,7 +138,7 @@
   
   
   
-    <p class="title logo__title">CoreRec 0.5.3 documentation</p>
+    <p class="title logo__title">CoreRec 0.5.4 documentation</p>
   
 </a></div>
         <div class="sidebar-primary-item">
@@ -173,6 +173,7 @@
 <li class="toctree-l1"><a class="reference internal" href="data_preparation.html">Data Preparation</a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Model Training</a></li>
 <li class="toctree-l1"><a class="reference internal" href="making_predictions.html">Making Predictions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="online_serving.html">Online Serving at Scale</a></li>
 <li class="toctree-l1"><a class="reference internal" href="model_persistence.html">Model Persistence</a></li>
 <li class="toctree-l1"><a class="reference internal" href="safe_bundle_persistence.html">Safe Model Bundles (<code class="docutils literal notranslate"><span class="pre">corerec_safe_v1</span></code>)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="best_practices.html">Best Practices</a></li>
@@ -508,6 +509,8 @@ document.write(`
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#basic-training">Basic Training</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#choosing-the-task-implicit-ranking-vs-rating-prediction">Choosing the task: implicit ranking vs. rating prediction</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#training-strong-models-for-large-scale-ranking">Training strong models for large-scale ranking</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#callbacks">Callbacks</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#validation">Validation</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#gpu-training">GPU Training</a></li>
@@ -547,6 +550,42 @@ document.write(`
 <span class="n">model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">user_ids</span><span class="o">=</span><span class="n">user_ids</span><span class="p">,</span> <span class="n">item_ids</span><span class="o">=</span><span class="n">item_ids</span><span class="p">,</span> <span class="n">ratings</span><span class="o">=</span><span class="n">ratings</span><span class="p">)</span>
 </pre></div>
 </div>
+</section>
+<section id="choosing-the-task-implicit-ranking-vs-rating-prediction">
+<h2>Choosing the task: implicit ranking vs. rating prediction<a class="headerlink" href="#choosing-the-task-implicit-ranking-vs-rating-prediction" title="Link to this heading">#</a></h2>
+<p>The deep CTR/graph models (<code class="docutils literal notranslate"><span class="pre">DCN</span></code>, <code class="docutils literal notranslate"><span class="pre">DeepFM</span></code>, <code class="docutils literal notranslate"><span class="pre">GNNRec</span></code>) accept a <code class="docutils literal notranslate"><span class="pre">task</span></code> argument that
+controls how labels are interpreted and how the model is trained:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">corerec.engines</span><span class="w"> </span><span class="kn">import</span> <span class="n">DCN</span>
+
+<span class="c1"># top-K recommendation (default): observed interactions are positives and the</span>
+<span class="c1"># model is trained with negative sampling -&gt; use this for ranking.</span>
+<span class="n">model</span> <span class="o">=</span> <span class="n">DCN</span><span class="p">(</span><span class="n">task</span><span class="o">=</span><span class="s2">&quot;auto&quot;</span><span class="p">,</span> <span class="n">num_negatives</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>        <span class="c1"># &#39;auto&#39; == &#39;implicit&#39;</span>
+
+<span class="c1"># rating prediction: regress the supplied rating with a linear head + MSE.</span>
+<span class="n">model</span> <span class="o">=</span> <span class="n">DCN</span><span class="p">(</span><span class="n">task</span><span class="o">=</span><span class="s2">&quot;rating&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>Train these models with <code class="docutils literal notranslate"><span class="pre">task=&quot;implicit&quot;</span></code> (the default) for recommendation. Passing
+raw 1–5 ratings to an implicit model without negatives is the classic mistake that
+makes the output collapse to a constant; CoreRec now handles this for you via
+negative sampling and warns if a trained model’s scores have (near-)zero variance.
+Use <code class="docutils literal notranslate"><span class="pre">task=&quot;rating&quot;</span></code> only when you genuinely want to predict the rating value.</p>
+</div>
+</section>
+<section id="training-strong-models-for-large-scale-ranking">
+<h2>Training strong models for large-scale ranking<a class="headerlink" href="#training-strong-models-for-large-scale-ranking" title="Link to this heading">#</a></h2>
+<p>For million-scale implicit-feedback ranking, CoreRec ships native, GPU, sparse
+trainers that produce strong embeddings and feed straight into the online serving
+engine:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">corerec.serving</span><span class="w"> </span><span class="kn">import</span> <span class="n">OnlineRecommender</span>
+
+<span class="c1"># trains a sparse LightGCN (SOTA-class on graph benchmarks) and builds the index</span>
+<span class="n">rec</span> <span class="o">=</span> <span class="n">OnlineRecommender</span><span class="o">.</span><span class="n">from_interactions</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">model</span><span class="o">=</span><span class="s2">&quot;lightgcn&quot;</span><span class="p">,</span> <span class="n">device</span><span class="o">=</span><span class="s2">&quot;cuda&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>See the <a class="reference internal" href="online_serving.html"><span class="std std-doc">Online Serving guide</span></a> for the full train-and-serve path.</p>
 </section>
 <section id="callbacks">
 <h2>Callbacks<a class="headerlink" href="#callbacks" title="Link to this heading">#</a></h2>
@@ -632,6 +671,8 @@ document.write(`
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#basic-training">Basic Training</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#choosing-the-task-implicit-ranking-vs-rating-prediction">Choosing the task: implicit ranking vs. rating prediction</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#training-strong-models-for-large-scale-ranking">Training strong models for large-scale ranking</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#callbacks">Callbacks</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#validation">Validation</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#gpu-training">GPU Training</a></li>

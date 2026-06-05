@@ -7,7 +7,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>corerec.engines.deepfm &#8212; CoreRec 0.5.1 documentation</title>
+    <title>corerec.engines.deepfm &#8212; CoreRec 0.5.4 documentation</title>
   
   
   
@@ -38,7 +38,7 @@
 <link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
   <script src="../../../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
 
-    <script src="../../../_static/documentation_options.js?v=5f152624"></script>
+    <script src="../../../_static/documentation_options.js?v=6688a68e"></script>
     <script src="../../../_static/doctools.js?v=9bcbadda"></script>
     <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../../../_static/clipboard.min.js?v=a7894cd8"></script>
@@ -137,7 +137,7 @@
   
   
   
-    <p class="title logo__title">CoreRec 0.5.1 documentation</p>
+    <p class="title logo__title">CoreRec 0.5.4 documentation</p>
   
 </a></div>
         <div class="sidebar-primary-item">
@@ -172,6 +172,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../../../user_guide/data_preparation.html">Data Preparation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../user_guide/model_training.html">Model Training</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../user_guide/making_predictions.html">Making Predictions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../user_guide/online_serving.html">Online Serving at Scale</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../user_guide/model_persistence.html">Model Persistence</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../user_guide/safe_bundle_persistence.html">Safe Model Bundles (<code class="docutils literal notranslate"><span class="pre">corerec_safe_v1</span></code>)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../user_guide/best_practices.html">Best Practices</a></li>
@@ -181,10 +182,9 @@
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Model Documentation</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../../../models/index.html">Model Documentation</a></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../../../models/models_index.html">Model Documentation Index</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l2"><a class="reference internal" href="../../../models/index.html">Model Documentation</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../models/models_index.html">Complete Model Index</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../../../models/deep_learning.html">Deep Learning Models</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../models/matrix_factorization.html">Matrix Factorization Models</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../models/matrix_factorization.html">Matrix Factorization &amp; Collaborative Filtering</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../models/graph_based.html">Graph-Based Models</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../models/sequential.html">Sequential Models</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../models/bayesian.html">Bayesian Models</a></li>
@@ -491,8 +491,18 @@ document.write(`
         <span class="n">trainable</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
         <span class="n">verbose</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
         <span class="n">device</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;cuda&quot;</span> <span class="k">if</span> <span class="n">torch</span><span class="o">.</span><span class="n">cuda</span><span class="o">.</span><span class="n">is_available</span><span class="p">()</span> <span class="k">else</span> <span class="s2">&quot;cpu&quot;</span><span class="p">,</span>
+        <span class="n">task</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;auto&quot;</span><span class="p">,</span>
+        <span class="n">num_negatives</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">4</span><span class="p">,</span>
     <span class="p">):</span>
         <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="n">name</span><span class="p">,</span> <span class="n">trainable</span><span class="o">=</span><span class="n">trainable</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="n">verbose</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">task</span> <span class="ow">not</span> <span class="ow">in</span> <span class="p">(</span><span class="s2">&quot;auto&quot;</span><span class="p">,</span> <span class="s2">&quot;implicit&quot;</span><span class="p">,</span> <span class="s2">&quot;rating&quot;</span><span class="p">):</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;task must be one of {&#39;auto&#39;, &#39;implicit&#39;, &#39;rating&#39;}&quot;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">num_negatives</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;num_negatives must be &gt;= 0&quot;</span><span class="p">)</span>
+        <span class="c1"># See DCN for the task contract; &#39;auto&#39; -&gt; implicit with negative sampling.</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">task</span> <span class="o">=</span> <span class="n">task</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">num_negatives</span> <span class="o">=</span> <span class="n">num_negatives</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_fit_task</span> <span class="o">=</span> <span class="kc">None</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">embedding_dim</span> <span class="o">=</span> <span class="n">embedding_dim</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">hidden_layers</span> <span class="o">=</span> <span class="n">hidden_layers</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">dropout</span> <span class="o">=</span> <span class="n">dropout</span>
@@ -510,7 +520,7 @@ document.write(`
         <span class="bp">self</span><span class="o">.</span><span class="n">user_feature_types</span> <span class="o">=</span> <span class="p">[]</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">item_feature_types</span> <span class="o">=</span> <span class="p">[]</span>
 
-    <span class="k">def</span><span class="w"> </span><span class="nf">_build_model</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">field_dims</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">int</span><span class="p">]):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">_build_model</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">field_dims</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">int</span><span class="p">],</span> <span class="n">use_sigmoid</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">):</span>
         <span class="k">class</span><span class="w"> </span><span class="nc">FMLayer</span><span class="p">(</span><span class="n">nn</span><span class="o">.</span><span class="n">Module</span><span class="p">):</span>
             <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">field_dims</span><span class="p">,</span> <span class="n">embedding_dim</span><span class="p">):</span>
                 <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
@@ -568,11 +578,11 @@ document.write(`
 
                 <span class="c1"># Combine FM and Deep</span>
                 <span class="n">output</span> <span class="o">=</span> <span class="n">first_order</span> <span class="o">+</span> <span class="n">second_order</span> <span class="o">+</span> <span class="n">deep_output</span>
-                <span class="k">return</span> <span class="n">torch</span><span class="o">.</span><span class="n">sigmoid</span><span class="p">(</span><span class="n">output</span><span class="p">)</span>
+                <span class="k">return</span> <span class="n">torch</span><span class="o">.</span><span class="n">sigmoid</span><span class="p">(</span><span class="n">output</span><span class="p">)</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">use_sigmoid</span> <span class="k">else</span> <span class="n">output</span>
 
-        <span class="k">return</span> <span class="n">DeepFMModel</span><span class="p">(</span><span class="n">field_dims</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">embedding_dim</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">hidden_layers</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">dropout</span><span class="p">)</span><span class="o">.</span><span class="n">to</span><span class="p">(</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">device</span>
-        <span class="p">)</span>
+        <span class="n">model</span> <span class="o">=</span> <span class="n">DeepFMModel</span><span class="p">(</span><span class="n">field_dims</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">embedding_dim</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">hidden_layers</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">dropout</span><span class="p">)</span>
+        <span class="n">model</span><span class="o">.</span><span class="n">use_sigmoid</span> <span class="o">=</span> <span class="n">use_sigmoid</span>
+        <span class="k">return</span> <span class="n">model</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">device</span><span class="p">)</span>
 
 <div class="viewcode-block" id="DeepFM.fit">
 <a class="viewcode-back" href="../../../api/engines.html#corerec.engines.deepfm.DeepFM.fit">[docs]</a>
@@ -655,107 +665,122 @@ document.write(`
             
             <span class="bp">self</span><span class="o">.</span><span class="n">item_feature_types</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">item_feature_types</span><span class="p">)</span>
 
+        <span class="c1"># Resolve task contract and build implicit negatives (see DCN). Training</span>
+        <span class="c1"># BCE on observed-only data (all labels = 1) collapses the model; for the</span>
+        <span class="c1"># implicit task we sample unobserved negatives so the loss has signal.</span>
+        <span class="n">task</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">task</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">task</span> <span class="o">!=</span> <span class="s2">&quot;auto&quot;</span> <span class="k">else</span> <span class="s2">&quot;implicit&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_fit_task</span> <span class="o">=</span> <span class="n">task</span>
+        <span class="kn">from</span><span class="w"> </span><span class="nn">collections</span><span class="w"> </span><span class="kn">import</span> <span class="n">defaultdict</span>
+
+        <span class="n">seen</span> <span class="o">=</span> <span class="n">defaultdict</span><span class="p">(</span><span class="nb">set</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">_u</span><span class="p">,</span> <span class="n">_it</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">user_ids</span><span class="p">,</span> <span class="n">item_ids</span><span class="p">):</span>
+            <span class="n">seen</span><span class="p">[</span><span class="n">_u</span><span class="p">]</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">_it</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="n">task</span> <span class="o">==</span> <span class="s2">&quot;rating&quot;</span><span class="p">:</span>
+            <span class="n">train_users</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">user_ids</span><span class="p">)</span>
+            <span class="n">train_items</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">item_ids</span><span class="p">)</span>
+            <span class="n">train_labels</span> <span class="o">=</span> <span class="p">[</span><span class="nb">float</span><span class="p">(</span><span class="n">r</span><span class="p">)</span> <span class="k">for</span> <span class="n">r</span> <span class="ow">in</span> <span class="n">ratings</span><span class="p">]</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">all_items</span> <span class="o">=</span> <span class="n">unique_items</span>
+            <span class="n">n_it</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">all_items</span><span class="p">)</span>
+            <span class="n">rng</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">RandomState</span><span class="p">(</span><span class="mi">42</span><span class="p">)</span>
+            <span class="n">train_users</span><span class="p">,</span> <span class="n">train_items</span><span class="p">,</span> <span class="n">train_labels</span> <span class="o">=</span> <span class="p">[],</span> <span class="p">[],</span> <span class="p">[]</span>
+            <span class="k">for</span> <span class="n">_u</span><span class="p">,</span> <span class="n">_it</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">user_ids</span><span class="p">,</span> <span class="n">item_ids</span><span class="p">):</span>
+                <span class="n">train_users</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">_u</span><span class="p">);</span> <span class="n">train_items</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">_it</span><span class="p">);</span> <span class="n">train_labels</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mf">1.0</span><span class="p">)</span>
+                <span class="n">us</span> <span class="o">=</span> <span class="n">seen</span><span class="p">[</span><span class="n">_u</span><span class="p">]</span>
+                <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">num_negatives</span><span class="p">):</span>
+                    <span class="n">neg</span> <span class="o">=</span> <span class="n">all_items</span><span class="p">[</span><span class="n">rng</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="n">n_it</span><span class="p">)]</span>
+                    <span class="k">for</span> <span class="n">_t</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">):</span>
+                        <span class="k">if</span> <span class="n">neg</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">us</span><span class="p">:</span>
+                            <span class="k">break</span>
+                        <span class="n">neg</span> <span class="o">=</span> <span class="n">all_items</span><span class="p">[</span><span class="n">rng</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="n">n_it</span><span class="p">)]</span>
+                    <span class="n">train_users</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">_u</span><span class="p">);</span> <span class="n">train_items</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">neg</span><span class="p">);</span> <span class="n">train_labels</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mf">0.0</span><span class="p">)</span>
+
         <span class="c1"># Build model</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">model</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_build_model</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">field_dims</span><span class="p">)</span>
-        
-        <span class="c1"># Define optimizer and loss</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">model</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_build_model</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">field_dims</span><span class="p">,</span> <span class="n">use_sigmoid</span><span class="o">=</span><span class="p">(</span><span class="n">task</span> <span class="o">!=</span> <span class="s2">&quot;rating&quot;</span><span class="p">))</span>
+
+        <span class="c1"># Define optimizer and loss (BCE for implicit ranking, MSE for rating)</span>
         <span class="n">optimizer</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">optim</span><span class="o">.</span><span class="n">Adam</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">parameters</span><span class="p">(),</span> <span class="n">lr</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">learning_rate</span><span class="p">)</span>
-        <span class="n">criterion</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">BCELoss</span><span class="p">()</span>
+        <span class="n">criterion</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">BCELoss</span><span class="p">()</span> <span class="k">if</span> <span class="n">task</span> <span class="o">!=</span> <span class="s2">&quot;rating&quot;</span> <span class="k">else</span> <span class="n">nn</span><span class="o">.</span><span class="n">MSELoss</span><span class="p">()</span>
 
-        <span class="c1"># Create Dataset and DataLoader</span>
-        <span class="kn">from</span><span class="w"> </span><span class="nn">torch.utils.data</span><span class="w"> </span><span class="kn">import</span> <span class="n">Dataset</span><span class="p">,</span> <span class="n">DataLoader</span>
-
-        <span class="k">class</span><span class="w"> </span><span class="nc">DeepFMDataset</span><span class="p">(</span><span class="n">Dataset</span><span class="p">):</span>
-            <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">user_ids</span><span class="p">,</span> <span class="n">item_ids</span><span class="p">,</span> <span class="n">ratings</span><span class="p">,</span> <span class="n">feature_map</span><span class="p">,</span> <span class="n">user_features</span><span class="p">,</span> <span class="n">item_features</span><span class="p">,</span> <span class="n">user_feature_types</span><span class="p">,</span> <span class="n">item_feature_types</span><span class="p">):</span>
-                <span class="bp">self</span><span class="o">.</span><span class="n">user_ids</span> <span class="o">=</span> <span class="n">user_ids</span>
-                <span class="bp">self</span><span class="o">.</span><span class="n">item_ids</span> <span class="o">=</span> <span class="n">item_ids</span>
-                <span class="bp">self</span><span class="o">.</span><span class="n">ratings</span> <span class="o">=</span> <span class="n">ratings</span>
-                <span class="bp">self</span><span class="o">.</span><span class="n">feature_map</span> <span class="o">=</span> <span class="n">feature_map</span>
-                <span class="bp">self</span><span class="o">.</span><span class="n">user_features</span> <span class="o">=</span> <span class="n">user_features</span> <span class="ow">or</span> <span class="p">{}</span>
-                <span class="bp">self</span><span class="o">.</span><span class="n">item_features</span> <span class="o">=</span> <span class="n">item_features</span> <span class="ow">or</span> <span class="p">{}</span>
-                <span class="bp">self</span><span class="o">.</span><span class="n">user_feature_types</span> <span class="o">=</span> <span class="n">user_feature_types</span> <span class="ow">or</span> <span class="p">[]</span>
-                <span class="bp">self</span><span class="o">.</span><span class="n">item_feature_types</span> <span class="o">=</span> <span class="n">item_feature_types</span> <span class="ow">or</span> <span class="p">[]</span>
-
-            <span class="k">def</span><span class="w"> </span><span class="fm">__len__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-                <span class="k">return</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">user_ids</span><span class="p">)</span>
-
-            <span class="k">def</span><span class="w"> </span><span class="fm">__getitem__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">idx</span><span class="p">):</span>
-                <span class="n">user</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">user_ids</span><span class="p">[</span><span class="n">idx</span><span class="p">]</span>
-                <span class="n">item</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">item_ids</span><span class="p">[</span><span class="n">idx</span><span class="p">]</span>
-                <span class="n">rating</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">ratings</span><span class="p">[</span><span class="n">idx</span><span class="p">]</span>
-                
-                <span class="c1"># Create feature vector</span>
-                <span class="c1"># Map user/item indices</span>
-                <span class="c1"># Note: If user/item not in map (shouldn&#39;t happen with fit data), handle carefully? </span>
-                <span class="c1"># Assuming fit data is consistent with unique sets derived above.</span>
-                <span class="n">x</span> <span class="o">=</span> <span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">feature_map</span><span class="p">[</span><span class="s2">&quot;user&quot;</span><span class="p">][</span><span class="n">user</span><span class="p">],</span> <span class="bp">self</span><span class="o">.</span><span class="n">feature_map</span><span class="p">[</span><span class="s2">&quot;item&quot;</span><span class="p">][</span><span class="n">item</span><span class="p">]]</span>
-
-                <span class="c1"># Add user features</span>
-                <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">user_features</span> <span class="ow">and</span> <span class="n">user</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">user_features</span><span class="p">:</span>
-                    <span class="k">for</span> <span class="n">feature_type</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">user_feature_types</span><span class="p">:</span>
-                        <span class="k">if</span> <span class="n">feature_type</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">user_features</span><span class="p">[</span><span class="n">user</span><span class="p">]:</span>
-                            <span class="n">value</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">user_features</span><span class="p">[</span><span class="n">user</span><span class="p">][</span><span class="n">feature_type</span><span class="p">]</span>
-                            <span class="n">x</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">feature_map</span><span class="p">[</span><span class="sa">f</span><span class="s2">&quot;user_</span><span class="si">{</span><span class="n">feature_type</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">][</span><span class="n">value</span><span class="p">])</span>
-                        <span class="k">else</span><span class="p">:</span>
-                            <span class="n">x</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span> 
-
-                <span class="c1"># Add item features</span>
-                <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">item_features</span> <span class="ow">and</span> <span class="n">item</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">item_features</span><span class="p">:</span>
-                    <span class="k">for</span> <span class="n">feature_type</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">item_feature_types</span><span class="p">:</span>
-                        <span class="k">if</span> <span class="n">feature_type</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">item_features</span><span class="p">[</span><span class="n">item</span><span class="p">]:</span>
-                            <span class="n">value</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">item_features</span><span class="p">[</span><span class="n">item</span><span class="p">][</span><span class="n">feature_type</span><span class="p">]</span>
-                            <span class="n">x</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">feature_map</span><span class="p">[</span><span class="sa">f</span><span class="s2">&quot;item_</span><span class="si">{</span><span class="n">feature_type</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">][</span><span class="n">value</span><span class="p">])</span>
-                        <span class="k">else</span><span class="p">:</span>
-                            <span class="n">x</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
-                
-                <span class="k">return</span> <span class="n">torch</span><span class="o">.</span><span class="n">LongTensor</span><span class="p">(</span><span class="n">x</span><span class="p">),</span> <span class="n">torch</span><span class="o">.</span><span class="n">as_tensor</span><span class="p">(</span><span class="mf">1.0</span> <span class="k">if</span> <span class="n">rating</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="k">else</span> <span class="mf">0.0</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">torch</span><span class="o">.</span><span class="n">float32</span><span class="p">)</span>
-
-        <span class="n">dataset</span> <span class="o">=</span> <span class="n">DeepFMDataset</span><span class="p">(</span>
-            <span class="n">user_ids</span><span class="p">,</span> <span class="n">item_ids</span><span class="p">,</span> <span class="n">ratings</span><span class="p">,</span> 
-            <span class="bp">self</span><span class="o">.</span><span class="n">feature_map</span><span class="p">,</span> 
-            <span class="n">user_features</span><span class="p">,</span> <span class="n">item_features</span><span class="p">,</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">user_feature_types</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">item_feature_types</span>
+        <span class="c1"># Precompute the feature matrix ONCE. The previous implementation rebuilt</span>
+        <span class="c1"># each row&#39;s feature vector inside Dataset.__getitem__, i.e. on every</span>
+        <span class="c1"># access every epoch (millions of Python calls) -- the dominant training</span>
+        <span class="c1"># cost. Here we build a single [N, num_fields] tensor and wrap it in a</span>
+        <span class="c1"># on-device tensor sliced manually (see training loop below).</span>
+        <span class="n">umap</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">feature_map</span><span class="p">[</span><span class="s2">&quot;user&quot;</span><span class="p">]</span>
+        <span class="n">imap</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">feature_map</span><span class="p">[</span><span class="s2">&quot;item&quot;</span><span class="p">]</span>
+        <span class="n">has_feats</span> <span class="o">=</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">user_feature_types</span> <span class="ow">or</span> <span class="bp">self</span><span class="o">.</span><span class="n">item_feature_types</span><span class="p">)</span> <span class="ow">and</span> <span class="p">(</span>
+            <span class="n">user_features</span> <span class="ow">or</span> <span class="n">item_features</span>
         <span class="p">)</span>
-        
-        <span class="n">dataloader</span> <span class="o">=</span> <span class="n">DataLoader</span><span class="p">(</span>
-            <span class="n">dataset</span><span class="p">,</span> 
-            <span class="n">batch_size</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">batch_size</span><span class="p">,</span> 
-            <span class="n">shuffle</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
-            <span class="n">num_workers</span><span class="o">=</span><span class="mi">0</span> <span class="c1"># Avoid multiprocessing issues in some envs unless requested</span>
-        <span class="p">)</span>
+
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">has_feats</span><span class="p">:</span>
+            <span class="c1"># id-only fast path (fully vectorized)</span>
+            <span class="n">X</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">empty</span><span class="p">((</span><span class="nb">len</span><span class="p">(</span><span class="n">train_users</span><span class="p">),</span> <span class="mi">2</span><span class="p">),</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">int64</span><span class="p">)</span>
+            <span class="n">X</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="n">umap</span><span class="p">[</span><span class="n">u</span><span class="p">]</span> <span class="k">for</span> <span class="n">u</span> <span class="ow">in</span> <span class="n">train_users</span><span class="p">]</span>
+            <span class="n">X</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="n">imap</span><span class="p">[</span><span class="n">it</span><span class="p">]</span> <span class="k">for</span> <span class="n">it</span> <span class="ow">in</span> <span class="n">train_items</span><span class="p">]</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">rows</span> <span class="o">=</span> <span class="p">[]</span>
+            <span class="k">for</span> <span class="n">u</span><span class="p">,</span> <span class="n">it</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">train_users</span><span class="p">,</span> <span class="n">train_items</span><span class="p">):</span>
+                <span class="n">x</span> <span class="o">=</span> <span class="p">[</span><span class="n">umap</span><span class="p">[</span><span class="n">u</span><span class="p">],</span> <span class="n">imap</span><span class="p">[</span><span class="n">it</span><span class="p">]]</span>
+                <span class="k">if</span> <span class="n">user_features</span> <span class="ow">and</span> <span class="n">u</span> <span class="ow">in</span> <span class="n">user_features</span><span class="p">:</span>
+                    <span class="k">for</span> <span class="n">ft</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">user_feature_types</span><span class="p">:</span>
+                        <span class="n">x</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">feature_map</span><span class="p">[</span><span class="sa">f</span><span class="s2">&quot;user_</span><span class="si">{</span><span class="n">ft</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">user_features</span><span class="p">[</span><span class="n">u</span><span class="p">]</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">ft</span><span class="p">),</span> <span class="mi">0</span><span class="p">)</span>
+                                 <span class="k">if</span> <span class="n">ft</span> <span class="ow">in</span> <span class="n">user_features</span><span class="p">[</span><span class="n">u</span><span class="p">]</span> <span class="k">else</span> <span class="mi">0</span><span class="p">)</span>
+                <span class="k">if</span> <span class="n">item_features</span> <span class="ow">and</span> <span class="n">it</span> <span class="ow">in</span> <span class="n">item_features</span><span class="p">:</span>
+                    <span class="k">for</span> <span class="n">ft</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">item_feature_types</span><span class="p">:</span>
+                        <span class="n">x</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">feature_map</span><span class="p">[</span><span class="sa">f</span><span class="s2">&quot;item_</span><span class="si">{</span><span class="n">ft</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">item_features</span><span class="p">[</span><span class="n">it</span><span class="p">]</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">ft</span><span class="p">),</span> <span class="mi">0</span><span class="p">)</span>
+                                 <span class="k">if</span> <span class="n">ft</span> <span class="ow">in</span> <span class="n">item_features</span><span class="p">[</span><span class="n">it</span><span class="p">]</span> <span class="k">else</span> <span class="mi">0</span><span class="p">)</span>
+                <span class="n">rows</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+            <span class="n">X</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">rows</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">int64</span><span class="p">)</span>
+
+        <span class="c1"># Move the whole dataset to the device ONCE and slice manually, rather</span>
+        <span class="c1"># than streaming via a DataLoader that copies every batch host-&gt;device</span>
+        <span class="c1"># (that per-batch transfer dominated training, esp. on GPU).</span>
+        <span class="n">X_t</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">from_numpy</span><span class="p">(</span><span class="n">X</span><span class="p">)</span><span class="o">.</span><span class="n">long</span><span class="p">()</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">device</span><span class="p">)</span>
+        <span class="n">y_t</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">as_tensor</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">train_labels</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">float32</span><span class="p">))</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">device</span><span class="p">)</span>
+        <span class="n">n_samples</span> <span class="o">=</span> <span class="n">X_t</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
 
         <span class="c1"># Train the model</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">train</span><span class="p">()</span>
-        
+        <span class="n">bs</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">batch_size</span>
+        <span class="n">n_batches</span> <span class="o">=</span> <span class="p">(</span><span class="n">n_samples</span> <span class="o">+</span> <span class="n">bs</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="o">//</span> <span class="n">bs</span>
+
         <span class="k">for</span> <span class="n">epoch</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">epochs</span><span class="p">):</span>
-            <span class="n">total_loss</span> <span class="o">=</span> <span class="mi">0</span>
-            <span class="n">n_batches</span> <span class="o">=</span> <span class="mi">0</span>
-            
-            <span class="k">for</span> <span class="n">batch_X</span><span class="p">,</span> <span class="n">batch_y</span> <span class="ow">in</span> <span class="n">dataloader</span><span class="p">:</span>
-                <span class="n">batch_X</span> <span class="o">=</span> <span class="n">batch_X</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">device</span><span class="p">)</span>
-                <span class="n">batch_y</span> <span class="o">=</span> <span class="n">batch_y</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">device</span><span class="p">)</span>
+            <span class="n">total_loss</span> <span class="o">=</span> <span class="mf">0.0</span>
+            <span class="n">perm</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">randperm</span><span class="p">(</span><span class="n">n_samples</span><span class="p">,</span> <span class="n">device</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">device</span><span class="p">)</span>
+            <span class="k">for</span> <span class="n">b</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n_batches</span><span class="p">):</span>
+                <span class="n">idx</span> <span class="o">=</span> <span class="n">perm</span><span class="p">[</span><span class="n">b</span> <span class="o">*</span> <span class="n">bs</span><span class="p">:(</span><span class="n">b</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">*</span> <span class="n">bs</span><span class="p">]</span>
+                <span class="k">if</span> <span class="n">idx</span><span class="o">.</span><span class="n">numel</span><span class="p">()</span> <span class="o">&lt;</span> <span class="mi">2</span><span class="p">:</span>
+                    <span class="k">continue</span>  <span class="c1"># BatchNorm needs &gt;1 sample</span>
+                <span class="n">batch_X</span> <span class="o">=</span> <span class="n">X_t</span><span class="p">[</span><span class="n">idx</span><span class="p">]</span>
+                <span class="n">batch_y</span> <span class="o">=</span> <span class="n">y_t</span><span class="p">[</span><span class="n">idx</span><span class="p">]</span>
 
-                <span class="c1"># Forward pass</span>
                 <span class="n">outputs</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="p">(</span><span class="n">batch_X</span><span class="p">)</span>
-
-                <span class="c1"># Compute loss</span>
                 <span class="n">loss</span> <span class="o">=</span> <span class="n">criterion</span><span class="p">(</span><span class="n">outputs</span><span class="p">,</span> <span class="n">batch_y</span><span class="p">)</span>
 
-                <span class="c1"># Backward pass</span>
                 <span class="n">optimizer</span><span class="o">.</span><span class="n">zero_grad</span><span class="p">()</span>
                 <span class="n">loss</span><span class="o">.</span><span class="n">backward</span><span class="p">()</span>
                 <span class="n">optimizer</span><span class="o">.</span><span class="n">step</span><span class="p">()</span>
-
                 <span class="n">total_loss</span> <span class="o">+=</span> <span class="n">loss</span><span class="o">.</span><span class="n">item</span><span class="p">()</span>
-                <span class="n">n_batches</span> <span class="o">+=</span> <span class="mi">1</span>
 
             <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">verbose</span><span class="p">:</span>
                 <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Epoch </span><span class="si">{</span><span class="n">epoch</span><span class="o">+</span><span class="mi">1</span><span class="si">}</span><span class="s2">/</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">epochs</span><span class="si">}</span><span class="s2">, Loss: </span><span class="si">{</span><span class="n">total_loss</span><span class="o">/</span><span class="n">n_batches</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 
+        <span class="c1"># Collapse guard: warn if the model produces near-constant scores.</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">eval</span><span class="p">()</span>
+        <span class="k">with</span> <span class="n">torch</span><span class="o">.</span><span class="n">no_grad</span><span class="p">():</span>
+            <span class="n">score_std</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="p">(</span><span class="n">X_t</span><span class="p">[:</span> <span class="nb">min</span><span class="p">(</span><span class="mi">2048</span><span class="p">,</span> <span class="n">n_samples</span><span class="p">)])</span><span class="o">.</span><span class="n">std</span><span class="p">()</span><span class="o">.</span><span class="n">item</span><span class="p">())</span>
+        <span class="k">if</span> <span class="n">score_std</span> <span class="o">&lt;</span> <span class="mf">1e-4</span><span class="p">:</span>
+            <span class="n">logger</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span>
+                <span class="s2">&quot;DeepFM output collapsed (score std=</span><span class="si">%.2e</span><span class="s2">): predictions are nearly &quot;</span>
+                <span class="s2">&quot;constant. Check that labels match the task.&quot;</span><span class="p">,</span> <span class="n">score_std</span><span class="p">,</span>
+            <span class="p">)</span>
+
         <span class="bp">self</span><span class="o">.</span><span class="n">is_fitted</span> <span class="o">=</span> <span class="kc">True</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">user_features</span> <span class="o">=</span> <span class="n">user_features</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">item_features</span> <span class="o">=</span> <span class="n">item_features</span>
-        
+
         <span class="k">return</span> <span class="bp">self</span></div>
 
 
@@ -810,6 +835,40 @@ document.write(`
 
         <span class="k">return</span> <span class="nb">float</span><span class="p">(</span><span class="n">prediction</span><span class="p">)</span></div>
 
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">_score_all_items</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">user_id</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Score every item for a user in one batched forward pass.</span>
+
+<span class="sd">        Builds a [num_items, num_fields] matrix (user/item ids in the first two</span>
+<span class="sd">        fields, remaining feature fields zero-padded). Ids-only fast path.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">items</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">feature_map</span><span class="p">[</span><span class="s2">&quot;item&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span>
+        <span class="n">n_fields</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">field_dims</span><span class="p">)</span>
+        <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="nb">len</span><span class="p">(</span><span class="n">items</span><span class="p">),</span> <span class="n">n_fields</span><span class="p">),</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">int64</span><span class="p">)</span>
+        <span class="n">x</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">feature_map</span><span class="p">[</span><span class="s2">&quot;user&quot;</span><span class="p">][</span><span class="n">user_id</span><span class="p">]</span>
+        <span class="n">x</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">feature_map</span><span class="p">[</span><span class="s2">&quot;item&quot;</span><span class="p">][</span><span class="n">it</span><span class="p">]</span> <span class="k">for</span> <span class="n">it</span> <span class="ow">in</span> <span class="n">items</span><span class="p">]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">eval</span><span class="p">()</span>
+        <span class="k">with</span> <span class="n">torch</span><span class="o">.</span><span class="n">no_grad</span><span class="p">():</span>
+            <span class="n">scores</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="p">(</span><span class="n">torch</span><span class="o">.</span><span class="n">LongTensor</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">device</span><span class="p">))</span><span class="o">.</span><span class="n">detach</span><span class="p">()</span><span class="o">.</span><span class="n">cpu</span><span class="p">()</span><span class="o">.</span><span class="n">numpy</span><span class="p">()</span><span class="o">.</span><span class="n">flatten</span><span class="p">()</span>
+        <span class="k">return</span> <span class="n">scores</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">recommend</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">user_id</span><span class="p">,</span> <span class="n">top_k</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">10</span><span class="p">,</span> <span class="n">exclude_items</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Top-K recommendations via a single batched forward pass.&quot;&quot;&quot;</span>
+        <span class="n">validate_model_fitted</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">is_fitted</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">user_id</span> <span class="ow">not</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">feature_map</span><span class="p">[</span><span class="s2">&quot;user&quot;</span><span class="p">]:</span>
+            <span class="k">return</span> <span class="p">[]</span>
+        <span class="n">exclude_items</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span><span class="n">exclude_items</span> <span class="ow">or</span> <span class="p">[])</span>
+        <span class="n">scores</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_score_all_items</span><span class="p">(</span><span class="n">user_id</span><span class="p">)</span>
+        <span class="n">items</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">feature_map</span><span class="p">[</span><span class="s2">&quot;item&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span>
+        <span class="n">out</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">for</span> <span class="n">idx</span> <span class="ow">in</span> <span class="n">np</span><span class="o">.</span><span class="n">argsort</span><span class="p">(</span><span class="o">-</span><span class="n">scores</span><span class="p">):</span>
+            <span class="n">it</span> <span class="o">=</span> <span class="n">items</span><span class="p">[</span><span class="n">idx</span><span class="p">]</span>
+            <span class="k">if</span> <span class="n">it</span> <span class="ow">in</span> <span class="n">exclude_items</span><span class="p">:</span>
+                <span class="k">continue</span>
+            <span class="n">out</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">it</span><span class="p">)</span>
+            <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">out</span><span class="p">)</span> <span class="o">&gt;=</span> <span class="n">top_k</span><span class="p">:</span>
+                <span class="k">break</span>
+        <span class="k">return</span> <span class="n">out</span>
 
 <div class="viewcode-block" id="DeepFM.recommend">
 <a class="viewcode-back" href="../../../api/engines.html#corerec.engines.deepfm.DeepFM.recommend">[docs]</a>
@@ -931,9 +990,12 @@ document.write(`
             <span class="s2">&quot;epochs&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">epochs</span><span class="p">,</span>
             <span class="s2">&quot;verbose&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">verbose</span><span class="p">,</span>
             <span class="s2">&quot;device&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">device</span><span class="p">,</span>
+            <span class="s2">&quot;task&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">task</span><span class="p">,</span>
+            <span class="s2">&quot;num_negatives&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">num_negatives</span><span class="p">,</span>
         <span class="p">}</span>
         <span class="n">state</span> <span class="o">=</span> <span class="p">{</span>
             <span class="s2">&quot;field_dims&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">field_dims</span><span class="p">,</span>
+            <span class="s2">&quot;_fit_task&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">_fit_task</span><span class="p">,</span>  <span class="c1"># &#39;implicit&#39;/&#39;rating&#39; -&gt; sets the head</span>
             <span class="s2">&quot;user_features&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">user_features</span><span class="p">,</span>
             <span class="s2">&quot;item_features&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">item_features</span><span class="p">,</span>
             <span class="s2">&quot;user_feature_types&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">user_feature_types</span><span class="p">,</span>
@@ -984,10 +1046,14 @@ document.write(`
             <span class="n">instance</span><span class="o">.</span><span class="n">user_feature_types</span> <span class="o">=</span> <span class="n">state</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;user_feature_types&quot;</span><span class="p">,</span> <span class="p">[])</span>
             <span class="n">instance</span><span class="o">.</span><span class="n">item_feature_types</span> <span class="o">=</span> <span class="n">state</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;item_feature_types&quot;</span><span class="p">,</span> <span class="p">[])</span>
             <span class="n">instance</span><span class="o">.</span><span class="n">is_fitted</span> <span class="o">=</span> <span class="n">state</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;is_fitted&quot;</span><span class="p">,</span> <span class="kc">True</span><span class="p">)</span>
+            <span class="n">instance</span><span class="o">.</span><span class="n">_fit_task</span> <span class="o">=</span> <span class="n">state</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;_fit_task&quot;</span><span class="p">,</span> <span class="s2">&quot;implicit&quot;</span><span class="p">)</span>
 
         <span class="k">def</span><span class="w"> </span><span class="nf">_build</span><span class="p">(</span><span class="n">instance</span><span class="p">,</span> <span class="n">bundle</span><span class="p">):</span>
             <span class="k">if</span> <span class="n">bundle</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;state_dict&quot;</span><span class="p">)</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
-                <span class="n">instance</span><span class="o">.</span><span class="n">model</span> <span class="o">=</span> <span class="n">instance</span><span class="o">.</span><span class="n">_build_model</span><span class="p">(</span><span class="n">instance</span><span class="o">.</span><span class="n">field_dims</span><span class="p">)</span>
+                <span class="n">instance</span><span class="o">.</span><span class="n">model</span> <span class="o">=</span> <span class="n">instance</span><span class="o">.</span><span class="n">_build_model</span><span class="p">(</span>
+                    <span class="n">instance</span><span class="o">.</span><span class="n">field_dims</span><span class="p">,</span>
+                    <span class="n">use_sigmoid</span><span class="o">=</span><span class="p">(</span><span class="nb">getattr</span><span class="p">(</span><span class="n">instance</span><span class="p">,</span> <span class="s2">&quot;_fit_task&quot;</span><span class="p">,</span> <span class="s2">&quot;implicit&quot;</span><span class="p">)</span> <span class="o">!=</span> <span class="s2">&quot;rating&quot;</span><span class="p">),</span>
+                <span class="p">)</span>
 
         <span class="n">loaded</span> <span class="o">=</span> <span class="n">load_torch_production</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">path</span><span class="p">,</span> <span class="n">build_model</span><span class="o">=</span><span class="n">_build</span><span class="p">,</span> <span class="n">restore</span><span class="o">=</span><span class="n">_restore</span><span class="p">)</span>
         <span class="k">if</span> <span class="n">loaded</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
@@ -1012,7 +1078,12 @@ document.write(`
             <span class="n">epochs</span><span class="o">=</span><span class="n">cfg</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;epochs&quot;</span><span class="p">,</span> <span class="mi">20</span><span class="p">),</span>
             <span class="n">verbose</span><span class="o">=</span><span class="n">cfg</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;verbose&quot;</span><span class="p">,</span> <span class="kc">False</span><span class="p">),</span>
             <span class="n">device</span><span class="o">=</span><span class="n">cfg</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;device&quot;</span><span class="p">,</span> <span class="s2">&quot;cpu&quot;</span><span class="p">),</span>
+            <span class="n">task</span><span class="o">=</span><span class="n">cfg</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;task&quot;</span><span class="p">,</span> <span class="s2">&quot;auto&quot;</span><span class="p">),</span>
+            <span class="n">num_negatives</span><span class="o">=</span><span class="n">cfg</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;num_negatives&quot;</span><span class="p">,</span> <span class="mi">4</span><span class="p">),</span>
         <span class="p">)</span>
+        <span class="n">instance</span><span class="o">.</span><span class="n">_fit_task</span> <span class="o">=</span> <span class="n">checkpoint</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;_fit_task&quot;</span><span class="p">,</span> <span class="n">cfg</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;task&quot;</span><span class="p">,</span> <span class="s2">&quot;implicit&quot;</span><span class="p">))</span>
+        <span class="k">if</span> <span class="n">instance</span><span class="o">.</span><span class="n">_fit_task</span> <span class="o">==</span> <span class="s2">&quot;auto&quot;</span><span class="p">:</span>
+            <span class="n">instance</span><span class="o">.</span><span class="n">_fit_task</span> <span class="o">=</span> <span class="s2">&quot;implicit&quot;</span>
 
         <span class="n">instance</span><span class="o">.</span><span class="n">feature_map</span> <span class="o">=</span> <span class="n">checkpoint</span><span class="p">[</span><span class="s2">&quot;feature_map&quot;</span><span class="p">]</span>
         <span class="n">instance</span><span class="o">.</span><span class="n">field_dims</span> <span class="o">=</span> <span class="n">checkpoint</span><span class="p">[</span><span class="s2">&quot;field_dims&quot;</span><span class="p">]</span>
@@ -1021,7 +1092,8 @@ document.write(`
         <span class="n">instance</span><span class="o">.</span><span class="n">user_feature_types</span> <span class="o">=</span> <span class="n">checkpoint</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;user_feature_types&quot;</span><span class="p">,</span> <span class="p">[])</span>
         <span class="n">instance</span><span class="o">.</span><span class="n">item_feature_types</span> <span class="o">=</span> <span class="n">checkpoint</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;item_feature_types&quot;</span><span class="p">,</span> <span class="p">[])</span>
 
-        <span class="n">instance</span><span class="o">.</span><span class="n">model</span> <span class="o">=</span> <span class="n">instance</span><span class="o">.</span><span class="n">_build_model</span><span class="p">(</span><span class="n">instance</span><span class="o">.</span><span class="n">field_dims</span><span class="p">)</span>
+        <span class="n">instance</span><span class="o">.</span><span class="n">model</span> <span class="o">=</span> <span class="n">instance</span><span class="o">.</span><span class="n">_build_model</span><span class="p">(</span>
+            <span class="n">instance</span><span class="o">.</span><span class="n">field_dims</span><span class="p">,</span> <span class="n">use_sigmoid</span><span class="o">=</span><span class="p">(</span><span class="n">instance</span><span class="o">.</span><span class="n">_fit_task</span> <span class="o">!=</span> <span class="s2">&quot;rating&quot;</span><span class="p">))</span>
         <span class="n">instance</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">load_state_dict</span><span class="p">(</span><span class="n">checkpoint</span><span class="p">[</span><span class="s2">&quot;model_state_dict&quot;</span><span class="p">])</span>
         <span class="n">instance</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">eval</span><span class="p">()</span>
 

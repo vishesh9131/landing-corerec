@@ -7,7 +7,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>corerec.retrieval.index &#8212; CoreRec 0.5.1 documentation</title>
+    <title>corerec.retrieval.index &#8212; CoreRec 0.5.4 documentation</title>
   
   
   
@@ -38,7 +38,7 @@
 <link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
   <script src="../../../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
 
-    <script src="../../../_static/documentation_options.js?v=5f152624"></script>
+    <script src="../../../_static/documentation_options.js?v=6688a68e"></script>
     <script src="../../../_static/doctools.js?v=9bcbadda"></script>
     <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../../../_static/clipboard.min.js?v=a7894cd8"></script>
@@ -137,7 +137,7 @@
   
   
   
-    <p class="title logo__title">CoreRec 0.5.1 documentation</p>
+    <p class="title logo__title">CoreRec 0.5.4 documentation</p>
   
 </a></div>
         <div class="sidebar-primary-item">
@@ -172,18 +172,23 @@
 <li class="toctree-l1"><a class="reference internal" href="../../../user_guide/data_preparation.html">Data Preparation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../user_guide/model_training.html">Model Training</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../user_guide/making_predictions.html">Making Predictions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../user_guide/online_serving.html">Online Serving at Scale</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../user_guide/model_persistence.html">Model Persistence</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../user_guide/safe_bundle_persistence.html">Safe Model Bundles (<code class="docutils literal notranslate"><span class="pre">corerec_safe_v1</span></code>)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../user_guide/best_practices.html">Best Practices</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api_versioning.html">CoreRec API Versioning Policy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../torch_nn_vendored.html">Vendored <code class="docutils literal notranslate"><span class="pre">torch_nn</span></code> and <code class="docutils literal notranslate"><span class="pre">torch_utils</span></code></a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Model Documentation</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../../../models/index.html">Model Documentation</a></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../../../models/models_index.html">Model Documentation Index</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../models/models_index.html">Complete Model Index</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../../../models/deep_learning.html">Deep Learning Models</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../models/matrix_factorization.html">Matrix Factorization Models</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../models/matrix_factorization.html">Matrix Factorization &amp; Collaborative Filtering</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../models/graph_based.html">Graph-Based Models</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../models/sequential.html">Sequential Models</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../models/bayesian.html">Bayesian Models</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../models/content_based.html">Content-Based Models</a></li>
 </ul>
 </details></li>
 </ul>
@@ -197,9 +202,12 @@
 <li class="toctree-l2"><a class="reference internal" href="../../../tutorials/nasrec_tutorial.html">NASRec Tutorial: NASRec</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../tutorials/sasrec_tutorial.html">SASRec Tutorial: SASRec</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../tutorials/bert4rec_tutorial.html">Bert4Rec Tutorial: BERT for Sequential Recommendation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../tutorials/two_tower_tutorial.html">TwoTower Tutorial: Dual-Encoder Retrieval</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../tutorials/ncf_tutorial.html">NCF Tutorial: Neural Collaborative Filtering</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../tutorials/sar_tutorial.html">SAR Tutorial: Smart Adaptive Recommendations</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../tutorials/lightgcn_tutorial.html">LightGCN Tutorial: Light Graph Convolutional Network</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../tutorials/fast_tutorial.html">FAST Tutorial: Fast Approximate Similarity Filtering</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../tutorials/fast_recommender_tutorial.html">FASTRecommender Tutorial: Extended FAST Model</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../tutorials/tfidf_tutorial.html">TFIDF Tutorial: TF-IDF Based Recommender</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../tutorials/afm_tutorial.html">AFM Tutorial: Attentional Factorization Machine</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../tutorials/autofi_tutorial.html">AutoFI Tutorial: Automatic Feature Interaction</a></li>
@@ -576,7 +584,14 @@ document.write(`
             <span class="bp">self</span><span class="o">.</span><span class="n">_index</span><span class="o">.</span><span class="n">nprobe</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">nprobe</span>
         
         <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">index_type</span> <span class="o">==</span> <span class="s2">&quot;hnsw&quot;</span><span class="p">:</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">_index</span> <span class="o">=</span> <span class="n">faiss</span><span class="o">.</span><span class="n">IndexHNSWFlat</span><span class="p">(</span><span class="n">d</span><span class="p">,</span> <span class="mi">32</span><span class="p">)</span>
+            <span class="c1"># respect the metric: inner-product HNSW for dot-product models</span>
+            <span class="c1"># (e.g. MF/ALS), where normalizing to cosine would discard the</span>
+            <span class="c1"># vector norms that carry the ranking signal. Cosine is handled by</span>
+            <span class="c1"># L2 over the already-normalized vectors above.</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">metric</span> <span class="o">==</span> <span class="s2">&quot;ip&quot;</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">_index</span> <span class="o">=</span> <span class="n">faiss</span><span class="o">.</span><span class="n">IndexHNSWFlat</span><span class="p">(</span><span class="n">d</span><span class="p">,</span> <span class="mi">32</span><span class="p">,</span> <span class="n">faiss</span><span class="o">.</span><span class="n">METRIC_INNER_PRODUCT</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">_index</span> <span class="o">=</span> <span class="n">faiss</span><span class="o">.</span><span class="n">IndexHNSWFlat</span><span class="p">(</span><span class="n">d</span><span class="p">,</span> <span class="mi">32</span><span class="p">)</span>
         
         <span class="k">else</span><span class="p">:</span>
             <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Unknown index_type: </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">index_type</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>

@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Changelog &#8212; CoreRec 0.5.3 documentation</title>
+    <title>Changelog &#8212; CoreRec 0.5.4 documentation</title>
   
   
   
@@ -39,7 +39,7 @@
 <link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
   <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
 
-    <script src="_static/documentation_options.js?v=f39d245f"></script>
+    <script src="_static/documentation_options.js?v=6688a68e"></script>
     <script src="_static/doctools.js?v=9bcbadda"></script>
     <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="_static/clipboard.min.js?v=a7894cd8"></script>
@@ -138,7 +138,7 @@
   
   
   
-    <p class="title logo__title">CoreRec 0.5.3 documentation</p>
+    <p class="title logo__title">CoreRec 0.5.4 documentation</p>
   
 </a></div>
         <div class="sidebar-primary-item">
@@ -173,6 +173,7 @@
 <li class="toctree-l1"><a class="reference internal" href="user_guide/data_preparation.html">Data Preparation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="user_guide/model_training.html">Model Training</a></li>
 <li class="toctree-l1"><a class="reference internal" href="user_guide/making_predictions.html">Making Predictions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="user_guide/online_serving.html">Online Serving at Scale</a></li>
 <li class="toctree-l1"><a class="reference internal" href="user_guide/model_persistence.html">Model Persistence</a></li>
 <li class="toctree-l1"><a class="reference internal" href="user_guide/safe_bundle_persistence.html">Safe Model Bundles (<code class="docutils literal notranslate"><span class="pre">corerec_safe_v1</span></code>)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="user_guide/best_practices.html">Best Practices</a></li>
@@ -507,27 +508,31 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#unreleased">[Unreleased]</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">[0.5.3] - 2026-03-31</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">[0.5.4] - 2026-06-05</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#added">Added</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fixed">Fixed</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">[0.5.3] - 2026-03-31</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">Added</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">Fixed</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#changed">Changed</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#unreleased-historical">[Unreleased - historical]</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Added</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">Changed</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">Fixed</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">Added</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">Changed</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">Fixed</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#security">Security</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#xx">[0.5.1] - 2024-10-XX</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">Added</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">Added</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#known-issues">Known Issues</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">[0.5.0] - 2024-09-XX</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">Added</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id9">[0.5.0] - 2024-09-XX</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id10">Added</a></li>
 </ul>
 </li>
 </ul>
@@ -546,21 +551,70 @@ document.write(`
 <p>All notable changes to CoreRec will be documented in this file.</p>
 <p>The format is based on <a class="reference external" href="https://keepachangelog.com/en/1.0.0/">Keep a Changelog</a>,
 and this project adheres to <a class="reference external" href="https://semver.org/spec/v2.0.0.html">Semantic Versioning</a>.</p>
-<section id="unreleased">
-<h2>[Unreleased]<a class="headerlink" href="#unreleased" title="Link to this heading">#</a></h2>
-</section>
 <section id="id1">
-<h2>[0.5.3] - 2026-03-31<a class="headerlink" href="#id1" title="Link to this heading">#</a></h2>
+<h2>[0.5.4] - 2026-06-05<a class="headerlink" href="#id1" title="Link to this heading">#</a></h2>
 <section id="added">
 <h3>Added<a class="headerlink" href="#added" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p><strong>Model zoo expanded 14 -&gt; 41 production models</strong>, all conforming to the unified
+contract (<code class="docutils literal notranslate"><span class="pre">fit</span></code>/<code class="docutils literal notranslate"><span class="pre">predict</span></code>/<code class="docutils literal notranslate"><span class="pre">recommend</span></code>/<code class="docutils literal notranslate"><span class="pre">save</span></code>/<code class="docutils literal notranslate"><span class="pre">load</span></code> + collapse guard), built on
+shared GPU-capable bases and covered by 112 CI-gated contract tests:</p>
+<ul>
+<li><p>Deep CTR / feature-interaction (12): FM, AFM, NFM, DeepFM, DCN, AutoInt,
+xDeepFM, FiBiNet, PNN, WideDeep, GMF, MLP (<code class="docutils literal notranslate"><span class="pre">corerec.engines.deep_ctr</span></code>).</p></li>
+<li><p>Sequential / session (6): GRU4Rec, Caser, BST, DIN, DIEN, NARM
+(<code class="docutils literal notranslate"><span class="pre">corerec.engines.sequential</span></code>).</p></li>
+<li><p>Classic CF (4): ItemKNN, UserKNN, EASE, SLIM (<code class="docutils literal notranslate"><span class="pre">corerec.engines.classic_cf</span></code>).</p></li>
+<li><p>Auto-encoder CF (2): MultVAE, MultiDAE (<code class="docutils literal notranslate"><span class="pre">corerec.engines.vae_cf</span></code>).</p></li>
+<li><p>Graph + native MF (3): NGCF (<code class="docutils literal notranslate"><span class="pre">corerec.engines.graph_cf</span></code>), ALS/WMF and Item2Vec
+(<code class="docutils literal notranslate"><span class="pre">corerec.engines.matrix_factorization</span></code>).</p></li>
+<li><p>With the larger zoo CoreRec’s best model leads three of the four standard
+benchmarks (ML-100K via SLIM/UserKNN, Gowalla and Yelp2018 via LightGCN).</p></li>
+</ul>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">corerec.serving.OnlineRecommender</span></code> — ANN-backed online serving engine
+(sub-millisecond retrieval at million-item scale via FAISS HNSW/IVF), with
+incremental <code class="docutils literal notranslate"><span class="pre">add_items</span></code> / <code class="docutils literal notranslate"><span class="pre">fold_in_user</span></code> (freshness without retraining) and a
+graceful popularity fallback for cold-start users. See the Online Serving guide.</p></li>
+<li><p>Native GPU sparse trainers: an efficient sparse LightGCN and a strengthened BPR
+(<code class="docutils literal notranslate"><span class="pre">OnlineRecommender.from_interactions(df,</span> <span class="pre">model=&quot;lightgcn&quot;|&quot;bpr&quot;)</span></code>). CoreRec’s
+LightGCN ranks #1 on the Gowalla and Yelp2018 large-scale graph benchmarks.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">corerec.evaluation.evaluate(model,</span> <span class="pre">test,</span> <span class="pre">train,</span> <span class="pre">k=...)</span></code> — one-call standard
+top-K evaluation (NDCG/MAP/MRR/Precision/Recall/HitRate&#64;K).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">BaseRecommender.card()</span></code> — reproducibility/audit metadata (params + versions).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">task</span></code> argument (<code class="docutils literal notranslate"><span class="pre">implicit</span></code>/<code class="docutils literal notranslate"><span class="pre">rating</span></code>) with negative sampling for <code class="docutils literal notranslate"><span class="pre">DCN</span></code>, <code class="docutils literal notranslate"><span class="pre">DeepFM</span></code>,
+<code class="docutils literal notranslate"><span class="pre">GNNRec</span></code>.</p></li>
+</ul>
+</section>
+<section id="fixed">
+<h3>Fixed<a class="headerlink" href="#fixed" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>Deep-model output collapse: <code class="docutils literal notranslate"><span class="pre">DCN</span></code>/<code class="docutils literal notranslate"><span class="pre">DeepFM</span></code>/<code class="docutils literal notranslate"><span class="pre">GNNRec</span></code> trained on observed-only data
+(all-positive labels) collapsed to a constant. Negative sampling + the <code class="docutils literal notranslate"><span class="pre">task</span></code>
+contract restore them to parity with reference implementations (e.g. DCN
+NDCG&#64;10 0.005 → 0.296 on ML-100K). A post-fit guard warns on score collapse.</p></li>
+<li><p>Vectorized full-ranking inference for deep models (recommend latency
+~236 ms → ~1.5 ms/user); removed NCF’s per-row <code class="docutils literal notranslate"><span class="pre">iterrows</span></code> data prep.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">VectorIndex</span></code> now supports inner-product HNSW, so dot-product models (MF/ALS)
+are served correctly rather than distorted by cosine normalization.</p></li>
+<li><p>Lazy <code class="docutils literal notranslate"><span class="pre">torch</span></code> import in <code class="docutils literal notranslate"><span class="pre">corerec.utils.seed</span></code> — pure collaborative-filtering usage
+(e.g. SAR) no longer pulls in PyTorch (~754 MB → ~124 MB resident).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">task=&quot;rating&quot;</span></code> models now round-trip correctly through <code class="docutils literal notranslate"><span class="pre">save</span></code>/<code class="docutils literal notranslate"><span class="pre">load</span></code>.</p></li>
+</ul>
+</section>
+</section>
+<section id="id2">
+<h2>[0.5.3] - 2026-03-31<a class="headerlink" href="#id2" title="Link to this heading">#</a></h2>
+<section id="id3">
+<h3>Added<a class="headerlink" href="#id3" title="Link to this heading">#</a></h3>
 <ul class="simple">
 <li><p>Safe bundle persistence (<code class="docutils literal notranslate"><span class="pre">corerec_safe_v1</span></code>) for all 14 production models</p></li>
 <li><p>Production platform tests (retrieval, ranking, reranking, serving, pipelines)</p></li>
 <li><p>Model catalog documentation pages</p></li>
 </ul>
 </section>
-<section id="fixed">
-<h3>Fixed<a class="headerlink" href="#fixed" title="Link to this heading">#</a></h3>
+<section id="id4">
+<h3>Fixed<a class="headerlink" href="#id4" title="Link to this heading">#</a></h3>
 <ul class="simple">
 <li><p>Safe bundle ID map round-trip for integer keys</p></li>
 <li><p>Predict score parity on save/load for all production models</p></li>
@@ -576,8 +630,8 @@ and this project adheres to <a class="reference external" href="https://semver.o
 </section>
 <section id="unreleased-historical">
 <h2>[Unreleased - historical]<a class="headerlink" href="#unreleased-historical" title="Link to this heading">#</a></h2>
-<section id="id2">
-<h3>Added<a class="headerlink" href="#id2" title="Link to this heading">#</a></h3>
+<section id="id5">
+<h3>Added<a class="headerlink" href="#id5" title="Link to this heading">#</a></h3>
 <ul class="simple">
 <li><p>LICENSE file (MIT License)</p></li>
 <li><p>Proper packaging configuration (pyproject.toml, setup.py in root)</p></li>
@@ -592,16 +646,16 @@ and this project adheres to <a class="reference external" href="https://semver.o
 <li><p>CLI tool with tab completion (<code class="docutils literal notranslate"><span class="pre">corerec</span></code> command)</p></li>
 </ul>
 </section>
-<section id="id3">
-<h3>Changed<a class="headerlink" href="#id3" title="Link to this heading">#</a></h3>
+<section id="id6">
+<h3>Changed<a class="headerlink" href="#id6" title="Link to this heading">#</a></h3>
 <ul class="simple">
 <li><p>Moved setup.py from production/ to root directory</p></li>
 <li><p>Updated .gitignore to follow Python best practices</p></li>
 <li><p>Improved package structure for better import consistency</p></li>
 </ul>
 </section>
-<section id="id4">
-<h3>Fixed<a class="headerlink" href="#id4" title="Link to this heading">#</a></h3>
+<section id="id7">
+<h3>Fixed<a class="headerlink" href="#id7" title="Link to this heading">#</a></h3>
 <ul class="simple">
 <li><p>Build artifacts (*.o, *.pyc, <strong>pycache</strong>) cleanup from repository</p></li>
 <li><p>Package installation issues (setup.py now in correct location)</p></li>
@@ -617,8 +671,8 @@ and this project adheres to <a class="reference external" href="https://semver.o
 </section>
 <section id="xx">
 <h2>[0.5.1] - 2024-10-XX<a class="headerlink" href="#xx" title="Link to this heading">#</a></h2>
-<section id="id5">
-<h3>Added<a class="headerlink" href="#id5" title="Link to this heading">#</a></h3>
+<section id="id8">
+<h3>Added<a class="headerlink" href="#id8" title="Link to this heading">#</a></h3>
 <ul class="simple">
 <li><p>Multiple recommendation engines (DCN, DeepFM, GNNRec, MIND, NASRec, SASRec)</p></li>
 <li><p>Unionized Filter Engine (collaborative filtering algorithms)</p></li>
@@ -638,10 +692,10 @@ and this project adheres to <a class="reference external" href="https://semver.o
 </ul>
 </section>
 </section>
-<section id="id6">
-<h2>[0.5.0] - 2024-09-XX<a class="headerlink" href="#id6" title="Link to this heading">#</a></h2>
-<section id="id7">
-<h3>Added<a class="headerlink" href="#id7" title="Link to this heading">#</a></h3>
+<section id="id9">
+<h2>[0.5.0] - 2024-09-XX<a class="headerlink" href="#id9" title="Link to this heading">#</a></h2>
+<section id="id10">
+<h3>Added<a class="headerlink" href="#id10" title="Link to this heading">#</a></h3>
 <ul class="simple">
 <li><p>Initial release of CoreRec</p></li>
 <li><p>Basic recommendation models</p></li>
@@ -698,27 +752,31 @@ and this project adheres to <a class="reference external" href="https://semver.o
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#unreleased">[Unreleased]</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">[0.5.3] - 2026-03-31</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">[0.5.4] - 2026-06-05</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#added">Added</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fixed">Fixed</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">[0.5.3] - 2026-03-31</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">Added</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">Fixed</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#changed">Changed</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#unreleased-historical">[Unreleased - historical]</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Added</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">Changed</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">Fixed</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">Added</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">Changed</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">Fixed</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#security">Security</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#xx">[0.5.1] - 2024-10-XX</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">Added</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">Added</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#known-issues">Known Issues</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">[0.5.0] - 2024-09-XX</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">Added</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id9">[0.5.0] - 2024-09-XX</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id10">Added</a></li>
 </ul>
 </li>
 </ul>
