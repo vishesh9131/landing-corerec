@@ -128,7 +128,7 @@ export default function PhilosophyPage() {
                 <section>
                   <h2 className="text-2xl font-medium mb-4 text-[#27272a]">Breadth Without Bloat</h2>
                   <p className="text-[#71717a] leading-relaxed">
-                    57+ models across deep learning, matrix factorization, graph, sequential, and Bayesian families. The goal is not to own every paper. It is to give practitioners a single place to experiment, compare, and choose. Type-hinted, documented, tested. Pick what fits your data and latency budget.
+                    16 models across classic collaborative filtering, retrieval, graph, ranking, sequential and generative families, each one tested on every push and benchmarked. We cut the zoo from 35 models rather than ship ones nobody verifies. The goal is not to own every paper. It is to give practitioners a single place to experiment, compare, and choose. Pick what fits your data and latency budget.
                   </p>
                 </section>
 

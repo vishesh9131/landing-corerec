@@ -7,7 +7,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>corerec.serving.model_loader &#8212; CoreRec 0.5.1 documentation</title>
+    <title>corerec.serving.model_loader &#8212; CoreRec 0.7.0 documentation</title>
   
   
   
@@ -38,7 +38,7 @@
 <link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
   <script src="../../../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
 
-    <script src="../../../_static/documentation_options.js?v=5f152624"></script>
+    <script src="../../../_static/documentation_options.js?v=c62cc9a0"></script>
     <script src="../../../_static/doctools.js?v=9bcbadda"></script>
     <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../../../_static/clipboard.min.js?v=a7894cd8"></script>
@@ -137,7 +137,7 @@
   
   
   
-    <p class="title logo__title">CoreRec 0.5.1 documentation</p>
+    <p class="title logo__title">CoreRec 0.7.0 documentation</p>
   
 </a></div>
         <div class="sidebar-primary-item">
@@ -172,18 +172,26 @@
 <li class="toctree-l1"><a class="reference internal" href="../../../user_guide/data_preparation.html">Data Preparation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../user_guide/model_training.html">Model Training</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../user_guide/making_predictions.html">Making Predictions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../user_guide/online_serving.html">Online Serving at Scale</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../user_guide/production_loop.html">The Production Loop</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../user_guide/custom_models.html">Custom Models in PyTorch</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../user_guide/onnx_export.html">ONNX Export</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../user_guide/model_persistence.html">Model Persistence</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../user_guide/safe_bundle_persistence.html">Safe Model Bundles (<code class="docutils literal notranslate"><span class="pre">corerec_safe_v1</span></code>)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../user_guide/best_practices.html">Best Practices</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api_versioning.html">CoreRec API Versioning Policy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../torch_nn_vendored.html">Vendored <code class="docutils literal notranslate"><span class="pre">torch_nn</span></code> and <code class="docutils literal notranslate"><span class="pre">torch_utils</span></code></a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Model Documentation</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../../../models/index.html">Model Documentation</a></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../../../models/models_index.html">Model Documentation Index</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../models/models_index.html">Complete Model Index</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../../../models/deep_learning.html">Deep Learning Models</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../models/matrix_factorization.html">Matrix Factorization Models</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../models/matrix_factorization.html">Matrix Factorization &amp; Collaborative Filtering</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../models/graph_based.html">Graph-Based Models</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../models/sequential.html">Sequential Models</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../models/bayesian.html">Bayesian Models</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../models/content_based.html">Content-Based Models</a></li>
 </ul>
 </details></li>
 </ul>
@@ -192,12 +200,8 @@
 <li class="toctree-l1 has-children"><a class="reference internal" href="../../../tutorials/index.html">Tutorial Index</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../../../tutorials/dcn_tutorial.html">DCN Tutorial: Deep &amp; Cross Network</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../tutorials/deepfm_tutorial.html">DeepFM Tutorial: Factorization Machine with Deep Learning</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../tutorials/gnnrec_tutorial.html">GNNRec Tutorial: Graph Neural Network Recommender</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../tutorials/mind_tutorial.html">MIND Tutorial: MIND</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../tutorials/nasrec_tutorial.html">NASRec Tutorial: NASRec</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../tutorials/sasrec_tutorial.html">SASRec Tutorial: SASRec</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../tutorials/bert4rec_tutorial.html">Bert4Rec Tutorial: BERT for Sequential Recommendation</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../tutorials/ncf_tutorial.html">NCF Tutorial: Neural Collaborative Filtering</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../tutorials/two_tower_tutorial.html">TwoTower Tutorial: Dual-Encoder Retrieval</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../tutorials/sar_tutorial.html">SAR Tutorial: Smart Adaptive Recommendations</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../tutorials/lightgcn_tutorial.html">LightGCN Tutorial: Light Graph Convolutional Network</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../tutorials/tfidf_tutorial.html">TFIDF Tutorial: TF-IDF Based Recommender</a></li>
@@ -234,7 +238,6 @@
 <li class="toctree-l2"><a class="reference internal" href="../../../tutorials/pnn_tutorial.html">PNN Tutorial: Product-based Neural Network</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../tutorials/mmoe_tutorial.html">MMoE Tutorial: Multi-gate Mixture-of-Experts</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../tutorials/ple_tutorial.html">PLE Tutorial: Progressive Layered Extraction</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../tutorials/monolith_tutorial.html">Monolith Tutorial: Monolith: Real Time Recommendation System</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../tutorials/tdm_tutorial.html">TDM Tutorial: Tree-based Deep Model</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../tutorials/a2svd_tutorial.html">A2SVD Tutorial: Adaptive Singular Value Decomposition</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../tutorials/als_tutorial.html">ALS Tutorial: Alternating Least Squares</a></li>
@@ -254,7 +257,6 @@
 <li class="toctree-l2"><a class="reference internal" href="../../../tutorials/vmf_tutorial.html">VMF Tutorial: Von Mises-Fisher Distribution</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../tutorials/mind_content_tutorial.html">MIND_Content Tutorial: MIND for Content Filtering</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../tutorials/pipeline_tutorial.html">Multi-Stage Pipeline Tutorial</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../tutorials/imshow_tutorial.html">Demo Frontends Tutorial</a></li>
 </ul>
 </details></li>
 </ul>
@@ -273,7 +275,6 @@
 <li class="toctree-l1"><a class="reference internal" href="../../../api/explanation.html">Explanation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../api/evaluation.html">Evaluation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../api/serving.html">Model Serving</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../api/imshow.html">IMShow (Demo Frontends)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../api/constants.html">Constants</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Examples</span></p>
@@ -486,43 +487,34 @@ document.write(`
 
 <div class="viewcode-block" id="ModelLoader.load">
 <a class="viewcode-back" href="../../../api/serving.html#corerec.serving.ModelLoader.load">[docs]</a>
-    <span class="k">def</span><span class="w"> </span><span class="nf">load</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">model_path</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">use_cache</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Any</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">load</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">model_path</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">use_cache</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span> <span class="n">model_class</span><span class="p">:</span> <span class="n">Any</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Any</span><span class="p">:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        Load model from path.</span>
+<span class="sd">        Load a model saved with ``model.save(model_path)``.</span>
+
+<span class="sd">        Models don&#39;t all write one file at ``model_path``: torch models write</span>
+<span class="sd">        ``&lt;stem&gt;.meta.json`` (+ weights/arrays) next to it, classic CF models</span>
+<span class="sd">        pickle a state dict. Each format carries the class name, so this reads</span>
+<span class="sd">        it and hands off to that class&#39;s own ``load()``.</span>
 
 <span class="sd">        Args:</span>
-<span class="sd">            model_path: Path to model file</span>
+<span class="sd">            model_path: the same path that was passed to ``save()``</span>
 <span class="sd">            use_cache: Whether to use cached model</span>
+<span class="sd">            model_class: skip detection and call ``model_class.load(model_path)``</span>
 
 <span class="sd">        Returns:</span>
-<span class="sd">            Loaded model</span>
-
-<span class="sd">        Author: Vishesh Yadav (mail: sciencely98@gmail.com)</span>
+<span class="sd">            The reconstructed model</span>
 <span class="sd">        &quot;&quot;&quot;</span>
-        <span class="c1"># Check cache first</span>
-        <span class="k">if</span> <span class="n">use_cache</span> <span class="ow">and</span> <span class="n">model_path</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">cache</span><span class="p">:</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Loading model from cache: </span><span class="si">{</span><span class="n">model_path</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">cache</span><span class="p">[</span><span class="n">model_path</span><span class="p">]</span>
+        <span class="n">key</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">model_path</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">use_cache</span> <span class="ow">and</span> <span class="n">key</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">cache</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Loading model from cache: </span><span class="si">{</span><span class="n">key</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">cache</span><span class="p">[</span><span class="n">key</span><span class="p">]</span>
 
-        <span class="c1"># Load model</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Loading model from disk: </span><span class="si">{</span><span class="n">model_path</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Loading model from disk: </span><span class="si">{</span><span class="n">key</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="bp">cls</span> <span class="o">=</span> <span class="n">model_class</span> <span class="ow">or</span> <span class="n">_detect_class</span><span class="p">(</span><span class="n">Path</span><span class="p">(</span><span class="n">model_path</span><span class="p">))</span>
+        <span class="n">model</span> <span class="o">=</span> <span class="bp">cls</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">key</span><span class="p">)</span>
 
-        <span class="c1"># Try serialization framework first</span>
-        <span class="k">try</span><span class="p">:</span>
-            <span class="kn">from</span><span class="w"> </span><span class="nn">corerec.serialization</span><span class="w"> </span><span class="kn">import</span> <span class="n">load_from_file</span>
-
-            <span class="n">model</span> <span class="o">=</span> <span class="n">load_from_file</span><span class="p">(</span><span class="n">model_path</span><span class="p">)</span>
-        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
-            <span class="c1"># Fallback to pickle</span>
-            <span class="kn">import</span><span class="w"> </span><span class="nn">pickle</span>
-
-            <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">model_path</span><span class="p">,</span> <span class="s2">&quot;rb&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
-                <span class="n">model</span> <span class="o">=</span> <span class="n">pickle</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
-
-        <span class="c1"># Cache if requested</span>
         <span class="k">if</span> <span class="n">use_cache</span><span class="p">:</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">cache</span><span class="p">[</span><span class="n">model_path</span><span class="p">]</span> <span class="o">=</span> <span class="n">model</span>
-
+            <span class="bp">self</span><span class="o">.</span><span class="n">cache</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="o">=</span> <span class="n">model</span>
         <span class="k">return</span> <span class="n">model</span></div>
 
 
@@ -534,6 +526,57 @@ document.write(`
         <span class="bp">self</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;Model cache cleared&quot;</span><span class="p">)</span></div>
 </div>
 
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">_engine_class</span><span class="p">(</span><span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
+    <span class="kn">from</span><span class="w"> </span><span class="nn">corerec</span><span class="w"> </span><span class="kn">import</span> <span class="n">engines</span>
+
+    <span class="bp">cls</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">engines</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+    <span class="k">if</span> <span class="bp">cls</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Saved model names class </span><span class="si">{</span><span class="n">name</span><span class="si">!r}</span><span class="s2">, which corerec.engines doesn&#39;t export&quot;</span><span class="p">)</span>
+    <span class="k">return</span> <span class="bp">cls</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">_detect_class</span><span class="p">(</span><span class="n">path</span><span class="p">:</span> <span class="n">Path</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Find the model class recorded in whatever save() wrote for ``path``.&quot;&quot;&quot;</span>
+    <span class="kn">import</span><span class="w"> </span><span class="nn">importlib</span>
+    <span class="kn">import</span><span class="w"> </span><span class="nn">json</span>
+    <span class="kn">import</span><span class="w"> </span><span class="nn">pickle</span>
+
+    <span class="n">meta</span> <span class="o">=</span> <span class="n">path</span> <span class="k">if</span> <span class="n">path</span><span class="o">.</span><span class="n">name</span><span class="o">.</span><span class="n">endswith</span><span class="p">(</span><span class="s2">&quot;.meta.json&quot;</span><span class="p">)</span> <span class="k">else</span> <span class="n">path</span><span class="o">.</span><span class="n">with_name</span><span class="p">(</span><span class="n">path</span><span class="o">.</span><span class="n">stem</span> <span class="o">+</span> <span class="s2">&quot;.meta.json&quot;</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">meta</span><span class="o">.</span><span class="n">exists</span><span class="p">():</span>
+        <span class="n">dotted</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">meta</span><span class="o">.</span><span class="n">read_text</span><span class="p">())[</span><span class="s2">&quot;model_class&quot;</span><span class="p">]</span>
+        <span class="n">module</span><span class="p">,</span> <span class="n">_</span><span class="p">,</span> <span class="n">name</span> <span class="o">=</span> <span class="n">dotted</span><span class="o">.</span><span class="n">rpartition</span><span class="p">(</span><span class="s2">&quot;.&quot;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">importlib</span><span class="o">.</span><span class="n">import_module</span><span class="p">(</span><span class="n">module</span><span class="p">),</span> <span class="n">name</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">():</span>
+        <span class="k">raise</span> <span class="ne">FileNotFoundError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;No model at </span><span class="si">{</span><span class="n">path</span><span class="si">}</span><span class="s2"> (and no </span><span class="si">{</span><span class="n">meta</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2"> next to it)&quot;</span><span class="p">)</span>
+
+    <span class="k">try</span><span class="p">:</span>
+        <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="s2">&quot;rb&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+            <span class="n">state</span> <span class="o">=</span> <span class="n">pickle</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
+    <span class="k">except</span> <span class="ne">Exception</span><span class="p">:</span>
+        <span class="c1"># MultVAE/MultiDAE use torch.save</span>
+        <span class="kn">import</span><span class="w"> </span><span class="nn">torch</span>
+
+        <span class="n">state</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="n">map_location</span><span class="o">=</span><span class="s2">&quot;cpu&quot;</span><span class="p">,</span> <span class="n">weights_only</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">state</span><span class="p">,</span> <span class="nb">dict</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">state</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;corerec_class&quot;</span><span class="p">):</span>  <span class="c1"># corerec.nn.Recommender and friends</span>
+            <span class="n">module</span><span class="p">,</span> <span class="n">_</span><span class="p">,</span> <span class="n">name</span> <span class="o">=</span> <span class="n">state</span><span class="p">[</span><span class="s2">&quot;corerec_class&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">rpartition</span><span class="p">(</span><span class="s2">&quot;.&quot;</span><span class="p">)</span>
+            <span class="k">return</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">importlib</span><span class="o">.</span><span class="n">import_module</span><span class="p">(</span><span class="n">module</span><span class="p">),</span> <span class="n">name</span><span class="p">)</span>
+        <span class="n">name</span> <span class="o">=</span> <span class="n">state</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;cls&quot;</span><span class="p">)</span> <span class="ow">or</span> <span class="n">state</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;params&quot;</span><span class="p">,</span> <span class="p">{})</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;name&quot;</span><span class="p">)</span> <span class="ow">or</span> <span class="n">state</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;cfg&quot;</span><span class="p">,</span> <span class="p">{})</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;name&quot;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">name</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">_engine_class</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
+    <span class="k">elif</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">state</span><span class="p">,</span> <span class="s2">&quot;recommend&quot;</span><span class="p">):</span>
+        <span class="c1"># pickled model object (old saves): wrap so .load() just returns it</span>
+        <span class="k">class</span><span class="w"> </span><span class="nc">_Loaded</span><span class="p">:</span>
+            <span class="nd">@staticmethod</span>
+            <span class="k">def</span><span class="w"> </span><span class="nf">load</span><span class="p">(</span><span class="n">_</span><span class="p">):</span>
+                <span class="k">return</span> <span class="n">state</span>
+
+        <span class="k">return</span> <span class="n">_Loaded</span>
+    <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Can&#39;t tell which model class wrote </span><span class="si">{</span><span class="n">path</span><span class="si">}</span><span class="s2">; pass model_class=&quot;</span><span class="p">)</span>
 </pre></div>
 
                 </article>

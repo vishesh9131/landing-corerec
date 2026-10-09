@@ -17,7 +17,7 @@ const jetbrains = JetBrains_Mono({
 export const metadata: Metadata = {
   title: "CoreRec - Production-Grade Recommendation Systems",
   description:
-    "57+ models, unified API, multi-stage pipelines. From research to deployment.",
+    "16 tested models, one fit/recommend API, and one command from a CSV to a live API. From research to deployment.",
   openGraph: {
     title: "CoreRec",
     description: "Production-grade recommendation systems framework",

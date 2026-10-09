@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>ALS Tutorial: Alternating Least Squares &#8212; CoreRec 0.5.4 documentation</title>
+    <title>ALS Tutorial: Alternating Least Squares &#8212; CoreRec 0.7.0 documentation</title>
   
   
   
@@ -39,7 +39,7 @@
 <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
   <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
 
-    <script src="../_static/documentation_options.js?v=6688a68e"></script>
+    <script src="../_static/documentation_options.js?v=c62cc9a0"></script>
     <script src="../_static/doctools.js?v=9bcbadda"></script>
     <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
@@ -138,7 +138,7 @@
   
   
   
-    <p class="title logo__title">CoreRec 0.5.4 documentation</p>
+    <p class="title logo__title">CoreRec 0.7.0 documentation</p>
   
 </a></div>
         <div class="sidebar-primary-item">
@@ -174,6 +174,9 @@
 <li class="toctree-l1"><a class="reference internal" href="../user_guide/model_training.html">Model Training</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../user_guide/making_predictions.html">Making Predictions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../user_guide/online_serving.html">Online Serving at Scale</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user_guide/production_loop.html">The Production Loop</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user_guide/custom_models.html">Custom Models in PyTorch</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user_guide/onnx_export.html">ONNX Export</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../user_guide/model_persistence.html">Model Persistence</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../user_guide/safe_bundle_persistence.html">Safe Model Bundles (<code class="docutils literal notranslate"><span class="pre">corerec_safe_v1</span></code>)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../user_guide/best_practices.html">Best Practices</a></li>
@@ -198,17 +201,10 @@
 <li class="toctree-l1 current active has-children"><a class="reference internal" href="index.html">Tutorial Index</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="dcn_tutorial.html">DCN Tutorial: Deep &amp; Cross Network</a></li>
 <li class="toctree-l2"><a class="reference internal" href="deepfm_tutorial.html">DeepFM Tutorial: Factorization Machine with Deep Learning</a></li>
-<li class="toctree-l2"><a class="reference internal" href="gnnrec_tutorial.html">GNNRec Tutorial: Graph Neural Network Recommender</a></li>
-<li class="toctree-l2"><a class="reference internal" href="mind_tutorial.html">MIND Tutorial: MIND</a></li>
-<li class="toctree-l2"><a class="reference internal" href="nasrec_tutorial.html">NASRec Tutorial: NASRec</a></li>
 <li class="toctree-l2"><a class="reference internal" href="sasrec_tutorial.html">SASRec Tutorial: SASRec</a></li>
-<li class="toctree-l2"><a class="reference internal" href="bert4rec_tutorial.html">Bert4Rec Tutorial: BERT for Sequential Recommendation</a></li>
 <li class="toctree-l2"><a class="reference internal" href="two_tower_tutorial.html">TwoTower Tutorial: Dual-Encoder Retrieval</a></li>
-<li class="toctree-l2"><a class="reference internal" href="ncf_tutorial.html">NCF Tutorial: Neural Collaborative Filtering</a></li>
 <li class="toctree-l2"><a class="reference internal" href="sar_tutorial.html">SAR Tutorial: Smart Adaptive Recommendations</a></li>
 <li class="toctree-l2"><a class="reference internal" href="lightgcn_tutorial.html">LightGCN Tutorial: Light Graph Convolutional Network</a></li>
-<li class="toctree-l2"><a class="reference internal" href="fast_tutorial.html">FAST Tutorial: Fast Approximate Similarity Filtering</a></li>
-<li class="toctree-l2"><a class="reference internal" href="fast_recommender_tutorial.html">FASTRecommender Tutorial: Extended FAST Model</a></li>
 <li class="toctree-l2"><a class="reference internal" href="tfidf_tutorial.html">TFIDF Tutorial: TF-IDF Based Recommender</a></li>
 <li class="toctree-l2"><a class="reference internal" href="afm_tutorial.html">AFM Tutorial: Attentional Factorization Machine</a></li>
 <li class="toctree-l2"><a class="reference internal" href="autofi_tutorial.html">AutoFI Tutorial: Automatic Feature Interaction</a></li>
@@ -243,7 +239,6 @@
 <li class="toctree-l2"><a class="reference internal" href="pnn_tutorial.html">PNN Tutorial: Product-based Neural Network</a></li>
 <li class="toctree-l2"><a class="reference internal" href="mmoe_tutorial.html">MMoE Tutorial: Multi-gate Mixture-of-Experts</a></li>
 <li class="toctree-l2"><a class="reference internal" href="ple_tutorial.html">PLE Tutorial: Progressive Layered Extraction</a></li>
-<li class="toctree-l2"><a class="reference internal" href="monolith_tutorial.html">Monolith Tutorial: Monolith: Real Time Recommendation System</a></li>
 <li class="toctree-l2"><a class="reference internal" href="tdm_tutorial.html">TDM Tutorial: Tree-based Deep Model</a></li>
 <li class="toctree-l2"><a class="reference internal" href="a2svd_tutorial.html">A2SVD Tutorial: Adaptive Singular Value Decomposition</a></li>
 <li class="toctree-l2 current active"><a class="current reference internal" href="#">ALS Tutorial: Alternating Least Squares</a></li>
@@ -263,7 +258,6 @@
 <li class="toctree-l2"><a class="reference internal" href="vmf_tutorial.html">VMF Tutorial: Von Mises-Fisher Distribution</a></li>
 <li class="toctree-l2"><a class="reference internal" href="mind_content_tutorial.html">MIND_Content Tutorial: MIND for Content Filtering</a></li>
 <li class="toctree-l2"><a class="reference internal" href="pipeline_tutorial.html">Multi-Stage Pipeline Tutorial</a></li>
-<li class="toctree-l2"><a class="reference internal" href="imshow_tutorial.html">Demo Frontends Tutorial</a></li>
 </ul>
 </details></li>
 </ul>
@@ -282,7 +276,6 @@
 <li class="toctree-l1"><a class="reference internal" href="../api/explanation.html">Explanation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../api/evaluation.html">Evaluation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../api/serving.html">Model Serving</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../api/imshow.html">IMShow (Demo Frontends)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../api/constants.html">Constants</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Examples</span></p>
@@ -546,7 +539,7 @@ document.write(`
 <h1>ALS Tutorial: Alternating Least Squares<a class="headerlink" href="#als-tutorial-alternating-least-squares" title="Link to this heading">#</a></h1>
 <div class="warning admonition">
 <p class="admonition-title">Sandbox Model — Experimental</p>
-<p>This model is part of the CoreRec <strong>Sandbox</strong> — an experimental collection of algorithms for research and exploration. Sandbox models are <strong>not production-tested</strong> and may have incomplete implementations. For production-ready models, see the <a class="reference internal" href="../models/index.html#production-models-tested--stable"><span class="std std-ref">Production Models</span></a>.</p>
+<p>This model is part of the CoreRec <strong>Sandbox</strong> — an experimental collection of algorithms for research and exploration. Sandbox models are <strong>not production-tested</strong> and may have incomplete implementations. For production-ready models, see the <a class="reference internal" href="../models/index.html#id2"><span class="std std-ref">Production Models</span></a>.</p>
 </div>
 <section id="introduction">
 <h2>Introduction<a class="headerlink" href="#introduction" title="Link to this heading">#</a></h2>

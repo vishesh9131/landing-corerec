@@ -1,0 +1,776 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Custom Models in PyTorch &#8212; CoreRec 0.7.0 documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=8f2a1f02" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=d3678dfb" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../_static/documentation_options.js?v=c62cc9a0"></script>
+    <script src="../_static/doctools.js?v=9bcbadda"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'user_guide/custom_models';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="ONNX Export" href="onnx_export.html" />
+    <link rel="prev" title="The Production Loop" href="production_loop.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../index.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">CoreRec 0.7.0 documentation</p>
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../index.html">
+                    CoreRec
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Getting Started</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../installation.html">Installation Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../quickstart.html">QuickStart Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../concepts.html">Core Concepts</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">User Guide</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="data_preparation.html">Data Preparation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="model_training.html">Model Training</a></li>
+<li class="toctree-l1"><a class="reference internal" href="making_predictions.html">Making Predictions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="online_serving.html">Online Serving at Scale</a></li>
+<li class="toctree-l1"><a class="reference internal" href="production_loop.html">The Production Loop</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Custom Models in PyTorch</a></li>
+<li class="toctree-l1"><a class="reference internal" href="onnx_export.html">ONNX Export</a></li>
+<li class="toctree-l1"><a class="reference internal" href="model_persistence.html">Model Persistence</a></li>
+<li class="toctree-l1"><a class="reference internal" href="safe_bundle_persistence.html">Safe Model Bundles (<code class="docutils literal notranslate"><span class="pre">corerec_safe_v1</span></code>)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="best_practices.html">Best Practices</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api_versioning.html">CoreRec API Versioning Policy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../torch_nn_vendored.html">Vendored <code class="docutils literal notranslate"><span class="pre">torch_nn</span></code> and <code class="docutils literal notranslate"><span class="pre">torch_utils</span></code></a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Model Documentation</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../models/index.html">Model Documentation</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../models/models_index.html">Complete Model Index</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../models/deep_learning.html">Deep Learning Models</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../models/matrix_factorization.html">Matrix Factorization &amp; Collaborative Filtering</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../models/graph_based.html">Graph-Based Models</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../models/sequential.html">Sequential Models</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../models/bayesian.html">Bayesian Models</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../models/content_based.html">Content-Based Models</a></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Tutorials &amp; Learning</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../tutorials/index.html">Tutorial Index</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../tutorials/dcn_tutorial.html">DCN Tutorial: Deep &amp; Cross Network</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorials/deepfm_tutorial.html">DeepFM Tutorial: Factorization Machine with Deep Learning</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorials/sasrec_tutorial.html">SASRec Tutorial: SASRec</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorials/two_tower_tutorial.html">TwoTower Tutorial: Dual-Encoder Retrieval</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorials/sar_tutorial.html">SAR Tutorial: Smart Adaptive Recommendations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorials/lightgcn_tutorial.html">LightGCN Tutorial: Light Graph Convolutional Network</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorials/tfidf_tutorial.html">TFIDF Tutorial: TF-IDF Based Recommender</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorials/afm_tutorial.html">AFM Tutorial: Attentional Factorization Machine</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorials/autofi_tutorial.html">AutoFI Tutorial: Automatic Feature Interaction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorials/autoint_tutorial.html">AutoInt Tutorial: Automatic Feature Interaction Learning via Self-Attention</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorials/bst_tutorial.html">BST Tutorial: Behavior Sequence Transformer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorials/bivae_tutorial.html">BiVAE Tutorial: Bilateral Variational Autoencoder</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorials/caser_tutorial.html">Caser Tutorial: Convolutional Sequence Embedding Recommendation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorials/dcn_base_tutorial.html">DCN_base Tutorial: Deep &amp; Cross Network Base</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorials/deepcrossing_tutorial.html">DeepCrossing Tutorial: Deep Crossing Network</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorials/deepfm_base_tutorial.html">DeepFM_base Tutorial: DeepFM Base</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorials/deeprec_tutorial.html">DeepRec Tutorial: Deep Recommender</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorials/dien_tutorial.html">DIEN Tutorial: Deep Interest Evolution Network</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorials/difm_tutorial.html">DIFM Tutorial: Dual Input Factorization Machine</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorials/din_tutorial.html">DIN Tutorial: Deep Interest Network</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorials/dlrm_tutorial.html">DLRM Tutorial: Deep Learning Recommendation Model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorials/ensfm_tutorial.html">ENSFM Tutorial: Ensemble Factorization Machine</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorials/escmm_tutorial.html">ESCMM Tutorial: Entire Space Cross Multi-Task Model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorials/esmm_tutorial.html">ESMM Tutorial: Entire Space Multi-Task Model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorials/fgcnn_tutorial.html">FGCNN Tutorial: Feature Generation with CNN</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorials/ffm_tutorial.html">FFM Tutorial: Field-aware Factorization Machine</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorials/fibinet_tutorial.html">Fibinet Tutorial: Feature Importance and Bilinear feature Interaction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorials/flen_tutorial.html">FLEN Tutorial: Feature-aware Local Encoding Network</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorials/fm_tutorial.html">FM Tutorial: Factorization Machine</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorials/gan_tutorial.html">GAN Tutorial: Generative Adversarial Network</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorials/gatenet_tutorial.html">GateNet Tutorial: Gating Network</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorials/gnn_base_tutorial.html">GNN_base Tutorial: Graph Neural Network Base</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorials/gru_cf_tutorial.html">GRU-CF Tutorial: GRU for Collaborative Filtering</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorials/nfm_tutorial.html">NFM Tutorial: Neural Factorization Machine</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorials/nextitnet_tutorial.html">NextItNet Tutorial: Next Item Net</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorials/widedeep_tutorial.html">WideDeep Tutorial: Wide &amp; Deep Learning</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorials/youtubednn_tutorial.html">YouTubeDNN Tutorial: YouTube Deep Neural Network</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorials/pnn_tutorial.html">PNN Tutorial: Product-based Neural Network</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorials/mmoe_tutorial.html">MMoE Tutorial: Multi-gate Mixture-of-Experts</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorials/ple_tutorial.html">PLE Tutorial: Progressive Layered Extraction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorials/tdm_tutorial.html">TDM Tutorial: Tree-based Deep Model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorials/a2svd_tutorial.html">A2SVD Tutorial: Adaptive Singular Value Decomposition</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorials/als_tutorial.html">ALS Tutorial: Alternating Least Squares</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorials/fm_base_tutorial.html">FM_Base Tutorial: Factorization Machine Base</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorials/matrixfactorization_tutorial.html">MatrixFactorization Tutorial: Matrix Factorization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorials/mf_base_tutorial.html">MF_Base Tutorial: MF Base</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorials/svd_tutorial.html">SVD Tutorial: Singular Value Decomposition</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorials/userbased_tutorial.html">UserBased Tutorial: User-Based Collaborative Filtering</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorials/geoimc_tutorial.html">GeoIMC Tutorial: Geographic Inductive Matrix Completion</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorials/lightgcn_base_tutorial.html">LightGCN_Base Tutorial: LightGCN Base</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorials/rbm_tutorial.html">RBM Tutorial: Restricted Boltzmann Machine</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorials/rlrmc_tutorial.html">RLRMC Tutorial: Reinforcement Learning for Recommendation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorials/slirec_tutorial.html">SLiRec Tutorial: Sequential List Recommendation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorials/sum_tutorial.html">SUM Tutorial: Sequential User Model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorials/bpr_tutorial.html">BPR Tutorial: Bayesian Personalized Ranking</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorials/bprmf_tutorial.html">BPRMF Tutorial: Bayesian Personalized Ranking Matrix Factorization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorials/vmf_tutorial.html">VMF Tutorial: Von Mises-Fisher Distribution</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorials/mind_content_tutorial.html">MIND_Content Tutorial: MIND for Content Filtering</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorials/pipeline_tutorial.html">Multi-Stage Pipeline Tutorial</a></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">API Reference</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../api/base_recommender.html">BaseRecommender API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/exceptions.html">Exceptions API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/mixins.html">Mixins API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/engines.html">Engines</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/pipeline.html">Pipeline System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/retrieval.html">Retrieval</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/ranking.html">Ranking</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/reranking.html">Reranking</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/multimodal.html">Multimodal Fusion</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/embeddings.html">Embeddings</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/explanation.html">Explanation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/evaluation.html">Evaluation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/serving.html">Model Serving</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/constants.html">Constants</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Examples</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../examples/basic_usage.html">Basic Usage Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../examples/advanced_usage.html">Advanced Usage Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../examples/production_deployment.html">Production Deployment Guide</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Development</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../contributing.html">Contributing to CoreRec</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../changelog.html">Changelog</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../license.html">License</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/vishesh9131/CoreRec" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/vishesh9131/CoreRec/edit/main/docs/source/user_guide/custom_models.md" target="_blank"
+   class="btn btn-sm btn-source-edit-button dropdown-item"
+   title="Suggest edit"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-pencil-alt"></i>
+  </span>
+<span class="btn__text-container">Suggest edit</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/vishesh9131/CoreRec/issues/new?title=Issue%20on%20page%20%2Fuser_guide/custom_models.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/user_guide/custom_models.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Custom Models in PyTorch</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-contract">The contract</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a-first-model">A first model</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sequential-models">Sequential models</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#building-blocks">Building blocks</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#everything-else-works">Everything else works</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="custom-models-in-pytorch">
+<h1>Custom Models in PyTorch<a class="headerlink" href="#custom-models-in-pytorch" title="Link to this heading">#</a></h1>
+<p>Research a new recommender in plain PyTorch and get training, evaluation,
+serving and ONNX export from CoreRec. You write an <code class="docutils literal notranslate"><span class="pre">nn.Module</span></code>; CoreRec
+handles id mapping, negative sampling, the training loop, devices (CUDA,
+Apple MPS, CPU), seen-item filtering and persistence.</p>
+<section id="the-contract">
+<h2>The contract<a class="headerlink" href="#the-contract" title="Link to this heading">#</a></h2>
+<p>Your module implements one method:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>forward(query, items) -&gt; scores
+  query   LongTensor [B]           user indices          (inputs=&quot;user&quot;)
+          LongTensor [B, max_len]  item-index histories,  (inputs=&quot;history&quot;)
+                                   oldest first, left-padded with 0
+  items   LongTensor [B, K]        item indices
+  scores  FloatTensor [B, K]       higher = better
+</pre></div>
+</div>
+<p>Item indices run <code class="docutils literal notranslate"><span class="pre">1..n_items</span></code> and <code class="docutils literal notranslate"><span class="pre">0</span></code> is padding, so item tables are
+<code class="docutils literal notranslate"><span class="pre">nn.Embedding(n_items</span> <span class="pre">+</span> <span class="pre">1,</span> <span class="pre">d,</span> <span class="pre">padding_idx=0)</span></code>. User indices run
+<code class="docutils literal notranslate"><span class="pre">0..n_users-1</span></code>. CoreRec builds your module as
+<code class="docutils literal notranslate"><span class="pre">MyModel(n_users=...,</span> <span class="pre">n_items=...,</span> <span class="pre">max_len=...,</span> <span class="pre">**module_kwargs)</span></code>, passing only
+the arguments your <code class="docutils literal notranslate"><span class="pre">__init__</span></code> declares.</p>
+<p>Optional: <code class="docutils literal notranslate"><span class="pre">score_all(query)</span> <span class="pre">-&gt;</span> <span class="pre">[B,</span> <span class="pre">n_items</span> <span class="pre">+</span> <span class="pre">1]</span></code> scores the whole catalogue in
+one call (column 0 is ignored). Without it, <code class="docutils literal notranslate"><span class="pre">forward</span></code> is called on every item.</p>
+</section>
+<section id="a-first-model">
+<h2>A first model<a class="headerlink" href="#a-first-model" title="Link to this heading">#</a></h2>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">torch.nn</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">nn</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">corerec.nn</span><span class="w"> </span><span class="kn">import</span> <span class="n">Recommender</span>
+
+
+<span class="k">class</span><span class="w"> </span><span class="nc">DotModel</span><span class="p">(</span><span class="n">nn</span><span class="o">.</span><span class="n">Module</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">n_users</span><span class="p">,</span> <span class="n">n_items</span><span class="p">,</span> <span class="n">dim</span><span class="o">=</span><span class="mi">32</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">users</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">Embedding</span><span class="p">(</span><span class="n">n_users</span><span class="p">,</span> <span class="n">dim</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">items</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">Embedding</span><span class="p">(</span><span class="n">n_items</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="n">dim</span><span class="p">,</span> <span class="n">padding_idx</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+        <span class="c1"># nn.Embedding starts at N(0, 1): dot products that large stall BPR</span>
+        <span class="n">nn</span><span class="o">.</span><span class="n">init</span><span class="o">.</span><span class="n">normal_</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">users</span><span class="o">.</span><span class="n">weight</span><span class="p">,</span> <span class="n">std</span><span class="o">=</span><span class="mf">0.05</span><span class="p">)</span>
+        <span class="n">nn</span><span class="o">.</span><span class="n">init</span><span class="o">.</span><span class="n">normal_</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">items</span><span class="o">.</span><span class="n">weight</span><span class="p">,</span> <span class="n">std</span><span class="o">=</span><span class="mf">0.05</span><span class="p">)</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">users</span><span class="p">,</span> <span class="n">items</span><span class="p">):</span>
+        <span class="k">return</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">users</span><span class="p">(</span><span class="n">users</span><span class="p">)</span><span class="o">.</span><span class="n">unsqueeze</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">items</span><span class="p">(</span><span class="n">items</span><span class="p">))</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+
+
+<span class="c1"># toy data with structure: user u mostly picks from item cluster u % 20</span>
+<span class="n">rng</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">default_rng</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">users</span> <span class="o">=</span> <span class="n">rng</span><span class="o">.</span><span class="n">integers</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">200</span><span class="p">,</span> <span class="mi">4000</span><span class="p">)</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s2">&quot;user_id&quot;</span><span class="p">:</span> <span class="n">users</span><span class="p">,</span>
+                   <span class="s2">&quot;item_id&quot;</span><span class="p">:</span> <span class="p">(</span><span class="n">users</span> <span class="o">%</span> <span class="mi">20</span><span class="p">)</span> <span class="o">*</span> <span class="mi">15</span> <span class="o">+</span> <span class="n">rng</span><span class="o">.</span><span class="n">integers</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">15</span><span class="p">,</span> <span class="mi">4000</span><span class="p">)})</span>
+<span class="n">test</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s2">&quot;user_id&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">tail</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>          <span class="c1"># hold out each user&#39;s last 2</span>
+<span class="n">train</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">test</span><span class="o">.</span><span class="n">index</span><span class="p">)</span>
+
+<span class="n">rec</span> <span class="o">=</span> <span class="n">Recommender</span><span class="p">(</span><span class="n">DotModel</span><span class="p">,</span> <span class="p">{</span><span class="s2">&quot;dim&quot;</span><span class="p">:</span> <span class="mi">32</span><span class="p">},</span> <span class="n">loss</span><span class="o">=</span><span class="s2">&quot;bpr&quot;</span><span class="p">,</span> <span class="n">epochs</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">lr</span><span class="o">=</span><span class="mf">0.01</span><span class="p">)</span>
+<span class="n">rec</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">train</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">rec</span><span class="o">.</span><span class="n">recommend</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">top_k</span><span class="o">=</span><span class="mi">10</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">rec</span><span class="o">.</span><span class="n">history_</span><span class="p">)</span>       <span class="c1"># training loss per epoch</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">fit</span></code> takes a DataFrame (<code class="docutils literal notranslate"><span class="pre">user_id</span></code>, <code class="docutils literal notranslate"><span class="pre">item_id</span></code>, optional <code class="docutils literal notranslate"><span class="pre">rating</span></code> and
+<code class="docutils literal notranslate"><span class="pre">timestamp</span></code>) or parallel lists. Rows with <code class="docutils literal notranslate"><span class="pre">rating</span> <span class="pre">&lt;=</span> <span class="pre">0</span></code> are dropped, and a
+<code class="docutils literal notranslate"><span class="pre">timestamp</span></code> column sets event order.</p>
+</section>
+<section id="sequential-models">
+<h2>Sequential models<a class="headerlink" href="#sequential-models" title="Link to this heading">#</a></h2>
+<p>With <code class="docutils literal notranslate"><span class="pre">inputs=&quot;history&quot;</span></code>, every event after a user’s first becomes a training
+example, predicted from the events before it:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">corerec.nn</span><span class="w"> </span><span class="kn">import</span> <span class="n">SASRecBlock</span><span class="p">,</span> <span class="n">causal_mask</span>
+
+
+<span class="k">class</span><span class="w"> </span><span class="nc">TinySeq</span><span class="p">(</span><span class="n">nn</span><span class="o">.</span><span class="n">Module</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">n_items</span><span class="p">,</span> <span class="n">max_len</span><span class="p">,</span> <span class="n">dim</span><span class="o">=</span><span class="mi">32</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">items</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">Embedding</span><span class="p">(</span><span class="n">n_items</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="n">dim</span><span class="p">,</span> <span class="n">padding_idx</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">pos</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">Embedding</span><span class="p">(</span><span class="n">max_len</span><span class="p">,</span> <span class="n">dim</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">block</span> <span class="o">=</span> <span class="n">SASRecBlock</span><span class="p">(</span><span class="n">dim</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">)</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">history</span><span class="p">,</span> <span class="n">items</span><span class="p">):</span>
+        <span class="n">x</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">items</span><span class="p">(</span><span class="n">history</span><span class="p">)</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">pos</span><span class="o">.</span><span class="n">weight</span><span class="p">[:</span> <span class="n">history</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]]</span>
+        <span class="n">x</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">block</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">causal_mask</span><span class="p">(</span><span class="n">history</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">history</span><span class="o">.</span><span class="n">device</span><span class="p">),</span> <span class="kc">None</span><span class="p">)</span>
+        <span class="k">return</span> <span class="p">(</span><span class="n">x</span><span class="p">[:,</span> <span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">unsqueeze</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">items</span><span class="p">(</span><span class="n">items</span><span class="p">))</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+
+
+<span class="n">train</span> <span class="o">=</span> <span class="n">train</span><span class="o">.</span><span class="n">assign</span><span class="p">(</span><span class="n">timestamp</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">train</span><span class="p">)))</span>
+<span class="n">seq</span> <span class="o">=</span> <span class="n">Recommender</span><span class="p">(</span><span class="n">TinySeq</span><span class="p">,</span> <span class="n">inputs</span><span class="o">=</span><span class="s2">&quot;history&quot;</span><span class="p">,</span> <span class="n">loss</span><span class="o">=</span><span class="s2">&quot;sampled_softmax&quot;</span><span class="p">,</span>
+                  <span class="n">num_negatives</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">max_len</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span> <span class="n">epochs</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
+<span class="n">seq</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">train</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="building-blocks">
+<h2>Building blocks<a class="headerlink" href="#building-blocks" title="Link to this heading">#</a></h2>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p><code class="docutils literal notranslate"><span class="pre">corerec.nn</span></code></p></th>
+<th class="head"><p>What it is</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">SASRecBlock(d,</span> <span class="pre">heads,</span> <span class="pre">dropout)</span></code></p></td>
+<td><p>Causal self-attention block (Kang &amp; McAuley 2018)</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">HSTUBlock(d,</span> <span class="pre">heads,</span> <span class="pre">dqk,</span> <span class="pre">dv,</span> <span class="pre">dropout,</span> <span class="pre">max_len,</span> <span class="pre">time_buckets,</span> <span class="pre">use_time)</span></code></p></td>
+<td><p>HSTU block (Zhai et al., ICML 2024)</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">causal_mask(n)</span></code></p></td>
+<td><p>The <code class="docutils literal notranslate"><span class="pre">[n,</span> <span class="pre">n]</span></code> mask both blocks take</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">CrossLayer(dim)</span></code></p></td>
+<td><p>DCN cross layer</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">FMInteraction()</span></code></p></td>
+<td><p>Factorization-machine pairwise term over <code class="docutils literal notranslate"><span class="pre">[B,</span> <span class="pre">F,</span> <span class="pre">d]</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">MLP(dims,</span> <span class="pre">dropout)</span></code></p></td>
+<td><p>Linear/ReLU/Dropout stack</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">bpr_loss</span></code>, <code class="docutils literal notranslate"><span class="pre">bce_loss</span></code>, <code class="docutils literal notranslate"><span class="pre">sampled_softmax_loss</span></code></p></td>
+<td><p>Losses over <code class="docutils literal notranslate"><span class="pre">[B,</span> <span class="pre">1</span> <span class="pre">+</span> <span class="pre">K]</span></code> scores, positive in column 0</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>These are the same blocks CoreRec’s <code class="docutils literal notranslate"><span class="pre">HSTU</span></code>, <code class="docutils literal notranslate"><span class="pre">SASRec</span></code> and <code class="docutils literal notranslate"><span class="pre">DCN</span></code> models use.
+<code class="docutils literal notranslate"><span class="pre">corerec.nn.models</span></code> has two complete templates, <code class="docutils literal notranslate"><span class="pre">MatrixFactorization</span></code> and
+<code class="docutils literal notranslate"><span class="pre">SequentialTransformer</span></code>. A custom loss is any <code class="docutils literal notranslate"><span class="pre">callable(scores)</span> <span class="pre">-&gt;</span> <span class="pre">loss</span></code> over
+the <code class="docutils literal notranslate"><span class="pre">[B,</span> <span class="pre">1</span> <span class="pre">+</span> <span class="pre">K]</span></code> matrix: <code class="docutils literal notranslate"><span class="pre">Recommender(MyModel,</span> <span class="pre">loss=my_loss)</span></code>.</p>
+</section>
+<section id="everything-else-works">
+<h2>Everything else works<a class="headerlink" href="#everything-else-works" title="Link to this heading">#</a></h2>
+<p>The wrapped model is an ordinary CoreRec recommender:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">corerec.evaluation</span><span class="w"> </span><span class="kn">import</span> <span class="n">Evaluator</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">corerec.serving</span><span class="w"> </span><span class="kn">import</span> <span class="n">ModelLoader</span><span class="p">,</span> <span class="n">ModelServer</span>
+
+<span class="n">truth</span> <span class="o">=</span> <span class="n">test</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s2">&quot;user_id&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">item_id</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="nb">list</span><span class="p">)</span><span class="o">.</span><span class="n">to_dict</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">Evaluator</span><span class="p">(</span><span class="n">metrics</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;ndcg@10&quot;</span><span class="p">,</span> <span class="s2">&quot;recall@10&quot;</span><span class="p">])</span><span class="o">.</span><span class="n">evaluate</span><span class="p">(</span><span class="n">rec</span><span class="p">,</span> <span class="n">truth</span><span class="p">))</span>
+
+<span class="n">rec</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="s2">&quot;dot.pt&quot;</span><span class="p">)</span>
+<span class="n">same</span> <span class="o">=</span> <span class="n">ModelLoader</span><span class="p">()</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="s2">&quot;dot.pt&quot;</span><span class="p">)</span>     <span class="c1"># rebuilds DotModel from its import path</span>
+<span class="n">server</span> <span class="o">=</span> <span class="n">ModelServer</span><span class="p">(</span><span class="n">same</span><span class="p">)</span>              <span class="c1"># server.run() serves it over HTTP</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">corerec.export.to_onnx(rec,</span> <span class="pre">&quot;dot.onnx&quot;)</span></code> exports it for ONNX Runtime (see
+<a class="reference internal" href="onnx_export.html"><span class="std std-doc">ONNX Export</span></a>).</p>
+<p>Saving records the module’s import path. A module defined in a notebook or
+script reloads fine in that same session; to load it in another process, put
+it in an importable file or pass it explicitly:
+<code class="docutils literal notranslate"><span class="pre">Recommender.load(&quot;dot.pt&quot;,</span> <span class="pre">module_cls=DotModel)</span></code>.</p>
+</section>
+</section>
+
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="production_loop.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">The Production Loop</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="onnx_export.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">ONNX Export</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-contract">The contract</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a-first-model">A first model</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sequential-models">Sequential models</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#building-blocks">Building blocks</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#everything-else-works">Everything else works</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Vishesh Yadav
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2024, Vishesh Yadav.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

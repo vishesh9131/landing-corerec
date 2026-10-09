@@ -7,7 +7,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>corerec.engines.two_tower &#8212; CoreRec 0.5.1 documentation</title>
+    <title>corerec.engines.two_tower &#8212; CoreRec 0.7.0 documentation</title>
   
   
   
@@ -38,7 +38,7 @@
 <link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
   <script src="../../../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
 
-    <script src="../../../_static/documentation_options.js?v=5f152624"></script>
+    <script src="../../../_static/documentation_options.js?v=c62cc9a0"></script>
     <script src="../../../_static/doctools.js?v=9bcbadda"></script>
     <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../../../_static/clipboard.min.js?v=a7894cd8"></script>
@@ -137,7 +137,7 @@
   
   
   
-    <p class="title logo__title">CoreRec 0.5.1 documentation</p>
+    <p class="title logo__title">CoreRec 0.7.0 documentation</p>
   
 </a></div>
         <div class="sidebar-primary-item">
@@ -172,6 +172,10 @@
 <li class="toctree-l1"><a class="reference internal" href="../../../user_guide/data_preparation.html">Data Preparation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../user_guide/model_training.html">Model Training</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../user_guide/making_predictions.html">Making Predictions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../user_guide/online_serving.html">Online Serving at Scale</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../user_guide/production_loop.html">The Production Loop</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../user_guide/custom_models.html">Custom Models in PyTorch</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../user_guide/onnx_export.html">ONNX Export</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../user_guide/model_persistence.html">Model Persistence</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../user_guide/safe_bundle_persistence.html">Safe Model Bundles (<code class="docutils literal notranslate"><span class="pre">corerec_safe_v1</span></code>)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../user_guide/best_practices.html">Best Practices</a></li>
@@ -181,10 +185,9 @@
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Model Documentation</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../../../models/index.html">Model Documentation</a></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../../../models/models_index.html">Model Documentation Index</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l2"><a class="reference internal" href="../../../models/index.html">Model Documentation</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../models/models_index.html">Complete Model Index</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../../../models/deep_learning.html">Deep Learning Models</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../models/matrix_factorization.html">Matrix Factorization Models</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../models/matrix_factorization.html">Matrix Factorization &amp; Collaborative Filtering</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../models/graph_based.html">Graph-Based Models</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../models/sequential.html">Sequential Models</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../models/bayesian.html">Bayesian Models</a></li>
@@ -197,17 +200,10 @@
 <li class="toctree-l1 has-children"><a class="reference internal" href="../../../tutorials/index.html">Tutorial Index</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../../../tutorials/dcn_tutorial.html">DCN Tutorial: Deep &amp; Cross Network</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../tutorials/deepfm_tutorial.html">DeepFM Tutorial: Factorization Machine with Deep Learning</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../tutorials/gnnrec_tutorial.html">GNNRec Tutorial: Graph Neural Network Recommender</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../tutorials/mind_tutorial.html">MIND Tutorial: MIND</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../tutorials/nasrec_tutorial.html">NASRec Tutorial: NASRec</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../tutorials/sasrec_tutorial.html">SASRec Tutorial: SASRec</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../tutorials/bert4rec_tutorial.html">Bert4Rec Tutorial: BERT for Sequential Recommendation</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../tutorials/two_tower_tutorial.html">TwoTower Tutorial: Dual-Encoder Retrieval</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../tutorials/ncf_tutorial.html">NCF Tutorial: Neural Collaborative Filtering</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../tutorials/sar_tutorial.html">SAR Tutorial: Smart Adaptive Recommendations</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../tutorials/lightgcn_tutorial.html">LightGCN Tutorial: Light Graph Convolutional Network</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../tutorials/fast_tutorial.html">FAST Tutorial: Fast Approximate Similarity Filtering</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../tutorials/fast_recommender_tutorial.html">FASTRecommender Tutorial: Extended FAST Model</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../tutorials/tfidf_tutorial.html">TFIDF Tutorial: TF-IDF Based Recommender</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../tutorials/afm_tutorial.html">AFM Tutorial: Attentional Factorization Machine</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../tutorials/autofi_tutorial.html">AutoFI Tutorial: Automatic Feature Interaction</a></li>
@@ -242,7 +238,6 @@
 <li class="toctree-l2"><a class="reference internal" href="../../../tutorials/pnn_tutorial.html">PNN Tutorial: Product-based Neural Network</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../tutorials/mmoe_tutorial.html">MMoE Tutorial: Multi-gate Mixture-of-Experts</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../tutorials/ple_tutorial.html">PLE Tutorial: Progressive Layered Extraction</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../tutorials/monolith_tutorial.html">Monolith Tutorial: Monolith: Real Time Recommendation System</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../tutorials/tdm_tutorial.html">TDM Tutorial: Tree-based Deep Model</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../tutorials/a2svd_tutorial.html">A2SVD Tutorial: Adaptive Singular Value Decomposition</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../tutorials/als_tutorial.html">ALS Tutorial: Alternating Least Squares</a></li>
@@ -262,7 +257,6 @@
 <li class="toctree-l2"><a class="reference internal" href="../../../tutorials/vmf_tutorial.html">VMF Tutorial: Von Mises-Fisher Distribution</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../tutorials/mind_content_tutorial.html">MIND_Content Tutorial: MIND for Content Filtering</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../tutorials/pipeline_tutorial.html">Multi-Stage Pipeline Tutorial</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../tutorials/imshow_tutorial.html">Demo Frontends Tutorial</a></li>
 </ul>
 </details></li>
 </ul>
@@ -281,7 +275,6 @@
 <li class="toctree-l1"><a class="reference internal" href="../../../api/explanation.html">Explanation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../api/evaluation.html">Evaluation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../api/serving.html">Model Serving</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../api/imshow.html">IMShow (Demo Frontends)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../api/constants.html">Constants</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Examples</span></p>
@@ -464,8 +457,10 @@ document.write(`
 <span class="kn">import</span><span class="w"> </span><span class="nn">pickle</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">logging</span>
 
-<span class="kn">from</span><span class="w"> </span><span class="nn">corerec.api.base_recommender</span><span class="w"> </span><span class="kn">import</span> <span class="n">BaseRecommender</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">corerec.api.base_recommender</span><span class="w"> </span><span class="kn">import</span> <span class="n">BaseRecommender</span><span class="p">,</span> <span class="n">normalize_interactions</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">corerec.device</span><span class="w"> </span><span class="kn">import</span> <span class="n">resolve_device</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">corerec.api.exceptions</span><span class="w"> </span><span class="kn">import</span> <span class="n">ModelNotFittedError</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">corerec.api.versioning</span><span class="w"> </span><span class="kn">import</span> <span class="n">warn_deprecated_arg</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">corerec.core.towers</span><span class="w"> </span><span class="kn">import</span> <span class="n">UserTower</span><span class="p">,</span> <span class="n">ItemTower</span>
 
 
@@ -594,12 +589,16 @@ document.write(`
                  <span class="n">loss_type</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;bce&quot;</span><span class="p">,</span>  <span class="c1"># bce | bpr | infonce</span>
                  <span class="n">learning_rate</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">1e-3</span><span class="p">,</span>
                  <span class="n">batch_size</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">256</span><span class="p">,</span>
-                 <span class="n">num_epochs</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">10</span><span class="p">,</span>
+                 <span class="n">epochs</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">10</span><span class="p">,</span>
                  <span class="n">device</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">torch</span><span class="o">.</span><span class="n">device</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
                  <span class="n">negative_samples</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">4</span><span class="p">,</span>
                  <span class="n">temperature</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">0.07</span><span class="p">,</span>  <span class="c1"># for InfoNCE</span>
-                 <span class="n">verbose</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">):</span>
+                 <span class="n">verbose</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
+                 <span class="n">num_epochs</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">):</span>
         <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
+        <span class="k">if</span> <span class="n">num_epochs</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">warn_deprecated_arg</span><span class="p">(</span><span class="s2">&quot;num_epochs&quot;</span><span class="p">,</span> <span class="s2">&quot;epochs&quot;</span><span class="p">)</span>
+            <span class="n">epochs</span> <span class="o">=</span> <span class="n">num_epochs</span>
         
         <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">name</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">user_input_dim</span> <span class="o">=</span> <span class="n">user_input_dim</span>
@@ -610,8 +609,8 @@ document.write(`
         <span class="bp">self</span><span class="o">.</span><span class="n">loss_type</span> <span class="o">=</span> <span class="n">loss_type</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">lr</span> <span class="o">=</span> <span class="n">learning_rate</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">batch_size</span> <span class="o">=</span> <span class="n">batch_size</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">num_epochs</span> <span class="o">=</span> <span class="n">num_epochs</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">device</span> <span class="o">=</span> <span class="n">device</span> <span class="ow">or</span> <span class="p">(</span><span class="n">torch</span><span class="o">.</span><span class="n">device</span><span class="p">(</span><span class="s2">&quot;cuda&quot;</span><span class="p">)</span> <span class="k">if</span> <span class="n">torch</span><span class="o">.</span><span class="n">cuda</span><span class="o">.</span><span class="n">is_available</span><span class="p">()</span> <span class="k">else</span> <span class="n">torch</span><span class="o">.</span><span class="n">device</span><span class="p">(</span><span class="s2">&quot;cpu&quot;</span><span class="p">))</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">epochs</span> <span class="o">=</span> <span class="n">epochs</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">device</span> <span class="o">=</span> <span class="n">resolve_device</span><span class="p">(</span><span class="n">device</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">neg_samples</span> <span class="o">=</span> <span class="n">negative_samples</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">temp</span> <span class="o">=</span> <span class="n">temperature</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">verbose</span> <span class="o">=</span> <span class="n">verbose</span>
@@ -627,43 +626,62 @@ document.write(`
         <span class="bp">self</span><span class="o">.</span><span class="n">item_map</span> <span class="o">=</span> <span class="p">{}</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">reverse_item_map</span> <span class="o">=</span> <span class="p">{}</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">item_embeddings_cache</span> <span class="o">=</span> <span class="kc">None</span>  <span class="c1"># for fast retrieval</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_seen_by_user</span> <span class="o">=</span> <span class="p">{}</span>  <span class="c1"># user_id -&gt; set of item indices seen during fit</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">is_fitted</span> <span class="o">=</span> <span class="kc">False</span>
     
 <div class="viewcode-block" id="TwoTower.fit">
 <a class="viewcode-back" href="../../../api/engines.html#corerec.engines.two_tower.TwoTower.fit">[docs]</a>
-    <span class="k">def</span><span class="w"> </span><span class="nf">fit</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">user_ids</span><span class="p">:</span> <span class="n">List</span><span class="p">,</span> <span class="n">item_ids</span><span class="p">:</span> <span class="n">List</span><span class="p">,</span> <span class="n">interactions</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> 
+    <span class="k">def</span><span class="w"> </span><span class="nf">fit</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">user_ids</span><span class="p">:</span> <span class="n">List</span><span class="p">,</span> <span class="n">item_ids</span><span class="p">:</span> <span class="n">List</span><span class="p">,</span> <span class="n">interactions</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
             <span class="n">user_features</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
             <span class="n">item_features</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
-            <span class="n">validation_split</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">0.1</span><span class="p">):</span>
+            <span class="n">validation_split</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">0.1</span><span class="p">,</span>
+            <span class="n">ratings</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Train the two-tower model.</span>
-<span class="sd">        </span>
-<span class="sd">        user_ids: list of user identifiers</span>
-<span class="sd">        item_ids: list of item identifiers</span>
-<span class="sd">        interactions: matrix [n_users, n_items] with ratings/clicks</span>
+
+<span class="sd">        Accepts either:</span>
+<span class="sd">          fit(user_ids, item_ids, interactions)  # [n_users, n_items] matrix</span>
+<span class="sd">          fit(user_ids, item_ids, ratings)       # one entry per interaction</span>
+
+<span class="sd">        `ratings=` is an alias for the third arg — rest of the zoo uses that name</span>
+<span class="sd">        and callers building kwargs were dying on TypeError before.</span>
+
 <span class="sd">        user_features: optional [n_users, user_dim] feature matrix</span>
 <span class="sd">        item_features: optional [n_items, item_dim] feature matrix</span>
 <span class="sd">        &quot;&quot;&quot;</span>
-        
+        <span class="k">if</span> <span class="n">ratings</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">interactions</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="s2">&quot;pass ratings= or interactions=, not both&quot;</span><span class="p">)</span>
+            <span class="n">interactions</span> <span class="o">=</span> <span class="n">ratings</span>
+
         <span class="bp">self</span><span class="o">.</span><span class="n">log</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Fitting </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2"> model...&quot;</span><span class="p">)</span>
-        
+
+        <span class="n">user_ids</span><span class="p">,</span> <span class="n">item_ids</span><span class="p">,</span> <span class="n">interactions</span> <span class="o">=</span> <span class="n">normalize_interactions</span><span class="p">(</span>
+            <span class="n">user_ids</span><span class="p">,</span> <span class="n">item_ids</span><span class="p">,</span> <span class="n">interactions</span>
+        <span class="p">)</span>
+
         <span class="c1"># build mappings</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">user_map</span> <span class="o">=</span> <span class="p">{</span><span class="n">uid</span><span class="p">:</span> <span class="n">idx</span> <span class="k">for</span> <span class="n">idx</span><span class="p">,</span> <span class="n">uid</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">user_ids</span><span class="p">)}</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">item_map</span> <span class="o">=</span> <span class="p">{</span><span class="n">iid</span><span class="p">:</span> <span class="n">idx</span> <span class="k">for</span> <span class="n">idx</span><span class="p">,</span> <span class="n">iid</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">item_ids</span><span class="p">)}</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">reverse_item_map</span> <span class="o">=</span> <span class="p">{</span><span class="n">idx</span><span class="p">:</span> <span class="n">iid</span> <span class="k">for</span> <span class="n">iid</span><span class="p">,</span> <span class="n">idx</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">item_map</span><span class="o">.</span><span class="n">items</span><span class="p">()}</span>
+
+        <span class="c1"># What each user interacted with, by item index, so recommend(exclude_seen=True)</span>
+        <span class="c1"># has something to exclude.</span>
+        <span class="kn">import</span><span class="w"> </span><span class="nn">scipy.sparse</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">sp</span>
+
+        <span class="n">interactions</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">csr_matrix</span><span class="p">(</span><span class="n">interactions</span><span class="p">)</span>
+        <span class="n">rows</span><span class="p">,</span> <span class="n">cols</span> <span class="o">=</span> <span class="p">(</span><span class="n">interactions</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">nonzero</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_seen_by_user</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="k">for</span> <span class="n">r</span><span class="p">,</span> <span class="n">c</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">rows</span><span class="p">,</span> <span class="n">cols</span><span class="p">):</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_seen_by_user</span><span class="o">.</span><span class="n">setdefault</span><span class="p">(</span><span class="n">user_ids</span><span class="p">[</span><span class="n">r</span><span class="p">],</span> <span class="nb">set</span><span class="p">())</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">c</span><span class="p">))</span>
         
         <span class="n">n_users</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">user_ids</span><span class="p">)</span>
         <span class="n">n_items</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">item_ids</span><span class="p">)</span>
         
-        <span class="c1"># if no features provided, use one-hot or learned embeddings</span>
-        <span class="k">if</span> <span class="n">user_features</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-            <span class="n">user_features</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">eye</span><span class="p">(</span><span class="n">n_users</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">float32</span><span class="p">)</span>
-        <span class="k">if</span> <span class="n">item_features</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-            <span class="n">item_features</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">eye</span><span class="p">(</span><span class="n">n_items</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">float32</span><span class="p">)</span>
-        
-        <span class="c1"># update input dims if needed</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">user_input_dim</span> <span class="o">=</span> <span class="n">user_features</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">item_input_dim</span> <span class="o">=</span> <span class="n">item_features</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+        <span class="c1"># No features: the towers take ids, which is a one-hot input without</span>
+        <span class="c1"># the np.eye(n_users) (40 GB at 100k users) -- see MLPTower.forward.</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">user_input_dim</span> <span class="o">=</span> <span class="n">n_users</span> <span class="k">if</span> <span class="n">user_features</span> <span class="ow">is</span> <span class="kc">None</span> <span class="k">else</span> <span class="n">user_features</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">item_input_dim</span> <span class="o">=</span> <span class="n">n_items</span> <span class="k">if</span> <span class="n">item_features</span> <span class="ow">is</span> <span class="kc">None</span> <span class="k">else</span> <span class="n">item_features</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
         
         <span class="c1"># init model</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">model</span> <span class="o">=</span> <span class="n">TwoTowerModel</span><span class="p">(</span>
@@ -677,8 +695,13 @@ document.write(`
         <span class="bp">self</span><span class="o">.</span><span class="n">optimizer</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">optim</span><span class="o">.</span><span class="n">Adam</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">parameters</span><span class="p">(),</span> <span class="n">lr</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">lr</span><span class="p">)</span>
         
         <span class="c1"># convert to torch</span>
-        <span class="n">user_feats_t</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">from_numpy</span><span class="p">(</span><span class="n">user_features</span><span class="p">)</span><span class="o">.</span><span class="n">float</span><span class="p">()</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">device</span><span class="p">)</span>
-        <span class="n">item_feats_t</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">from_numpy</span><span class="p">(</span><span class="n">item_features</span><span class="p">)</span><span class="o">.</span><span class="n">float</span><span class="p">()</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">device</span><span class="p">)</span>
+        <span class="k">def</span><span class="w"> </span><span class="nf">_feats</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">n</span><span class="p">):</span>
+            <span class="k">if</span> <span class="n">f</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="k">return</span> <span class="n">torch</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">device</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">device</span><span class="p">)</span><span class="o">.</span><span class="n">unsqueeze</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+            <span class="k">return</span> <span class="n">torch</span><span class="o">.</span><span class="n">from_numpy</span><span class="p">(</span><span class="n">f</span><span class="p">)</span><span class="o">.</span><span class="n">float</span><span class="p">()</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">device</span><span class="p">)</span>
+
+        <span class="n">user_feats_t</span> <span class="o">=</span> <span class="n">_feats</span><span class="p">(</span><span class="n">user_features</span><span class="p">,</span> <span class="n">n_users</span><span class="p">)</span>
+        <span class="n">item_feats_t</span> <span class="o">=</span> <span class="n">_feats</span><span class="p">(</span><span class="n">item_features</span><span class="p">,</span> <span class="n">n_items</span><span class="p">)</span>
         
         <span class="c1"># create training pairs</span>
         <span class="n">train_data</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_create_training_pairs</span><span class="p">(</span><span class="n">interactions</span><span class="p">)</span>
@@ -688,7 +711,7 @@ document.write(`
             <span class="k">return</span> <span class="bp">self</span>
         
         <span class="c1"># training loop</span>
-        <span class="k">for</span> <span class="n">epoch</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">num_epochs</span><span class="p">):</span>
+        <span class="k">for</span> <span class="n">epoch</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">epochs</span><span class="p">):</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">train</span><span class="p">()</span>
             
             <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">shuffle</span><span class="p">(</span><span class="n">train_data</span><span class="p">)</span>
@@ -699,8 +722,8 @@ document.write(`
                 <span class="n">batch</span> <span class="o">=</span> <span class="n">train_data</span><span class="p">[</span><span class="n">i</span><span class="p">:</span><span class="n">i</span><span class="o">+</span><span class="bp">self</span><span class="o">.</span><span class="n">batch_size</span><span class="p">]</span>
                 
                 <span class="c1"># extract batch</span>
-                <span class="n">user_indices</span> <span class="o">=</span> <span class="p">[</span><span class="n">p</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">batch</span><span class="p">]</span>
-                <span class="n">pos_indices</span> <span class="o">=</span> <span class="p">[</span><span class="n">p</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">batch</span><span class="p">]</span>
+                <span class="n">user_indices</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">from_numpy</span><span class="p">(</span><span class="n">batch</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">])</span><span class="o">.</span><span class="n">long</span><span class="p">()</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">device</span><span class="p">)</span>
+                <span class="n">pos_indices</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">from_numpy</span><span class="p">(</span><span class="n">batch</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">])</span><span class="o">.</span><span class="n">long</span><span class="p">()</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">device</span><span class="p">)</span>
                 
                 <span class="c1"># get features</span>
                 <span class="n">batch_users</span> <span class="o">=</span> <span class="n">user_feats_t</span><span class="p">[</span><span class="n">user_indices</span><span class="p">]</span>
@@ -717,7 +740,7 @@ document.write(`
                     
                     <span class="c1"># negative samples</span>
                     <span class="n">neg_indices</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">n_items</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">batch</span><span class="p">),</span> <span class="bp">self</span><span class="o">.</span><span class="n">neg_samples</span><span class="p">))</span>
-                    <span class="n">neg_indices_t</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">from_numpy</span><span class="p">(</span><span class="n">neg_indices</span><span class="p">)</span><span class="o">.</span><span class="n">long</span><span class="p">()</span>
+                    <span class="n">neg_indices_t</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">from_numpy</span><span class="p">(</span><span class="n">neg_indices</span><span class="p">)</span><span class="o">.</span><span class="n">long</span><span class="p">()</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">device</span><span class="p">)</span>
                     <span class="n">batch_neg_items</span> <span class="o">=</span> <span class="n">item_feats_t</span><span class="p">[</span><span class="n">neg_indices_t</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)]</span>
                     <span class="n">batch_neg_items</span> <span class="o">=</span> <span class="n">batch_neg_items</span><span class="o">.</span><span class="n">view</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">batch</span><span class="p">),</span> <span class="bp">self</span><span class="o">.</span><span class="n">neg_samples</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span>
                     
@@ -740,7 +763,7 @@ document.write(`
                     
                     <span class="c1"># sample negatives</span>
                     <span class="n">neg_indices</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">n_items</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="nb">len</span><span class="p">(</span><span class="n">batch</span><span class="p">))</span>
-                    <span class="n">batch_neg_items</span> <span class="o">=</span> <span class="n">item_feats_t</span><span class="p">[</span><span class="n">neg_indices</span><span class="p">]</span>
+                    <span class="n">batch_neg_items</span> <span class="o">=</span> <span class="n">item_feats_t</span><span class="p">[</span><span class="n">torch</span><span class="o">.</span><span class="n">from_numpy</span><span class="p">(</span><span class="n">neg_indices</span><span class="p">)</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">device</span><span class="p">)]</span>
                     <span class="n">neg_scores</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="p">(</span><span class="n">batch_users</span><span class="p">,</span> <span class="n">batch_neg_items</span><span class="p">)</span>
                     
                     <span class="c1"># BPR loss</span>
@@ -769,8 +792,8 @@ document.write(`
             
             <span class="n">avg_loss</span> <span class="o">=</span> <span class="n">epoch_loss</span> <span class="o">/</span> <span class="n">n_batches</span> <span class="k">if</span> <span class="n">n_batches</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="k">else</span> <span class="mi">0</span>
             
-            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">verbose</span> <span class="ow">and</span> <span class="p">(</span><span class="n">epoch</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">%</span> <span class="nb">max</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">num_epochs</span> <span class="o">//</span> <span class="mi">10</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
-                <span class="bp">self</span><span class="o">.</span><span class="n">log</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Epoch </span><span class="si">{</span><span class="n">epoch</span><span class="o">+</span><span class="mi">1</span><span class="si">}</span><span class="s2">/</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">num_epochs</span><span class="si">}</span><span class="s2">, Loss: </span><span class="si">{</span><span class="n">avg_loss</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">verbose</span> <span class="ow">and</span> <span class="p">(</span><span class="n">epoch</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">%</span> <span class="nb">max</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">epochs</span> <span class="o">//</span> <span class="mi">10</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">log</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Epoch </span><span class="si">{</span><span class="n">epoch</span><span class="o">+</span><span class="mi">1</span><span class="si">}</span><span class="s2">/</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">epochs</span><span class="si">}</span><span class="s2">, Loss: </span><span class="si">{</span><span class="n">avg_loss</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
         
         <span class="c1"># cache item embeddings for fast retrieval</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">eval</span><span class="p">()</span>
@@ -782,35 +805,41 @@ document.write(`
         <span class="k">return</span> <span class="bp">self</span></div>
 
     
-    <span class="k">def</span><span class="w"> </span><span class="nf">_create_training_pairs</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">interactions</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="n">Tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">int</span><span class="p">]]:</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;Extract positive user-item pairs from interaction matrix.&quot;&quot;&quot;</span>
-        <span class="n">pairs</span> <span class="o">=</span> <span class="p">[]</span>
-        <span class="n">rows</span><span class="p">,</span> <span class="n">cols</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">nonzero</span><span class="p">(</span><span class="n">interactions</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span>
-        <span class="k">for</span> <span class="n">u</span><span class="p">,</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">rows</span><span class="p">,</span> <span class="n">cols</span><span class="p">):</span>
-            <span class="n">pairs</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">u</span><span class="p">,</span> <span class="n">i</span><span class="p">))</span>
-        <span class="k">return</span> <span class="n">pairs</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">_create_training_pairs</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">interactions</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Positive (user, item) index pairs, one row each.&quot;&quot;&quot;</span>
+        <span class="n">rows</span><span class="p">,</span> <span class="n">cols</span> <span class="o">=</span> <span class="p">(</span><span class="n">interactions</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">nonzero</span><span class="p">()</span>
+        <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">stack</span><span class="p">([</span><span class="n">rows</span><span class="p">,</span> <span class="n">cols</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">_user_input</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">user_idx</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">:</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">user_input_dim</span> <span class="o">==</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">user_map</span><span class="p">):</span>
+            <span class="k">return</span> <span class="n">torch</span><span class="o">.</span><span class="n">tensor</span><span class="p">([[</span><span class="n">user_idx</span><span class="p">]],</span> <span class="n">device</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">device</span><span class="p">)</span>  <span class="c1"># id input</span>
+        <span class="n">user_feat</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">user_input_dim</span><span class="p">,</span> <span class="n">device</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">device</span><span class="p">)</span>
+        <span class="n">user_feat</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="nb">min</span><span class="p">(</span><span class="n">user_idx</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">user_input_dim</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)]</span> <span class="o">=</span> <span class="mf">1.0</span>
+        <span class="k">return</span> <span class="n">user_feat</span>
     
 <div class="viewcode-block" id="TwoTower.recommend">
 <a class="viewcode-back" href="../../../api/engines.html#corerec.engines.two_tower.TwoTower.recommend">[docs]</a>
-    <span class="k">def</span><span class="w"> </span><span class="nf">recommend</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">user_id</span><span class="p">:</span> <span class="n">Any</span><span class="p">,</span> <span class="n">top_k</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">10</span><span class="p">,</span> <span class="n">exclude_seen</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="n">Any</span><span class="p">]:</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">recommend</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">user_id</span><span class="p">:</span> <span class="n">Any</span><span class="p">,</span> <span class="n">top_k</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">10</span><span class="p">,</span>
+                  <span class="n">exclude_items</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">List</span><span class="p">[</span><span class="n">Any</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+                  <span class="n">exclude_seen</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="n">Any</span><span class="p">]:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Generate recommendations for a user.</span>
-<span class="sd">        </span>
+
+<span class="sd">        exclude_items: item IDs to keep out of the results</span>
+<span class="sd">        exclude_seen: also drop items this user interacted with during fit</span>
+
 <span class="sd">        Returns list of item IDs ranked by score.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">is_fitted</span><span class="p">:</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">_check_fitted</span><span class="p">()</span>
-        
+
         <span class="k">if</span> <span class="n">user_id</span> <span class="ow">not</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">user_map</span><span class="p">:</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">log</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Unknown user: </span><span class="si">{</span><span class="n">user_id</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
             <span class="k">return</span> <span class="p">[]</span>
-        
+
         <span class="n">user_idx</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">user_map</span><span class="p">[</span><span class="n">user_id</span><span class="p">]</span>
-        
-        <span class="c1"># encode user</span>
-        <span class="c1"># (in practice, you&#39;d pass actual features here)</span>
-        <span class="n">user_feat</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">user_input_dim</span><span class="p">,</span> <span class="n">device</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">device</span><span class="p">)</span>
-        <span class="n">user_feat</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="nb">min</span><span class="p">(</span><span class="n">user_idx</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">user_input_dim</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)]</span> <span class="o">=</span> <span class="mf">1.0</span>
+
+        <span class="n">user_feat</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_user_input</span><span class="p">(</span><span class="n">user_idx</span><span class="p">)</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">eval</span><span class="p">()</span>
         <span class="k">with</span> <span class="n">torch</span><span class="o">.</span><span class="n">no_grad</span><span class="p">():</span>
@@ -818,11 +847,27 @@ document.write(`
 
         <span class="c1"># score all items via cached embeddings</span>
         <span class="n">scores</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">user_emb</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">item_embeddings_cache</span><span class="o">.</span><span class="n">T</span><span class="p">)</span><span class="o">.</span><span class="n">flatten</span><span class="p">()</span>
-        
-        <span class="c1"># get top k</span>
-        <span class="n">top_indices</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">argsort</span><span class="p">(</span><span class="n">scores</span><span class="p">)[::</span><span class="o">-</span><span class="mi">1</span><span class="p">][:</span><span class="n">top_k</span><span class="p">]</span>
-        <span class="n">recommendations</span> <span class="o">=</span> <span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">reverse_item_map</span><span class="p">[</span><span class="n">idx</span><span class="p">]</span> <span class="k">for</span> <span class="n">idx</span> <span class="ow">in</span> <span class="n">top_indices</span> <span class="k">if</span> <span class="n">idx</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">reverse_item_map</span><span class="p">]</span>
-        
+
+        <span class="c1"># Build the set of item *indices* to drop. Both exclusions were</span>
+        <span class="c1"># previously ignored: exclude_seen was accepted and never read, and</span>
+        <span class="c1"># exclude_items was missing entirely even though BaseRecommender</span>
+        <span class="c1"># declares it -- so ModelServer&#39;s /recommend route raised TypeError</span>
+        <span class="c1"># against this model.</span>
+        <span class="n">blocked</span> <span class="o">=</span> <span class="nb">set</span><span class="p">()</span>
+        <span class="k">if</span> <span class="n">exclude_items</span><span class="p">:</span>
+            <span class="n">blocked</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">item_map</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">exclude_items</span> <span class="k">if</span> <span class="n">i</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">item_map</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">exclude_seen</span><span class="p">:</span>
+            <span class="n">blocked</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_seen_by_user</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">user_id</span><span class="p">,</span> <span class="p">()))</span>
+
+        <span class="n">ranked</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">argsort</span><span class="p">(</span><span class="n">scores</span><span class="p">)[::</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+        <span class="n">recommendations</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">for</span> <span class="n">idx</span> <span class="ow">in</span> <span class="n">ranked</span><span class="p">:</span>
+            <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">recommendations</span><span class="p">)</span> <span class="o">==</span> <span class="n">top_k</span><span class="p">:</span>
+                <span class="k">break</span>
+            <span class="k">if</span> <span class="n">idx</span> <span class="ow">in</span> <span class="n">blocked</span> <span class="ow">or</span> <span class="n">idx</span> <span class="ow">not</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">reverse_item_map</span><span class="p">:</span>
+                <span class="k">continue</span>
+            <span class="n">recommendations</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">reverse_item_map</span><span class="p">[</span><span class="n">idx</span><span class="p">])</span>
+
         <span class="k">return</span> <span class="n">recommendations</span></div>
 
     
@@ -833,9 +878,7 @@ document.write(`
         <span class="k">if</span> <span class="n">user_id</span> <span class="ow">not</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">user_map</span><span class="p">:</span>
             <span class="k">return</span> <span class="kc">None</span>
         
-        <span class="n">user_idx</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">user_map</span><span class="p">[</span><span class="n">user_id</span><span class="p">]</span>
-        <span class="n">user_feat</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">user_input_dim</span><span class="p">,</span> <span class="n">device</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">device</span><span class="p">)</span>
-        <span class="n">user_feat</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="n">user_idx</span><span class="p">]</span> <span class="o">=</span> <span class="mf">1.0</span>
+        <span class="n">user_feat</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_user_input</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">user_map</span><span class="p">[</span><span class="n">user_id</span><span class="p">])</span>
         
         <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">eval</span><span class="p">()</span>
         <span class="k">with</span> <span class="n">torch</span><span class="o">.</span><span class="n">no_grad</span><span class="p">():</span>
@@ -857,8 +900,7 @@ document.write(`
         <span class="n">user_idx</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">user_map</span><span class="p">[</span><span class="n">user_id</span><span class="p">]</span>
         <span class="n">item_idx</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">item_map</span><span class="p">[</span><span class="n">item_id</span><span class="p">]</span>
 
-        <span class="n">user_feat</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">user_input_dim</span><span class="p">,</span> <span class="n">device</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">device</span><span class="p">)</span>
-        <span class="n">user_feat</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="nb">min</span><span class="p">(</span><span class="n">user_idx</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">user_input_dim</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)]</span> <span class="o">=</span> <span class="mf">1.0</span>
+        <span class="n">user_feat</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_user_input</span><span class="p">(</span><span class="n">user_idx</span><span class="p">)</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">eval</span><span class="p">()</span>
         <span class="k">with</span> <span class="n">torch</span><span class="o">.</span><span class="n">no_grad</span><span class="p">():</span>
@@ -886,10 +928,16 @@ document.write(`
             <span class="s2">&quot;loss_type&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">loss_type</span><span class="p">,</span>
             <span class="s2">&quot;lr&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">lr</span><span class="p">,</span>
             <span class="s2">&quot;batch_size&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">batch_size</span><span class="p">,</span>
-            <span class="s2">&quot;num_epochs&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">num_epochs</span><span class="p">,</span>
+            <span class="s2">&quot;epochs&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">epochs</span><span class="p">,</span>
         <span class="p">}</span>
         <span class="n">state</span> <span class="o">=</span> <span class="p">{</span>
             <span class="s2">&quot;is_fitted&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">is_fitted</span><span class="p">,</span>
+            <span class="c1"># Stored as [user_id, [item_idx, ...]] pairs rather than a dict so the</span>
+            <span class="c1"># user IDs survive a JSON round-trip without being coerced to strings.</span>
+            <span class="c1"># Without this, exclude_seen=True silently stops excluding after load.</span>
+            <span class="s2">&quot;seen_by_user&quot;</span><span class="p">:</span> <span class="p">[</span>
+                <span class="p">[</span><span class="n">u</span><span class="p">,</span> <span class="nb">sorted</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">idxs</span><span class="p">)]</span> <span class="k">for</span> <span class="n">u</span><span class="p">,</span> <span class="n">idxs</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_seen_by_user</span><span class="o">.</span><span class="n">items</span><span class="p">()</span>
+            <span class="p">],</span>
             <span class="o">**</span><span class="n">save_map_state</span><span class="p">(</span>
                 <span class="n">user_map</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">user_map</span><span class="p">,</span>
                 <span class="n">item_map</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">item_map</span><span class="p">,</span>
@@ -914,6 +962,7 @@ document.write(`
             <span class="s2">&quot;item_embeddings_cache&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">item_embeddings_cache</span><span class="p">,</span>
             <span class="s2">&quot;config&quot;</span><span class="p">:</span> <span class="n">config</span><span class="p">,</span>
             <span class="s2">&quot;is_fitted&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">is_fitted</span><span class="p">,</span>
+            <span class="s2">&quot;seen_by_user&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">_seen_by_user</span><span class="p">,</span>
         <span class="p">}</span>
         <span class="n">torch</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="n">legacy</span><span class="p">,</span> <span class="n">path</span><span class="p">)</span></div>
 
@@ -934,6 +983,9 @@ document.write(`
             <span class="n">instance</span><span class="o">.</span><span class="n">item_map</span> <span class="o">=</span> <span class="n">maps</span><span class="p">[</span><span class="s2">&quot;item_map&quot;</span><span class="p">]</span>
             <span class="n">instance</span><span class="o">.</span><span class="n">reverse_item_map</span> <span class="o">=</span> <span class="n">maps</span><span class="p">[</span><span class="s2">&quot;reverse_item_map&quot;</span><span class="p">]</span>
             <span class="n">instance</span><span class="o">.</span><span class="n">is_fitted</span> <span class="o">=</span> <span class="n">state</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;is_fitted&quot;</span><span class="p">,</span> <span class="kc">True</span><span class="p">)</span>
+            <span class="n">instance</span><span class="o">.</span><span class="n">_seen_by_user</span> <span class="o">=</span> <span class="p">{</span>
+                <span class="n">u</span><span class="p">:</span> <span class="p">{</span><span class="nb">int</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">idxs</span><span class="p">}</span> <span class="k">for</span> <span class="n">u</span><span class="p">,</span> <span class="n">idxs</span> <span class="ow">in</span> <span class="n">state</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;seen_by_user&quot;</span><span class="p">,</span> <span class="p">[])</span>
+            <span class="p">}</span>
             <span class="k">if</span> <span class="n">arrays</span> <span class="ow">and</span> <span class="n">arrays</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;item_embeddings_cache&quot;</span><span class="p">)</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
                 <span class="n">instance</span><span class="o">.</span><span class="n">item_embeddings_cache</span> <span class="o">=</span> <span class="n">arrays</span><span class="p">[</span><span class="s2">&quot;item_embeddings_cache&quot;</span><span class="p">]</span>
 
@@ -946,7 +998,7 @@ document.write(`
                     <span class="n">embedding_dim</span><span class="o">=</span><span class="n">cfg</span><span class="p">[</span><span class="s2">&quot;embedding_dim&quot;</span><span class="p">],</span>
                     <span class="n">hidden_dims</span><span class="o">=</span><span class="n">cfg</span><span class="p">[</span><span class="s2">&quot;hidden_dims&quot;</span><span class="p">],</span>
                     <span class="n">dropout</span><span class="o">=</span><span class="n">cfg</span><span class="p">[</span><span class="s2">&quot;dropout&quot;</span><span class="p">],</span>
-                <span class="p">)</span>
+                <span class="p">)</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">instance</span><span class="o">.</span><span class="n">device</span><span class="p">)</span>
 
         <span class="k">def</span><span class="w"> </span><span class="nf">_factory</span><span class="p">(</span><span class="n">cfg</span><span class="p">):</span>
             <span class="k">return</span> <span class="bp">cls</span><span class="p">(</span>
@@ -959,7 +1011,7 @@ document.write(`
                 <span class="n">loss_type</span><span class="o">=</span><span class="n">cfg</span><span class="p">[</span><span class="s2">&quot;loss_type&quot;</span><span class="p">],</span>
                 <span class="n">learning_rate</span><span class="o">=</span><span class="n">cfg</span><span class="p">[</span><span class="s2">&quot;lr&quot;</span><span class="p">],</span>
                 <span class="n">batch_size</span><span class="o">=</span><span class="n">cfg</span><span class="p">[</span><span class="s2">&quot;batch_size&quot;</span><span class="p">],</span>
-                <span class="n">num_epochs</span><span class="o">=</span><span class="n">cfg</span><span class="p">[</span><span class="s2">&quot;num_epochs&quot;</span><span class="p">],</span>
+                <span class="n">epochs</span><span class="o">=</span><span class="n">cfg</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;epochs&quot;</span><span class="p">,</span> <span class="n">cfg</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;num_epochs&quot;</span><span class="p">,</span> <span class="mi">10</span><span class="p">)),</span>
             <span class="p">)</span>
 
         <span class="n">loaded</span> <span class="o">=</span> <span class="n">load_torch_production</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">path</span><span class="p">,</span> <span class="n">build_model</span><span class="o">=</span><span class="n">_build</span><span class="p">,</span> <span class="n">restore</span><span class="o">=</span><span class="n">_restore</span><span class="p">,</span> <span class="n">factory</span><span class="o">=</span><span class="n">_factory</span><span class="p">)</span>
@@ -978,13 +1030,14 @@ document.write(`
             <span class="n">loss_type</span><span class="o">=</span><span class="n">cfg</span><span class="p">[</span><span class="s2">&quot;loss_type&quot;</span><span class="p">],</span>
             <span class="n">learning_rate</span><span class="o">=</span><span class="n">cfg</span><span class="p">[</span><span class="s2">&quot;lr&quot;</span><span class="p">],</span>
             <span class="n">batch_size</span><span class="o">=</span><span class="n">cfg</span><span class="p">[</span><span class="s2">&quot;batch_size&quot;</span><span class="p">],</span>
-            <span class="n">num_epochs</span><span class="o">=</span><span class="n">cfg</span><span class="p">[</span><span class="s2">&quot;num_epochs&quot;</span><span class="p">],</span>
+            <span class="n">epochs</span><span class="o">=</span><span class="n">cfg</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;epochs&quot;</span><span class="p">,</span> <span class="n">cfg</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;num_epochs&quot;</span><span class="p">,</span> <span class="mi">10</span><span class="p">)),</span>
         <span class="p">)</span>
         <span class="n">instance</span><span class="o">.</span><span class="n">user_map</span> <span class="o">=</span> <span class="n">state</span><span class="p">[</span><span class="s2">&quot;user_map&quot;</span><span class="p">]</span>
         <span class="n">instance</span><span class="o">.</span><span class="n">item_map</span> <span class="o">=</span> <span class="n">state</span><span class="p">[</span><span class="s2">&quot;item_map&quot;</span><span class="p">]</span>
         <span class="n">instance</span><span class="o">.</span><span class="n">reverse_item_map</span> <span class="o">=</span> <span class="n">state</span><span class="p">[</span><span class="s2">&quot;reverse_item_map&quot;</span><span class="p">]</span>
         <span class="n">instance</span><span class="o">.</span><span class="n">item_embeddings_cache</span> <span class="o">=</span> <span class="n">state</span><span class="p">[</span><span class="s2">&quot;item_embeddings_cache&quot;</span><span class="p">]</span>
         <span class="n">instance</span><span class="o">.</span><span class="n">is_fitted</span> <span class="o">=</span> <span class="n">state</span><span class="p">[</span><span class="s2">&quot;is_fitted&quot;</span><span class="p">]</span>
+        <span class="n">instance</span><span class="o">.</span><span class="n">_seen_by_user</span> <span class="o">=</span> <span class="n">state</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;seen_by_user&quot;</span><span class="p">,</span> <span class="p">{})</span>
 
         <span class="k">if</span> <span class="n">state</span><span class="p">[</span><span class="s2">&quot;model_state_dict&quot;</span><span class="p">]</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
             <span class="n">instance</span><span class="o">.</span><span class="n">model</span> <span class="o">=</span> <span class="n">TwoTowerModel</span><span class="p">(</span>
@@ -993,7 +1046,7 @@ document.write(`
                 <span class="n">embedding_dim</span><span class="o">=</span><span class="n">cfg</span><span class="p">[</span><span class="s2">&quot;embedding_dim&quot;</span><span class="p">],</span>
                 <span class="n">hidden_dims</span><span class="o">=</span><span class="n">cfg</span><span class="p">[</span><span class="s2">&quot;hidden_dims&quot;</span><span class="p">],</span>
                 <span class="n">dropout</span><span class="o">=</span><span class="n">cfg</span><span class="p">[</span><span class="s2">&quot;dropout&quot;</span><span class="p">],</span>
-            <span class="p">)</span>
+            <span class="p">)</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">instance</span><span class="o">.</span><span class="n">device</span><span class="p">)</span>
             <span class="n">instance</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">load_state_dict</span><span class="p">(</span><span class="n">state</span><span class="p">[</span><span class="s2">&quot;model_state_dict&quot;</span><span class="p">])</span>
             <span class="n">instance</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">eval</span><span class="p">()</span>
         <span class="k">return</span> <span class="n">instance</span></div>

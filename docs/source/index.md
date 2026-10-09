@@ -74,13 +74,6 @@ Collaborative, semantic, and popularity retrievers with ensemble fusion (RRF, we
 Pointwise, pairwise, and feature-cross rankers. Diversity, fairness, and business-rule rerankers.
 :::
 
-:::{grid-item-card} Visualization (imshow)
-:link: api/imshow
-:link-type: doc
-
-Plug any recommender into Spotify, YouTube, or Netflix-style frontends for interactive demos.
-:::
-
 :::{grid-item-card} Model Serving
 :link: api/serving
 :link-type: doc
@@ -204,6 +197,9 @@ user_guide/data_preparation
 user_guide/model_training
 user_guide/making_predictions
 user_guide/online_serving
+user_guide/production_loop
+user_guide/custom_models
+user_guide/onnx_export
 user_guide/model_persistence
 user_guide/safe_bundle_persistence
 user_guide/best_practices
@@ -249,7 +245,6 @@ api/embeddings
 api/explanation
 api/evaluation
 api/serving
-api/imshow
 api/constants
 ```
 

@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Complete Model Index &#8212; CoreRec 0.5.4 documentation</title>
+    <title>Complete Model Index &#8212; CoreRec 0.7.0 documentation</title>
   
   
   
@@ -39,7 +39,7 @@
 <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
   <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
 
-    <script src="../_static/documentation_options.js?v=6688a68e"></script>
+    <script src="../_static/documentation_options.js?v=c62cc9a0"></script>
     <script src="../_static/doctools.js?v=9bcbadda"></script>
     <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
@@ -138,7 +138,7 @@
   
   
   
-    <p class="title logo__title">CoreRec 0.5.4 documentation</p>
+    <p class="title logo__title">CoreRec 0.7.0 documentation</p>
   
 </a></div>
         <div class="sidebar-primary-item">
@@ -174,6 +174,9 @@
 <li class="toctree-l1"><a class="reference internal" href="../user_guide/model_training.html">Model Training</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../user_guide/making_predictions.html">Making Predictions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../user_guide/online_serving.html">Online Serving at Scale</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user_guide/production_loop.html">The Production Loop</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user_guide/custom_models.html">Custom Models in PyTorch</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user_guide/onnx_export.html">ONNX Export</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../user_guide/model_persistence.html">Model Persistence</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../user_guide/safe_bundle_persistence.html">Safe Model Bundles (<code class="docutils literal notranslate"><span class="pre">corerec_safe_v1</span></code>)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../user_guide/best_practices.html">Best Practices</a></li>
@@ -198,17 +201,10 @@
 <li class="toctree-l1 has-children"><a class="reference internal" href="../tutorials/index.html">Tutorial Index</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../tutorials/dcn_tutorial.html">DCN Tutorial: Deep &amp; Cross Network</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../tutorials/deepfm_tutorial.html">DeepFM Tutorial: Factorization Machine with Deep Learning</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../tutorials/gnnrec_tutorial.html">GNNRec Tutorial: Graph Neural Network Recommender</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../tutorials/mind_tutorial.html">MIND Tutorial: MIND</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../tutorials/nasrec_tutorial.html">NASRec Tutorial: NASRec</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../tutorials/sasrec_tutorial.html">SASRec Tutorial: SASRec</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../tutorials/bert4rec_tutorial.html">Bert4Rec Tutorial: BERT for Sequential Recommendation</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../tutorials/two_tower_tutorial.html">TwoTower Tutorial: Dual-Encoder Retrieval</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../tutorials/ncf_tutorial.html">NCF Tutorial: Neural Collaborative Filtering</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../tutorials/sar_tutorial.html">SAR Tutorial: Smart Adaptive Recommendations</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../tutorials/lightgcn_tutorial.html">LightGCN Tutorial: Light Graph Convolutional Network</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../tutorials/fast_tutorial.html">FAST Tutorial: Fast Approximate Similarity Filtering</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../tutorials/fast_recommender_tutorial.html">FASTRecommender Tutorial: Extended FAST Model</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../tutorials/tfidf_tutorial.html">TFIDF Tutorial: TF-IDF Based Recommender</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../tutorials/afm_tutorial.html">AFM Tutorial: Attentional Factorization Machine</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../tutorials/autofi_tutorial.html">AutoFI Tutorial: Automatic Feature Interaction</a></li>
@@ -243,7 +239,6 @@
 <li class="toctree-l2"><a class="reference internal" href="../tutorials/pnn_tutorial.html">PNN Tutorial: Product-based Neural Network</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../tutorials/mmoe_tutorial.html">MMoE Tutorial: Multi-gate Mixture-of-Experts</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../tutorials/ple_tutorial.html">PLE Tutorial: Progressive Layered Extraction</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../tutorials/monolith_tutorial.html">Monolith Tutorial: Monolith: Real Time Recommendation System</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../tutorials/tdm_tutorial.html">TDM Tutorial: Tree-based Deep Model</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../tutorials/a2svd_tutorial.html">A2SVD Tutorial: Adaptive Singular Value Decomposition</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../tutorials/als_tutorial.html">ALS Tutorial: Alternating Least Squares</a></li>
@@ -263,7 +258,6 @@
 <li class="toctree-l2"><a class="reference internal" href="../tutorials/vmf_tutorial.html">VMF Tutorial: Von Mises-Fisher Distribution</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../tutorials/mind_content_tutorial.html">MIND_Content Tutorial: MIND for Content Filtering</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../tutorials/pipeline_tutorial.html">Multi-Stage Pipeline Tutorial</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../tutorials/imshow_tutorial.html">Demo Frontends Tutorial</a></li>
 </ul>
 </details></li>
 </ul>
@@ -282,7 +276,6 @@
 <li class="toctree-l1"><a class="reference internal" href="../api/explanation.html">Explanation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../api/evaluation.html">Evaluation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../api/serving.html">Model Serving</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../api/imshow.html">IMShow (Demo Frontends)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../api/constants.html">Constants</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Examples</span></p>
@@ -508,7 +501,7 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#production-models-14">Production models (14)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#production-models-16">Production models (16)</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sandbox-models-by-category">Sandbox models (by category)</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#deep-learning-sandbox">Deep learning (sandbox)</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#matrix-factorization-sandbox">Matrix factorization (sandbox)</a></li>
@@ -534,9 +527,10 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="complete-model-index">
 <h1>Complete Model Index<a class="headerlink" href="#complete-model-index" title="Link to this heading">#</a></h1>
-<p>Alphabetical reference for all documented CoreRec models. See <a class="reference internal" href="index.html#model-tiers"><span class="std std-ref">Model Tiers</span></a> for production vs sandbox policy.</p>
-<section id="production-models-14">
-<h2>Production models (14)<a class="headerlink" href="#production-models-14" title="Link to this heading">#</a></h2>
+<p>Alphabetical reference for all documented CoreRec models. See <a class="reference internal" href="index.html#id1"><span class="std std-ref">Model Tiers</span></a> for production vs sandbox policy.</p>
+<section id="production-models-16">
+<h2>Production models (16)<a class="headerlink" href="#production-models-16" title="Link to this heading">#</a></h2>
+<p>The list is <code class="docutils literal notranslate"><span class="pre">corerec.engines.MODELS</span></code>; <code class="docutils literal notranslate"><span class="pre">corerec</span> <span class="pre">models</span></code> prints it.</p>
 <div class="pst-scrollable-table-container"><table class="table">
 <thead>
 <tr class="row-odd"><th class="head"><p>Model</p></th>
@@ -546,75 +540,85 @@ document.write(`
 </tr>
 </thead>
 <tbody>
-<tr class="row-even"><td><p>BERT4Rec</p></td>
-<td><p>Sequential</p></td>
-<td><p><code class="docutils literal notranslate"><span class="pre">from</span> <span class="pre">corerec.engines.bert4rec</span> <span class="pre">import</span> <span class="pre">BERT4Rec</span></code></p></td>
-<td><p><a class="reference internal" href="../tutorials/bert4rec_tutorial.html"><span class="std std-doc">Tutorial</span></a></p></td>
+<tr class="row-even"><td><p>ALS</p></td>
+<td><p>Classic CF</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">from</span> <span class="pre">corerec.engines</span> <span class="pre">import</span> <span class="pre">ALS</span></code></p></td>
+<td><p>-</p></td>
 </tr>
 <tr class="row-odd"><td><p>DCN</p></td>
-<td><p>Deep Learning</p></td>
-<td><p><code class="docutils literal notranslate"><span class="pre">from</span> <span class="pre">corerec.engines.dcn</span> <span class="pre">import</span> <span class="pre">DCN</span></code></p></td>
+<td><p>Ranking</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">from</span> <span class="pre">corerec.engines</span> <span class="pre">import</span> <span class="pre">DCN</span></code></p></td>
 <td><p><a class="reference internal" href="../tutorials/dcn_tutorial.html"><span class="std std-doc">Tutorial</span></a></p></td>
 </tr>
 <tr class="row-even"><td><p>DeepFM</p></td>
-<td><p>Deep Learning</p></td>
-<td><p><code class="docutils literal notranslate"><span class="pre">from</span> <span class="pre">corerec.engines.deepfm</span> <span class="pre">import</span> <span class="pre">DeepFM</span></code></p></td>
+<td><p>Ranking</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">from</span> <span class="pre">corerec.engines</span> <span class="pre">import</span> <span class="pre">DeepFM</span></code></p></td>
 <td><p><a class="reference internal" href="../tutorials/deepfm_tutorial.html"><span class="std std-doc">Tutorial</span></a></p></td>
 </tr>
-<tr class="row-odd"><td><p>FAST</p></td>
-<td><p>Collaborative</p></td>
-<td><p><code class="docutils literal notranslate"><span class="pre">from</span> <span class="pre">corerec.engines.collaborative</span> <span class="pre">import</span> <span class="pre">FAST</span></code></p></td>
-<td><p><a class="reference internal" href="../tutorials/fast_tutorial.html"><span class="std std-doc">Tutorial</span></a></p></td>
+<tr class="row-odd"><td><p>EASE</p></td>
+<td><p>Classic CF</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">from</span> <span class="pre">corerec.engines</span> <span class="pre">import</span> <span class="pre">EASE</span></code></p></td>
+<td><p>-</p></td>
 </tr>
-<tr class="row-even"><td><p>FASTRecommender</p></td>
-<td><p>Collaborative</p></td>
-<td><p><code class="docutils literal notranslate"><span class="pre">from</span> <span class="pre">corerec.engines.collaborative</span> <span class="pre">import</span> <span class="pre">FASTRecommender</span></code></p></td>
-<td><p><a class="reference internal" href="../tutorials/fast_recommender_tutorial.html"><span class="std std-doc">Tutorial</span></a></p></td>
+<tr class="row-even"><td><p>HSTU</p></td>
+<td><p>Generative</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">from</span> <span class="pre">corerec.engines</span> <span class="pre">import</span> <span class="pre">HSTU</span></code></p></td>
+<td><p><a class="reference internal" href="sequential.html"><span class="std std-doc">Sequential models</span></a></p></td>
 </tr>
-<tr class="row-odd"><td><p>GNNRec</p></td>
+<tr class="row-odd"><td><p>Item2Vec</p></td>
+<td><p>Classic CF</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">from</span> <span class="pre">corerec.engines</span> <span class="pre">import</span> <span class="pre">Item2Vec</span></code></p></td>
+<td><p>-</p></td>
+</tr>
+<tr class="row-even"><td><p>ItemKNN</p></td>
+<td><p>Classic CF</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">from</span> <span class="pre">corerec.engines</span> <span class="pre">import</span> <span class="pre">ItemKNN</span></code></p></td>
+<td><p>-</p></td>
+</tr>
+<tr class="row-odd"><td><p>LightGCN</p></td>
 <td><p>Graph</p></td>
-<td><p><code class="docutils literal notranslate"><span class="pre">from</span> <span class="pre">corerec.engines.gnnrec</span> <span class="pre">import</span> <span class="pre">GNNRec</span></code></p></td>
-<td><p><a class="reference internal" href="../tutorials/gnnrec_tutorial.html"><span class="std std-doc">Tutorial</span></a></p></td>
-</tr>
-<tr class="row-even"><td><p>LightGCN</p></td>
-<td><p>Graph</p></td>
-<td><p><code class="docutils literal notranslate"><span class="pre">from</span> <span class="pre">corerec.engines.collaborative</span> <span class="pre">import</span> <span class="pre">LightGCN</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">from</span> <span class="pre">corerec.engines</span> <span class="pre">import</span> <span class="pre">LightGCN</span></code></p></td>
 <td><p><a class="reference internal" href="../tutorials/lightgcn_tutorial.html"><span class="std std-doc">Tutorial</span></a></p></td>
 </tr>
-<tr class="row-odd"><td><p>MIND</p></td>
-<td><p>Sequential / Multi-interest</p></td>
-<td><p><code class="docutils literal notranslate"><span class="pre">from</span> <span class="pre">corerec.engines.mind</span> <span class="pre">import</span> <span class="pre">MIND</span></code></p></td>
-<td><p><a class="reference internal" href="../tutorials/mind_tutorial.html"><span class="std std-doc">Tutorial</span></a></p></td>
+<tr class="row-even"><td><p>MultiDAE</p></td>
+<td><p>Autoencoder</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">from</span> <span class="pre">corerec.engines</span> <span class="pre">import</span> <span class="pre">MultiDAE</span></code></p></td>
+<td><p>-</p></td>
 </tr>
-<tr class="row-even"><td><p>NASRec</p></td>
-<td><p>Deep Learning</p></td>
-<td><p><code class="docutils literal notranslate"><span class="pre">from</span> <span class="pre">corerec.engines.nasrec</span> <span class="pre">import</span> <span class="pre">NASRec</span></code></p></td>
-<td><p><a class="reference internal" href="../tutorials/nasrec_tutorial.html"><span class="std std-doc">Tutorial</span></a></p></td>
-</tr>
-<tr class="row-odd"><td><p>NCF</p></td>
-<td><p>Collaborative</p></td>
-<td><p><code class="docutils literal notranslate"><span class="pre">from</span> <span class="pre">corerec.engines.collaborative</span> <span class="pre">import</span> <span class="pre">NCF</span></code></p></td>
-<td><p><a class="reference internal" href="../tutorials/ncf_tutorial.html"><span class="std std-doc">Tutorial</span></a></p></td>
+<tr class="row-odd"><td><p>MultVAE</p></td>
+<td><p>Autoencoder</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">from</span> <span class="pre">corerec.engines</span> <span class="pre">import</span> <span class="pre">MultVAE</span></code></p></td>
+<td><p>-</p></td>
 </tr>
 <tr class="row-even"><td><p>SAR</p></td>
-<td><p>Collaborative</p></td>
-<td><p><code class="docutils literal notranslate"><span class="pre">from</span> <span class="pre">corerec.engines.collaborative</span> <span class="pre">import</span> <span class="pre">SAR</span></code></p></td>
+<td><p>Classic CF</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">from</span> <span class="pre">corerec.engines</span> <span class="pre">import</span> <span class="pre">SAR</span></code></p></td>
 <td><p><a class="reference internal" href="../tutorials/sar_tutorial.html"><span class="std std-doc">Tutorial</span></a></p></td>
 </tr>
 <tr class="row-odd"><td><p>SASRec</p></td>
 <td><p>Sequential</p></td>
-<td><p><code class="docutils literal notranslate"><span class="pre">from</span> <span class="pre">corerec.engines.sasrec</span> <span class="pre">import</span> <span class="pre">SASRec</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">from</span> <span class="pre">corerec.engines</span> <span class="pre">import</span> <span class="pre">SASRec</span></code></p></td>
 <td><p><a class="reference internal" href="../tutorials/sasrec_tutorial.html"><span class="std std-doc">Tutorial</span></a></p></td>
 </tr>
-<tr class="row-even"><td><p>TFIDFRecommender</p></td>
+<tr class="row-even"><td><p>SLIM</p></td>
+<td><p>Classic CF</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">from</span> <span class="pre">corerec.engines</span> <span class="pre">import</span> <span class="pre">SLIM</span></code></p></td>
+<td><p>-</p></td>
+</tr>
+<tr class="row-odd"><td><p>TFIDFRecommender</p></td>
 <td><p>Content</p></td>
-<td><p><code class="docutils literal notranslate"><span class="pre">from</span> <span class="pre">corerec.engines.content_based</span> <span class="pre">import</span> <span class="pre">TFIDFRecommender</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">from</span> <span class="pre">corerec.engines</span> <span class="pre">import</span> <span class="pre">TFIDFRecommender</span></code></p></td>
 <td><p><a class="reference internal" href="../tutorials/tfidf_tutorial.html"><span class="std std-doc">Tutorial</span></a></p></td>
 </tr>
-<tr class="row-odd"><td><p>TwoTower</p></td>
-<td><p>Deep Learning / Retrieval</p></td>
-<td><p><code class="docutils literal notranslate"><span class="pre">from</span> <span class="pre">corerec.engines.two_tower</span> <span class="pre">import</span> <span class="pre">TwoTower</span></code></p></td>
+<tr class="row-even"><td><p>TwoTower</p></td>
+<td><p>Retrieval</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">from</span> <span class="pre">corerec.engines</span> <span class="pre">import</span> <span class="pre">TwoTower</span></code></p></td>
 <td><p><a class="reference internal" href="../tutorials/two_tower_tutorial.html"><span class="std std-doc">Tutorial</span></a></p></td>
+</tr>
+<tr class="row-odd"><td><p>UserKNN</p></td>
+<td><p>Classic CF</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">from</span> <span class="pre">corerec.engines</span> <span class="pre">import</span> <span class="pre">UserKNN</span></code></p></td>
+<td><p>-</p></td>
 </tr>
 </tbody>
 </table>
@@ -730,7 +734,7 @@ document.write(`
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#production-models-14">Production models (14)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#production-models-16">Production models (16)</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sandbox-models-by-category">Sandbox models (by category)</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#deep-learning-sandbox">Deep learning (sandbox)</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#matrix-factorization-sandbox">Matrix factorization (sandbox)</a></li>

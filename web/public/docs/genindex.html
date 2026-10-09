@@ -7,7 +7,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Index &#8212; CoreRec 0.5.4 documentation</title>
+    <title>Index &#8212; CoreRec 0.7.0 documentation</title>
   
   
   
@@ -38,7 +38,7 @@
 <link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
   <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
 
-    <script src="_static/documentation_options.js?v=6688a68e"></script>
+    <script src="_static/documentation_options.js?v=c62cc9a0"></script>
     <script src="_static/doctools.js?v=9bcbadda"></script>
     <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="_static/clipboard.min.js?v=a7894cd8"></script>
@@ -137,7 +137,7 @@
   
   
   
-    <p class="title logo__title">CoreRec 0.5.4 documentation</p>
+    <p class="title logo__title">CoreRec 0.7.0 documentation</p>
   
 </a></div>
         <div class="sidebar-primary-item">
@@ -173,6 +173,9 @@
 <li class="toctree-l1"><a class="reference internal" href="user_guide/model_training.html">Model Training</a></li>
 <li class="toctree-l1"><a class="reference internal" href="user_guide/making_predictions.html">Making Predictions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="user_guide/online_serving.html">Online Serving at Scale</a></li>
+<li class="toctree-l1"><a class="reference internal" href="user_guide/production_loop.html">The Production Loop</a></li>
+<li class="toctree-l1"><a class="reference internal" href="user_guide/custom_models.html">Custom Models in PyTorch</a></li>
+<li class="toctree-l1"><a class="reference internal" href="user_guide/onnx_export.html">ONNX Export</a></li>
 <li class="toctree-l1"><a class="reference internal" href="user_guide/model_persistence.html">Model Persistence</a></li>
 <li class="toctree-l1"><a class="reference internal" href="user_guide/safe_bundle_persistence.html">Safe Model Bundles (<code class="docutils literal notranslate"><span class="pre">corerec_safe_v1</span></code>)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="user_guide/best_practices.html">Best Practices</a></li>
@@ -197,17 +200,10 @@
 <li class="toctree-l1 has-children"><a class="reference internal" href="tutorials/index.html">Tutorial Index</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="tutorials/dcn_tutorial.html">DCN Tutorial: Deep &amp; Cross Network</a></li>
 <li class="toctree-l2"><a class="reference internal" href="tutorials/deepfm_tutorial.html">DeepFM Tutorial: Factorization Machine with Deep Learning</a></li>
-<li class="toctree-l2"><a class="reference internal" href="tutorials/gnnrec_tutorial.html">GNNRec Tutorial: Graph Neural Network Recommender</a></li>
-<li class="toctree-l2"><a class="reference internal" href="tutorials/mind_tutorial.html">MIND Tutorial: MIND</a></li>
-<li class="toctree-l2"><a class="reference internal" href="tutorials/nasrec_tutorial.html">NASRec Tutorial: NASRec</a></li>
 <li class="toctree-l2"><a class="reference internal" href="tutorials/sasrec_tutorial.html">SASRec Tutorial: SASRec</a></li>
-<li class="toctree-l2"><a class="reference internal" href="tutorials/bert4rec_tutorial.html">Bert4Rec Tutorial: BERT for Sequential Recommendation</a></li>
 <li class="toctree-l2"><a class="reference internal" href="tutorials/two_tower_tutorial.html">TwoTower Tutorial: Dual-Encoder Retrieval</a></li>
-<li class="toctree-l2"><a class="reference internal" href="tutorials/ncf_tutorial.html">NCF Tutorial: Neural Collaborative Filtering</a></li>
 <li class="toctree-l2"><a class="reference internal" href="tutorials/sar_tutorial.html">SAR Tutorial: Smart Adaptive Recommendations</a></li>
 <li class="toctree-l2"><a class="reference internal" href="tutorials/lightgcn_tutorial.html">LightGCN Tutorial: Light Graph Convolutional Network</a></li>
-<li class="toctree-l2"><a class="reference internal" href="tutorials/fast_tutorial.html">FAST Tutorial: Fast Approximate Similarity Filtering</a></li>
-<li class="toctree-l2"><a class="reference internal" href="tutorials/fast_recommender_tutorial.html">FASTRecommender Tutorial: Extended FAST Model</a></li>
 <li class="toctree-l2"><a class="reference internal" href="tutorials/tfidf_tutorial.html">TFIDF Tutorial: TF-IDF Based Recommender</a></li>
 <li class="toctree-l2"><a class="reference internal" href="tutorials/afm_tutorial.html">AFM Tutorial: Attentional Factorization Machine</a></li>
 <li class="toctree-l2"><a class="reference internal" href="tutorials/autofi_tutorial.html">AutoFI Tutorial: Automatic Feature Interaction</a></li>
@@ -242,7 +238,6 @@
 <li class="toctree-l2"><a class="reference internal" href="tutorials/pnn_tutorial.html">PNN Tutorial: Product-based Neural Network</a></li>
 <li class="toctree-l2"><a class="reference internal" href="tutorials/mmoe_tutorial.html">MMoE Tutorial: Multi-gate Mixture-of-Experts</a></li>
 <li class="toctree-l2"><a class="reference internal" href="tutorials/ple_tutorial.html">PLE Tutorial: Progressive Layered Extraction</a></li>
-<li class="toctree-l2"><a class="reference internal" href="tutorials/monolith_tutorial.html">Monolith Tutorial: Monolith: Real Time Recommendation System</a></li>
 <li class="toctree-l2"><a class="reference internal" href="tutorials/tdm_tutorial.html">TDM Tutorial: Tree-based Deep Model</a></li>
 <li class="toctree-l2"><a class="reference internal" href="tutorials/a2svd_tutorial.html">A2SVD Tutorial: Adaptive Singular Value Decomposition</a></li>
 <li class="toctree-l2"><a class="reference internal" href="tutorials/als_tutorial.html">ALS Tutorial: Alternating Least Squares</a></li>
@@ -262,7 +257,6 @@
 <li class="toctree-l2"><a class="reference internal" href="tutorials/vmf_tutorial.html">VMF Tutorial: Von Mises-Fisher Distribution</a></li>
 <li class="toctree-l2"><a class="reference internal" href="tutorials/mind_content_tutorial.html">MIND_Content Tutorial: MIND for Content Filtering</a></li>
 <li class="toctree-l2"><a class="reference internal" href="tutorials/pipeline_tutorial.html">Multi-Stage Pipeline Tutorial</a></li>
-<li class="toctree-l2"><a class="reference internal" href="tutorials/imshow_tutorial.html">Demo Frontends Tutorial</a></li>
 </ul>
 </details></li>
 </ul>
@@ -281,7 +275,6 @@
 <li class="toctree-l1"><a class="reference internal" href="api/explanation.html">Explanation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="api/evaluation.html">Evaluation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="api/serving.html">Model Serving</a></li>
-<li class="toctree-l1"><a class="reference internal" href="api/imshow.html">IMShow (Demo Frontends)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="api/constants.html">Constants</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Examples</span></p>
@@ -504,8 +497,6 @@ document.write(`
 </li>
         <li><a href="api/explanation.html#corerec.explanation.generative.GenerativeExplainer.__init__">(corerec.explanation.generative.GenerativeExplainer method)</a>
 </li>
-        <li><a href="api/imshow.html#corerec.imshow.connector.Connector.__init__">(corerec.imshow.connector.Connector method)</a>
-</li>
         <li><a href="api/pipeline.html#corerec.pipelines.data_pipeline.DataPipeline.__init__">(corerec.pipelines.data_pipeline.DataPipeline method)</a>
 </li>
         <li><a href="api/pipeline.html#corerec.pipelines.orchestrator.RecommendationPipeline.__init__">(corerec.pipelines.orchestrator.RecommendationPipeline method)</a>
@@ -565,10 +556,10 @@ document.write(`
       </ul></li>
       <li><a href="api/reranking.html#corerec.reranking.business.BusinessRulesReranker.add_filter">add_filter() (corerec.reranking.business.BusinessRulesReranker method)</a>
 </li>
-      <li><a href="api/serving.html#corerec.serving.OnlineRecommender.add_items">add_items() (corerec.serving.OnlineRecommender method)</a>
-</li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="api/serving.html#corerec.serving.OnlineRecommender.add_items">add_items() (corerec.serving.OnlineRecommender method)</a>
+</li>
       <li><a href="api/reranking.html#corerec.reranking.business.BusinessRulesReranker.add_pin">add_pin() (corerec.reranking.business.BusinessRulesReranker method)</a>
 </li>
       <li><a href="api/pipeline.html#corerec.pipelines.orchestrator.RecommendationPipeline.add_reranker">add_reranker() (corerec.pipelines.orchestrator.RecommendationPipeline method)</a>
@@ -586,8 +577,6 @@ document.write(`
       <li><a href="api/multimodal.html#corerec.multimodal.fusion_strategies.FusionStrategy.ATTENTION">ATTENTION (corerec.multimodal.fusion_strategies.FusionStrategy attribute)</a>
 </li>
       <li><a href="api/multimodal.html#corerec.multimodal.fusion_strategies.AttentionFusion">AttentionFusion (class in corerec.multimodal.fusion_strategies)</a>
-</li>
-      <li><a href="api/imshow.html#corerec.imshow.frontends.available_frontends">available_frontends() (in module corerec.imshow.frontends)</a>
 </li>
   </ul></td>
 </tr></table>
@@ -607,17 +596,13 @@ document.write(`
 </li>
       <li><a href="api/serving.html#corerec.serving.BatchInferenceEngine.batch_predict_parallel">batch_predict_parallel() (corerec.serving.BatchInferenceEngine method)</a>
 </li>
-      <li><a href="api/serving.html#corerec.serving.BatchInferenceEngine.batch_recommend">batch_recommend() (corerec.serving.BatchInferenceEngine method)</a>
-</li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="api/serving.html#corerec.serving.BatchInferenceEngine.batch_recommend">batch_recommend() (corerec.serving.BatchInferenceEngine method)</a>
+</li>
       <li><a href="api/engines.html#corerec.engines.two_tower.TwoTowerModel.batch_score">batch_score() (corerec.engines.two_tower.TwoTowerModel method)</a>
 </li>
       <li><a href="api/serving.html#corerec.serving.BatchInferenceEngine">BatchInferenceEngine (class in corerec.serving)</a>
-</li>
-      <li><a href="api/engines.html#corerec.engines.bert4rec.BERT4Rec">BERT4Rec (class in corerec.engines.bert4rec)</a>
-</li>
-      <li><a href="api/engines.html#corerec.engines.bert4rec.BERT4RecModel">BERT4RecModel (class in corerec.engines.bert4rec)</a>
 </li>
       <li><a href="api/multimodal.html#corerec.multimodal.fusion_strategies.FusionStrategy.BILINEAR">BILINEAR (corerec.multimodal.fusion_strategies.FusionStrategy attribute)</a>
 </li>
@@ -649,8 +634,6 @@ document.write(`
         <li><a href="api/evaluation.html#corerec.evaluation.metrics.ClassificationMetrics">(class in corerec.evaluation.metrics)</a>
 </li>
       </ul></li>
-      <li><a href="api/imshow.html#corerec.imshow.utils.clean_text">clean_text() (in module corerec.imshow.utils)</a>
-</li>
       <li><a href="api/serving.html#corerec.serving.ModelLoader.clear_cache">clear_cache() (corerec.serving.ModelLoader method)</a>
 </li>
       <li><a href="api/reranking.html#corerec.reranking.business.BusinessRulesReranker.clear_rules">clear_rules() (corerec.reranking.business.BusinessRulesReranker method)</a>
@@ -668,10 +651,6 @@ document.write(`
       <li><a href="api/multimodal.html#corerec.multimodal.fusion_strategies.ConcatFusion">ConcatFusion (class in corerec.multimodal.fusion_strategies)</a>
 </li>
       <li><a href="api/explanation.html#corerec.explanation.base.Explanation.confidence">confidence (corerec.explanation.base.Explanation attribute)</a>
-</li>
-      <li><a href="api/imshow.html#corerec.imshow.connector.Connector">Connector (class in corerec.imshow.connector)</a>
-</li>
-      <li><a href="api/imshow.html#corerec.imshow.connector.connector">connector() (in module corerec.imshow.connector)</a>
 </li>
       <li><a href="api/serving.html#corerec.serving.PredictionRequest.context">context (corerec.serving.PredictionRequest attribute)</a>
 
@@ -715,13 +694,6 @@ document.write(`
 </li>
       </ul></li>
       <li>
-    corerec.engines.bert4rec
-
-      <ul>
-        <li><a href="api/engines.html#module-corerec.engines.bert4rec">module</a>
-</li>
-      </ul></li>
-      <li>
     corerec.engines.collaborative.sar
 
       <ul>
@@ -740,27 +712,6 @@ document.write(`
 
       <ul>
         <li><a href="api/engines.html#module-corerec.engines.deepfm">module</a>
-</li>
-      </ul></li>
-      <li>
-    corerec.engines.gnnrec
-
-      <ul>
-        <li><a href="api/engines.html#module-corerec.engines.gnnrec">module</a>
-</li>
-      </ul></li>
-      <li>
-    corerec.engines.mind
-
-      <ul>
-        <li><a href="api/engines.html#module-corerec.engines.mind">module</a>
-</li>
-      </ul></li>
-      <li>
-    corerec.engines.nasrec
-
-      <ul>
-        <li><a href="api/engines.html#module-corerec.engines.nasrec">module</a>
 </li>
       </ul></li>
       <li>
@@ -805,8 +756,6 @@ document.write(`
         <li><a href="api/explanation.html#module-corerec.explanation.base">module</a>
 </li>
       </ul></li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
       <li>
     corerec.explanation.feature_based
 
@@ -821,27 +770,8 @@ document.write(`
         <li><a href="api/explanation.html#module-corerec.explanation.generative">module</a>
 </li>
       </ul></li>
-      <li>
-    corerec.imshow.connector
-
-      <ul>
-        <li><a href="api/imshow.html#module-corerec.imshow.connector">module</a>
-</li>
-      </ul></li>
-      <li>
-    corerec.imshow.frontends
-
-      <ul>
-        <li><a href="api/imshow.html#module-corerec.imshow.frontends">module</a>
-</li>
-      </ul></li>
-      <li>
-    corerec.imshow.utils
-
-      <ul>
-        <li><a href="api/imshow.html#module-corerec.imshow.utils">module</a>
-</li>
-      </ul></li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
       <li>
     corerec.multimodal.fusion_strategies
 
@@ -988,8 +918,12 @@ document.write(`
         <li><a href="api/evaluation.html#corerec.evaluation.metrics.DiversityMetrics.coverage">(corerec.evaluation.metrics.DiversityMetrics static method)</a>
 </li>
       </ul></li>
-      <li><a href="api/imshow.html#corerec.imshow.utils.create_sample_data">create_sample_data() (in module corerec.imshow.utils)</a>
+      <li><a href="api/evaluation.html#corerec.evaluation.CrossValidator.cross_validate">cross_validate() (corerec.evaluation.CrossValidator method)</a>
+
+      <ul>
+        <li><a href="api/evaluation.html#corerec.evaluation.evaluator.CrossValidator.cross_validate">(corerec.evaluation.evaluator.CrossValidator method)</a>
 </li>
+      </ul></li>
       <li><a href="api/evaluation.html#corerec.evaluation.CrossValidator">CrossValidator (class in corerec.evaluation)</a>
 
       <ul>
@@ -1112,8 +1046,6 @@ document.write(`
 </li>
       <li><a href="api/explanation.html#corerec.explanation.base.Explanation.explanation_type">explanation_type (corerec.explanation.base.Explanation attribute)</a>
 </li>
-      <li><a href="api/imshow.html#corerec.imshow.connector.Connector.export_interactions">export_interactions() (corerec.imshow.connector.Connector method)</a>
-</li>
       <li><a href="api/engines.html#corerec.engines.sasrec.SASRec.export_item_embeddings">export_item_embeddings() (corerec.engines.sasrec.SASRec method)</a>
 </li>
   </ul></td>
@@ -1144,22 +1076,14 @@ document.write(`
 </li>
       <li><a href="api/pipeline.html#corerec.pipelines.orchestrator.PipelineConfig.final_k">final_k (corerec.pipelines.orchestrator.PipelineConfig attribute)</a>
 </li>
-      <li><a href="api/engines.html#corerec.engines.bert4rec.BERT4Rec.fit">fit() (corerec.engines.bert4rec.BERT4Rec method)</a>
+      <li><a href="api/engines.html#corerec.engines.collaborative.sar.SAR.fit">fit() (corerec.engines.collaborative.sar.SAR method)</a>
 
       <ul>
-        <li><a href="api/engines.html#corerec.engines.collaborative.sar.SAR.fit">(corerec.engines.collaborative.sar.SAR method)</a>
-</li>
         <li><a href="api/engines.html#corerec.engines.content_based.TFIDFRecommender.fit">(corerec.engines.content_based.TFIDFRecommender method)</a>
 </li>
         <li><a href="api/engines.html#corerec.engines.dcn.DCN.fit">(corerec.engines.dcn.DCN method)</a>
 </li>
         <li><a href="api/engines.html#corerec.engines.deepfm.DeepFM.fit">(corerec.engines.deepfm.DeepFM method)</a>
-</li>
-        <li><a href="api/engines.html#corerec.engines.gnnrec.GNNRec.fit">(corerec.engines.gnnrec.GNNRec method)</a>
-</li>
-        <li><a href="api/engines.html#corerec.engines.mind.MIND.fit">(corerec.engines.mind.MIND method)</a>
-</li>
-        <li><a href="api/engines.html#corerec.engines.nasrec.NASRec.fit">(corerec.engines.nasrec.NASRec method)</a>
 </li>
         <li><a href="api/engines.html#corerec.engines.sasrec.SASRec.fit">(corerec.engines.sasrec.SASRec method)</a>
 </li>
@@ -1202,17 +1126,9 @@ document.write(`
       </ul></li>
       <li><a href="api/serving.html#corerec.serving.OnlineRecommender.fold_in_user">fold_in_user() (corerec.serving.OnlineRecommender method)</a>
 </li>
-      <li><a href="api/imshow.html#corerec.imshow.utils.format_duration">format_duration() (in module corerec.imshow.utils)</a>
-</li>
-      <li><a href="api/imshow.html#corerec.imshow.utils.format_recommendations">format_recommendations() (in module corerec.imshow.utils)</a>
-</li>
-      <li><a href="api/engines.html#corerec.engines.bert4rec.BERT4RecModel.forward">forward() (corerec.engines.bert4rec.BERT4RecModel method)</a>
+      <li><a href="api/engines.html#corerec.engines.sasrec.PointWiseFeedForward.forward">forward() (corerec.engines.sasrec.PointWiseFeedForward method)</a>
 
       <ul>
-        <li><a href="api/engines.html#corerec.engines.bert4rec.TransformerBlock.forward">(corerec.engines.bert4rec.TransformerBlock method)</a>
-</li>
-        <li><a href="api/engines.html#corerec.engines.sasrec.PointWiseFeedForward.forward">(corerec.engines.sasrec.PointWiseFeedForward method)</a>
-</li>
         <li><a href="api/engines.html#corerec.engines.sasrec.SASRecModel.forward">(corerec.engines.sasrec.SASRecModel method)</a>
 </li>
         <li><a href="api/engines.html#corerec.engines.two_tower.TwoTowerModel.forward">(corerec.engines.two_tower.TwoTowerModel method)</a>
@@ -1258,8 +1174,6 @@ document.write(`
         <li><a href="api/evaluation.html#corerec.evaluation.evaluator.Evaluator.generate_report">(corerec.evaluation.evaluator.Evaluator method)</a>
 </li>
       </ul></li>
-      <li><a href="api/imshow.html#corerec.imshow.utils.generate_user_id">generate_user_id() (in module corerec.imshow.utils)</a>
-</li>
       <li><a href="api/explanation.html#corerec.explanation.generative.GenerativeExplainer">GenerativeExplainer (class in corerec.explanation.generative)</a>
 </li>
       <li><a href="api/embeddings.html#corerec.embeddings.pretrained.PretrainedEmbeddings.get">get() (corerec.embeddings.pretrained.PretrainedEmbeddings method)</a>
@@ -1274,33 +1188,19 @@ document.write(`
         <li><a href="api/embeddings.html#corerec.embeddings.PretrainedEmbeddings.get_batch">(corerec.embeddings.PretrainedEmbeddings method)</a>
 </li>
       </ul></li>
-      <li><a href="api/imshow.html#corerec.imshow.frontends.get_frontend_info">get_frontend_info() (in module corerec.imshow.frontends)</a>
-</li>
-      <li><a href="api/imshow.html#corerec.imshow.frontends.get_frontend_template">get_frontend_template() (in module corerec.imshow.frontends)</a>
-</li>
-      <li><a href="api/imshow.html#corerec.imshow.connector.Connector.get_info">get_info() (corerec.imshow.connector.Connector method)</a>
-</li>
-      <li><a href="api/imshow.html#corerec.imshow.connector.Connector.get_interactions">get_interactions() (corerec.imshow.connector.Connector method)</a>
-</li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="api/engines.html#corerec.engines.collaborative.sar.SAR.get_item_based_topk">get_item_based_topk() (corerec.engines.collaborative.sar.SAR method)</a>
 </li>
-      <li><a href="api/engines.html#corerec.engines.bert4rec.BERT4RecModel.get_item_embeddings">get_item_embeddings() (corerec.engines.bert4rec.BERT4RecModel method)</a>
+      <li><a href="api/engines.html#corerec.engines.sasrec.SASRec.get_item_embeddings">get_item_embeddings() (corerec.engines.sasrec.SASRec method)</a>
 
       <ul>
-        <li><a href="api/engines.html#corerec.engines.sasrec.SASRec.get_item_embeddings">(corerec.engines.sasrec.SASRec method)</a>
-</li>
         <li><a href="api/engines.html#corerec.engines.two_tower.TwoTower.get_item_embeddings">(corerec.engines.two_tower.TwoTower method)</a>
 </li>
       </ul></li>
       <li><a href="api/retrieval.html#corerec.retrieval.popularity.PopularityRetriever.get_item_popularity">get_item_popularity() (corerec.retrieval.popularity.PopularityRetriever method)</a>
 </li>
-      <li><a href="api/imshow.html#corerec.imshow.utils.get_mock_interaction_data">get_mock_interaction_data() (in module corerec.imshow.utils)</a>
-</li>
       <li><a href="api/engines.html#corerec.engines.collaborative.sar.SAR.get_popularity_based_topk">get_popularity_based_topk() (corerec.engines.collaborative.sar.SAR method)</a>
-</li>
-      <li><a href="api/imshow.html#corerec.imshow.connector.Connector.get_recommendations">get_recommendations() (corerec.imshow.connector.Connector method)</a>
 </li>
       <li><a href="api/engines.html#corerec.engines.collaborative.sar.SAR.get_topk_most_similar_users">get_topk_most_similar_users() (corerec.engines.collaborative.sar.SAR method)</a>
 </li>
@@ -1314,8 +1214,6 @@ document.write(`
         <li><a href="api/evaluation.html#corerec.evaluation.metrics.DiversityMetrics.gini_coefficient">(corerec.evaluation.metrics.DiversityMetrics static method)</a>
 </li>
       </ul></li>
-      <li><a href="api/engines.html#corerec.engines.gnnrec.GNNRec">GNNRec (class in corerec.engines.gnnrec)</a>
-</li>
   </ul></td>
 </tr></table>
 
@@ -1383,8 +1281,6 @@ document.write(`
       <ul>
         <li><a href="api/embeddings.html#corerec.embeddings.PretrainedEmbeddings.load">(corerec.embeddings.PretrainedEmbeddings class method)</a>
 </li>
-        <li><a href="api/engines.html#corerec.engines.bert4rec.BERT4Rec.load">(corerec.engines.bert4rec.BERT4Rec class method)</a>
-</li>
         <li><a href="api/engines.html#corerec.engines.collaborative.sar.SAR.load">(corerec.engines.collaborative.sar.SAR class method)</a>
 </li>
         <li><a href="api/engines.html#corerec.engines.content_based.TFIDFRecommender.load">(corerec.engines.content_based.TFIDFRecommender class method)</a>
@@ -1392,12 +1288,6 @@ document.write(`
         <li><a href="api/engines.html#corerec.engines.dcn.DCN.load">(corerec.engines.dcn.DCN class method)</a>
 </li>
         <li><a href="api/engines.html#corerec.engines.deepfm.DeepFM.load">(corerec.engines.deepfm.DeepFM class method)</a>
-</li>
-        <li><a href="api/engines.html#corerec.engines.gnnrec.GNNRec.load">(corerec.engines.gnnrec.GNNRec class method)</a>
-</li>
-        <li><a href="api/engines.html#corerec.engines.mind.MIND.load">(corerec.engines.mind.MIND class method)</a>
-</li>
-        <li><a href="api/engines.html#corerec.engines.nasrec.NASRec.load">(corerec.engines.nasrec.NASRec class method)</a>
 </li>
         <li><a href="api/engines.html#corerec.engines.sasrec.SASRec.load">(corerec.engines.sasrec.SASRec class method)</a>
 </li>
@@ -1423,8 +1313,6 @@ document.write(`
 </li>
       </ul></li>
       <li><a href="api/retrieval.html#corerec.retrieval.base.Candidate.metadata">metadata (corerec.retrieval.base.Candidate attribute)</a>
-</li>
-      <li><a href="api/engines.html#corerec.engines.mind.MIND">MIND (class in corerec.engines.mind)</a>
 </li>
       <li><a href="api/embeddings.html#corerec.embeddings.text.TextEncoder.model">model (corerec.embeddings.text.TextEncoder property)</a>
 
@@ -1456,19 +1344,11 @@ document.write(`
 </li>
         <li><a href="api/embeddings.html#module-corerec.embeddings.text">corerec.embeddings.text</a>
 </li>
-        <li><a href="api/engines.html#module-corerec.engines.bert4rec">corerec.engines.bert4rec</a>
-</li>
         <li><a href="api/engines.html#module-corerec.engines.collaborative.sar">corerec.engines.collaborative.sar</a>
 </li>
         <li><a href="api/engines.html#module-corerec.engines.dcn">corerec.engines.dcn</a>
 </li>
         <li><a href="api/engines.html#module-corerec.engines.deepfm">corerec.engines.deepfm</a>
-</li>
-        <li><a href="api/engines.html#module-corerec.engines.gnnrec">corerec.engines.gnnrec</a>
-</li>
-        <li><a href="api/engines.html#module-corerec.engines.mind">corerec.engines.mind</a>
-</li>
-        <li><a href="api/engines.html#module-corerec.engines.nasrec">corerec.engines.nasrec</a>
 </li>
         <li><a href="api/engines.html#module-corerec.engines.sasrec">corerec.engines.sasrec</a>
 </li>
@@ -1485,12 +1365,6 @@ document.write(`
         <li><a href="api/explanation.html#module-corerec.explanation.feature_based">corerec.explanation.feature_based</a>
 </li>
         <li><a href="api/explanation.html#module-corerec.explanation.generative">corerec.explanation.generative</a>
-</li>
-        <li><a href="api/imshow.html#module-corerec.imshow.connector">corerec.imshow.connector</a>
-</li>
-        <li><a href="api/imshow.html#module-corerec.imshow.frontends">corerec.imshow.frontends</a>
-</li>
-        <li><a href="api/imshow.html#module-corerec.imshow.utils">corerec.imshow.utils</a>
 </li>
         <li><a href="api/multimodal.html#module-corerec.multimodal.fusion_strategies">corerec.multimodal.fusion_strategies</a>
 </li>
@@ -1561,10 +1435,6 @@ document.write(`
 <h2 id="N">N</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="api/engines.html#corerec.engines.nasrec.NASRec">NASRec (class in corerec.engines.nasrec)</a>
-</li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="api/evaluation.html#corerec.evaluation.metrics.RankingMetrics.ndcg_at_k">ndcg_at_k() (corerec.evaluation.metrics.RankingMetrics static method)</a>
 
       <ul>
@@ -1586,8 +1456,6 @@ document.write(`
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="api/ranking.html#corerec.ranking.pairwise.PairwiseRanker">PairwiseRanker (class in corerec.ranking.pairwise)</a>
-</li>
-      <li><a href="api/imshow.html#corerec.imshow.utils.parse_function_args">parse_function_args() (in module corerec.imshow.utils)</a>
 </li>
       <li><a href="api/pipeline.html#corerec.pipelines.orchestrator.PipelineConfig">PipelineConfig (class in corerec.pipelines.orchestrator)</a>
 </li>
@@ -1615,22 +1483,14 @@ document.write(`
         <li><a href="api/evaluation.html#corerec.evaluation.RankingMetrics.precision_at_k">(corerec.evaluation.RankingMetrics static method)</a>
 </li>
       </ul></li>
-      <li><a href="api/engines.html#corerec.engines.bert4rec.BERT4Rec.predict">predict() (corerec.engines.bert4rec.BERT4Rec method)</a>
+      <li><a href="api/engines.html#corerec.engines.collaborative.sar.SAR.predict">predict() (corerec.engines.collaborative.sar.SAR method)</a>
 
       <ul>
-        <li><a href="api/engines.html#corerec.engines.collaborative.sar.SAR.predict">(corerec.engines.collaborative.sar.SAR method)</a>
-</li>
         <li><a href="api/engines.html#corerec.engines.content_based.TFIDFRecommender.predict">(corerec.engines.content_based.TFIDFRecommender method)</a>
 </li>
         <li><a href="api/engines.html#corerec.engines.dcn.DCN.predict">(corerec.engines.dcn.DCN method)</a>
 </li>
         <li><a href="api/engines.html#corerec.engines.deepfm.DeepFM.predict">(corerec.engines.deepfm.DeepFM method)</a>
-</li>
-        <li><a href="api/engines.html#corerec.engines.gnnrec.GNNRec.predict">(corerec.engines.gnnrec.GNNRec method)</a>
-</li>
-        <li><a href="api/engines.html#corerec.engines.mind.MIND.predict">(corerec.engines.mind.MIND method)</a>
-</li>
-        <li><a href="api/engines.html#corerec.engines.nasrec.NASRec.predict">(corerec.engines.nasrec.NASRec method)</a>
 </li>
         <li><a href="api/engines.html#corerec.engines.sasrec.SASRec.predict">(corerec.engines.sasrec.SASRec method)</a>
 </li>
@@ -1731,22 +1591,14 @@ document.write(`
         <li><a href="api/evaluation.html#corerec.evaluation.RankingMetrics.recall_at_k">(corerec.evaluation.RankingMetrics static method)</a>
 </li>
       </ul></li>
-      <li><a href="api/engines.html#corerec.engines.bert4rec.BERT4Rec.recommend">recommend() (corerec.engines.bert4rec.BERT4Rec method)</a>
+      <li><a href="api/engines.html#corerec.engines.collaborative.sar.SAR.recommend">recommend() (corerec.engines.collaborative.sar.SAR method)</a>
 
       <ul>
-        <li><a href="api/engines.html#corerec.engines.collaborative.sar.SAR.recommend">(corerec.engines.collaborative.sar.SAR method)</a>
-</li>
         <li><a href="api/engines.html#corerec.engines.content_based.TFIDFRecommender.recommend">(corerec.engines.content_based.TFIDFRecommender method)</a>
 </li>
         <li><a href="api/engines.html#corerec.engines.dcn.DCN.recommend">(corerec.engines.dcn.DCN method)</a>
 </li>
         <li><a href="api/engines.html#corerec.engines.deepfm.DeepFM.recommend">(corerec.engines.deepfm.DeepFM method)</a>
-</li>
-        <li><a href="api/engines.html#corerec.engines.gnnrec.GNNRec.recommend">(corerec.engines.gnnrec.GNNRec method)</a>
-</li>
-        <li><a href="api/engines.html#corerec.engines.mind.MIND.recommend">(corerec.engines.mind.MIND method)</a>
-</li>
-        <li><a href="api/engines.html#corerec.engines.nasrec.NASRec.recommend">(corerec.engines.nasrec.NASRec method)</a>
 </li>
         <li><a href="api/engines.html#corerec.engines.sasrec.SASRec.recommend">(corerec.engines.sasrec.SASRec method)</a>
 </li>
@@ -1774,8 +1626,6 @@ document.write(`
       <li><a href="api/pipeline.html#corerec.pipelines.orchestrator.RecommendationPipeline">RecommendationPipeline (class in corerec.pipelines.orchestrator)</a>
 </li>
       <li><a href="api/serving.html#corerec.serving.RecommendationRequest">RecommendationRequest (class in corerec.serving)</a>
-</li>
-      <li><a href="api/imshow.html#corerec.imshow.connector.Connector.record_interaction">record_interaction() (corerec.imshow.connector.Connector method)</a>
 </li>
       <li><a href="api/reranking.html#corerec.reranking.base.BaseReranker.rerank">rerank() (corerec.reranking.base.BaseReranker method)</a>
 
@@ -1831,8 +1681,6 @@ document.write(`
       </ul></li>
       <li><a href="api/retrieval.html#corerec.retrieval.base.RetrievalResult.retriever_name">retriever_name (corerec.retrieval.base.RetrievalResult attribute)</a>
 </li>
-      <li><a href="api/imshow.html#corerec.imshow.connector.Connector.run">run() (corerec.imshow.connector.Connector method)</a>
-</li>
   </ul></td>
 </tr></table>
 
@@ -1850,8 +1698,6 @@ document.write(`
       <ul>
         <li><a href="api/embeddings.html#corerec.embeddings.PretrainedEmbeddings.save">(corerec.embeddings.PretrainedEmbeddings method)</a>
 </li>
-        <li><a href="api/engines.html#corerec.engines.bert4rec.BERT4Rec.save">(corerec.engines.bert4rec.BERT4Rec method)</a>
-</li>
         <li><a href="api/engines.html#corerec.engines.collaborative.sar.SAR.save">(corerec.engines.collaborative.sar.SAR method)</a>
 </li>
         <li><a href="api/engines.html#corerec.engines.content_based.TFIDFRecommender.save">(corerec.engines.content_based.TFIDFRecommender method)</a>
@@ -1859,12 +1705,6 @@ document.write(`
         <li><a href="api/engines.html#corerec.engines.dcn.DCN.save">(corerec.engines.dcn.DCN method)</a>
 </li>
         <li><a href="api/engines.html#corerec.engines.deepfm.DeepFM.save">(corerec.engines.deepfm.DeepFM method)</a>
-</li>
-        <li><a href="api/engines.html#corerec.engines.gnnrec.GNNRec.save">(corerec.engines.gnnrec.GNNRec method)</a>
-</li>
-        <li><a href="api/engines.html#corerec.engines.mind.MIND.save">(corerec.engines.mind.MIND method)</a>
-</li>
-        <li><a href="api/engines.html#corerec.engines.nasrec.NASRec.save">(corerec.engines.nasrec.NASRec method)</a>
 </li>
         <li><a href="api/engines.html#corerec.engines.sasrec.SASRec.save">(corerec.engines.sasrec.SASRec method)</a>
 </li>
@@ -1877,12 +1717,12 @@ document.write(`
         <li><a href="api/retrieval.html#corerec.retrieval.base.Candidate.score">(corerec.retrieval.base.Candidate attribute)</a>
 </li>
       </ul></li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="api/engines.html#corerec.engines.collaborative.sar.SAR.score">score() (corerec.engines.collaborative.sar.SAR method)</a>
 </li>
       <li><a href="api/pipeline.html#corerec.pipelines.orchestrator.PipelineResult.scores">scores (corerec.pipelines.orchestrator.PipelineResult attribute)</a>
 </li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="api/ranking.html#corerec.ranking.base.RankingResult.scores">scores() (corerec.ranking.base.RankingResult method)</a>
 
       <ul>
@@ -1916,8 +1756,6 @@ document.write(`
       <li><a href="api/serving.html#corerec.serving.ModelServer.start">start() (corerec.serving.ModelServer method)</a>
 </li>
       <li><a href="api/serving.html#corerec.serving.OnlineRecommender.stats">stats() (corerec.serving.OnlineRecommender method)</a>
-</li>
-      <li><a href="api/imshow.html#corerec.imshow.connector.Connector.stop">stop() (corerec.imshow.connector.Connector method)</a>
 </li>
       <li><a href="api/explanation.html#corerec.explanation.base.Explanation.supporting_items">supporting_items (corerec.explanation.base.Explanation attribute)</a>
 </li>
@@ -1963,8 +1801,6 @@ document.write(`
         <li><a href="api/pipeline.html#corerec.pipelines.data_pipeline.DataTransformer.transform">(corerec.pipelines.data_pipeline.DataTransformer method)</a>
 </li>
       </ul></li>
-      <li><a href="api/engines.html#corerec.engines.bert4rec.TransformerBlock">TransformerBlock (class in corerec.engines.bert4rec)</a>
-</li>
       <li><a href="api/multimodal.html#corerec.multimodal.fusion_strategies.FusionStrategy.TUCKER">TUCKER (corerec.multimodal.fusion_strategies.FusionStrategy attribute)</a>
 </li>
       <li><a href="api/engines.html#corerec.engines.two_tower.TwoTower">TwoTower (class in corerec.engines.two_tower)</a>
@@ -1989,12 +1825,6 @@ document.write(`
 <h2 id="V">V</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="api/imshow.html#corerec.imshow.utils.validate_frontend_data">validate_frontend_data() (in module corerec.imshow.utils)</a>
-</li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="api/imshow.html#corerec.imshow.utils.validate_prediction_function">validate_prediction_function() (in module corerec.imshow.utils)</a>
-</li>
       <li><a href="api/retrieval.html#corerec.retrieval.index.VectorIndex">VectorIndex (class in corerec.retrieval.index)</a>
 </li>
   </ul></td>

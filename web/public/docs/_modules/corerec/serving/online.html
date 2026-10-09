@@ -7,7 +7,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>corerec.serving.online &#8212; CoreRec 0.5.4 documentation</title>
+    <title>corerec.serving.online &#8212; CoreRec 0.7.0 documentation</title>
   
   
   
@@ -38,7 +38,7 @@
 <link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
   <script src="../../../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
 
-    <script src="../../../_static/documentation_options.js?v=6688a68e"></script>
+    <script src="../../../_static/documentation_options.js?v=c62cc9a0"></script>
     <script src="../../../_static/doctools.js?v=9bcbadda"></script>
     <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../../../_static/clipboard.min.js?v=a7894cd8"></script>
@@ -137,7 +137,7 @@
   
   
   
-    <p class="title logo__title">CoreRec 0.5.4 documentation</p>
+    <p class="title logo__title">CoreRec 0.7.0 documentation</p>
   
 </a></div>
         <div class="sidebar-primary-item">
@@ -173,6 +173,9 @@
 <li class="toctree-l1"><a class="reference internal" href="../../../user_guide/model_training.html">Model Training</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../user_guide/making_predictions.html">Making Predictions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../user_guide/online_serving.html">Online Serving at Scale</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../user_guide/production_loop.html">The Production Loop</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../user_guide/custom_models.html">Custom Models in PyTorch</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../user_guide/onnx_export.html">ONNX Export</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../user_guide/model_persistence.html">Model Persistence</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../user_guide/safe_bundle_persistence.html">Safe Model Bundles (<code class="docutils literal notranslate"><span class="pre">corerec_safe_v1</span></code>)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../user_guide/best_practices.html">Best Practices</a></li>
@@ -197,17 +200,10 @@
 <li class="toctree-l1 has-children"><a class="reference internal" href="../../../tutorials/index.html">Tutorial Index</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../../../tutorials/dcn_tutorial.html">DCN Tutorial: Deep &amp; Cross Network</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../tutorials/deepfm_tutorial.html">DeepFM Tutorial: Factorization Machine with Deep Learning</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../tutorials/gnnrec_tutorial.html">GNNRec Tutorial: Graph Neural Network Recommender</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../tutorials/mind_tutorial.html">MIND Tutorial: MIND</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../tutorials/nasrec_tutorial.html">NASRec Tutorial: NASRec</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../tutorials/sasrec_tutorial.html">SASRec Tutorial: SASRec</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../tutorials/bert4rec_tutorial.html">Bert4Rec Tutorial: BERT for Sequential Recommendation</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../tutorials/two_tower_tutorial.html">TwoTower Tutorial: Dual-Encoder Retrieval</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../tutorials/ncf_tutorial.html">NCF Tutorial: Neural Collaborative Filtering</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../tutorials/sar_tutorial.html">SAR Tutorial: Smart Adaptive Recommendations</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../tutorials/lightgcn_tutorial.html">LightGCN Tutorial: Light Graph Convolutional Network</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../tutorials/fast_tutorial.html">FAST Tutorial: Fast Approximate Similarity Filtering</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../tutorials/fast_recommender_tutorial.html">FASTRecommender Tutorial: Extended FAST Model</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../tutorials/tfidf_tutorial.html">TFIDF Tutorial: TF-IDF Based Recommender</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../tutorials/afm_tutorial.html">AFM Tutorial: Attentional Factorization Machine</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../tutorials/autofi_tutorial.html">AutoFI Tutorial: Automatic Feature Interaction</a></li>
@@ -242,7 +238,6 @@
 <li class="toctree-l2"><a class="reference internal" href="../../../tutorials/pnn_tutorial.html">PNN Tutorial: Product-based Neural Network</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../tutorials/mmoe_tutorial.html">MMoE Tutorial: Multi-gate Mixture-of-Experts</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../tutorials/ple_tutorial.html">PLE Tutorial: Progressive Layered Extraction</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../tutorials/monolith_tutorial.html">Monolith Tutorial: Monolith: Real Time Recommendation System</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../tutorials/tdm_tutorial.html">TDM Tutorial: Tree-based Deep Model</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../tutorials/a2svd_tutorial.html">A2SVD Tutorial: Adaptive Singular Value Decomposition</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../tutorials/als_tutorial.html">ALS Tutorial: Alternating Least Squares</a></li>
@@ -262,7 +257,6 @@
 <li class="toctree-l2"><a class="reference internal" href="../../../tutorials/vmf_tutorial.html">VMF Tutorial: Von Mises-Fisher Distribution</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../tutorials/mind_content_tutorial.html">MIND_Content Tutorial: MIND for Content Filtering</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../tutorials/pipeline_tutorial.html">Multi-Stage Pipeline Tutorial</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../tutorials/imshow_tutorial.html">Demo Frontends Tutorial</a></li>
 </ul>
 </details></li>
 </ul>
@@ -281,7 +275,6 @@
 <li class="toctree-l1"><a class="reference internal" href="../../../api/explanation.html">Explanation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../api/evaluation.html">Evaluation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../api/serving.html">Model Serving</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../api/imshow.html">IMShow (Demo Frontends)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../api/constants.html">Constants</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Examples</span></p>
@@ -581,19 +574,18 @@ document.write(`
 <div class="viewcode-block" id="OnlineRecommender.from_model">
 <a class="viewcode-back" href="../../../api/serving.html#corerec.serving.OnlineRecommender.from_model">[docs]</a>
     <span class="nd">@classmethod</span>
-    <span class="k">def</span><span class="w"> </span><span class="nf">from_model</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">model</span><span class="p">,</span> <span class="n">index_type</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;hnsw&quot;</span><span class="p">,</span> <span class="n">metric</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;cosine&quot;</span><span class="p">):</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;Extract user/item embeddings from a trained CoreRec model.</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">from_model</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">model</span><span class="p">,</span> <span class="n">index_type</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;hnsw&quot;</span><span class="p">,</span> <span class="n">metric</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;ip&quot;</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Serve a trained ALS, Item2Vec, LightGCN or TwoTower model from an ANN index.</span>
 
-<span class="sd">        Supports models that expose factors via common attributes/methods</span>
-<span class="sd">        (item_factors/user_factors, get_item_embeddings, embeddings).</span>
+<span class="sd">        metric defaults to &#39;ip&#39; because these models rank by dot product;</span>
+<span class="sd">        &#39;cosine&#39; would serve a different ranking than model.recommend().</span>
 <span class="sd">        &quot;&quot;&quot;</span>
-        <span class="n">item_ids</span><span class="p">,</span> <span class="n">item_emb</span><span class="p">,</span> <span class="n">user_map</span><span class="p">,</span> <span class="n">user_emb</span> <span class="o">=</span> <span class="n">_extract_embeddings</span><span class="p">(</span><span class="n">model</span><span class="p">)</span>
-        <span class="bp">self</span> <span class="o">=</span> <span class="bp">cls</span><span class="o">.</span><span class="n">from_embeddings</span><span class="p">(</span>
+        <span class="n">item_ids</span><span class="p">,</span> <span class="n">item_emb</span><span class="p">,</span> <span class="n">user_ids</span><span class="p">,</span> <span class="n">user_emb</span><span class="p">,</span> <span class="n">seen</span> <span class="o">=</span> <span class="n">_extract_embeddings</span><span class="p">(</span><span class="n">model</span><span class="p">)</span>
+        <span class="k">return</span> <span class="bp">cls</span><span class="o">.</span><span class="n">from_embeddings</span><span class="p">(</span>
             <span class="n">item_ids</span><span class="o">=</span><span class="n">item_ids</span><span class="p">,</span> <span class="n">item_emb</span><span class="o">=</span><span class="n">item_emb</span><span class="p">,</span>
-            <span class="n">user_ids</span><span class="o">=</span><span class="nb">list</span><span class="p">(</span><span class="n">user_map</span><span class="p">),</span> <span class="n">user_emb</span><span class="o">=</span><span class="n">user_emb</span><span class="p">,</span>
+            <span class="n">user_ids</span><span class="o">=</span><span class="n">user_ids</span><span class="p">,</span> <span class="n">user_emb</span><span class="o">=</span><span class="n">user_emb</span><span class="p">,</span> <span class="n">seen</span><span class="o">=</span><span class="n">seen</span><span class="p">,</span>
             <span class="n">index_type</span><span class="o">=</span><span class="n">index_type</span><span class="p">,</span> <span class="n">metric</span><span class="o">=</span><span class="n">metric</span><span class="p">,</span>
-        <span class="p">)</span>
-        <span class="k">return</span> <span class="bp">self</span></div>
+        <span class="p">)</span></div>
 
 
     <span class="c1"># ------------------------------------------------------------------ #</span>
@@ -747,10 +739,9 @@ document.write(`
 
 
 <span class="k">def</span><span class="w"> </span><span class="nf">_resolve_device</span><span class="p">(</span><span class="n">device</span><span class="p">):</span>
-    <span class="kn">import</span><span class="w"> </span><span class="nn">torch</span>
-    <span class="k">if</span> <span class="n">device</span> <span class="o">!=</span> <span class="s2">&quot;cpu&quot;</span> <span class="ow">and</span> <span class="n">torch</span><span class="o">.</span><span class="n">cuda</span><span class="o">.</span><span class="n">is_available</span><span class="p">():</span>
-        <span class="k">return</span> <span class="n">torch</span><span class="o">.</span><span class="n">device</span><span class="p">(</span><span class="n">device</span><span class="p">)</span>
-    <span class="k">return</span> <span class="n">torch</span><span class="o">.</span><span class="n">device</span><span class="p">(</span><span class="s2">&quot;cpu&quot;</span><span class="p">)</span>
+    <span class="kn">from</span><span class="w"> </span><span class="nn">corerec.device</span><span class="w"> </span><span class="kn">import</span> <span class="n">resolve_device</span>
+
+    <span class="k">return</span> <span class="n">resolve_device</span><span class="p">(</span><span class="n">device</span><span class="p">,</span> <span class="n">needs_sparse</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>  <span class="c1"># LightGCN/BPR use torch.sparse</span>
 
 
 <span class="k">def</span><span class="w"> </span><span class="nf">_train_bpr_embeddings</span><span class="p">(</span><span class="n">users</span><span class="p">,</span> <span class="n">items</span><span class="p">,</span> <span class="n">n_users</span><span class="p">,</span> <span class="n">n_items</span><span class="p">,</span> <span class="n">dim</span><span class="o">=</span><span class="mi">64</span><span class="p">,</span> <span class="n">epochs</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span>
@@ -870,8 +861,14 @@ document.write(`
     <span class="k">return</span> <span class="n">allE</span><span class="p">[:</span><span class="n">n_users</span><span class="p">]</span><span class="o">.</span><span class="n">detach</span><span class="p">()</span><span class="o">.</span><span class="n">cpu</span><span class="p">()</span><span class="o">.</span><span class="n">numpy</span><span class="p">(),</span> <span class="n">allE</span><span class="p">[</span><span class="n">n_users</span><span class="p">:]</span><span class="o">.</span><span class="n">detach</span><span class="p">()</span><span class="o">.</span><span class="n">cpu</span><span class="p">()</span><span class="o">.</span><span class="n">numpy</span><span class="p">()</span>
 
 
-<span class="k">def</span><span class="w"> </span><span class="nf">_extract_embeddings</span><span class="p">(</span><span class="n">model</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Tuple</span><span class="p">[</span><span class="n">List</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">List</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">]:</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;Best-effort extraction of (item_ids, item_emb, user_ids, user_emb).&quot;&quot;&quot;</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">_extract_embeddings</span><span class="p">(</span><span class="n">model</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;(item_ids, item_emb, user_ids, user_emb, seen) from a trained dot-product model.</span>
+
+<span class="sd">    seen maps raw user id -&gt; raw item ids from training, or None if unknown.</span>
+<span class="sd">    Only models that rank by user.item dot product qualify; KNN/EASE/DCN/</span>
+<span class="sd">    sequential models don&#39;t, and serving them from an ANN index would give a</span>
+<span class="sd">    ranking that disagrees with model.recommend().</span>
+<span class="sd">    &quot;&quot;&quot;</span>
     <span class="kn">import</span><span class="w"> </span><span class="nn">torch</span>
 
     <span class="k">def</span><span class="w"> </span><span class="nf">_np</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
@@ -879,22 +876,41 @@ document.write(`
             <span class="k">return</span> <span class="n">x</span><span class="o">.</span><span class="n">detach</span><span class="p">()</span><span class="o">.</span><span class="n">cpu</span><span class="p">()</span><span class="o">.</span><span class="n">numpy</span><span class="p">()</span>
         <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
 
-    <span class="c1"># implicit/factor-style</span>
-    <span class="k">for</span> <span class="n">ue</span><span class="p">,</span> <span class="n">ie</span> <span class="ow">in</span> <span class="p">((</span><span class="s2">&quot;user_factors&quot;</span><span class="p">,</span> <span class="s2">&quot;item_factors&quot;</span><span class="p">),</span> <span class="p">(</span><span class="s2">&quot;user_embeddings&quot;</span><span class="p">,</span> <span class="s2">&quot;item_embeddings&quot;</span><span class="p">)):</span>
-        <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">ue</span><span class="p">)</span> <span class="ow">and</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">ie</span><span class="p">):</span>
-            <span class="n">U</span> <span class="o">=</span> <span class="n">_np</span><span class="p">(</span><span class="nb">getattr</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">ue</span><span class="p">));</span> <span class="n">V</span> <span class="o">=</span> <span class="n">_np</span><span class="p">(</span><span class="nb">getattr</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">ie</span><span class="p">))</span>
-            <span class="n">users</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">getattr</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="s2">&quot;uid_map&quot;</span><span class="p">,</span> <span class="nb">range</span><span class="p">(</span><span class="n">U</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">])))</span>
-            <span class="n">items</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">getattr</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="s2">&quot;iid_map&quot;</span><span class="p">,</span> <span class="nb">range</span><span class="p">(</span><span class="n">V</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">])))</span>
-            <span class="k">return</span> <span class="n">items</span><span class="p">,</span> <span class="n">V</span><span class="p">,</span> <span class="n">users</span><span class="p">,</span> <span class="n">U</span>
-    <span class="c1"># method-based</span>
-    <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="s2">&quot;get_item_embeddings&quot;</span><span class="p">)</span> <span class="ow">and</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="s2">&quot;get_user_embeddings&quot;</span><span class="p">):</span>
-        <span class="n">V</span> <span class="o">=</span> <span class="n">_np</span><span class="p">(</span><span class="n">model</span><span class="o">.</span><span class="n">get_item_embeddings</span><span class="p">());</span> <span class="n">U</span> <span class="o">=</span> <span class="n">_np</span><span class="p">(</span><span class="n">model</span><span class="o">.</span><span class="n">get_user_embeddings</span><span class="p">())</span>
-        <span class="n">users</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">getattr</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="s2">&quot;uid_map&quot;</span><span class="p">,</span> <span class="nb">range</span><span class="p">(</span><span class="n">U</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">])))</span>
-        <span class="n">items</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">getattr</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="s2">&quot;iid_map&quot;</span><span class="p">,</span> <span class="nb">range</span><span class="p">(</span><span class="n">V</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">])))</span>
-        <span class="k">return</span> <span class="n">items</span><span class="p">,</span> <span class="n">V</span><span class="p">,</span> <span class="n">users</span><span class="p">,</span> <span class="n">U</span>
-    <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">(</span>
-        <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="nb">type</span><span class="p">(</span><span class="n">model</span><span class="p">)</span><span class="o">.</span><span class="vm">__name__</span><span class="si">}</span><span class="s2"> does not expose embeddings; use &quot;</span>
-        <span class="s2">&quot;OnlineRecommender.from_interactions or from_embeddings instead.&quot;</span><span class="p">)</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">_ordered</span><span class="p">(</span><span class="n">id_map</span><span class="p">):</span>
+        <span class="c1"># raw id -&gt; row; dict order is insertion order, not row order</span>
+        <span class="k">return</span> <span class="p">[</span><span class="n">raw</span> <span class="k">for</span> <span class="n">raw</span><span class="p">,</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">id_map</span><span class="o">.</span><span class="n">items</span><span class="p">(),</span> <span class="n">key</span><span class="o">=</span><span class="k">lambda</span> <span class="n">kv</span><span class="p">:</span> <span class="n">kv</span><span class="p">[</span><span class="mi">1</span><span class="p">])]</span>
+
+    <span class="n">seen_idx</span> <span class="o">=</span> <span class="kc">None</span>  <span class="c1"># user row -&gt; item rows</span>
+    <span class="k">if</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="s2">&quot;U&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="s2">&quot;V&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="c1"># ALS, Item2Vec</span>
+        <span class="n">U</span><span class="p">,</span> <span class="n">V</span> <span class="o">=</span> <span class="n">_np</span><span class="p">(</span><span class="n">model</span><span class="o">.</span><span class="n">U</span><span class="p">),</span> <span class="n">_np</span><span class="p">(</span><span class="n">model</span><span class="o">.</span><span class="n">V</span><span class="p">)</span>
+        <span class="n">users</span><span class="p">,</span> <span class="n">items</span> <span class="o">=</span> <span class="n">_ordered</span><span class="p">(</span><span class="n">model</span><span class="o">.</span><span class="n">user_map</span><span class="p">),</span> <span class="n">_ordered</span><span class="p">(</span><span class="n">model</span><span class="o">.</span><span class="n">item_map</span><span class="p">)</span>
+        <span class="n">R</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="s2">&quot;R&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">R</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">seen_idx</span> <span class="o">=</span> <span class="p">{</span><span class="n">r</span><span class="p">:</span> <span class="nb">set</span><span class="p">(</span><span class="n">R</span><span class="o">.</span><span class="n">indices</span><span class="p">[</span><span class="n">R</span><span class="o">.</span><span class="n">indptr</span><span class="p">[</span><span class="n">r</span><span class="p">]:</span><span class="n">R</span><span class="o">.</span><span class="n">indptr</span><span class="p">[</span><span class="n">r</span> <span class="o">+</span> <span class="mi">1</span><span class="p">]])</span> <span class="k">for</span> <span class="n">r</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">R</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">])}</span>
+    <span class="k">elif</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="s2">&quot;user_embedding&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="s2">&quot;user_id_map&quot;</span><span class="p">):</span>
+        <span class="c1"># LightGCN: propagated embeddings cached after fit</span>
+        <span class="n">U</span><span class="p">,</span> <span class="n">V</span> <span class="o">=</span> <span class="n">_np</span><span class="p">(</span><span class="n">model</span><span class="o">.</span><span class="n">user_embedding</span><span class="p">),</span> <span class="n">_np</span><span class="p">(</span><span class="n">model</span><span class="o">.</span><span class="n">item_embedding</span><span class="p">)</span>
+        <span class="n">users</span><span class="p">,</span> <span class="n">items</span> <span class="o">=</span> <span class="n">_ordered</span><span class="p">(</span><span class="n">model</span><span class="o">.</span><span class="n">user_id_map</span><span class="p">),</span> <span class="n">_ordered</span><span class="p">(</span><span class="n">model</span><span class="o">.</span><span class="n">item_id_map</span><span class="p">)</span>
+        <span class="n">seen_idx</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="s2">&quot;user_interactions&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+    <span class="k">elif</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="s2">&quot;get_user_embedding&quot;</span><span class="p">)</span> <span class="ow">and</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="s2">&quot;get_item_embeddings&quot;</span><span class="p">):</span>
+        <span class="c1"># TwoTower: user tower is evaluated per user</span>
+        <span class="n">users</span><span class="p">,</span> <span class="n">items</span> <span class="o">=</span> <span class="n">_ordered</span><span class="p">(</span><span class="n">model</span><span class="o">.</span><span class="n">user_map</span><span class="p">),</span> <span class="n">_ordered</span><span class="p">(</span><span class="n">model</span><span class="o">.</span><span class="n">item_map</span><span class="p">)</span>
+        <span class="n">V</span> <span class="o">=</span> <span class="n">_np</span><span class="p">(</span><span class="n">model</span><span class="o">.</span><span class="n">get_item_embeddings</span><span class="p">())</span>
+        <span class="n">U</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">vstack</span><span class="p">([</span><span class="n">np</span><span class="o">.</span><span class="n">ravel</span><span class="p">(</span><span class="n">_np</span><span class="p">(</span><span class="n">model</span><span class="o">.</span><span class="n">get_user_embedding</span><span class="p">(</span><span class="n">u</span><span class="p">)))</span> <span class="k">for</span> <span class="n">u</span> <span class="ow">in</span> <span class="n">users</span><span class="p">])</span>
+        <span class="n">seen_by</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="s2">&quot;_seen_by_user&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">seen_by</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">seen_idx</span> <span class="o">=</span> <span class="p">{</span><span class="n">model</span><span class="o">.</span><span class="n">user_map</span><span class="p">[</span><span class="n">u</span><span class="p">]:</span> <span class="n">v</span> <span class="k">for</span> <span class="n">u</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">seen_by</span><span class="o">.</span><span class="n">items</span><span class="p">()</span> <span class="k">if</span> <span class="n">u</span> <span class="ow">in</span> <span class="n">model</span><span class="o">.</span><span class="n">user_map</span><span class="p">}</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">(</span>
+            <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="nb">type</span><span class="p">(</span><span class="n">model</span><span class="p">)</span><span class="o">.</span><span class="vm">__name__</span><span class="si">}</span><span class="s2"> does not rank by a user.item dot product, so it &quot;</span>
+            <span class="s2">&quot;can&#39;t be served from an ANN index. Supported: ALS, Item2Vec, LightGCN, &quot;</span>
+            <span class="s2">&quot;TwoTower. Otherwise use OnlineRecommender.from_interactions or from_embeddings.&quot;</span><span class="p">)</span>
+
+    <span class="n">seen</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="k">if</span> <span class="n">seen_idx</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">seen</span> <span class="o">=</span> <span class="p">{</span><span class="n">users</span><span class="p">[</span><span class="n">u</span><span class="p">]:</span> <span class="p">{</span><span class="n">items</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">its</span><span class="p">}</span> <span class="k">for</span> <span class="n">u</span><span class="p">,</span> <span class="n">its</span> <span class="ow">in</span> <span class="n">seen_idx</span><span class="o">.</span><span class="n">items</span><span class="p">()}</span>
+    <span class="k">return</span> <span class="n">items</span><span class="p">,</span> <span class="n">V</span><span class="p">,</span> <span class="n">users</span><span class="p">,</span> <span class="n">U</span><span class="p">,</span> <span class="n">seen</span>
 </pre></div>
 
                 </article>

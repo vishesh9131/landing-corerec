@@ -74,65 +74,65 @@ const FINAL_SHOWCASE = [
     align: "left" as const,
   },
   {
-    id: "tdm",
-    title: "Retrieval at Billion-Scale.",
-    desc: "Alibaba-style Tree-based Deep Models (TDM) break the vector search limit. Retrieve from billion-item catalogs in O(log N) time with beam search deep networks.",
+    id: "csv-to-api",
+    title: "From a CSV to an API.",
+    desc: "One command reads your interactions, holds out each user's latest events, scores the model next to a most-popular baseline, retrains on everything and serves it over HTTP. New users get popular items instead of an error.",
     codeLines: [
-      "model = TDM(tree_depth=10, beam_size=20, node_dim=64)",
-      "model.fit(user_ids=train_users, item_ids=train_items, ratings=train_ratings)",
-      "recommendations = model.recommend(user_id=1, top_k=10)"
+      "corerec serve events.csv",
+      "# ALS 0.2172 NDCG@10  vs  most popular 0.0988",
+      "# Serving http://0.0.0.0:8000"
     ],
     image: "/assets/asset2.webp",
-    imageAlt: "Tree structure efficiency",
+    imageAlt: "From data to a live endpoint",
     align: "right" as const,
   },
   {
-    id: "nasrec",
-    title: "Neural Architecture Search.",
-    desc: "Let CoreRec design your model. Reinforcement learning automatically discovers optimal neural architectures that balance accuracy, latency, and model size.",
+    id: "pytorch",
+    title: "Your Model, in Plain PyTorch.",
+    desc: "Researching a new recommender? Write an nn.Module with forward(query, items). CoreRec trains it, serves it and exports it to ONNX, using the same SASRec and HSTU blocks its own models are built from.",
     codeLines: [
-      "model = NASRec(embedding_dim=64, epochs=20, batch_size=256)",
-      "model.fit(user_ids=train.users, item_ids=train.items, ratings=train.ratings)",
-      "score = model.predict(user_id=1, item_id=100)"
+      "rec = Recommender(MyModel, {'dim': 64}, loss='bpr')",
+      "rec.fit(df)",
+      "to_onnx(rec, 'my_model.onnx')"
     ],
     image: "/assets/asset6gif.webp",
-    imageAlt: "Automated search process",
+    imageAlt: "Building a model from parts",
     align: "left" as const,
   },
   {
-    id: "mmoe",
-    title: "Optimize Clicks & Conversions.",
-    desc: "Why choose one metric? Train multi-task models like Google's MMoE and Tencent's PLE to balance competing objectives—maximizing engagement while minimizing churn.",
+    id: "loop",
+    title: "Learns From Every Click.",
+    desc: "Log what users saw and clicked, watch online CTR, and A/B test a challenger. Retrain nightly: a new model ships only if it beats the current one on data neither has seen.",
     codeLines: [
-      "model = MMoE(num_experts=4, expert_dim=64, task_names=['click', 'conversion'])",
-      "model.fit(user_ids=train_users, item_ids=train_items, ratings=train_ratings)",
-      "score = model.predict(user_id=1, item_id=100)"
+      "corerec serve artifacts/m --feedback-log feedback.jsonl",
+      "corerec serve artifacts/m --challenger artifacts/m2",
+      "corerec retrain artifacts/m --feedback feedback.jsonl"
     ],
     image: "/assets/asset1.webp",
-    imageAlt: "Multi-objective network",
+    imageAlt: "Feedback flowing back into training",
     align: "right" as const,
   },
   {
-    id: "multimodal",
-    title: "Deep Multimodal Fusion.",
-    desc: "Go beyond collaborative filtering. CoreRec fuses text, image, audio, and behavioral embeddings using attention mechanisms to understand content.",
+    id: "generative",
+    title: "Generative Recommendation.",
+    desc: "HSTU, Meta's generative recommender, reads each user's history in time order. On MovieLens-1M it beats SASRec on every seed: 0.1613 vs 0.1531 NDCG@10, mean of three runs.",
     codeLines: [
-      "fusion = AttentionFusion(modality_dims=[768, 512, 128], output_dim=256)",
-      "fused = fusion(text_emb, image_emb, audio_emb)",
-      "# Deep content understanding with attention"
+      "from corerec.engines import HSTU",
+      "model = HSTU(epochs=50).fit(user_ids, item_ids, timestamps=timestamps)",
+      "recs = model.recommend(user_id, top_k=10)"
     ],
     image: "/assets/asset3.webp",
-    imageAlt: "Content understanding",
+    imageAlt: "Sequence understanding",
     align: "left" as const,
   },
   {
     id: "serving",
     title: "Production Ready Serving.",
-    desc: "Built-in serving layer handles real-time inference with minimal latency. Deploy your trained models to Kubernetes or bare metal environments.",
+    desc: "A FastAPI server with popular-item fallback, hot reload and online metrics, plus ONNX export to serve without Python. Trains on CUDA, Apple Silicon or CPU.",
     codeLines: [
-      "server = CoreRecServer(model)",
-      "server.serve(host='0.0.0.0', port=8000)",
-      "# Ready for gRPC/HTTP requests"
+      "server = ModelServer(model, feedback_log='feedback.jsonl')",
+      "server.start()  # POST /recommend, /feedback  GET /metrics",
+      "to_onnx(model, 'model.onnx')"
     ],
     image: "/assets/asset4.webp",
     imageAlt: "Production infrastructure",
@@ -353,8 +353,8 @@ export default function Landing() {
           <div className="flex flex-wrap justify-center gap-3 md:gap-4">
             {[
               "Collaborative Filtering", "Content-Based", "Deep Learning",
-              "SVD", "ALS", "NCF", "LightGCN", "DeepFM", "DCN", "Transformers",
-              "Multi-Tower", "Seq2Seq", "AutoInt", "Graph Neural Networks"
+              "ALS", "EASE", "SAR", "ItemKNN", "LightGCN", "TwoTower", "DeepFM",
+              "DCN", "SASRec", "HSTU", "MultVAE"
             ].map((tag, i) => (
               <Reveal key={tag} delay={i * 0.03} className="inline-block">
                 <span className="px-4 py-2 bg-[#f4f1ea] border border-transparent hover:border-[#d4a373] rounded-full text-sm text-[#71717a] hover:text-[#27272a] transition-all duration-300 cursor-default">

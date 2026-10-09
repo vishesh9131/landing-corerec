@@ -7,7 +7,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>corerec.serving.model_server &#8212; CoreRec 0.5.1 documentation</title>
+    <title>corerec.serving.model_server &#8212; CoreRec 0.7.0 documentation</title>
   
   
   
@@ -38,7 +38,7 @@
 <link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
   <script src="../../../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
 
-    <script src="../../../_static/documentation_options.js?v=5f152624"></script>
+    <script src="../../../_static/documentation_options.js?v=c62cc9a0"></script>
     <script src="../../../_static/doctools.js?v=9bcbadda"></script>
     <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../../../_static/clipboard.min.js?v=a7894cd8"></script>
@@ -137,7 +137,7 @@
   
   
   
-    <p class="title logo__title">CoreRec 0.5.1 documentation</p>
+    <p class="title logo__title">CoreRec 0.7.0 documentation</p>
   
 </a></div>
         <div class="sidebar-primary-item">
@@ -172,6 +172,10 @@
 <li class="toctree-l1"><a class="reference internal" href="../../../user_guide/data_preparation.html">Data Preparation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../user_guide/model_training.html">Model Training</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../user_guide/making_predictions.html">Making Predictions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../user_guide/online_serving.html">Online Serving at Scale</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../user_guide/production_loop.html">The Production Loop</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../user_guide/custom_models.html">Custom Models in PyTorch</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../user_guide/onnx_export.html">ONNX Export</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../user_guide/model_persistence.html">Model Persistence</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../user_guide/safe_bundle_persistence.html">Safe Model Bundles (<code class="docutils literal notranslate"><span class="pre">corerec_safe_v1</span></code>)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../user_guide/best_practices.html">Best Practices</a></li>
@@ -181,10 +185,9 @@
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Model Documentation</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../../../models/index.html">Model Documentation</a></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../../../models/models_index.html">Model Documentation Index</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l2"><a class="reference internal" href="../../../models/index.html">Model Documentation</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../models/models_index.html">Complete Model Index</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../../../models/deep_learning.html">Deep Learning Models</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../models/matrix_factorization.html">Matrix Factorization Models</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../models/matrix_factorization.html">Matrix Factorization &amp; Collaborative Filtering</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../models/graph_based.html">Graph-Based Models</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../models/sequential.html">Sequential Models</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../models/bayesian.html">Bayesian Models</a></li>
@@ -197,17 +200,10 @@
 <li class="toctree-l1 has-children"><a class="reference internal" href="../../../tutorials/index.html">Tutorial Index</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../../../tutorials/dcn_tutorial.html">DCN Tutorial: Deep &amp; Cross Network</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../tutorials/deepfm_tutorial.html">DeepFM Tutorial: Factorization Machine with Deep Learning</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../tutorials/gnnrec_tutorial.html">GNNRec Tutorial: Graph Neural Network Recommender</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../tutorials/mind_tutorial.html">MIND Tutorial: MIND</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../tutorials/nasrec_tutorial.html">NASRec Tutorial: NASRec</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../tutorials/sasrec_tutorial.html">SASRec Tutorial: SASRec</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../tutorials/bert4rec_tutorial.html">Bert4Rec Tutorial: BERT for Sequential Recommendation</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../tutorials/two_tower_tutorial.html">TwoTower Tutorial: Dual-Encoder Retrieval</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../tutorials/ncf_tutorial.html">NCF Tutorial: Neural Collaborative Filtering</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../tutorials/sar_tutorial.html">SAR Tutorial: Smart Adaptive Recommendations</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../tutorials/lightgcn_tutorial.html">LightGCN Tutorial: Light Graph Convolutional Network</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../tutorials/fast_tutorial.html">FAST Tutorial: Fast Approximate Similarity Filtering</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../tutorials/fast_recommender_tutorial.html">FASTRecommender Tutorial: Extended FAST Model</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../tutorials/tfidf_tutorial.html">TFIDF Tutorial: TF-IDF Based Recommender</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../tutorials/afm_tutorial.html">AFM Tutorial: Attentional Factorization Machine</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../tutorials/autofi_tutorial.html">AutoFI Tutorial: Automatic Feature Interaction</a></li>
@@ -242,7 +238,6 @@
 <li class="toctree-l2"><a class="reference internal" href="../../../tutorials/pnn_tutorial.html">PNN Tutorial: Product-based Neural Network</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../tutorials/mmoe_tutorial.html">MMoE Tutorial: Multi-gate Mixture-of-Experts</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../tutorials/ple_tutorial.html">PLE Tutorial: Progressive Layered Extraction</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../tutorials/monolith_tutorial.html">Monolith Tutorial: Monolith: Real Time Recommendation System</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../tutorials/tdm_tutorial.html">TDM Tutorial: Tree-based Deep Model</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../tutorials/a2svd_tutorial.html">A2SVD Tutorial: Adaptive Singular Value Decomposition</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../tutorials/als_tutorial.html">ALS Tutorial: Alternating Least Squares</a></li>
@@ -262,7 +257,6 @@
 <li class="toctree-l2"><a class="reference internal" href="../../../tutorials/vmf_tutorial.html">VMF Tutorial: Von Mises-Fisher Distribution</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../tutorials/mind_content_tutorial.html">MIND_Content Tutorial: MIND for Content Filtering</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../tutorials/pipeline_tutorial.html">Multi-Stage Pipeline Tutorial</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../tutorials/imshow_tutorial.html">Demo Frontends Tutorial</a></li>
 </ul>
 </details></li>
 </ul>
@@ -281,7 +275,6 @@
 <li class="toctree-l1"><a class="reference internal" href="../../../api/explanation.html">Explanation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../api/evaluation.html">Evaluation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../api/serving.html">Model Serving</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../api/imshow.html">IMShow (Demo Frontends)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../api/constants.html">Constants</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Examples</span></p>
@@ -473,6 +466,17 @@ document.write(`
         <span class="k">return</span> <span class="p">{</span><span class="n">k</span><span class="p">:</span> <span class="n">_to_json_safe</span><span class="p">(</span><span class="n">v</span><span class="p">)</span> <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">value</span><span class="o">.</span><span class="n">items</span><span class="p">()}</span>
     <span class="k">return</span> <span class="n">value</span>
 
+<span class="k">def</span><span class="w"> </span><span class="nf">_no_nan</span><span class="p">(</span><span class="n">value</span><span class="p">:</span> <span class="n">Any</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Any</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;NaN/inf -&gt; None: JSON has no NaN, and metrics on an empty window are NaN.&quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="nb">float</span><span class="p">)</span> <span class="ow">and</span> <span class="p">(</span><span class="n">value</span> <span class="o">!=</span> <span class="n">value</span> <span class="ow">or</span> <span class="n">value</span> <span class="ow">in</span> <span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="s2">&quot;inf&quot;</span><span class="p">),</span> <span class="nb">float</span><span class="p">(</span><span class="s2">&quot;-inf&quot;</span><span class="p">))):</span>
+        <span class="k">return</span> <span class="kc">None</span>
+    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="nb">dict</span><span class="p">):</span>
+        <span class="k">return</span> <span class="p">{</span><span class="n">k</span><span class="p">:</span> <span class="n">_no_nan</span><span class="p">(</span><span class="n">v</span><span class="p">)</span> <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">value</span><span class="o">.</span><span class="n">items</span><span class="p">()}</span>
+    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="nb">list</span><span class="p">):</span>
+        <span class="k">return</span> <span class="p">[</span><span class="n">_no_nan</span><span class="p">(</span><span class="n">v</span><span class="p">)</span> <span class="k">for</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">value</span><span class="p">]</span>
+    <span class="k">return</span> <span class="n">_to_json_safe</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
+
+
 <span class="c1"># Optional FastAPI import</span>
 <span class="k">try</span><span class="p">:</span>
     <span class="kn">from</span><span class="w"> </span><span class="nn">fastapi</span><span class="w"> </span><span class="kn">import</span> <span class="n">FastAPI</span><span class="p">,</span> <span class="n">HTTPException</span><span class="p">,</span> <span class="n">Request</span>
@@ -507,6 +511,15 @@ document.write(`
 
 
 
+<span class="k">class</span><span class="w"> </span><span class="nc">FeedbackRequest</span><span class="p">(</span><span class="n">BaseModel</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;A user acted on a recommended item.&quot;&quot;&quot;</span>
+
+    <span class="n">user_id</span><span class="p">:</span> <span class="n">Any</span>
+    <span class="n">item_id</span><span class="p">:</span> <span class="n">Any</span>
+    <span class="n">event</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;click&quot;</span>
+    <span class="n">request_id</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
+
+
 <span class="k">class</span><span class="w"> </span><span class="nc">BatchPredictionRequest</span><span class="p">(</span><span class="n">BaseModel</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Request schema for batch predictions.&quot;&quot;&quot;</span>
 
@@ -536,9 +549,9 @@ document.write(`
 
 <span class="sd">    Example:</span>
 <span class="sd">        from corerec.serving import ModelServer</span>
-<span class="sd">        from corerec.engines.collaborative.nn_base.ncf import NCF</span>
+<span class="sd">        from corerec.engines import DCN</span>
 
-<span class="sd">        model = NCF.load(&#39;models/ncf_model.pkl&#39;)</span>
+<span class="sd">        model = DCN.load(&#39;artifacts/dcn&#39;)</span>
 <span class="sd">        server = ModelServer(model, host=&quot;0.0.0.0&quot;, port=8000)</span>
 <span class="sd">        server.start()  # Server starts at http://0.0.0.0:8000</span>
 
@@ -560,7 +573,12 @@ document.write(`
             <span class="n">model</span><span class="p">,</span>
             <span class="n">host</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;0.0.0.0&quot;</span><span class="p">,</span>
             <span class="n">port</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">8000</span><span class="p">,</span>
-            <span class="n">enable_docs</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">):</span>
+            <span class="n">enable_docs</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
+            <span class="n">metadata</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+            <span class="n">fallback_items</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">List</span><span class="p">[</span><span class="n">Any</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+            <span class="n">feedback_log</span><span class="p">:</span> <span class="n">Any</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+            <span class="n">traffic</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">float</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+            <span class="n">reload_fn</span><span class="p">:</span> <span class="n">Any</span> <span class="o">=</span> <span class="kc">None</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Initialize model server.</span>
 
@@ -569,6 +587,18 @@ document.write(`
 <span class="sd">            host: Server host address</span>
 <span class="sd">            port: Server port</span>
 <span class="sd">            enable_docs: Whether to enable API documentation</span>
+<span class="sd">            metadata: Extra fields reported by GET /info under &quot;artifact&quot;</span>
+<span class="sd">                (for example the training manifest)</span>
+<span class="sd">            fallback_items: Items, best first, returned to users the model</span>
+<span class="sd">                cannot answer (unknown users, empty results). Responses say</span>
+<span class="sd">                which path answered in their &quot;source&quot; field.</span>
+<span class="sd">            feedback_log: path or FeedbackLog. Enables impression logging,</span>
+<span class="sd">                POST /feedback and GET /metrics.</span>
+<span class="sd">            traffic: for A/B tests pass ``model`` as {&quot;name&quot;: model, ...} and the</span>
+<span class="sd">                share of users each gets, e.g. {&quot;control&quot;: 0.9, &quot;treatment&quot;: 0.1}.</span>
+<span class="sd">                Users are assigned by a stable hash, so each sees one variant.</span>
+<span class="sd">            reload_fn: zero-argument callable returning a fresh model; enables</span>
+<span class="sd">                POST /reload (e.g. after ``corerec retrain`` replaced the artifact).</span>
 
 <span class="sd">        Author: Vishesh Yadav (mail: sciencely98@gmail.com)</span>
 <span class="sd">        &quot;&quot;&quot;</span>
@@ -576,9 +606,20 @@ document.write(`
             <span class="k">raise</span> <span class="ne">ImportError</span><span class="p">(</span>
                 <span class="s2">&quot;FastAPI not installed. Install with: pip install fastapi uvicorn&quot;</span><span class="p">)</span>
 
-        <span class="bp">self</span><span class="o">.</span><span class="n">model</span> <span class="o">=</span> <span class="n">model</span>
+        <span class="kn">from</span><span class="w"> </span><span class="nn">corerec.serving.feedback</span><span class="w"> </span><span class="kn">import</span> <span class="n">FeedbackLog</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">models</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">model</span><span class="p">)</span> <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="nb">dict</span><span class="p">)</span> <span class="k">else</span> <span class="p">{</span><span class="s2">&quot;default&quot;</span><span class="p">:</span> <span class="n">model</span><span class="p">}</span>
+        <span class="k">if</span> <span class="n">traffic</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> <span class="nb">set</span><span class="p">(</span><span class="n">traffic</span><span class="p">)</span> <span class="o">!=</span> <span class="nb">set</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">models</span><span class="p">):</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;traffic names </span><span class="si">{</span><span class="nb">sorted</span><span class="p">(</span><span class="n">traffic</span><span class="p">)</span><span class="si">}</span><span class="s2"> must match models </span><span class="si">{</span><span class="nb">sorted</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">models</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">traffic</span> <span class="o">=</span> <span class="n">traffic</span> <span class="ow">or</span> <span class="p">{</span><span class="n">name</span><span class="p">:</span> <span class="mf">1.0</span> <span class="k">for</span> <span class="n">name</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">models</span><span class="p">}</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">model</span> <span class="o">=</span> <span class="nb">next</span><span class="p">(</span><span class="nb">iter</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">models</span><span class="o">.</span><span class="n">values</span><span class="p">()))</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">feedback_log</span> <span class="o">=</span> <span class="p">(</span><span class="n">feedback_log</span> <span class="k">if</span> <span class="n">feedback_log</span> <span class="ow">is</span> <span class="kc">None</span> <span class="ow">or</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">feedback_log</span><span class="p">,</span> <span class="n">FeedbackLog</span><span class="p">)</span>
+                             <span class="k">else</span> <span class="n">FeedbackLog</span><span class="p">(</span><span class="n">feedback_log</span><span class="p">))</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">reload_fn</span> <span class="o">=</span> <span class="n">reload_fn</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">host</span> <span class="o">=</span> <span class="n">host</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">port</span> <span class="o">=</span> <span class="n">port</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">metadata</span> <span class="o">=</span> <span class="n">metadata</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">fallback_items</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">fallback_items</span><span class="p">)</span> <span class="k">if</span> <span class="n">fallback_items</span> <span class="k">else</span> <span class="kc">None</span>
 
         <span class="c1"># Create FastAPI app</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">app</span> <span class="o">=</span> <span class="n">FastAPI</span><span class="p">(</span>
@@ -595,6 +636,30 @@ document.write(`
         <span class="c1"># Setup routes</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_setup_routes</span><span class="p">()</span></div>
 
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">_variant</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">user_id</span><span class="p">:</span> <span class="n">Any</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">models</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+            <span class="k">return</span> <span class="nb">next</span><span class="p">(</span><span class="nb">iter</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">models</span><span class="p">))</span>
+        <span class="kn">from</span><span class="w"> </span><span class="nn">corerec.serving.feedback</span><span class="w"> </span><span class="kn">import</span> <span class="n">assign_variant</span>
+
+        <span class="k">return</span> <span class="n">assign_variant</span><span class="p">(</span><span class="n">user_id</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">traffic</span><span class="p">)</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">_recommend</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">user_id</span><span class="p">:</span> <span class="n">Any</span><span class="p">,</span> <span class="n">top_k</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">exclude_items</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">Any</span><span class="p">],</span> <span class="n">variant</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Return (items, source); source is &quot;model&quot; or &quot;fallback&quot;.&quot;&quot;&quot;</span>
+        <span class="kn">from</span><span class="w"> </span><span class="nn">corerec.api.exceptions</span><span class="w"> </span><span class="kn">import</span> <span class="n">RecommendationError</span>
+
+        <span class="n">model</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">models</span><span class="p">[</span><span class="n">variant</span> <span class="ow">or</span> <span class="bp">self</span><span class="o">.</span><span class="n">_variant</span><span class="p">(</span><span class="n">user_id</span><span class="p">)]</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">recs</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">recommend</span><span class="p">(</span><span class="n">user_id</span><span class="p">,</span> <span class="n">top_k</span><span class="o">=</span><span class="n">top_k</span><span class="p">,</span> <span class="n">exclude_items</span><span class="o">=</span><span class="n">exclude_items</span><span class="p">)</span>
+        <span class="k">except</span> <span class="n">RecommendationError</span><span class="p">:</span>
+            <span class="c1"># Raised for users the model never saw; anything else is a real error.</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">fallback_items</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="k">raise</span>
+            <span class="n">recs</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">if</span> <span class="n">recs</span> <span class="ow">or</span> <span class="bp">self</span><span class="o">.</span><span class="n">fallback_items</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">recs</span><span class="p">,</span> <span class="s2">&quot;model&quot;</span>
+        <span class="n">excluded</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span><span class="n">exclude_items</span> <span class="ow">or</span> <span class="p">())</span>
+        <span class="k">return</span> <span class="p">[</span><span class="n">i</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">fallback_items</span> <span class="k">if</span> <span class="n">i</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">excluded</span><span class="p">][:</span><span class="n">top_k</span><span class="p">],</span> <span class="s2">&quot;fallback&quot;</span>
 
     <span class="k">def</span><span class="w"> </span><span class="nf">_setup_routes</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Setup API routes.&quot;&quot;&quot;</span>
@@ -619,7 +684,8 @@ document.write(`
 <span class="sd">                }</span>
 <span class="sd">            &quot;&quot;&quot;</span>
             <span class="k">try</span><span class="p">:</span>
-                <span class="n">score</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">request</span><span class="o">.</span><span class="n">user_id</span><span class="p">,</span> <span class="n">request</span><span class="o">.</span><span class="n">item_id</span><span class="p">)</span>
+                <span class="n">model</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">models</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">_variant</span><span class="p">(</span><span class="n">request</span><span class="o">.</span><span class="n">user_id</span><span class="p">)]</span>
+                <span class="n">score</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">request</span><span class="o">.</span><span class="n">user_id</span><span class="p">,</span> <span class="n">request</span><span class="o">.</span><span class="n">item_id</span><span class="p">)</span>
                 <span class="k">return</span> <span class="p">{</span>
                     <span class="s2">&quot;user_id&quot;</span><span class="p">:</span> <span class="n">_to_json_safe</span><span class="p">(</span><span class="n">request</span><span class="o">.</span><span class="n">user_id</span><span class="p">),</span>
                     <span class="s2">&quot;item_id&quot;</span><span class="p">:</span> <span class="n">_to_json_safe</span><span class="p">(</span><span class="n">request</span><span class="o">.</span><span class="n">item_id</span><span class="p">),</span>
@@ -649,14 +715,20 @@ document.write(`
 <span class="sd">                }</span>
 <span class="sd">            &quot;&quot;&quot;</span>
             <span class="k">try</span><span class="p">:</span>
-                <span class="n">recs</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">recommend</span><span class="p">(</span>
-                    <span class="n">request</span><span class="o">.</span><span class="n">user_id</span><span class="p">,</span>
-                    <span class="n">top_k</span><span class="o">=</span><span class="n">request</span><span class="o">.</span><span class="n">top_k</span><span class="p">,</span>
-                    <span class="n">exclude_items</span><span class="o">=</span><span class="n">request</span><span class="o">.</span><span class="n">exclude_items</span><span class="p">)</span>
-                <span class="k">return</span> <span class="p">{</span>
+                <span class="n">variant</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_variant</span><span class="p">(</span><span class="n">request</span><span class="o">.</span><span class="n">user_id</span><span class="p">)</span>
+                <span class="n">recs</span><span class="p">,</span> <span class="n">source</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_recommend</span><span class="p">(</span>
+                    <span class="n">request</span><span class="o">.</span><span class="n">user_id</span><span class="p">,</span> <span class="n">request</span><span class="o">.</span><span class="n">top_k</span><span class="p">,</span> <span class="n">request</span><span class="o">.</span><span class="n">exclude_items</span><span class="p">,</span> <span class="n">variant</span><span class="p">)</span>
+                <span class="n">body</span> <span class="o">=</span> <span class="p">{</span>
                     <span class="s2">&quot;user_id&quot;</span><span class="p">:</span> <span class="n">_to_json_safe</span><span class="p">(</span><span class="n">request</span><span class="o">.</span><span class="n">user_id</span><span class="p">),</span>
                     <span class="s2">&quot;recommendations&quot;</span><span class="p">:</span> <span class="n">_to_json_safe</span><span class="p">(</span><span class="n">recs</span><span class="p">),</span>
-                    <span class="s2">&quot;top_k&quot;</span><span class="p">:</span> <span class="n">request</span><span class="o">.</span><span class="n">top_k</span><span class="p">}</span>
+                    <span class="s2">&quot;top_k&quot;</span><span class="p">:</span> <span class="n">request</span><span class="o">.</span><span class="n">top_k</span><span class="p">,</span>
+                    <span class="s2">&quot;source&quot;</span><span class="p">:</span> <span class="n">source</span><span class="p">,</span>
+                    <span class="s2">&quot;variant&quot;</span><span class="p">:</span> <span class="n">variant</span><span class="p">}</span>
+                <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">feedback_log</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+                    <span class="c1"># echo request_id back on POST /feedback to attribute the click</span>
+                    <span class="n">body</span><span class="p">[</span><span class="s2">&quot;request_id&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">feedback_log</span><span class="o">.</span><span class="n">impression</span><span class="p">(</span>
+                        <span class="n">request</span><span class="o">.</span><span class="n">user_id</span><span class="p">,</span> <span class="n">recs</span><span class="p">,</span> <span class="n">variant</span><span class="o">=</span><span class="n">variant</span><span class="p">,</span> <span class="n">source</span><span class="o">=</span><span class="n">source</span><span class="p">)</span>
+                <span class="k">return</span> <span class="n">body</span>
             <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
                 <span class="bp">self</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Recommendation error: </span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
                 <span class="k">raise</span> <span class="n">HTTPException</span><span class="p">(</span><span class="n">status_code</span><span class="o">=</span><span class="mi">500</span><span class="p">,</span> <span class="n">detail</span><span class="o">=</span><span class="nb">str</span><span class="p">(</span><span class="n">e</span><span class="p">))</span>
@@ -665,10 +737,10 @@ document.write(`
         <span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">batch_predict</span><span class="p">(</span><span class="n">request</span><span class="p">:</span> <span class="n">BatchPredictionRequest</span><span class="p">):</span>
 <span class="w">            </span><span class="sd">&quot;&quot;&quot;Batch predictions for multiple user-item pairs.&quot;&quot;&quot;</span>
             <span class="k">try</span><span class="p">:</span>
-                <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="p">,</span> <span class="s2">&quot;batch_predict&quot;</span><span class="p">):</span>
+                <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">models</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span> <span class="ow">and</span> <span class="nb">hasattr</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="p">,</span> <span class="s2">&quot;batch_predict&quot;</span><span class="p">):</span>
                     <span class="n">scores</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">batch_predict</span><span class="p">(</span><span class="n">request</span><span class="o">.</span><span class="n">pairs</span><span class="p">)</span>
                 <span class="k">else</span><span class="p">:</span>
-                    <span class="n">scores</span> <span class="o">=</span> <span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">u</span><span class="p">,</span> <span class="n">i</span><span class="p">)</span>
+                    <span class="n">scores</span> <span class="o">=</span> <span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">models</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">_variant</span><span class="p">(</span><span class="n">u</span><span class="p">)]</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">u</span><span class="p">,</span> <span class="n">i</span><span class="p">)</span>
                               <span class="k">for</span> <span class="n">u</span><span class="p">,</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">request</span><span class="o">.</span><span class="n">pairs</span><span class="p">]</span>
 
                 <span class="k">return</span> <span class="p">{</span>
@@ -685,18 +757,58 @@ document.write(`
         <span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">batch_recommend</span><span class="p">(</span><span class="n">request</span><span class="p">:</span> <span class="n">BatchRecommendationRequest</span><span class="p">):</span>
 <span class="w">            </span><span class="sd">&quot;&quot;&quot;Batch recommendations for multiple users.&quot;&quot;&quot;</span>
             <span class="k">try</span><span class="p">:</span>
-                <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="p">,</span> <span class="s2">&quot;batch_recommend&quot;</span><span class="p">):</span>
+                <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">models</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span> <span class="ow">and</span> <span class="nb">hasattr</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="p">,</span> <span class="s2">&quot;batch_recommend&quot;</span><span class="p">):</span>
                     <span class="n">recs</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">batch_recommend</span><span class="p">(</span>
                         <span class="n">request</span><span class="o">.</span><span class="n">user_ids</span><span class="p">,</span> <span class="n">request</span><span class="o">.</span><span class="n">top_k</span><span class="p">)</span>
                 <span class="k">else</span><span class="p">:</span>
                     <span class="n">recs</span> <span class="o">=</span> <span class="p">{</span>
-                        <span class="n">uid</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">recommend</span><span class="p">(</span>
-                            <span class="n">uid</span><span class="p">,</span> <span class="n">request</span><span class="o">.</span><span class="n">top_k</span><span class="p">)</span> <span class="k">for</span> <span class="n">uid</span> <span class="ow">in</span> <span class="n">request</span><span class="o">.</span><span class="n">user_ids</span><span class="p">}</span>
+                        <span class="n">uid</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">_recommend</span><span class="p">(</span><span class="n">uid</span><span class="p">,</span> <span class="n">request</span><span class="o">.</span><span class="n">top_k</span><span class="p">,</span> <span class="p">[])[</span><span class="mi">0</span><span class="p">]</span>
+                        <span class="k">for</span> <span class="n">uid</span> <span class="ow">in</span> <span class="n">request</span><span class="o">.</span><span class="n">user_ids</span><span class="p">}</span>
 
                 <span class="k">return</span> <span class="p">{</span><span class="s2">&quot;recommendations&quot;</span><span class="p">:</span> <span class="n">recs</span><span class="p">}</span>
             <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
                 <span class="bp">self</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Batch recommendation error: </span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
                 <span class="k">raise</span> <span class="n">HTTPException</span><span class="p">(</span><span class="n">status_code</span><span class="o">=</span><span class="mi">500</span><span class="p">,</span> <span class="n">detail</span><span class="o">=</span><span class="nb">str</span><span class="p">(</span><span class="n">e</span><span class="p">))</span>
+
+        <span class="nd">@self</span><span class="o">.</span><span class="n">app</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="s2">&quot;/feedback&quot;</span><span class="p">)</span>
+        <span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">feedback</span><span class="p">(</span><span class="n">request</span><span class="p">:</span> <span class="n">FeedbackRequest</span><span class="p">):</span>
+<span class="w">            </span><span class="sd">&quot;&quot;&quot;Record that a user clicked (or bought, ...) an item.</span>
+
+<span class="sd">            Pass the request_id from the /recommend response so the click is</span>
+<span class="sd">            credited to the list and variant that showed the item.</span>
+<span class="sd">            &quot;&quot;&quot;</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">feedback_log</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="k">raise</span> <span class="n">HTTPException</span><span class="p">(</span><span class="n">status_code</span><span class="o">=</span><span class="mi">404</span><span class="p">,</span> <span class="n">detail</span><span class="o">=</span><span class="s2">&quot;feedback logging is off; &quot;</span>
+                                    <span class="s2">&quot;start the server with a feedback log&quot;</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">feedback_log</span><span class="o">.</span><span class="n">feedback</span><span class="p">(</span><span class="n">request</span><span class="o">.</span><span class="n">user_id</span><span class="p">,</span> <span class="n">request</span><span class="o">.</span><span class="n">item_id</span><span class="p">,</span> <span class="n">request</span><span class="o">.</span><span class="n">event</span><span class="p">,</span>
+                                       <span class="n">request</span><span class="o">.</span><span class="n">request_id</span><span class="p">)</span>
+            <span class="k">return</span> <span class="p">{</span><span class="s2">&quot;status&quot;</span><span class="p">:</span> <span class="s2">&quot;recorded&quot;</span><span class="p">}</span>
+
+        <span class="nd">@self</span><span class="o">.</span><span class="n">app</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;/metrics&quot;</span><span class="p">)</span>
+        <span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">metrics</span><span class="p">(</span><span class="n">recent</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">1000</span><span class="p">):</span>
+<span class="w">            </span><span class="sd">&quot;&quot;&quot;Online metrics per variant, A/B comparison and drift alerts.&quot;&quot;&quot;</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">feedback_log</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="k">raise</span> <span class="n">HTTPException</span><span class="p">(</span><span class="n">status_code</span><span class="o">=</span><span class="mi">404</span><span class="p">,</span> <span class="n">detail</span><span class="o">=</span><span class="s2">&quot;feedback logging is off&quot;</span><span class="p">)</span>
+            <span class="n">out</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;variants&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">feedback_log</span><span class="o">.</span><span class="n">metrics</span><span class="p">(),</span>
+                   <span class="s2">&quot;drift&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">feedback_log</span><span class="o">.</span><span class="n">drift</span><span class="p">(</span><span class="n">recent</span><span class="o">=</span><span class="n">recent</span><span class="p">)}</span>
+            <span class="n">names</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">models</span><span class="p">)</span>
+            <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">names</span><span class="p">)</span> <span class="o">==</span> <span class="mi">2</span><span class="p">:</span>
+                <span class="k">try</span><span class="p">:</span>
+                    <span class="n">out</span><span class="p">[</span><span class="s2">&quot;ab_test&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">feedback_log</span><span class="o">.</span><span class="n">compare</span><span class="p">(</span><span class="o">*</span><span class="n">names</span><span class="p">)</span>
+                <span class="k">except</span> <span class="p">(</span><span class="ne">ValueError</span><span class="p">,</span> <span class="ne">ZeroDivisionError</span><span class="p">):</span>
+                    <span class="n">out</span><span class="p">[</span><span class="s2">&quot;ab_test&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
+            <span class="k">for</span> <span class="n">alert</span> <span class="ow">in</span> <span class="n">out</span><span class="p">[</span><span class="s2">&quot;drift&quot;</span><span class="p">][</span><span class="s2">&quot;alerts&quot;</span><span class="p">]:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;drift: </span><span class="si">{</span><span class="n">alert</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+            <span class="k">return</span> <span class="n">_no_nan</span><span class="p">(</span><span class="n">out</span><span class="p">)</span>
+
+        <span class="nd">@self</span><span class="o">.</span><span class="n">app</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="s2">&quot;/reload&quot;</span><span class="p">)</span>
+        <span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">reload</span><span class="p">():</span>
+<span class="w">            </span><span class="sd">&quot;&quot;&quot;Swap in a fresh model from reload_fn without restarting.&quot;&quot;&quot;</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">reload_fn</span> <span class="ow">is</span> <span class="kc">None</span> <span class="ow">or</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">models</span><span class="p">)</span> <span class="o">!=</span> <span class="mi">1</span><span class="p">:</span>
+                <span class="k">raise</span> <span class="n">HTTPException</span><span class="p">(</span><span class="n">status_code</span><span class="o">=</span><span class="mi">404</span><span class="p">,</span> <span class="n">detail</span><span class="o">=</span><span class="s2">&quot;reload is not configured&quot;</span><span class="p">)</span>
+            <span class="n">name</span> <span class="o">=</span> <span class="nb">next</span><span class="p">(</span><span class="nb">iter</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">models</span><span class="p">))</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">models</span><span class="p">[</span><span class="n">name</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">model</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">reload_fn</span><span class="p">()</span>
+            <span class="k">return</span> <span class="p">{</span><span class="s2">&quot;status&quot;</span><span class="p">:</span> <span class="s2">&quot;reloaded&quot;</span><span class="p">,</span> <span class="s2">&quot;model&quot;</span><span class="p">:</span> <span class="nb">type</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="p">)</span><span class="o">.</span><span class="vm">__name__</span><span class="p">}</span>
 
         <span class="nd">@self</span><span class="o">.</span><span class="n">app</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;/health&quot;</span><span class="p">)</span>
         <span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">health</span><span class="p">():</span>
@@ -712,12 +824,15 @@ document.write(`
 <span class="w">            </span><span class="sd">&quot;&quot;&quot;Get model information.&quot;&quot;&quot;</span>
             <span class="k">try</span><span class="p">:</span>
                 <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="p">,</span> <span class="s2">&quot;get_model_info&quot;</span><span class="p">):</span>
-                    <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">get_model_info</span><span class="p">()</span>
+                    <span class="n">info</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">get_model_info</span><span class="p">())</span>
                 <span class="k">else</span><span class="p">:</span>
-                    <span class="k">return</span> <span class="p">{</span>
+                    <span class="n">info</span> <span class="o">=</span> <span class="p">{</span>
                         <span class="s2">&quot;model_type&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="vm">__class__</span><span class="o">.</span><span class="vm">__name__</span><span class="p">,</span>
                         <span class="s2">&quot;model_name&quot;</span><span class="p">:</span> <span class="nb">getattr</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="p">,</span> <span class="s2">&quot;name&quot;</span><span class="p">,</span> <span class="s2">&quot;Unknown&quot;</span><span class="p">),</span>
                     <span class="p">}</span>
+                <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">metadata</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+                    <span class="n">info</span><span class="p">[</span><span class="s2">&quot;artifact&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">metadata</span>
+                <span class="k">return</span> <span class="n">_to_json_safe</span><span class="p">(</span><span class="n">info</span><span class="p">)</span>
             <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
                 <span class="k">raise</span> <span class="n">HTTPException</span><span class="p">(</span><span class="n">status_code</span><span class="o">=</span><span class="mi">500</span><span class="p">,</span> <span class="n">detail</span><span class="o">=</span><span class="nb">str</span><span class="p">(</span><span class="n">e</span><span class="p">))</span>
 
